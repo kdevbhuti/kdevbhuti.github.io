@@ -1,0 +1,302 @@
+@font-face {
+  font-family: "Nexa Light";
+  src: url(../font/Nexa-Light.otf);
+}
+
+@font-face {
+  font-family: "Nexa Bold";
+  src: url(../font/Nexa-Bold.otf);
+}
+
+p {
+  font-family: "Nexa Light";
+  line-height: normal;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Nexa Bold";
+}
+/* Navigation Bar ///////////////////////////////////////////////////////////////*/
+.nav .fa-bars {
+  font-size: 25px;
+  color: #525659;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px 7px;
+  background-color: white;
+}
+
+.nav_logo {
+  object-fit: contain;
+  height: 26px;
+}
+
+/* Fiend Health Care ///////////////////////////////////////////////////////////////////////*/
+.find_healthcare {
+  margin: 1px;
+  background-color: rgb(107, 192, 226);
+  text-align: center;
+  padding: 20px 20px;
+}
+
+.find_healthcare h1 {
+  /* font-family: monospace; */
+  font-weight: 800;
+  font-size: 25;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 15em;
+}
+
+.input_field input {
+  height: 40px;
+  width: 100%;
+  padding: 5px 25px;
+  outline: none;
+}
+
+.input_field {
+  position: relative;
+  width: 100%;
+}
+
+.icon {
+  position: absolute;
+  font-size: 12px;
+}
+
+.fa-map-marker-alt {
+  top: 13px;
+  left: 10px;
+}
+
+.fa-crosshairs {
+  top: 13px;
+  right: 10px;
+}
+
+#search_btn {
+  height: 30px;
+  width: 90px;
+  background-color: rgb(24, 18, 18);
+  color: white;
+}
+
+/* How to work //////////////////////////////////////////////////////////////////////*/
+.How_work {
+  display: flex;
+  padding: 1px 10px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1px 20px;
+  height: 60em;
+  justify-content: space-around;
+}
+
+.How_work h1 {
+  /* font-family: monospace; */
+  font-weight: 800;
+  font-size: 25;
+}
+
+#consultation_img {
+  max-height: 250px;
+  width: 250px;
+}
+
+.How_work .btn_block {
+  width: 90%;
+  height: 45px;
+}
+
+.How_work .btn_block input {
+  height: 100%;
+  width: 100%;
+  padding-left: 50px;
+  text-align: left;
+  border-radius: 7px;
+  background-color: white;
+  outline: none;
+}
+
+.How_work article {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 29em;
+  width: 100%;
+}
+
+/* Doctor //////////////////////////////////////////////////////////////*/
+
+.doctor {
+  text-align: center;
+  background-color: rgb(36, 36, 59);
+  padding: 10px;
+  color: white;
+}
+
+.doctor h1 {
+  /* font-family: monospace; */
+  font-weight: 800;
+  font-size: 25;
+  padding: 20px 5px;
+}
+
+.doctor .doc_details {
+  background-color: white;
+  width: 95%;
+  text-align: left;
+  color: black;
+}
+
+.doctor .doctor_details {
+  display: flex;
+  background-color: rgb(36, 36, 59);
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 120em;
+}
+
+.doctor .doc_image {
+  object-fit: cover;
+  width: 100%;
+  max-height: 20em;
+}
+
+.doctor .line_img {
+  height: 10px;
+}
+.doc_details h3 {
+  display: inline-block;
+  color: rgb(70, 90, 158);
+  font-weight: 800;
+}
+
+.doc_details p {
+  line-height: normal;
+  padding: 2px 3px 4px 64px;
+}
+
+/* feature //////////////////////////////////////////////////////////// */
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2px 20px;
+  height: 100em;
+}
+
+.feature h1 {
+  font-weight: 800;
+  font-size: 25;
+  padding: 20px 5px;
+}
+
+.feature .img_block {
+  position: relative;
+}
+
+.feature .description {
+  position: absolute;
+  bottom: 5px;
+  left: 3px;
+}
+
+.feature .feture_img {
+  max-height: 225px;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* Exclusive Services ///////////////////////////////////////////////////// */
+
+.exclusive_services {
+  background-color: rgb(206, 204, 204);
+  padding: 20px 5px;
+  margin: 2px 10px 2px 10px;
+  text-align: center;
+}
+
+.exclusive_services h1,
+p {
+  padding: 10px 10px 10px 10px;
+}
+
+.exclusive_services .link_img_block .lable {
+  padding: 0px;
+}
+
+.exclusive_services .servise_links {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.exclusive_services .link_img_block {
+  background-color: white;
+  text-align: center;
+  margin: 3.5px;
+  border-radius: 7px;
+  height: 105px;
+  width: 135px;
+}
+
+.servise_icon {
+  height: 70px;
+}
+
+/* help /////////////////////////////////////////////////// */
+
+.help {
+  text-align: center;
+  margin: 2px;
+  background-color: #8fcaf1;
+  padding: 1rem;
+}
+
+.help input {
+  height: 4rem;
+  width: 15rem;
+  background-color: #0099ff;
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+.help h2 {
+  color: white;
+}
+
+/* footer ///////////////////////////////////////////////////////////////// */
+.footer {
+  background-color: #021433;
+  text-align: center;
+}
+
+.footer .footer_img {
+  height: 3rem;
+}
+.footer ul {
+  color: #cccccc;
+}
+
+.footer .fab {
+  color: #cccccc;
+}
