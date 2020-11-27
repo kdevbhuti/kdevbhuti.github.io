@@ -1,0 +1,43 @@
+h1 {
+  font-family: "Nexa Bold";
+}
+
+h2 {
+  font-family: "Nexa Bold";
+  font-weight: 700;
+  font-size: 29;
+  margin: 10px 4px;
+}
+
+h3 {
+  font-family: "Nexa Bold";
+  font-weight: 600;
+  font-size: 25;
+  padding: 5px;
+}
+
+h4 {
+  font-family: "Nexa Light";
+  font-size: 18;
+  padding: 10px 5px;
+}
+
+p {
+  font-family: "Nexa Light";
+  line-height: normal;
+  font-size: 20;
+}
+
+input {
+  margin: 10px 2px;
+  padding: 5px 10px;
+  outline: none;
+}
+
+button {
+  margin: 5px;
+}
+
+section {
+  padding: 20px;
+}

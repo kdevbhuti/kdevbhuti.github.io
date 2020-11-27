@@ -8,16 +8,30 @@
   src: url(../font/Nexa-Bold.otf);
 }
 
-p {
-  font-family: "Nexa Light";
-  line-height: normal;
+@font-face {
+  font-family: "Calistoga";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/calistoga/v2/6NUU8F2OJg6MeR7l4e0fs8wB.woff2)
+    format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
 }
 
-h1,
-h2,
-h3 {
-  font-family: "Nexa Bold";
+@font-face {
+  font-family: "Goldman";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/goldman/v1/pe0uMIWbN4JFplR2HDVyBw.woff2)
+    format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
 }
+
 /* Navigation Bar ///////////////////////////////////////////////////////////////*/
 .nav .fa-bars {
   font-size: 25px;
@@ -28,7 +42,6 @@ h3 {
   justify-content: space-between;
   align-items: center;
   padding: 5px 10px 7px;
-  background-color: white;
 }
 
 .nav_logo {
@@ -36,33 +49,20 @@ h3 {
   height: 26px;
 }
 
-/* Fiend Health Care ///////////////////////////////////////////////////////////////////////*/
+/* Find Health Care ///////////////////////////////////////////////////////////////////////*/
 .find_healthcare {
   margin: 1px;
-  background-color: rgb(107, 192, 226);
+  background-color: #87ceeb;
   text-align: center;
-  padding: 20px 20px;
-}
-
-.find_healthcare h1 {
-  /* font-family: monospace; */
-  font-weight: 800;
-  font-size: 25;
 }
 
 .content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
   align-items: center;
-  height: 15em;
 }
 
-.input_field input {
+.content .input_field input {
   height: 40px;
   width: 100%;
-  padding: 5px 25px;
-  outline: none;
 }
 
 .input_field {
@@ -76,38 +76,25 @@ h3 {
 }
 
 .fa-map-marker-alt {
-  top: 13px;
+  top: 22px;
   left: 10px;
 }
 
 .fa-crosshairs {
-  top: 13px;
+  top: 22px;
   right: 10px;
 }
 
 #search_btn {
   height: 30px;
   width: 90px;
-  background-color: rgb(24, 18, 18);
-  color: white;
+  background-color: #181212;
+  color: #ffffff;
 }
 
 /* How to work //////////////////////////////////////////////////////////////////////*/
 .How_work {
-  display: flex;
-  padding: 1px 10px;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
-  padding: 1px 20px;
-  height: 60em;
-  justify-content: space-around;
-}
-
-.How_work h1 {
-  /* font-family: monospace; */
-  font-weight: 800;
-  font-size: 25;
 }
 
 #consultation_img {
@@ -120,14 +107,21 @@ h3 {
   height: 45px;
 }
 
-.How_work .btn_block input {
-  height: 100%;
-  width: 100%;
-  padding-left: 50px;
+.How_work button {
+  padding: 15px 10;
+  margin: 20px 5px;
+  width: 85%;
   text-align: left;
   border-radius: 7px;
-  background-color: white;
+  background-color: #ffffff;
   outline: none;
+  font-family: Calistoga;
+  font-weight: 800;
+  font-size: 20;
+}
+
+.How_work .num {
+  color: #2f6ba3;
 }
 
 .How_work article {
@@ -143,32 +137,20 @@ h3 {
 
 .doctor {
   text-align: center;
-  background-color: rgb(36, 36, 59);
-  padding: 10px;
-  color: white;
-}
-
-.doctor h1 {
-  /* font-family: monospace; */
-  font-weight: 800;
-  font-size: 25;
-  padding: 20px 5px;
+  background-color: #24243b;
+  color: #ffffff;
 }
 
 .doctor .doc_details {
-  background-color: white;
-  width: 95%;
+  background-color: #ffffff;
+  width: 100%;
   text-align: left;
-  color: black;
+  color: #000000;
+  margin: 20px 0px;
 }
 
 .doctor .doctor_details {
-  display: flex;
-  background-color: rgb(36, 36, 59);
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  height: 120em;
+  background-color: #24243b;
 }
 
 .doctor .doc_image {
@@ -186,40 +168,35 @@ h3 {
   font-weight: 800;
 }
 
-.doc_details p {
-  line-height: normal;
+.doc_details h4 {
   padding: 2px 3px 4px 64px;
 }
 
 /* feature //////////////////////////////////////////////////////////// */
 
 .feature {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  padding: 2px 20px;
-  height: 100em;
-}
-
-.feature h1 {
-  font-weight: 800;
-  font-size: 25;
-  padding: 20px 5px;
+  text-align: center;
 }
 
 .feature .img_block {
   position: relative;
+  margin: 10px 5px;
 }
 
 .feature .description {
   position: absolute;
   bottom: 5px;
   left: 3px;
+  text-align: left;
+}
+
+.feature .description h3,
+span {
+  padding: 0px;
 }
 
 .feature .feture_img {
-  max-height: 225px;
+  max-height: 250px;
   object-fit: cover;
   width: 100%;
 }
@@ -227,19 +204,16 @@ h3 {
 /* Exclusive Services ///////////////////////////////////////////////////// */
 
 .exclusive_services {
-  background-color: rgb(206, 204, 204);
-  padding: 20px 5px;
-  margin: 2px 10px 2px 10px;
+  background-color: #f4f6f6;
+  margin: 2px 1px 2px 1px;
   text-align: center;
 }
 
-.exclusive_services h1,
-p {
-  padding: 10px 10px 10px 10px;
+.exclusive_services p {
+  padding: 10px 5px;
 }
-
 .exclusive_services .link_img_block .lable {
-  padding: 0px;
+  font-family: Goldman;
 }
 
 .exclusive_services .servise_links {
@@ -249,12 +223,12 @@ p {
 }
 
 .exclusive_services .link_img_block {
-  background-color: white;
+  background-color: #ffffff;
   text-align: center;
-  margin: 3.5px;
+  margin: 5px;
   border-radius: 7px;
   height: 105px;
-  width: 135px;
+  width: 150px;
 }
 
 .servise_icon {
@@ -274,14 +248,14 @@ p {
   height: 4rem;
   width: 15rem;
   background-color: #0099ff;
-  color: white;
+  color: #ffffff;
   outline: none;
   border: none;
   border-radius: 5px;
 }
 
 .help h2 {
-  color: white;
+  color: #ffffff;
 }
 
 /* footer ///////////////////////////////////////////////////////////////// */
@@ -292,11 +266,15 @@ p {
 
 .footer .footer_img {
   height: 3rem;
+  padding: 20px 4px;
 }
-.footer ul {
+.footer li {
   color: #cccccc;
+  padding: 10px 5px;
+  font-size: 16;
 }
 
 .footer .fab {
   color: #cccccc;
+  padding: 20px;
 }
