@@ -1,243 +1,143 @@
-@font-face {
-  font-family: "Nexa Light";
-  src: url(../font/Nexa-Light.otf);
+:root {
+  --light_blue: #93bede;
+  --border_color: #3b3d5e;
+  --blue_number: #7ab2cf;
+  --gray: #8e8e8e;
+  --white_font: #fefdfe;
+  --blue_background: #22263f;
+  --white: #fefdfe;
+  --doc-name: #378ce6;
+  --black: #0d0f1e;
+  --gray_background: #f3f3f3;
 }
 
-@font-face {
-  font-family: "Nexa Bold";
-  src: url(../font/Nexa-Bold.otf);
-}
-
-@font-face {
-  font-family: "Calistoga";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/calistoga/v2/6NUU8F2OJg6MeR7l4e0fs8wB.woff2)
-    format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
-    U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: "Goldman";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/goldman/v1/pe0uMIWbN4JFplR2HDVyBw.woff2)
-    format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
-    U+FEFF, U+FFFD;
-}
-
-/* Navigation Bar ///////////////////////////////////////////////////////////////*/
-.nav .fa-bars {
-  font-size: 25px;
-  color: #525659;
-}
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px 10px 7px;
-}
-
-.nav_logo {
-  object-fit: contain;
-  height: 26px;
-}
-
-/* Find Health Care ///////////////////////////////////////////////////////////////////////*/
 .find_healthcare {
-  margin: 1px;
-  background-color: #87ceeb;
-  text-align: center;
+  background-color: var(--light_blue);
 }
 
-.content {
-  align-items: center;
-}
-
-.content .input_field input {
-  height: 40px;
-  width: 100%;
-}
-
-.input_field {
-  position: relative;
-  width: 100%;
-}
-
-.icon {
-  position: absolute;
-  font-size: 12px;
-}
-
-.fa-map-marker-alt {
-  top: 22px;
-  left: 10px;
-}
-
-.fa-crosshairs {
-  top: 22px;
-  right: 10px;
-}
-
-#search_btn {
-  height: 30px;
-  width: 90px;
-  background-color: #181212;
-  color: #ffffff;
-}
-
-/* How to work //////////////////////////////////////////////////////////////////////*/
-.How_work {
-  text-align: center;
-}
-
-#consultation_img {
-  max-height: 250px;
-  width: 250px;
-}
-
-.How_work .btn_block {
-  width: 90%;
-  height: 45px;
-}
-
-.How_work button {
-  padding: 15px 10;
-  margin: 20px 5px;
-  width: 85%;
-  text-align: left;
-  border-radius: 7px;
-  background-color: #ffffff;
-  outline: none;
-  font-family: Calistoga;
-  font-weight: 800;
-  font-size: 20;
-}
-
-.How_work .num {
-  color: #2f6ba3;
-}
-
-.How_work article {
+.find_healthcare .input_field_location {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  background-color: var(--white);
   align-items: center;
-  height: 29em;
-  width: 100%;
+  padding: 0rem 0.7rem;
+}
+
+.find_healthcare .input_field_location input {
+  margin: 0rem;
+}
+
+.find_healthcare .input_field_location i {
+  font-size: 0.8rem;
+}
+
+.How_work .work_label {
+  margin: 1rem 0.5rem;
+  padding: 1rem 0.8rem;
+  border: 0.1rem solid var(--border_color);
+  text-align: left;
+  border-radius: 0.5rem;
+}
+
+.How_work .work_label .num {
+  color: var(--blue_number);
+  padding: 0rem 0.4rem;
+}
+
+.How_work .disable,
+.How_work .disable .num {
+  color: var(--gray);
+  border-color: var(--gray);
+}
+
+.How_work .consultation_img {
+  height: 16rem;
+  width: 15rem;
 }
 
 /* Doctor //////////////////////////////////////////////////////////////*/
-
 .doctor {
-  text-align: center;
-  background-color: #24243b;
-  color: #ffffff;
+  background-color: var(--blue_background);
 }
 
+.doctor h2,
+.doctor p {
+  color: var(--white_font);
+}
+
+.doctor .doctor_details .doc_details h4 {
+  margin: 0rem;
+  padding-bottom: 0.3rem;
+  color: var(--doc-name);
+}
+
+.doctor .doctor_details .doc_details ul {
+  padding: 0.6rem 0rem;
+}
+.doctor .doctor_details .doc_details img {
+  height: 21rem;
+}
 .doctor .doc_details {
-  background-color: #ffffff;
-  width: 100%;
+  background-color: var(--white);
+  margin: 1rem 0rem;
   text-align: left;
-  color: #000000;
-  margin: 20px 0px;
 }
-
-.doctor .doctor_details {
-  background-color: #24243b;
-}
-
-.doctor .doc_image {
-  object-fit: cover;
-  width: 100%;
-  max-height: 20em;
-}
-
-.doctor .line_img {
-  height: 10px;
-}
-.doc_details h3 {
-  display: inline-block;
-  color: rgb(70, 90, 158);
-  font-weight: 800;
-}
-
-.doc_details h4 {
-  padding: 2px 3px 4px 64px;
-}
-
 /* feature //////////////////////////////////////////////////////////// */
-
-.feature {
-  text-align: center;
-}
 
 .feature .img_block {
   position: relative;
-  margin: 10px 5px;
+  display: inline-block;
+  margin: 0.5rem 0rem;
+  background: linear-gradient(to top, var(--black), transparent);
 }
 
-.feature .description {
+.feature .img_block img {
+  position: relative;
+  width: 100%;
+  height: 21rem;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.feature .img_block ul {
   position: absolute;
-  bottom: 5px;
-  left: 3px;
+  bottom: 0.5rem;
   text-align: left;
 }
 
-.feature .description h3,
-span {
-  padding: 0px;
-}
-
-.feature .feture_img {
-  max-height: 250px;
-  object-fit: cover;
-  width: 100%;
+.feature .img_block ul h4,
+.feature .img_block ul li {
+  color: var(--white);
 }
 
 /* Exclusive Services ///////////////////////////////////////////////////// */
-
-.exclusive_services {
-  background-color: #f4f6f6;
-  margin: 2px 1px 2px 1px;
-  text-align: center;
-}
-
-.exclusive_services p {
-  padding: 10px 5px;
-}
-.exclusive_services .link_img_block .lable {
-  font-family: Goldman;
+.exclusive_services .servise_links .link_img_block img {
+  height: 5rem;
+  width: 5rem;
 }
 
 .exclusive_services .servise_links {
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0.7rem 0.15rem 1rem 0.15rem;
 }
 
-.exclusive_services .link_img_block {
-  background-color: #ffffff;
-  text-align: center;
-  margin: 5px;
-  border-radius: 7px;
-  height: 105px;
-  width: 150px;
+.exclusive_services,
+.exclusive_services .servise_links {
+  background-color: var(--gray_background);
 }
 
-.servise_icon {
-  height: 70px;
+.exclusive_services .servise_links .link_img_block {
+  background-color: var(--white);
+  width: 10rem;
+  height: 7rem;
+  margin: 0.35rem;
+  border-radius: 0.8rem;
+  flex: 5 5 8rem;
 }
-
 /* help /////////////////////////////////////////////////// */
 
-.help {
+/* .help {
   text-align: center;
   margin: 2px;
   background-color: #8fcaf1;
@@ -256,10 +156,10 @@ span {
 
 .help h2 {
   color: #ffffff;
-}
+} */
 
 /* footer ///////////////////////////////////////////////////////////////// */
-.footer {
+/* .footer {
   background-color: #021433;
   text-align: center;
 }
@@ -277,4 +177,4 @@ span {
 .footer .fab {
   color: #cccccc;
   padding: 20px;
-}
+} */

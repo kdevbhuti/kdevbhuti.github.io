@@ -1,0 +1,19 @@
+header .navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media only screen and (max-width: 600px) {
+  header .navigation .nav_logo {
+    height: 1.5rem;
+    width: 6.4rem;
+    margin: 0rem;
+  }
+}
+@media only screen and (min-width: 601px) {
+  header .navigation .nav_logo {
+    height: 1.5rem;
+    width: 6.4rem;
+    margin: 0rem;
+  }
+}

@@ -1,43 +1,224 @@
-h1 {
-  font-family: "Nexa Bold";
+:root {
+  --deep_blue: #151e3b;
+  --white: #ffffff;
 }
 
-h2 {
+@font-face {
+  font-family: "Nexa Light";
+  src: url(../font/Nexa-Light.otf);
+}
+
+@font-face {
   font-family: "Nexa Bold";
-  font-weight: 700;
-  font-size: 29;
-  margin: 10px 4px;
+  src: url(../font/Nexa-Bold.otf);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Nexa Bold";
+  color: var(--deep_blue);
+}
+
+/* h1 {
+  font-size: 3rem;
+} */
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.7rem;
+  margin: 0.5rem 0rem;
 }
 
 h3 {
-  font-family: "Nexa Bold";
-  font-weight: 600;
-  font-size: 25;
-  padding: 5px;
+  font-size: 1rem;
+  line-height: 1.3rem;
+  margin: 0.7rem 0.5rem;
+  padding: 0.3rem 0.5rem;
 }
 
 h4 {
-  font-family: "Nexa Light";
-  font-size: 18;
-  padding: 10px 5px;
+  font-size: 0.9rem;
+  margin: 0.5rem;
+  padding: 0.2rem 0rem;
+}
+
+h5 {
+  font-size: 0.8rem;
+  padding: 0.1rem;
 }
 
 p {
-  font-family: "Nexa Light";
-  line-height: normal;
-  font-size: 20;
+  margin: 1rem 0rem;
+  line-height: 1.3rem;
+  font-size: 1rem;
+  color: var(--deep_blue);
 }
 
-input {
-  margin: 10px 2px;
-  padding: 5px 10px;
-  outline: none;
+body {
+  font-family: "Nexa Light";
 }
 
 button {
-  margin: 5px;
+  padding: 0.6rem 3rem;
+  background-color: var(--deep_blue);
+  color: var(--white);
+  outline: none;
+  border: none;
+  font-family: "Nexa Light";
+  margin: 0.5rem 0.5rem;
 }
 
-section {
+input[type="text"] {
+  padding: 0.8rem 0.8rem;
+  margin: 0.5rem 0rem;
+  border: none;
+}
+
+ul li h4 {
+  margin: 0rem;
+  padding-bottom: 0.2rem;
+}
+
+/* .quary_section {
+  background-color: #8fcaf1;
   padding: 20px;
+}
+.quary_section button {
+  background-color: #0099ff;
+  border: none;
+  height: 4rem;
+  width: 15rem;
+  border-radius: 0.6rem;
+} */
+
+/* .heading {
+  background-color: #99bee2;
+  text-align: center;
+  color: #ffffff;
+} */
+
+/* Mobile View ///////////////////////////////////////////////////////////////////////*/
+@media only screen and (max-width: 600px) {
+  header {
+    margin: 0.5rem 0.5rem;
+    padding: 0.5rem 0.5rem;
+  }
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 14rem;
+  }
+
+  section {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  ul li {
+    font-size: 0.8rem;
+    margin: 0.1rem 0.5rem;
+    line-height: 1rem;
+  }
+  @media screen and (min-width: 200px) and (max-width: 340px) {
+    input[type="text"] {
+      width: 18rem;
+    }
+  }
+  @media screen and (min-width: 341px) and (max-width: 360px) {
+    input[type="text"] {
+      width: 20.5rem;
+    }
+  }
+  @media screen and (min-width: 361px) and (max-width: 400px) {
+    input[type="text"] {
+      width: 21rem;
+    }
+  }
+  @media screen and (min-width: 401px) and (max-width: 460px) {
+    input[type="text"] {
+      width: 23.5rem;
+    }
+  }
+  /* @media only screen and (width: 320px) {
+      input[type="text"] {
+        width: 18rem;
+      }
+  } */
+
+  /* footer {
+    background-color: #2a2d3e;
+    color: #85888f;
+    text-align: center;
+    padding: 20px 5px;
+  }
+
+  footer .footer_img {
+    height: 2rem;
+    width: 8rem;
+  }
+
+  footer ul li {
+    margin: 10px 0px;
+  } */
+}
+
+/* Ipad View ////////////////////////////////////////////////////////////*/
+@media only screen and (min-width: 601px) {
+  header {
+    margin: 0.5rem 1.5rem;
+    padding: 0.5rem 0.5rem;
+  }
+  p {
+    margin: 0.5rem 0.5rem;
+    padding: 0rem 0.5rem;
+    line-height: 1.3rem;
+    font-size: 1rem;
+    color: var(--deep_blue);
+  }
+
+  section {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  /* footer///////////////////////////////////////////////////// */
+  /*footer {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.5rem 1rem;
+    padding: 1rem;
+  }
+
+  footer .footer_img {
+    height: 3rem;
+    width: 12rem;
+  }
+
+  footer ul {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    align-content: center;
+    flex: 1 1 50%;
+  }
+
+  footer ul li {
+    margin: 0.4rem 0.9rem;
+  }
+
+  footer #footer-icon .fab {
+    padding: 1rem;
+  }
+  footer #footer-icon {
+    display: inline-flex;
+    flex: 1 1 50%;
+    justify-content: flex-end;
+  }*/
 }
