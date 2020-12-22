@@ -1,0 +1,80 @@
+body {
+  background-color: #9cbfda;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+body main {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+body main section {
+  background-color: #ffffff;
+  padding: 1rem;
+  width: 100%;
+  height: 15.5rem;
+}
+body main section .input-number {
+  position: relative;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  body main section {
+    width: 30rem;
+    height: 15.4rem;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1280px) {
+  body main section {
+    width: 32rem;
+    height: 17.5rem;
+  }
+}
+body main section h1 {
+  color: #0173b2;
+}
+body main section hr {
+  margin: 1rem 0rem 1rem;
+}
+body main section .log-button {
+  position: relative;
+}
+body main section .log-button button {
+  background-color: #2a2d3e;
+  color: #ffffff;
+  letter-spacing: 0.2rem;
+  border: none;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+body main section .fas {
+  position: absolute;
+  right: 1rem;
+  top: 0.8rem;
+  color: #cccccc;
+}
+@media (min-width: 1025px) and (max-width: 1280px) {
+  body main section .fas {
+    top: 0.9rem;
+  }
+}
+body main section label {
+  font-size: 0.8rem;
+}
+body main section label a {
+  font-family: "Nexa Bold";
+  font-size: 0.8rem;
+  color: #0173b2;
+}
+body footer {
+  padding: 0rem 1rem 2rem;
+}
+body footer p {
+  margin: 0rem;
+  font-family: "Nexa Bold";
+}
+
+/*# sourceMappingURL=login.css.map */

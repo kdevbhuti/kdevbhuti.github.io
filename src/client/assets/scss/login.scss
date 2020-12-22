@@ -1,0 +1,78 @@
+$background: #9cbfda;
+$white: #ffffff;
+$deep-blue: #2a2d3e;
+$style-color: #0173b2;
+$icon-color: #cccccc;
+
+body {
+  background-color: $background;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  main {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    section {
+      background-color: $white;
+      padding: 1rem;
+      width: 100%;
+      height: 15.5rem;
+      .input-number {
+        position: relative;
+      }
+      @media (min-width: 768px) and (max-width: 1024px) {
+        width: 30rem;
+        height: 15.4rem;
+      }
+      @media (min-width: 1025px) and (max-width: 1280px) {
+        width: 32rem;
+        height: 17.5rem;
+      }
+      h1 {
+        color: $style-color;
+      }
+      hr {
+        margin: 1rem 0rem 1rem;
+      }
+      .log-button {
+        position: relative;
+        button {
+          background-color: $deep-blue;
+          color: $white;
+          letter-spacing: 0.2rem;
+          border: none;
+          width: 100%;
+          margin-bottom: 1.5rem;
+        }
+      }
+      .fas {
+        position: absolute;
+        right: 1rem;
+        top: 0.8rem;
+        color: $icon-color;
+        @media (min-width: 1025px) and (max-width: 1280px) {
+          top: 0.9rem;
+        }
+      }
+      label {
+        font-size: 0.8rem;
+        a {
+          font-family: "Nexa Bold";
+          font-size: 0.8rem;
+          color: $style-color;
+        }
+      }
+    }
+  }
+  footer {
+    padding: 0rem 1rem 2rem;
+    p {
+      margin: 0rem;
+      font-family: "Nexa Bold";
+    }
+  }
+}
