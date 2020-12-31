@@ -1,19 +1,59 @@
+@import "./variabls.css";
+
 header .navigation {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-@media only screen and (max-width: 600px) {
+
+header .navigation .quote_btn {
+  background-color: var(--deep_blue);
+  color: var(--white);
+}
+
+header .navigation .nav_logo {
+  height: 1.5rem;
+  width: 6.4rem;
+  margin: 0rem;
+}
+header .navigation ul {
+  display: none;
+}
+header .navigation button {
+  display: none;
+}
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   header .navigation .nav_logo {
-    height: 1.5rem;
-    width: 6.4rem;
+    height: 1.6rem;
+    width: 6.9rem;
     margin: 0rem;
   }
 }
-@media only screen and (min-width: 601px) {
+
+@media only screen and (min-width: 1025px) {
   header .navigation .nav_logo {
-    height: 1.5rem;
-    width: 6.4rem;
+    height: 2rem;
+    width: 8rem;
     margin: 0rem;
+  }
+  header .navigation ul {
+    display: inline-flex;
+    justify-content: space-around;
+  }
+
+  header .navigation ul li {
+    margin: 0rem 1rem;
+  }
+  header .navigation i {
+    display: none;
+  }
+
+  header .navigation button {
+    display: inline-flex;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.2rem;
+    border: 0.09rem solid var(--deep_blue);
+    flex: 6 6 3rem;
   }
 }

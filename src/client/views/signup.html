@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <title>Signup</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/theme.css">
+    <link rel="stylesheet" href="../assets/css/navigation.css">
+    <link rel="stylesheet" href="../assets/css/signup.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+
+<header>
+    <nav class="navigation">
+        <img class="nav_logo" src="../assets/image/Logo.jpg" alt="">
+        <ul>
+            <li><a href="">Doctor</a></li>
+            <li><a href="">Hospital</a></li>
+            <li><a href="">Treatment</a></li>
+            <li><a href="">About</a></li>
+        </ul>
+        <div class="nav_btn">
+            <button class="login_btn">Login\Sign Up</button>
+            <button class="quote_btn">Get a Quote</button>
+        </div>
+        <i class="fas fa-bars"></i>
+    </nav>
+</header>
+<main>
+    <section>
+        <form action="">
+            <h1>Sign Up</h1>
+            <hr>
+            <input type="text" placeholder="Enter name">
+            <input type="email" placeholder="Enter email">
+            <input type="password" placeholder="Enter password">
+            <input type="text" list="input-gender" placeholder="Enter your gender">
+            <div class="select_box">
+                <select class="select" name="Enter Gender">
+                    <option value="" class="hide_option">Enter Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Femail">Femail</option>
+                </select>
+                <button><i class="fas fa-caret-down"></i></button>
+
+            </div>
+
+            <input type="text" placeholder="dd / mm / yyyy">
+            <input type="text" placeholder="Enter Phone Number">
+            <div id="place">
+                <input type="text" class="place-city" placeholder="Enter City">
+                <input type="text" class="place-state" placeholder="Enter State">
+            </div>
+            <input type="text" placeholder="Select your country">
+            <div class="log-button">
+                <button>SIGN UP</button>
+                <i class="fas fa-arrow-right"></i>
+            </div>
+        </form>
+        <label for="">Allready Registered? <a>Login</a></label>
+    </section>
+</main>
+<footer>
+    <p>All Rights Reserved. <span><i class="far fa-copyright"></i></span> tvastra 2018</p>
+</footer>
+<script>
+    let select = document.querySelector(".select");
+    select.addEventListener("change", () => {
+        select.style.color = '#151e3b';
+    })
+</script>
+
+</html>

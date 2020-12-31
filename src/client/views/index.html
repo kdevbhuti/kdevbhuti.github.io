@@ -1,206 +1,309 @@
 <html>
-  <head>
-    <link rel="stylesheet" href="../assets/css/reset.css">
-    <link rel="stylesheet" href="../assets/css/theme.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/navigation.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
-  </head>
-  <header>
-    <nav class="navigation">
-      <img class="nav_logo" src="../assets/image/Logo.jpg" alt="">
-      <i class="fas fa-bars"></i>
-    </nav>
-  </header>
-  <main>
-    <section class="find_healthcare">
-      <h2>Find Affordable Healthcare</h2>
+
+<head>
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/theme.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/navigation.css">
+  <link rel="stylesheet" href="../assets/css/footer.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
+  <!-- <script defer src="https://maps.googleapis.com/maps/api/json?key=YOUR_API_KEY&libraries=place&callback=initMap"> -->
+  </script>
+</head>
+<header>
+  <nav class="navigation">
+    <img class="nav_logo" src="../assets/image/Logo.jpg" alt="">
+    <ul>
+      <li><a href="">Doctor</a></li>
+      <li><a href="">Hospital</a></li>
+      <li><a href="">Treatment</a></li>
+      <li><a href="">About</a></li>
+    </ul>
+    <div class="nav_btn">
+      <button class="login_btn">Login\Sign Up</button>
+      <button class="quote_btn">Get a Quote</button>
+    </div>
+    <i class="fas fa-bars"></i>
+  </nav>
+</header>
+<main>
+  <section class="find_healthcare">
+    <h1>Find Affordable Healthcare</h1>
+    <article>
+      <p>Join the thousands of others who have exercised their rights to quality Healthcare at a price ou can afford.
+      </p>
+      <div class="combine_inputfild">
+        <div class="input_field_location">
+          <i class="fas fa-map-marker-alt icon"></i>
+          <input type="text" placeholder="Ahemdabad">
+          <i class="fas fa-crosshairs icon"></i>
+        </div>
+        <input id="search_doc" type="text" placeholder="Search for Doctor, hospitals and treatments">
+        <button class="search_btn" type="submit">Search</button>
+      </div>
+    </article>
+  </section>
+
+  <section class="How_work">
+    <h2>How it works</h2>
+    <p>Various facilities are provided here. But there is a protocol which needs to be followed so that you get the
+      service at its best.</p>
+    <div class="work_content">
+      <h3 class="work_label active"><span class="num">01</span> Fix Consultation</h3>
       <article>
-        <p>Join the thousands of others who have exercised their rights to quality Healthcare at a price ou can afford</p>
-          <div class="input_field_location">
-            <i class="fas fa-map-marker-alt icon"></i>
-            <input type="text" placeholder="Ahemdabad">
-            <i class="fas fa-crosshairs icon"></i>
-          </div>
-            <input type="text" placeholder="Search for Doctor, hospitals and treatments">
-          <button class="search_btn" type="submit">search</button>
-      </article>
-    </section>
-  
-    <section class="How_work">
-      <h2>How it works</h2>
-      <p>Various facilities are provided here. But there is a protocol which needs to be followed so that you get the service at its best.</p>
-      <article>
-        <h3 class="work_label"><span class="num">01</span> Fix Consultation</h3>
         <figure>
           <img class="consultation_img" src="../assets/image/img1.png" alt="">
         </figure>
-        <h3>Fix Consultation</h3>
+        <h4>Fix Consultation</h4>
         <p>This depicts that user will have to fix appointment first when it selects a particuler doctor.</p>
       </article>
-        <h3 class="work_label disable"><span class="num">02</span> Upload Medical Reports</h3>
-        <h3 class="work_label disable"><span class="num">03</span> Consult with doctor</h3>
-        <h3 class="work_label disable"><span class="num">04</span> Fix Surgery</h3>
-        <h3 class="work_label disable"><span class="num">05</span> Hospital send estimates</h3>
-        <h3 class="work_label disable"><span class="num">06</span> Payment</h3>
-        <h3 class="work_label disable"><span class="num">07</span> Surgery Completed</h3>
-    </section>
-  
-    <section class="doctor">
-      <h2>World Class Expert Doctors!</h2>
-      <article class="doctor_details">
-        <p>The university of Texas Southeastern Medical center has been a long world-renowned research hospital. But untill the `80s, you couldn't go there. Now, with the addition of Aston Center and Zale Liphy Hospital., UT Southeastern is also a mecca for patients.</p>
-        <div class="doc_details">
-          <figure>
-            <img class="large_image" src="../assets/image/doc.image--002.jpg" alt="">
-          </figure>
-            
-          <ul>
-            <li><h4>Duke Sanson</h4></li>
-            <li>Neuro Surgeon</li>
-            <li>Chain Department of Neurological Surgery</li>
-            <li>Australia</li>
-          </ul>
-        </div>
-        <div class="doc_details">
-          <figure>
-            <img class="large_image" src="../assets/image/image--004.jpg" alt="">
-          </figure>
-          <ul>
-            <li><h4>Georgea Peter</h4></li>
-            <li>Breast Cancer Surgeon</li>
-            <li>Director, UT, Southwest</li>
-            <li>London</li>
-          </ul>
-        </div>
-        <div class="doc_details">
-          <figure>
-            <img class="large_image" src="../assets/image/image--005.jpg" alt="">
-          </figure>
-          <ul>
-            <li><h4>Charlie Moon</h4></li>
-            <li>Cardiac Surgeon</li>
-            <li>MBBS, MD, FRCP, MRCP, Fellowship</li>
-            <li>New Delhi, India</li>
-          </ul>
-        </div>
-        <div class="doc_details">
-          <figure>
-            <img class="large_image" src="../assets//image/image--003.jpg" alt="">
-          </figure>
-          <ul>
-            <li><h4>Rose Moon</h4></li>
-            <li>Plastic Surgeon</li>
-            <li>Department of Plastic and Reconstructive Surgery</li>
-            <li>Dubai</li>
-          </ul>
-        </div>
-      </article>
-    </section>
-    <section class= "feature">
-      <h2>featured Medical Treatment</h2>
-      <p>jon the thousands of others who hav exercised their rights to quality healthcare at a price you can afford</p>
+      <!-- <div class="work_label_delement"> -->
+      <h3 class="work_label disable"><span class="num">02</span> Upload Medical Reports</h3>
+      <h3 class="work_label disable"><span class="num">03</span> Consult with doctor</h3>
+      <h3 class="work_label disable"><span class="num">04</span> Fix Surgery</h3>
+      <h3 class="work_label disable"><span class="num">05</span> Hospital send estimates</h3>
+      <h3 class="work_label disable"><span class="num">06</span> Payment</h3>
+      <h3 class="work_label disable surgery"><span class="num">07</span> Surgery Completed</h3>
+      <!-- </div> -->
+    </div>
+  </section>
+
+  <section class="doctor">
+    <h2>World Class Expert Doctors!</h2>
+    <p>The university of Texas Southeastern Medical center has been a long world-renowned research hospital. But untill
+      the `80s, you couldn't go there. Now, with the addition of Aston Center and Zale Liphy Hospital., UT Southeastern
+      is also a mecca for patients.</p>
+    <article class="doctor_details">
+      <div class="doc_details">
+        <figure>
+          <img class="doc_image" src="../assets/image/doc.image--002.jpg" alt="">
+        </figure>
+        <h4><span class="horizontal_bar">&#8212;&#8212;&nbsp;&nbsp;</span>Duke Sanson</h4>
+        <ul>
+          <li>Neuro Surgeon</li>
+          <li>Chain Department of Neurological Surgery</li>
+          <li>Australia</li>
+        </ul>
+      </div>
+      <div class="doc_details">
+        <figure>
+          <img class="doc_image" src="../assets/image/image--004.jpg" alt="">
+        </figure>
+        <h4><span class="horizontal_bar">&#8212;&#8212;&nbsp;&nbsp;</span>Georgea Peter</h4>
+        <ul>
+          <li>Breast Cancer Surgeon</li>
+          <li>Director, UT, Southwest</li>
+          <li>London</li>
+        </ul>
+      </div>
+      <div class="doc_details">
+        <figure>
+          <img class="doc_image" src="../assets/image/image--005.jpg" alt="">
+        </figure>
+        <h4><span class="horizontal_bar">&#8212;&#8212;&nbsp;&nbsp;</span>Charlie Moon</h4>
+        <ul>
+          <li>Cardiac Surgeon</li>
+          <li>MBBS, MD, FRCP, MRCP, Fellowship</li>
+          <li>New Delhi, India</li>
+        </ul>
+      </div>
+      <div class="doc_details surgery">
+        <figure>
+          <img class="doc_image" src="../assets//image/image--003.jpg" alt="">
+        </figure>
+        <h4><span class="horizontal_bar">&#8212;&#8212;&nbsp;&nbsp;</span>Rose Moon</h4>
+        <ul>
+          <li>Plastic Surgeon</li>
+          <li>Department of Plastic and Reconstructive Surgery</li>
+          <li>Dubai</li>
+        </ul>
+      </div>
+    </article>
+    <div class="dots">
+      <botton class="dot" name="0"></botton>
+      <botton class="dot" name="1"></botton>
+      <botton class="dot" name="2"></botton>
+      <botton class="dot" name="3"></botton>
+    </div>
+  </section>
+  <section class="feature">
+    <h2>featured Medical Treatment</h2>
+    <p>jon the thousands of others who hav exercised their rights to quality healthcare at a price you can afford.</p>
+    <div class="content_details">
       <div class="img_block dentistry">
-          <ul>
-            <li><h4>Dentistry</h4></li>
-            <li>50+ Specialists</li>
-          </ul>
-        <img class="feture_img" src="../assets/image/image--009.jpg" alt="">
+        <ul>
+          <li>
+            <h4>Dentistry</h4>
+          </li>
+          <li>50+ Specialists</li>
+        </ul>
+        <figure>
+          <img class="feture_img" src="../assets/image/image--009.jpg" alt="">
+        </figure>
+
       </div>
       <div class="img_block cancer">
         <ul>
-          <li><h4>Cancer</h4></li>
+          <li>
+            <h4>Cancer</h4>
+          </li>
           <li>50+ Specialists</li>
         </ul>
+
         <img class="feture_img" src="../assets/image/image--010.jpg" alt="">
       </div>
-  
+
       <div class="img_block cardiologic">
         <ul>
-          <li><h4>Cardiologic Treatment</h4></li>
+          <li>
+            <h4>Cardiologic Treatment</h4>
+          </li>
           <li>50+ Specialists</li>
         </ul>
         <img class="feture_img" src="../assets/image/image--011.jpg" alt="">
       </div>
-  
+
       <div class="img_block multi_organ">
         <ul>
-          <li><h4>Multi Organ Treatment</h4></li>
+          <li>
+            <h4>Multi Organ Treatment</h4>
+          </li>
           <li>50+ Specialists</li>
         </ul>
         <img class="feture_img" src="../assets/image/image--006.jpg" alt="">
       </div>
-  
+
       <div class="img_block orthopedics">
         <ul>
-          <li><h4>Orthopedics Surgery</h4></li>
+          <li>
+            <h4>Orthopedics Surgery</h4>
+          </li>
           <li>50+ Specialists</li>
         </ul>
         <img class="feture_img" src="../assets/image/image--008.jpg" alt="">
       </div>
-  
+
       <div class="img_block infertility">
         <ul>
-          <li><h4>Infertility Treatment</h4></li>
+          <li>
+            <h4>Infertility Treatment</h4>
+          </li>
           <li>50+ Specialists</li>
         </ul>
         <img class="feture_img" src="../assets/image/image--000.jpg" alt="">
       </div>
-    </section>
-  
-    <section class="exclusive_services">
-      <h2>Exclusive Services</h2>
-      <p>We want you to be comfortable and thuse apart from thaating you illness, we provide you with other servicesthat you can see</p>
-      <div class="servise_links">
-        <div class="link_img_block">
-          <img class="servise_icon" src="../assets/image/Icons-01.png" alt="">
-          <h5 class="lable">TRAVEL</h5>
-        </div>
-        <div class="link_img_block">
-          <img class="servise_icon" src="../assets/image/Icons-02.png" alt="">
-          <h5 class="lable">FOOD</h5>
-        </div>
-        <div class="link_img_block">
-          <img class="servise_icon" src="../assets/image/Icons-03.png" alt="">
-          <h5 class="lable">ACCOMODATION</h5>
-        </div>
-        <div class="link_img_block">
-          <img class="servise_icon" src="../assets/image/Icons-07.png" alt="">
-          <h5 class="lable">LABS</h5>
-        </div>
-        <div class="link_img_block">
-          <img class="servise_icon" src="../assets/image/Icons-10.png" alt="">
-          <h5 class="lable">REPORTS</h5>
-        </div>
-        <div class="link_img_block">
-          <img class="servise_icon" src="../assets/image/Icons-06.png" alt="">
-          <h5 class="lable">AMBULANCE</h5>
-        </div>
+    </div>
+
+  </section>
+
+  <section class="exclusive_services">
+    <h2>Exclusive Services</h2>
+    <p>We want you to be comfortable and thuse apart from thaating you illness, we provide you with other servicesthat
+      you can see</p>
+    <div class="servise_links">
+      <div class="link_img_block">
+        <img class="servise_icon" src="../assets/image/Icons-01.png" alt="">
+
+        <h5 class="lable">TRAVEL</h5>
       </div>
-    </section>
-    <section class="quary_section">
+      <div class="link_img_block">
+        <img class="servise_icon" src="../assets/image/Icons-02.png" alt="">
+        <h5 class="lable">FOOD</h5>
+      </div>
+      <div class="link_img_block">
+        <img class="servise_icon" src="../assets/image/Icons-03.png" alt="">
+        <h5 class="lable">ACCOMODATION</h5>
+      </div>
+      <div class="link_img_block">
+        <img class="servise_icon" src="../assets/image/Icons-07.png" alt="">
+        <h5 class="lable">LABS</h5>
+      </div>
+      <div class="link_img_block">
+        <img class="servise_icon" src="../assets/image/Icons-10.png" alt="">
+        <h5 class="lable">REPORTS</h5>
+      </div>
+      <div class="link_img_block">
+        <img class="servise_icon" src="../assets/image/Icons-06.png" alt="">
+        <h5 class="lable">AMBULANCE</h5>
+      </div>
+    </div>
+  </section>
+  <section class="quary_section">
+    <div>
       <h2>Need Help?</h2>
       <p>Just let us know, we will happy to assist you</p>
+    </div>
+    <div>
       <button type="submit">Submit your enquiry</button>
-    </section>
-    <footer class="footer">
-      <img class="footer_img" src="../assets/image/footer.png" alt="">
-      <ul>
-        <li>Doctor</li>
-        <li>Hospital</li>
-        <li>Other Services</li>
-        <li>FAQs</li>
-      </ul>
-      <div id="footer-icon">
-        <i class="fab fa-facebook-f"></i>
-        <i class="fab fa-pinterest-p"></i> 
-        <i class="fab fa-twitter"></i> 
-        <i class="fab fa-google-plus-g"></i> 
-        <i class="fab fa-instagram"></i>
-      </div>
-      <p>All Rights Reserved. <span><i class="far fa-copyright"></i></span> tvastra 2018</p>
-    </footer>
-  </main>
+    </div>
+
+  </section>
+  <footer class="footer">
+    <img class="footer_img" src="../assets/image/footer.png" alt="">
+    <ul>
+      <li><a href="">Doctor</a> </li>
+      <li><a href="">Hospital</a></li>
+      <li><a href="">Treatment</a></li>
+      <li><a href="">FAQs</a></li>
+    </ul>
+    <div id="footer-icon">
+      <i class="fab fa-facebook-f"></i>
+      <i class="fab fa-pinterest-p"></i>
+      <i class="fab fa-twitter"></i>
+      <i class="fab fa-google-plus-g"></i>
+      <i class="fab fa-instagram"></i>
+    </div>
+    <p>All Rights Reserved. <span><i class="far fa-copyright"></i></span> tvastra 2018</p>
+  </footer>
+  <!-- <section>
+      <h2>test</h2>
+      <input id="boy" name="gender" type="radio">
+      <label for="boy">boy</label>
+      <input id="girl" name="gender" type="radio">
+      <label for="girl">girl</label>
+    </section> -->
+
+</main>
+<script>
+  var dot = document.getElementsByClassName("dot");
+  dot[0].addEventListener("click", changePic);
+  dot[1].addEventListener("click", changePic);
+  dot[2].addEventListener("click", changePic);
+  dot[3].addEventListener("click", changePic);
+
+
+  var doc_details = document.getElementsByClassName("doc_details");
+  var duplicate = [];
+  for (var i = 0; i < doc_details.length; i++) {
+    duplicate[i] = document.getElementsByClassName("doc_details")[i].cloneNode(true);
+  }
+
+  function changePic() {
+    var index = event.target.getAttribute('name')
+    for (var i = 0; i < doc_details.length; i++) {
+      if (doc_details.length == index) {
+        index = 0;
+      }
+      doc_details[i].innerHTML = duplicate[index].innerHTML;
+      index++;
+    }
+  }
+
+  // map
+  // if (navigator.geolocation) {
+  //   navigator.geolocation.getCurrentPosition(
+  //     (position) => {
+  //       const pos = {
+  //         lat: position.coords.latitude,
+  //         lng: position.coords.longitude,
+  //       };
+  //       console.log(position)
+  //     });
+
+  // }
+</script>
+
 </html>

@@ -1,0 +1,12 @@
+@import "./login.scss";
+
+#place {
+  display: flex;
+  justify-content: space-between;
+  .place-city {
+    margin-right: 0.5rem;
+  }
+  .place-state {
+    margin-left: 0.5rem;
+  }
+}

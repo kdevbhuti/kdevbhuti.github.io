@@ -1,22 +1,16 @@
-:root {
-  --blue: #2a2d3e;
-  --font_color: #cdcbcf;
-  --quary_backgroud: #7ab0d4;
-  --btn_color: #0173b2;
-  --white: #fefbf4;
-}
+@import "./variabls.css";
 
 footer {
   text-align: center;
   padding: 1.5rem 1rem;
-  background-color: var(--blue);
-  color: var(--font_color);
+  background-color: var(--deep_blue);
+  color: var(--white);
 }
 
 footer .footer_img {
   height: 2rem;
   width: 8rem;
-  margin-bottom: 1.4rem;
+  margin-bottom: 1rem;
 }
 
 footer ul li {
@@ -24,7 +18,7 @@ footer ul li {
 }
 
 footer p {
-  color: var(--font_color);
+  color: var(--white);
   margin: 0rem;
   font-family: "Nexa Bold";
 }
@@ -32,7 +26,9 @@ footer p {
 footer ul li a {
   color: var(--white);
 }
-
+footer .far {
+  color: var(--white);
+}
 footer #footer-icon i {
   margin: 0rem 1rem 1rem;
 }
@@ -48,13 +44,16 @@ footer #footer-icon i {
     padding: 2rem;
     gap: 2rem;
     background-color: var(--white);
-    color: var(--blue);
+    color: var(--deep_blue);
+  }
+  footer .far {
+    color: var(--deep_blue);
   }
 
   footer p {
-    color: var(--blue);
     margin: 0rem;
     font-family: "Nexa Bold";
+    color: var(--deep_blue);
   }
 
   footer .footer_img {
@@ -76,7 +75,7 @@ footer #footer-icon i {
   }
 
   footer ul li a {
-    color: var(--blue);
+    color: var(--deep_blue);
   }
 
   footer #footer-icon .fab {
@@ -100,18 +99,18 @@ footer #footer-icon i {
     align-items: center;
     gap: 2rem;
     background-color: var(--white);
-    color: var(--blue);
+    color: var(--deep_blue);
     padding: 2.7rem 5.5rem;
   }
 
   footer p {
-    color: var(--blue);
+    color: var(--deep_blue);
     margin: 0rem;
     font-family: "Nexa Bold";
   }
 
   footer ul li a {
-    color: var(--blue);
+    color: var(--deep_blue);
   }
 
   footer .footer_img {
@@ -141,18 +140,22 @@ footer #footer-icon i {
     flex: 1 1 50%;
     justify-content: flex-end;
   }
+
+  footer .far {
+    color: var(--deep_blue);
+  }
 }
 
 /* Quary Section */
 .quary_section {
-  background-color: var(--quary_backgroud);
+  background-color: var(--light_blue);
 }
 
 .quary_section h2 {
   color: var(--white);
 }
 .quary_section button {
-  background-color: var(--btn_color);
+  background-color: var(--btue_color);
   color: var(--white);
   border: none;
   border-radius: 0.2rem;
