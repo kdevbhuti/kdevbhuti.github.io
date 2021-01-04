@@ -4,7 +4,7 @@ section {
   text-align: center;
 }
 
-@media only screen and (min-width: 1025px) {
+@media (min-width: 1024px) and (max-width: 1280px) {
   section {
     text-align: left;
   }
@@ -39,7 +39,7 @@ section {
   color: var(--white);
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1023.5px) {
   .find_healthcare .combine_inputfild {
     display: flex;
     justify-content: center;
@@ -61,7 +61,7 @@ section {
   }
 }
 
-@media (min-width: 1025px) and (max-width: 1280px) {
+@media (min-width: 1024px) and (max-width: 1280px) {
   .find_healthcare {
     background-image: url(../image/img1_head.jpg);
     background-size: cover;
@@ -127,7 +127,7 @@ section {
   line-height: 1rem;
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1023.5px) {
   .How_work .work_content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -148,7 +148,7 @@ section {
   }
 }
 
-@media (min-width: 1025px) and (max-width: 1280px) {
+@media (min-width: 1024px) and (max-width: 1280px) {
   .How_work .work_content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -218,12 +218,13 @@ section {
   background-color: var(--white);
   text-align: left;
   margin-bottom: 1rem;
+  border-bottom: 0.4rem solid var(--light_blue);
 }
 
 .doctor .doctor_details .surgery {
   margin: 0rem;
 }
-@media (min-width: 768px) and (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1023.5px) {
   .doctor .doctor_details {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -239,7 +240,7 @@ section {
   }
 }
 
-@media (min-width: 1025px) and (max-width: 1280px) {
+@media (min-width: 1024px) and (max-width: 1280px) {
   .doctor .doctor_details {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -305,7 +306,7 @@ section {
   color: var(--white);
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1023.5px) {
   .feature .content_details {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -317,7 +318,7 @@ section {
     margin: 0rem;
   }
 }
-@media (min-width: 1025px) and (max-width: 1280px) {
+@media (min-width: 1024px) and (max-width: 1280px) {
   .feature .content_details {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -392,7 +393,7 @@ section {
   border-radius: 0.8rem;
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1023.5px) {
   .exclusive_services .servise_links {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -403,7 +404,7 @@ section {
   }
 }
 
-@media (min-width: 1025px) and (max-width: 1280px) {
+@media (min-width: 1024px) and (max-width: 1280px) {
   .exclusive_services .servise_links {
     display: grid;
     grid-template-columns: repeat(6, 1fr);

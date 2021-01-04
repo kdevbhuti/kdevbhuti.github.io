@@ -5,6 +5,7 @@ footer {
   padding: 1.5rem 1rem;
   background-color: var(--deep_blue);
   color: var(--white);
+  border-bottom: 0.5rem solid var(--blue_color);
 }
 
 footer .footer_img {
@@ -34,7 +35,7 @@ footer #footer-icon i {
 }
 
 /* ipad */
-@media (min-width: 768px) and (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1023.5px) {
   footer {
     display: flex;
     flex-direction: row-reverse;
@@ -90,7 +91,7 @@ footer #footer-icon i {
 }
 
 /* desktop */
-@media (min-width: 1025px) and (max-width: 1280px) {
+@media (min-width: 1024px) and (max-width: 1280px) {
   footer {
     display: flex;
     flex-direction: row-reverse;
@@ -155,13 +156,13 @@ footer #footer-icon i {
   color: var(--white);
 }
 .quary_section button {
-  background-color: var(--btue_color);
+  background-color: var(--blue_color);
   color: var(--white);
   border: none;
   border-radius: 0.2rem;
 }
 
-@media (min-width: 1025px) and (max-width: 1280px) {
+@media (min-width: 1024px) and (max-width: 1280px) {
   .quary_section {
     display: flex;
     align-items: center;

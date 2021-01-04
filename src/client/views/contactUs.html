@@ -21,7 +21,6 @@
       <li><a href="">Doctor</a></li>
       <li><a href="">Hospital</a></li>
       <li><a href="">Treatment</a></li>
-      <li><a href="">Other Services</a></li>
       <li><a href="">About</a></li>
     </ul>
     <div class="nav_btn">
@@ -39,37 +38,59 @@
   <section>
     <div id="map"></div>
   </section>
-  <section class="contact-details">
-    <div class="details">
-      <i class="fas fa-home"></i>
-      <div>
-        <h3>Nodia, India</h3>
-        <span>Sector 45</span>
+  <div class="combine_section">
+    <section class="contact-details">
+      <div class="details">
+        <i class="fas fa-home"></i>
+        <div>
+          <h4>Nodia, India</h4>
+          <span>Sector 45</span>
+        </div>
       </div>
-    </div>
-    <div class="details">
-      <i class="fas fa-phone fa-flip-horizontal"></i>
-      <div>
-        <h3>000 (440) 98655 62</h3>
-        <span>Mon to Fri 9am to 6pm</span>
+      <div class="details">
+        <i class="fas fa-phone fa-flip-horizontal"></i>
+        <div>
+          <h4>000 (440) 98655 62</h4>
+          <span>Mon to Fri 9am to 6pm</span>
+        </div>
       </div>
-    </div>
-    <div class="details mail">
-      <i class="fas fa-home"></i>
-      <div>
-        <h3>support@tvastra.com</h3>
-        <span>Send us your query any time!</span>
+      <div class="details mail">
+        <i class="fas fa-home"></i>
+        <div>
+          <h4>support@tvastra.com</h4>
+          <span>Send us your query any time!</span>
+        </div>
       </div>
-    </div>
 
-  </section>
-  <section class="input_details">
-    <input type="text" placeholder="Enter your name">
-    <input type="email" placeholder="Enter email addresh">
-    <input type="text" placeholder="Enter subject">
-    <input type="text" placeholder="Enter message">
-    <button>Send Message</button>
-  </section>
+    </section>
+    <section class="input_details">
+      <input type="text" placeholder="Enter your name">
+      <input type="email" placeholder="Enter email addresh">
+      <input type="text" placeholder="Enter subject">
+      <input id="message_input" type="text" placeholder="Enter message">
+      <button>Send Message</button>
+    </section>
+  </div>
+
+  <hr id="division">
+
+  <footer class="footer">
+    <img class="footer_img" src="../assets/image/footer.png" alt="">
+    <ul>
+      <li><a href="">Doctor</a> </li>
+      <li><a href="">Hospital</a></li>
+      <li><a href="">Treatment</a></li>
+      <li><a href="">FAQs</a></li>
+    </ul>
+    <div id="footer-icon">
+      <i class="fab fa-facebook-f"></i>
+      <i class="fab fa-pinterest-p"></i>
+      <i class="fab fa-twitter"></i>
+      <i class="fab fa-google-plus-g"></i>
+      <i class="fab fa-instagram"></i>
+    </div>
+    <p>All Rights Reserved. <span><i class="far fa-copyright"></i></span> tvastra 2018</p>
+  </footer>
 </main>
 <script>
   let map;

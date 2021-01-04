@@ -12,10 +12,10 @@ body {
     display: flex;
     justify-content: center;
     margin: 3rem 1rem;
-    @media (min-width: 768px) and (max-width: 1024px) {
+    @media only screen and (min-width: 768px) and (max-width: 1023.5px) {
       margin: 7rem 2rem;
     }
-    @media (min-width: 1025px) and (max-width: 1280px) {
+    @media (min-width: 1024px) and (max-width: 1280px) {
       margin: 7rem 2rem;
     }
     section {
@@ -55,11 +55,11 @@ body {
       .input-number {
         position: relative;
       }
-      @media (min-width: 768px) and (max-width: 1024px) {
+      @media only screen and (min-width: 768px) and (max-width: 1023.5px) {
         width: 30rem;
         // height: 15.4rem;
       }
-      @media (min-width: 1025px) and (max-width: 1280px) {
+      @media (min-width: 1024px) and (max-width: 1280px) {
         width: 32rem;
         // height: 17.5rem;
       }
@@ -89,7 +89,7 @@ body {
         right: 1rem;
         top: 0.8rem;
         color: var(--gray);
-        @media (min-width: 1025px) and (max-width: 1280px) {
+        @media (min-width: 1024px) and (max-width: 1280px) {
           top: 0.9rem;
         }
       }
