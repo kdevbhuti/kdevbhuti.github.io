@@ -1,0 +1,84 @@
+<html>
+
+<head>
+    <title>Appointment</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/theme.css">
+    <link rel="stylesheet" href="../assets/css/navigation.css">
+    <link rel="stylesheet" href="../assets/css/bookAppointment.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+
+<header>
+    <nav class="navigation">
+        <img class="nav_logo" src="../assets/image/Logo.jpg">
+        <ul>
+            <li><a href="">Doctor</a></li>
+            <li><a href="">Hospital</a></li>
+            <li><a href="">Treatment</a></li>
+            <li><a href="">About</a></li>
+        </ul>
+        <div class="nav_btn">
+            <button class="login_btn">Login\Sign Up</button>
+            <button class="quote_btn">Get a Quote</button>
+        </div>
+        <i class="fas fa-bars"></i>
+    </nav>
+</header>
+<main>
+    <section>
+        <form action="">
+            <h1>Book an Appointment</h1>
+            <hr>
+            <h4>Select Appointment Date*</h4>
+            <input type="text" placeholder="dd/mm/yyyy">
+            <h4>Time Interval*</h4>
+            <div class="radio_content">
+                <input type="radio" id="morning" name="timing" value="morning">
+                <label for="morning">Morning</label>
+            </div>
+            <div class="radio_content">
+                <input type="radio" id="afternoon" name="timing" value="afternoon">
+                <label for="afternoon">Afternoon</label>
+            </div>
+            <div class="radio_content">
+                <input type="radio" id="evening" name="timing" value="evening">
+                <label for="evening">Evening</label>
+            </div>
+            <h4>Apointment Status/Urgency</h4>
+            <div class="radio_content">
+                <input type="radio" id="routine_checkup" name="checkup">
+                <label for="routine_checkup">Routine Check-up</label>
+            </div>
+            <div class="radio_content">
+                <input type="radio" id="nonUrgent_checkup" name="checkup">
+                <label for="nonUrgent_checkup">Non Urgent Check-up</label>
+            </div>
+            <div class="radio_content">
+                <input type="radio" id="urgent_checkup" name="checkup">
+                <label for="urgent_checkup">Urgent Check-up</label>
+            </div>
+            <div class="radio_content">
+                <input type="radio" id="surgical" name="checkup">
+                <label for="surgical">Surgical Appointment</label>
+            </div>
+            <h4>Upload Privious Heath Record</h4>
+            <input type="file">
+            <h4>Appointme</h4>
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <div class="log-button">
+                <button>LOGIN</button>
+                <i class="fas fa-arrow-right"></i>
+            </div>
+        </form>
+    </section>
+
+</main>
+<footer>
+    <p>All Rights Reserved. <span><i class="far fa-copyright"></i></span> tvastra 2018</p>
+</footer>
+
+
+</html>

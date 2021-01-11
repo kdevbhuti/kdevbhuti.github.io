@@ -1,113 +1,19 @@
-@import "../css/variabls.css";
+@import "./formType.scss";
 
-body {
-  background-color: var(--light_blue);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
-  main {
-    display: flex;
-    justify-content: center;
-    margin: 3rem 1rem;
-    @media only screen and (min-width: 768px) and (max-width: 1023.5px) {
-      margin: 7rem 2rem;
-    }
-    @media (min-width: 1024px) and (max-width: 1280px) {
-      margin: 7rem 2rem;
-    }
-    section {
-      background-color: var(--white);
-      padding: 1.5rem 1rem;
-      width: 100%;
-      // height: 15.5rem;
-      input {
-        width: 100%;
-      }
-
-      // select box styling////////////////////////////////////////////////////////////////////
-      select {
-        width: 100%;
-        .hide_option {
-          display: none;
-        }
-      }
-      .select_box {
-        position: relative;
-        button {
-          position: absolute;
-          right: 0.14rem;
-          padding: 0rem;
-          height: 2.6rem;
-          width: 0.8rem;
-          border: 0rem;
-          box-shadow: 2px 2px 1px grey;
-          pointer-events: none;
-          .fas {
-            position: static;
-            color: var(--deep_blue);
-          }
-        }
-      }
-      // ///////////////////////////////////////////////////////////////////////////////
-      .input-number {
-        position: relative;
-      }
-      @media only screen and (min-width: 768px) and (max-width: 1023.5px) {
-        width: 30rem;
-        // height: 15.4rem;
-      }
-      @media (min-width: 1024px) and (max-width: 1280px) {
-        width: 32rem;
-        // height: 17.5rem;
-      }
-      h1 {
-        color: var(--blue_bold_text);
-        margin-bottom: 1.5rem;
-      }
-      hr {
-        margin: 1rem -1rem 1rem;
-      }
-      .log-button {
-        position: relative;
-        button {
-          background-color: var(--deep_blue);
-          color: var(--white);
-          letter-spacing: 0.2rem;
-          border: none;
-          width: 100%;
-          margin-bottom: 0.8rem;
-        }
-        .fa-arrow-right {
-          color: var(--white);
-        }
-      }
-      .fas {
-        position: absolute;
-        right: 1rem;
-        top: 0.8rem;
-        color: var(--gray);
-        @media (min-width: 1024px) and (max-width: 1280px) {
-          top: 0.9rem;
-        }
-      }
-      label {
-        font-size: 0.8rem;
-        a {
-          font-family: "Nexa Bold";
-          font-size: 0.8rem;
-          color: var(--blue_bold_text);
-        }
-      }
-    }
+main {
+  section .input-number {
+    position: relative;
   }
-  footer {
-    padding: 0rem 1rem 2rem;
-    p {
-      margin: 0rem;
-      font-family: "Nexa Bold";
+  .fa-question-circle {
+    position: absolute;
+    right: 1rem;
+    top: 0.6rem;
+    color: var(--gray);
+    @media only screen and (min-width: 768px) {
+      top: 0.8rem;
+    }
+    @media (min-width: 1024px) {
+      top: 0.9rem;
     }
   }
 }

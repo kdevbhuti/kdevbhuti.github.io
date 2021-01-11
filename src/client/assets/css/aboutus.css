@@ -1,0 +1,84 @@
+@import "../css/variabls.css";
+main .heading {
+  position: relative;
+  object-fit: cover;
+  object-position: center;
+  padding: 0rem;
+  height: 24rem;
+}
+main .heading figure {
+  filter: brightness(0.7);
+}
+main .heading .heading_contant {
+  position: absolute;
+  z-index: 2;
+  padding: 0rem 1rem;
+  direction: ltr;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+main .heading .heading_contant h1,
+main .heading .heading_contant p {
+  text-align: center;
+  color: var(--white);
+}
+main .details {
+  text-align: center;
+}
+main .details .signature {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+main .details .signature figure {
+  height: 5rem;
+  width: 17rem;
+}
+main .details .signature img {
+  object-fit: fill;
+}
+main .details .doctor_img figure {
+  height: 34rem;
+  width: 100%;
+}
+main .details .doctor_img img {
+  object-position: top;
+}
+main .facility {
+  text-align: center;
+  background-color: var(--black);
+}
+main .facility h2,
+main .facility h3 {
+  color: var(--white);
+}
+main .facility p,
+main .facility span {
+  color: var(--gray);
+}
+main .facility button {
+  background-color: var(--blue_color);
+  border: none;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+  border-radius: 0.4rem;
+}
+main .facility .facility_contant {
+  border: 0.01rem solid var(--gray-border);
+  padding: 2rem 0rem;
+  border-radius: 0.3rem;
+  margin-bottom: 0.7rem;
+}
+main .facility .facility_contant h3 {
+  margin-bottom: 0.2rem;
+}
+main .facility .facility_contant span {
+  font-size: 0.7rem;
+}
+main .facility .health_points {
+  margin-bottom: 0rem;
+}
+
+/*# sourceMappingURL=aboutus.css.map */

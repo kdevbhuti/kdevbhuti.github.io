@@ -117,24 +117,15 @@ body footer p {
   font-family: "Nexa Bold";
 }
 
-main section .input-number {
-  position: relative;
+#place {
+  display: flex;
+  justify-content: space-between;
 }
-main .fa-question-circle {
-  position: absolute;
-  right: 1rem;
-  top: 0.6rem;
-  color: var(--gray);
+#place .place-city {
+  margin-right: 0.5rem;
 }
-@media only screen and (min-width: 768px) {
-  main .fa-question-circle {
-    top: 0.8rem;
-  }
-}
-@media (min-width: 1024px) {
-  main .fa-question-circle {
-    top: 0.9rem;
-  }
+#place .place-state {
+  margin-left: 0.5rem;
 }
 
-/*# sourceMappingURL=login.css.map */
+/*# sourceMappingURL=signup.css.map */

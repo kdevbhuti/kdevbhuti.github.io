@@ -1,0 +1,88 @@
+@import "../css/variabls.css";
+
+main {
+  .heading {
+    position: relative;
+    object-fit: cover;
+    object-position: center;
+    padding: 0rem;
+    height: 24rem;
+    figure {
+      filter: brightness(0.7);
+    }
+    .heading_contant {
+      position: absolute;
+      z-index: 2;
+      padding: 0rem 1rem;
+      direction: ltr;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      h1,
+      p {
+        text-align: center;
+        color: var(--white);
+      }
+    }
+  }
+  .details {
+    text-align: center;
+    .signature {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
+      figure {
+        height: 5rem;
+        width: 17rem;
+      }
+      img {
+        object-fit: fill;
+      }
+    }
+    .doctor_img {
+      figure {
+        height: 34rem;
+        width: 100%;
+      }
+      img {
+        object-position: top;
+      }
+    }
+  }
+
+  .facility {
+    text-align: center;
+    background-color: var(--black);
+    h2,
+    h3 {
+      color: var(--white);
+    }
+    p,
+    span {
+      color: var(--gray);
+    }
+    button {
+      background-color: var(--blue_color);
+      border: none;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+      border-radius: 0.4rem;
+    }
+    .facility_contant {
+      border: 0.01rem solid var(--gray-border);
+      padding: 2rem 0rem;
+      border-radius: 0.3rem;
+      margin-bottom: 0.7rem;
+      h3 {
+        margin-bottom: 0.2rem;
+      }
+      span {
+        font-size: 0.7rem;
+      }
+    }
+    .health_points {
+      margin-bottom: 0rem;
+    }
+  }
+}

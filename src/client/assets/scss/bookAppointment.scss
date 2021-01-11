@@ -1,0 +1,16 @@
+@import "./formType.scss";
+
+section {
+  text-align: left;
+  h1 {
+    text-align: center;
+  }
+  input[type="file"] {
+    margin-bottom: 0.4rem;
+  }
+  textarea {
+    width: 100%;
+    outline: none;
+    margin-bottom: 0.4rem;
+  }
+}

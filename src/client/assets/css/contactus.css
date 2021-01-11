@@ -1,0 +1,157 @@
+@import "../css/variabls.css";
+#division {
+  display: none;
+  margin: 0rem;
+}
+@media (min-width: 1024px) {
+  #division {
+    display: block;
+  }
+}
+
+.heading {
+  background-image: url(../image/contactUs.png);
+  background-position: 47%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  padding: 5rem 0rem;
+}
+@media only screen and (min-width: 768px) {
+  .heading {
+    padding: 6rem 0rem;
+  }
+}
+@media (min-width: 1024px) {
+  .heading {
+    padding: 4rem 5.5rem;
+    text-align: left;
+  }
+}
+.heading h1,
+.heading span {
+  color: var(--white);
+}
+
+#map {
+  height: 20rem;
+  width: 100%;
+}
+@media only screen and (min-width: 768px) {
+  #map {
+    height: 25rem;
+  }
+}
+@media (min-width: 1024px) {
+  #map {
+    height: 22rem;
+  }
+}
+
+.contact-details .details {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+@media only screen and (min-width: 768px) {
+  .contact-details .details {
+    margin: 0rem;
+  }
+}
+.contact-details .details span {
+  font-size: 0.9rem;
+}
+.contact-details .details .fas {
+  font-size: 1.5rem;
+  color: var(--blue_color);
+  margin-right: 1rem;
+}
+.contact-details .mail {
+  margin: 0rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .contact-details {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+@media (min-width: 1024px) {
+  .contact-details {
+    grid-area: 1/1 / span 3 / span 1;
+    padding: 0rem;
+  }
+}
+
+.input_details {
+  background-color: var(--light_blue);
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (min-width: 768px) {
+  .input_details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 0.5rem;
+  }
+  .input_details #message_input {
+    grid-area: 1/2/4/3;
+  }
+  .input_details input {
+    margin: 0rem;
+  }
+}
+@media (min-width: 1024px) {
+  .input_details {
+    grid-area: 1/2 / span 4 / span 2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 2.8rem);
+    gap: 0.5rem;
+    padding: 2rem;
+  }
+  .input_details #message_input {
+    grid-area: 1/2/4/3;
+  }
+  .input_details input {
+    margin: 0rem;
+  }
+}
+.input_details input {
+  width: 100%;
+}
+.input_details button {
+  align-self: flex-end;
+  background-color: var(--blue_color);
+  color: var(--white);
+  border: none;
+  font-family: "Nexa Bold";
+}
+@media only screen and (min-width: 768px) {
+  .input_details button {
+    grid-area: 4/2 / span 1 / span 1;
+    justify-self: flex-end;
+  }
+}
+@media (min-width: 1024px) {
+  .input_details button {
+    grid-area: 4/2 / span 1 / span 1;
+    justify-self: flex-end;
+  }
+}
+
+@media (min-width: 1024px) {
+  .combine_section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 4.2rem);
+    padding: 0rem 5.5rem 2rem;
+    align-items: end;
+  }
+  .combine_section input {
+    padding: 0.8rem 0.5rem;
+  }
+}
+
+/*# sourceMappingURL=contactus.css.map */

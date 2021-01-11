@@ -11,6 +11,10 @@ header .navigation .quote_btn {
   color: var(--white);
 }
 
+header .navigation .login_btn {
+  background-color: var(--white);
+}
+
 header .navigation .nav_logo {
   height: 1.5rem;
   width: 6.4rem;
@@ -23,7 +27,7 @@ header .navigation button {
   display: none;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1023.5px) {
+@media only screen and (min-width: 768px) {
   header .navigation .nav_logo {
     height: 1.6rem;
     width: 6.9rem;
@@ -31,7 +35,7 @@ header .navigation button {
   }
 }
 
-@media (min-width: 1024px) and (max-width: 1280px) {
+@media (min-width: 1024px) {
   header .navigation .nav_logo {
     height: 2rem;
     width: 8rem;

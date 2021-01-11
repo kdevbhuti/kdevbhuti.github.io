@@ -35,7 +35,7 @@ footer #footer-icon i {
 }
 
 /* ipad */
-@media only screen and (min-width: 768px) and (max-width: 1023.5px) {
+@media only screen and (min-width: 768px) {
   footer {
     display: flex;
     flex-direction: row-reverse;
@@ -53,7 +53,7 @@ footer #footer-icon i {
 
   footer p {
     margin: 0rem;
-    font-family: "Nexa Bold";
+    font-family: "Nexa light";
     color: var(--deep_blue);
   }
 
@@ -91,7 +91,7 @@ footer #footer-icon i {
 }
 
 /* desktop */
-@media (min-width: 1024px) and (max-width: 1280px) {
+@media (min-width: 1024px) {
   footer {
     display: flex;
     flex-direction: row-reverse;
@@ -102,12 +102,6 @@ footer #footer-icon i {
     background-color: var(--white);
     color: var(--deep_blue);
     padding: 2.7rem 5.5rem;
-  }
-
-  footer p {
-    color: var(--deep_blue);
-    margin: 0rem;
-    font-family: "Nexa Bold";
   }
 
   footer ul li a {
@@ -150,6 +144,7 @@ footer #footer-icon i {
 /* Quary Section */
 .quary_section {
   background-color: var(--light_blue);
+  text-align: center;
 }
 
 .quary_section h2 {
@@ -162,10 +157,11 @@ footer #footer-icon i {
   border-radius: 0.2rem;
 }
 
-@media (min-width: 1024px) and (max-width: 1280px) {
+@media (min-width: 1024px) {
   .quary_section {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    text-align: left;
   }
 }

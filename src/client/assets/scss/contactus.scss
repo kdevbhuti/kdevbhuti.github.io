@@ -3,7 +3,7 @@
 #division {
   display: none;
   margin: 0rem;
-  @media (min-width: 1024px) and (max-width: 1280px) {
+  @media (min-width: 1024px) {
     display: block;
   }
 }
@@ -14,10 +14,10 @@
   background-size: cover;
   text-align: center;
   padding: 5rem 0rem;
-  @media only screen and (min-width: 768px) and (max-width: 1023.5px) {
+  @media only screen and (min-width: 768px) {
     padding: 6rem 0rem;
   }
-  @media (min-width: 1024px) and (max-width: 1280px) {
+  @media (min-width: 1024px) {
     padding: 4rem 5.5rem;
     text-align: left;
   }
@@ -30,10 +30,10 @@
 #map {
   height: 20rem;
   width: 100%;
-  @media only screen and (min-width: 768px) and (max-width: 1023.5px) {
+  @media only screen and (min-width: 768px) {
     height: 25rem;
   }
-  @media (min-width: 1024px) and (max-width: 1280px) {
+  @media (min-width: 1024px) {
     height: 22rem;
   }
 }
@@ -43,7 +43,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
-    @media only screen and (min-width: 768px) and (max-width: 1023.5px) {
+    @media only screen and (min-width: 768px) {
       margin: 0rem;
     }
     span {
@@ -61,11 +61,11 @@
 }
 
 .contact-details {
-  @media only screen and (min-width: 768px) and (max-width: 1023.5px) {
+  @media only screen and (min-width: 768px) {
     display: flex;
     justify-content: space-between;
   }
-  @media (min-width: 1024px) and (max-width: 1280px) {
+  @media (min-width: 1024px) {
     grid-area: 1/1 / span 3 / span 1;
     padding: 0rem;
   }
@@ -75,7 +75,7 @@
   background-color: var(--light_blue);
   display: flex;
   flex-direction: column;
-  @media only screen and (min-width: 768px) and (max-width: 1023.5px) {
+  @media only screen and (min-width: 768px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, 1fr);
@@ -87,7 +87,7 @@
       margin: 0rem;
     }
   }
-  @media (min-width: 1024px) and (max-width: 1280px) {
+  @media (min-width: 1024px) {
     grid-area: 1/2 / span 4 / span 2;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -111,11 +111,11 @@
     color: var(--white);
     border: none;
     font-family: "Nexa Bold";
-    @media only screen and (min-width: 768px) and (max-width: 1023.5px) {
+    @media only screen and (min-width: 768px) {
       grid-area: 4/2 / span 1 / span 1;
       justify-self: flex-end;
     }
-    @media (min-width: 1024px) and (max-width: 1280px) {
+    @media (min-width: 1024px) {
       grid-area: 4/2 / span 1 / span 1;
       justify-self: flex-end;
     }
@@ -123,7 +123,7 @@
 }
 
 .combine_section {
-  @media (min-width: 1024px) and (max-width: 1280px) {
+  @media (min-width: 1024px) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 4.2rem);
