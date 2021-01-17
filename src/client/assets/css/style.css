@@ -26,11 +26,14 @@ section {
 
 .find_healthcare .input_field_location input {
   margin: 0rem;
-  border: none;
 }
 .find_healthcare .combine_inputfild input {
   width: 100%;
   border: none;
+}
+
+.find_healthcare .combine_inputfild input::placeholder {
+  font-size: 0.8rem;
 }
 
 .find_healthcare .search_btn {
@@ -110,6 +113,7 @@ section {
 .How_work .work_label .num {
   color: var(--light_blue);
   padding: 0rem 0.4rem;
+  font-size: 1.1rem;
 }
 .How_work .work_content .consultation_img {
   height: 16rem;
@@ -146,6 +150,10 @@ section {
   .How_work .work_content article p {
     font-size: 0.9rem;
     line-height: 1rem;
+  }
+  .How_work .work_label .num {
+    padding: 0rem 1rem;
+    font-size: 1.2rem;
   }
 }
 
@@ -249,12 +257,6 @@ section {
     gap: 0.5rem;
   }
 
-  .doctor .doctor_details .doc_details figure img {
-    object-fit: cover;
-    object-position: 0 25%;
-    height: 18rem;
-  }
-
   .doctor .dots {
     margin-top: 1.5rem;
     margin-left: 1rem;
@@ -263,10 +265,15 @@ section {
     display: inline-block;
     height: 0.5rem;
     width: 0.5rem;
-    border: 0.1rem solid var(--black);
-    margin: 0.1rem;
+    border: 2px solid var(--deep_blue);
+    margin: 0rem;
     background-color: var(--gray);
     border-radius: 50%;
+  }
+
+  .doctor .dots .selected {
+    border: 2px solid var(--blue_bold_text);
+    background-color: transparent;
   }
 
   .doctor .doctor_details .doc_details {

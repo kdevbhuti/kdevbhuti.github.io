@@ -19,12 +19,7 @@ h5 {
   color: var(--deep_blue);
 }
 
-h1 {
-  font-size: 1.5rem;
-  line-height: 1.7rem;
-  margin-bottom: 0.5rem;
-}
-
+h1,
 h2 {
   font-size: 1.5rem;
   line-height: 1.7rem;
@@ -39,7 +34,7 @@ h3 {
 
 h4 {
   font-size: 1rem;
-  line-height: 1rem;
+  line-height: 1.2rem;
   margin-bottom: 0.2rem;
 }
 
@@ -47,6 +42,12 @@ h5 {
   font-size: 0.8rem;
   line-height: 1rem;
   margin-bottom: 0.3rem;
+}
+
+h6 {
+  font-size: 0.7rem;
+  line-height: 1rem;
+  margin-bottom: 0.2rem;
 }
 
 header {
@@ -68,9 +69,8 @@ body {
 }
 
 button {
-  padding: 0.8rem 3rem;
-  letter-spacing: 1px;
-  word-spacing: 0.2rem;
+  padding: 0.65rem 2rem;
+  letter-spacing: 2px;
   outline: none;
   font-size: 0.8rem;
   font-family: "Nexa Light";
@@ -78,9 +78,13 @@ button {
 
 input[type="text"],
 [type="password"],
-[type="email"] {
+[type="email"],
+[type="date"] {
   padding: 0.6rem 0.5rem;
   margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+  line-height: 1.1rem;
   outline: none;
   border: 1px solid var(--gray-border);
 }
@@ -88,12 +92,16 @@ input[type="text"],
 select {
   padding: 0.8rem 0.5rem;
   margin-bottom: 0.5rem;
+  width: 100%;
   outline: none;
   color: var(--placeHolderColor);
   border: 1px solid var(--gray-border);
 }
 
 select option {
+  color: var(--deep_blue);
+  line-height: 1.1rem;
+  font-size: 0.9rem;
   color: var(--deep_blue);
 }
 
@@ -102,13 +110,13 @@ input::placeholder {
 }
 
 label {
-  /* margin-bottom: 1rem; */
+  margin-bottom: 0.5rem;
   line-height: 1.1rem;
   font-size: 0.7rem;
 }
 
 textarea {
-  border: 0.1rem solid var(--gray-border);
+  border: 2px solid var(--gray-border);
 }
 
 img {
@@ -118,7 +126,7 @@ img {
 }
 
 ul li {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   margin-bottom: 0.2rem;
   line-height: 1rem;
   color: var(--deep_blue);
@@ -129,9 +137,10 @@ section {
   padding: 1.5rem 1rem;
 }
 
-.fas,
-.far {
+i {
   font-size: 1rem;
+  line-height: 1.2rem;
+  color: var(--deep_blue);
 }
 
 a:link {
@@ -146,7 +155,7 @@ a {
 }
 
 span {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   line-height: 1.2rem;
   font-size: 0.9rem;
   color: var(--deep_blue);
@@ -154,12 +163,7 @@ span {
 
 /* Ipad View ////////////////////////////////////////////////////////////*/
 @media only screen and (min-width: 768px) {
-  h1 {
-    font-size: 1.7rem;
-    line-height: 2rem;
-    margin-bottom: 0.7rem;
-  }
-
+  h1,
   h2 {
     font-size: 1.7rem;
     line-height: 2rem;
@@ -184,13 +188,19 @@ span {
     margin-bottom: 0.3rem;
   }
 
+  h6 {
+    font-size: 0.6rem;
+    line-height: 0.9rem;
+    margin-bottom: 0.2rem;
+  }
+
   header {
     padding: 1rem 2rem;
   }
 
   p {
     margin-bottom: 0.7rem;
-    line-height: 1.2rem;
+    line-height: 1rem;
     font-size: 0.9rem;
   }
 
@@ -218,14 +228,17 @@ span {
 
   input[type="text"],
   [type="password"],
-  [type="email"] {
-    padding: 0.8rem 0.5rem;
+  [type="email"],
+  [type="date"] {
+    padding: 0.6rem 0.5rem;
     margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.1rem;
   }
 
   a {
-    font-size: 1rem;
-    line-height: 1.2rem;
+    font-size: 0.9rem;
+    line-height: 1.1rem;
     color: var(--deep_blue);
   }
 
@@ -238,12 +251,7 @@ span {
 
 /* Desktop View */
 @media (min-width: 1024px) {
-  h1 {
-    font-size: 2rem;
-    line-height: 2.3rem;
-    margin-bottom: 1rem;
-  }
-
+  h1,
   h2 {
     font-size: 2rem;
     line-height: 2.3rem;
@@ -275,7 +283,7 @@ span {
   p {
     margin-bottom: 1.5rem;
     line-height: 1.2rem;
-    font-size: 1.03rem;
+    font-size: 1.1rem;
     word-spacing: 0.15rem;
     color: var(--deep_blue);
   }
@@ -288,8 +296,9 @@ span {
 
   input[type="text"],
   [type="password"],
-  [type="email"] {
-    padding: 1rem 0.8rem;
+  [type="email"],
+  [type="date"] {
+    padding: 0.7rem 0.8rem;
     margin-bottom: 0.5rem;
     outline: none;
   }
@@ -301,13 +310,19 @@ span {
   }
 
   button {
-    padding: 1rem 3rem;
+    padding: 0.8rem 3rem;
     outline: none;
     font-family: "Nexa Light";
   }
 
   section {
     padding: 3.5rem 5.5rem;
+  }
+
+  label {
+    margin-bottom: 0.7rem;
+    line-height: 1.2rem;
+    font-size: 0.9rem;
   }
 
   .fas,

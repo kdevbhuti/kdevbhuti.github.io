@@ -6,8 +6,16 @@ main .heading {
   padding: 0rem;
   height: 24rem;
 }
+@media (min-width: 1024px) {
+  main .heading {
+    height: 17rem;
+  }
+}
 main .heading figure {
   filter: brightness(0.7);
+}
+main .heading figure img {
+  object-position: top;
 }
 main .heading .heading_contant {
   position: absolute;
@@ -18,6 +26,8 @@ main .heading .heading_contant {
   flex-direction: column;
   justify-content: center;
   height: 100%;
+  width: 100%;
+  box-sizing: border-box;
 }
 main .heading .heading_contant h1,
 main .heading .heading_contant p {
@@ -27,10 +37,31 @@ main .heading .heading_contant p {
 main .details {
   text-align: center;
 }
+@media only screen and (min-width: 768px) {
+  main .details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    text-align: left;
+    column-gap: 2rem;
+  }
+}
+@media only screen and (min-width: 768px) {
+  main .details .featurs {
+    grid-area: 1/1/span 1/span 2;
+  }
+}
 main .details .signature {
   display: flex;
   justify-content: center;
   margin-bottom: 1rem;
+}
+@media only screen and (min-width: 768px) {
+  main .details .signature {
+    grid-area: 2/1/span 1/span 3;
+    justify-content: left;
+    margin-bottom: 0rem;
+  }
 }
 main .details .signature figure {
   height: 5rem;
@@ -39,9 +70,20 @@ main .details .signature figure {
 main .details .signature img {
   object-fit: fill;
 }
+@media only screen and (min-width: 768px) {
+  main .details .doctor_img {
+    grid-area: 1/3/span 1/span 1;
+  }
+}
 main .details .doctor_img figure {
   height: 34rem;
   width: 100%;
+}
+@media only screen and (min-width: 768px) {
+  main .details .doctor_img figure {
+    height: 24rem;
+    width: 17rem;
+  }
 }
 main .details .doctor_img img {
   object-position: top;
@@ -50,35 +92,121 @@ main .facility {
   text-align: center;
   background-color: var(--black);
 }
-main .facility h2,
-main .facility h3 {
+@media only screen and (min-width: 768px) {
+  main .facility {
+    text-align: left;
+  }
+}
+@media (min-width: 1024px) {
+  main .facility {
+    padding: 0rem;
+    height: 27.5rem;
+    width: 100%;
+  }
+}
+@media (min-width: 1024px) {
+  main .facility .visual_aboup {
+    position: absolute;
+    z-index: 2;
+    padding: 3.5rem 5.5rem;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 1rem;
+  }
+}
+@media only screen and (min-width: 768px) {
+  main .facility .visual_aboup .acknowledgement {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  main .facility .visual_aboup .acknowledgement {
+    grid-area: 1/2/span 2/span 1;
+  }
+}
+main .facility .visual_aboup .acknowledgement .facility_contant {
+  border: 0.01rem solid var(--gray-border);
+  padding: 2rem 0rem;
+  border-radius: 0.3rem;
+  margin-bottom: 0.7rem;
+}
+@media only screen and (min-width: 768px) {
+  main .facility .visual_aboup .acknowledgement .facility_contant {
+    text-align: center;
+    margin-bottom: 0rem;
+  }
+}
+@media (min-width: 1024px) {
+  main .facility .visual_aboup .acknowledgement .facility_contant {
+    padding: 3.2rem 0rem;
+  }
+}
+main .facility .visual_aboup .acknowledgement .facility_contant h3 {
+  margin-bottom: 0.2rem;
   color: var(--white);
 }
-main .facility p,
-main .facility span {
+main .facility .visual_aboup .acknowledgement .facility_contant span {
+  font-size: 0.7rem;
+  color: var(--white);
+}
+@media (min-width: 1024px) {
+  main .facility .visual_aboup .inscription {
+    grid-area: 1/1/span 1/span 1;
+  }
+}
+main .facility .visual_aboup .inscription h2,
+main .facility .visual_aboup .inscription h3 {
+  color: var(--white);
+}
+main .facility .visual_aboup .inscription p,
+main .facility .visual_aboup .inscription span {
   color: var(--gray);
 }
-main .facility button {
+@media (min-width: 1024px) {
+  main .facility .visual_aboup .inscription p,
+main .facility .visual_aboup .inscription span {
+    color: var(--white);
+    margin-bottom: 0rem;
+  }
+}
+main .facility .visual_aboup button {
   background-color: var(--blue_color);
   border: none;
   color: var(--white);
   margin-bottom: 0.5rem;
   border-radius: 0.4rem;
 }
-main .facility .facility_contant {
-  border: 0.01rem solid var(--gray-border);
-  padding: 2rem 0rem;
-  border-radius: 0.3rem;
-  margin-bottom: 0.7rem;
+@media (min-width: 1024px) {
+  main .facility .visual_aboup button {
+    grid-area: 2/1/span 1/span 1;
+    justify-self: flex-start;
+    align-self: center;
+    margin-bottom: 0rem;
+  }
 }
-main .facility .facility_contant h3 {
-  margin-bottom: 0.2rem;
-}
-main .facility .facility_contant span {
-  font-size: 0.7rem;
-}
-main .facility .health_points {
+main .facility .visual_aboup .health_points {
   margin-bottom: 0rem;
+}
+main .facility .background_figure {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+@media (min-width: 1024px) {
+  main .facility .background_figure {
+    display: block;
+  }
+}
+@media (min-width: 1024px) {
+  main .facility .background_figure img {
+    filter: blur(15px) brightness(0.5);
+  }
 }
 
 /*# sourceMappingURL=aboutus.css.map */

@@ -13,10 +13,7 @@ body {
     justify-content: center;
     margin: 3rem 1rem;
     @media only screen and (min-width: 768px) {
-      margin: 7rem 2rem;
-    }
-    @media (min-width: 1024px) {
-      margin: 7rem 2rem;
+      margin: 3rem 2rem;
     }
     section {
       background-color: var(--white);
@@ -25,34 +22,24 @@ body {
       box-shadow: 0rem 0rem 1rem var(--gray);
       input[type="text"],
       [type="password"],
-      [type="email"] {
+      [type="email"],
+      [type="date"] {
         width: 100%;
       }
       // select box styling////////////////////////////////////////////////////////////////////
-      select {
-        width: 100%;
-        .hide_option {
-          display: none;
-        }
-      }
       .select_box {
         position: relative;
-        button {
+        .select {
+          width: 100%;
+          .hide_option {
+            display: none;
+          }
+          appearance: none;
+        }
+        .fa-caret-down {
           position: absolute;
-          right: 0.14rem;
-          padding: 0rem;
-          height: 2.6rem;
-          width: 0.8rem;
-          border: 0rem;
-          box-shadow: 2px 2px 1px grey;
-          pointer-events: none;
-          @media (min-width: 1024px) {
-            height: 3rem;
-          }
-          .fas {
-            position: static;
-            color: var(--deep_blue);
-          }
+          top: 0.7rem;
+          right: 0.8rem;
         }
       }
       // ///////////////////////////////////////////////////////////////////////////////
@@ -64,7 +51,9 @@ body {
       }
       h1 {
         color: var(--blue_bold_text);
-        margin-bottom: 1.5rem;
+        border-bottom: 1.5px solid var(--gray-border);
+        margin: 0rem -1rem 1rem;
+        padding-bottom: 1.5rem;
       }
       hr {
         margin: 1rem -1rem 1rem;
@@ -82,10 +71,10 @@ body {
         .fa-arrow-right {
           position: absolute;
           right: 1rem;
-          top: 0.8rem;
+          top: 0.65rem;
           color: var(--white);
           @media (min-width: 1024px) {
-            top: 0.9rem;
+            top: 0.75rem;
           }
         }
       }

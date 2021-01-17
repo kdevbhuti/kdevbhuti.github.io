@@ -27,7 +27,8 @@ footer p {
 footer ul li a {
   color: var(--white);
 }
-footer .far {
+footer .far,
+footer .fab {
   color: var(--white);
 }
 footer #footer-icon i {
@@ -43,7 +44,7 @@ footer #footer-icon i {
     justify-content: space-between;
     align-items: center;
     padding: 2rem;
-    gap: 2rem;
+    gap: 1.2rem;
     background-color: var(--white);
     color: var(--deep_blue);
   }
@@ -53,8 +54,8 @@ footer #footer-icon i {
 
   footer p {
     margin: 0rem;
-    font-family: "Nexa light";
     color: var(--deep_blue);
+    font-family: "Nexa Light";
   }
 
   footer .footer_img {
@@ -80,7 +81,8 @@ footer #footer-icon i {
   }
 
   footer #footer-icon .fab {
-    margin: 0rem 0rem 0rem 1.8rem;
+    margin: 0rem 0rem 0rem 1.4rem;
+    color: var(--deep_blue);
   }
 
   footer #footer-icon {
@@ -93,51 +95,18 @@ footer #footer-icon i {
 /* desktop */
 @media (min-width: 1024px) {
   footer {
-    display: flex;
-    flex-direction: row-reverse;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
     gap: 2rem;
-    background-color: var(--white);
-    color: var(--deep_blue);
     padding: 2.7rem 5.5rem;
   }
 
-  footer ul li a {
+  /* footer ul li a {
     color: var(--deep_blue);
-  }
+  } */
 
   footer .footer_img {
     height: 2rem;
     width: 10rem;
     margin: 0rem;
-  }
-
-  footer ul {
-    display: inline-flex;
-    align-items: center;
-    justify-content: flex-start;
-    align-content: center;
-    flex: 1 1 50%;
-  }
-
-  footer ul li {
-    margin: 0rem 2rem 0rem 0rem;
-  }
-
-  footer #footer-icon .fab {
-    margin: 0rem 0rem 0rem 1.8rem;
-  }
-
-  footer #footer-icon {
-    display: inline-flex;
-    flex: 1 1 50%;
-    justify-content: flex-end;
-  }
-
-  footer .far {
-    color: var(--deep_blue);
   }
 }
 

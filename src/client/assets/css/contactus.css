@@ -42,11 +42,6 @@
     height: 25rem;
   }
 }
-@media (min-width: 1024px) {
-  #map {
-    height: 22rem;
-  }
-}
 
 .contact-details .details {
   display: flex;
@@ -56,6 +51,11 @@
 @media only screen and (min-width: 768px) {
   .contact-details .details {
     margin: 0rem;
+  }
+}
+@media (min-width: 1024px) {
+  .contact-details .details {
+    margin-bottom: 1rem;
   }
 }
 .contact-details .details span {
@@ -78,7 +78,8 @@
 }
 @media (min-width: 1024px) {
   .contact-details {
-    grid-area: 1/1 / span 3 / span 1;
+    display: block;
+    grid-area: 1/1/span 3/span 1;
     padding: 0rem;
   }
 }
@@ -104,7 +105,7 @@
 }
 @media (min-width: 1024px) {
   .input_details {
-    grid-area: 1/2 / span 4 / span 2;
+    grid-area: 1/2/span 4/span 2;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, 2.8rem);
@@ -130,13 +131,13 @@
 }
 @media only screen and (min-width: 768px) {
   .input_details button {
-    grid-area: 4/2 / span 1 / span 1;
+    grid-area: 4/2/span 1/span 1;
     justify-self: flex-end;
   }
 }
 @media (min-width: 1024px) {
   .input_details button {
-    grid-area: 4/2 / span 1 / span 1;
+    grid-area: 4/2/span 1/span 1;
     justify-self: flex-end;
   }
 }

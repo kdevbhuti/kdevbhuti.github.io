@@ -41,12 +41,12 @@
 }
 
 .vaccancy {
+  @media (min-width: 1024px) {
+    grid-area: 1/1 / span 1 / span 2;
+  }
   h2 {
     text-align: center;
     @media only screen and (min-width: 768px) {
-      text-align: left;
-    }
-    @media (min-width: 1024px) {
       text-align: left;
     }
   }
@@ -74,26 +74,14 @@
     }
   }
 
-  @media only screen and (min-width: 768px) {
-    .vaccancy_content {
+  .vaccancy_content {
+    @media only screen and (min-width: 768px) {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: 1fr;
       gap: 1rem;
     }
-    .details {
-      grid-area: 1/2 / span 1 / span 2;
-    }
-  }
-  @media (min-width: 1024px) {
-    grid-area: 1/1 / span 1 / span 2;
-    .vaccancy_content {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: 1fr;
-      gap: 1rem;
-    }
-    .details {
+    .vaccancy_details {
       grid-area: 1/2 / span 1 / span 2;
     }
   }
@@ -114,9 +102,6 @@
     @media only screen and (min-width: 768px) {
       margin: 0rem;
     }
-    @media (min-width: 1024px) {
-      margin: 0rem;
-    }
   }
   .last_para {
     margin: 0rem;
@@ -129,23 +114,20 @@
   }
   @media (min-width: 1024px) {
     grid-area: 2/1 / span 1 / span 3;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
     align-items: end;
-    gap: 1rem;
   }
 }
 
 .servise_details {
-  h4 {
-    margin-bottom: 0.6rem;
-    .horizontal_bar {
-      font-size: 1.2rem;
-      letter-spacing: -0.12rem;
-      color: var(--blue_bold_text);
-      margin-left: -1.6rem;
-    }
+  @media only screen and (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    align-items: start;
+    gap: 1rem;
+  }
+  @media (min-width: 1024px) {
+    display: block;
   }
   .details {
     border: 0.13rem solid var(--gray-border);
@@ -155,12 +137,24 @@
     @media only screen and (min-width: 768px) {
       margin: 0rem;
     }
+    @media (min-width: 1024px) {
+      margin-bottom: 0.5rem;
+    }
     ul li {
       border-bottom: 0.1rem solid var(--gray-border);
       margin-bottom: 0.6rem;
       display: flex;
       height: 1.7rem;
       justify-content: space-between;
+      h4 {
+        margin-bottom: 0.6rem;
+        .horizontal_bar {
+          font-size: 1.2rem;
+          letter-spacing: -0.12rem;
+          color: var(--blue_bold_text);
+          margin-left: -1.6rem;
+        }
+      }
       span {
         font-size: 0.8rem;
       }
@@ -179,16 +173,6 @@
   }
   .Schedule {
     margin: 0rem;
-  }
-  @media only screen and (min-width: 768px) {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    align-items: start;
-    gap: 1rem;
-  }
-  @media (min-width: 1024px) {
-    grid-area: 1/3 / span 1 / span 1;
   }
 }
 
@@ -211,10 +195,6 @@
       display: flex;
       justify-content: space-between;
     }
-    @media (min-width: 1024px) {
-      display: flex;
-      justify-content: space-between;
-    }
   }
   .servise_content {
     height: 15rem;
@@ -222,9 +202,6 @@
     border-radius: 0.5rem;
     margin-bottom: 0.5rem;
     @media only screen and (min-width: 768px) {
-      margin: 0rem;
-    }
-    @media (min-width: 1024px) {
       margin: 0rem;
     }
     h3 {
@@ -255,12 +232,6 @@
   }
   .contents {
     @media only screen and (min-width: 768px) {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: 1fr;
-      gap: 0.5rem;
-    }
-    @media (min-width: 1024px) {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: 1fr;
