@@ -99,10 +99,6 @@ footer #footer-icon i {
     padding: 2.7rem 5.5rem;
   }
 
-  /* footer ul li a {
-    color: var(--deep_blue);
-  } */
-
   footer .footer_img {
     height: 2rem;
     width: 10rem;
@@ -132,5 +128,8 @@ footer #footer-icon i {
     align-items: center;
     justify-content: space-between;
     text-align: left;
+  }
+  .quary_section p {
+    margin-bottom: 0rem;
   }
 }

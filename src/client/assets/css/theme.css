@@ -33,14 +33,14 @@ h3 {
 }
 
 h4 {
-  font-size: 1rem;
-  line-height: 1.2rem;
+  font-size: 0.9rem;
+  line-height: 1.1rem;
   margin-bottom: 0.2rem;
 }
 
 h5 {
-  font-size: 0.8rem;
-  line-height: 1rem;
+  font-size: 0.7rem;
+  line-height: 0.9rem;
   margin-bottom: 0.3rem;
 }
 
@@ -57,29 +57,32 @@ header {
 
 p {
   margin-bottom: 0.5rem;
-  line-height: 1.1rem;
+  line-height: 1rem;
   font-size: 0.9rem;
+  word-spacing: 0.2rem;
   color: var(--deep_blue);
 }
 
 body {
   font-family: "Nexa Light";
-  letter-spacing: 0.5px;
-  word-spacing: 1px;
+  letter-spacing: 0.4px;
+  word-spacing: 0.3px;
 }
 
 button {
   padding: 0.65rem 2rem;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   outline: none;
   font-size: 0.8rem;
   font-family: "Nexa Light";
 }
 
+textarea,
 input[type="text"],
 [type="password"],
 [type="email"],
 [type="date"] {
+  font-family: "nexa light";
   padding: 0.6rem 0.5rem;
   margin-bottom: 0.5rem;
   letter-spacing: 0.5px;
@@ -105,18 +108,16 @@ select option {
   color: var(--deep_blue);
 }
 
-input::placeholder {
+input::placeholder,
+textarea::placeholder {
   color: var(--placeHolderColor);
+  font-weight: bold;
 }
 
 label {
   margin-bottom: 0.5rem;
   line-height: 1.1rem;
   font-size: 0.7rem;
-}
-
-textarea {
-  border: 2px solid var(--gray-border);
 }
 
 img {
@@ -126,7 +127,7 @@ img {
 }
 
 ul li {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   margin-bottom: 0.2rem;
   line-height: 1rem;
   color: var(--deep_blue);
@@ -183,7 +184,7 @@ span {
   }
 
   h5 {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     line-height: 1rem;
     margin-bottom: 0.3rem;
   }
@@ -199,9 +200,10 @@ span {
   }
 
   p {
+    word-spacing: 1.5px;
     margin-bottom: 0.7rem;
-    line-height: 1rem;
-    font-size: 0.9rem;
+    line-height: 1.1rem;
+    font-size: 0.95rem;
   }
 
   section {
@@ -215,8 +217,8 @@ span {
   }
 
   body {
-    letter-spacing: 0.5px;
-    word-spacing: 2px;
+    letter-spacing: 0.6px;
+    word-spacing: 0.4px;
   }
 
   span {
@@ -226,6 +228,11 @@ span {
     color: var(--deep_blue);
   }
 
+  button {
+    padding: 0.7rem 2rem;
+  }
+
+  textarea,
   input[type="text"],
   [type="password"],
   [type="email"],
@@ -243,7 +250,7 @@ span {
   }
 
   label {
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.6rem;
     line-height: 1.1rem;
     font-size: 0.8rem;
   }
@@ -253,26 +260,26 @@ span {
 @media (min-width: 1024px) {
   h1,
   h2 {
-    font-size: 2rem;
-    line-height: 2.3rem;
+    font-size: 1.9rem;
+    line-height: 2.1rem;
     margin-bottom: 1rem;
   }
 
   h3 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     line-height: 1.8rem;
     margin-bottom: 1rem;
   }
 
   h4 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 1.2rem;
     margin-bottom: 0.5rem;
   }
 
   h5 {
-    font-size: 0.8rem;
-    line-height: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.1rem;
     margin-bottom: 0.3rem;
   }
 
@@ -280,10 +287,16 @@ span {
     padding: 1.1rem 5.5rem;
   }
 
+  ul li {
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+    line-height: 1.1rem;
+  }
+
   p {
     margin-bottom: 1.5rem;
     line-height: 1.2rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
     word-spacing: 0.15rem;
     color: var(--deep_blue);
   }
@@ -294,6 +307,11 @@ span {
     color: var(--deep_blue);
   }
 
+  body {
+    letter-spacing: 0.7px;
+    word-spacing: 0.5px;
+  }
+  textarea,
   input[type="text"],
   [type="password"],
   [type="email"],
@@ -311,8 +329,6 @@ span {
 
   button {
     padding: 0.8rem 3rem;
-    outline: none;
-    font-family: "Nexa Light";
   }
 
   section {
@@ -325,8 +341,8 @@ span {
     font-size: 0.9rem;
   }
 
-  .fas,
-  .far {
+  i {
     font-size: 1.1rem;
+    line-height: 1.3rem;
   }
 }

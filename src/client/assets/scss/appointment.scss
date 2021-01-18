@@ -10,7 +10,8 @@ section {
   }
   textarea {
     width: 100%;
-    outline: none;
-    margin-bottom: 0.4rem;
+  }
+  input[type="date"] {
+    width: 100%;
   }
 }

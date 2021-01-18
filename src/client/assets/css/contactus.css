@@ -89,6 +89,9 @@
   display: flex;
   flex-direction: column;
 }
+.input_details .message_input {
+  height: 2.5rem;
+}
 @media only screen and (min-width: 768px) {
   .input_details {
     display: grid;
@@ -96,8 +99,10 @@
     grid-template-rows: repeat(4, 1fr);
     gap: 0.5rem;
   }
-  .input_details #message_input {
+  .input_details .message_input {
     grid-area: 1/2/4/3;
+    margin-bottom: 0rem;
+    height: 100%;
   }
   .input_details input {
     margin: 0rem;
@@ -112,7 +117,7 @@
     gap: 0.5rem;
     padding: 2rem;
   }
-  .input_details #message_input {
+  .input_details .message_input {
     grid-area: 1/2/4/3;
   }
   .input_details input {

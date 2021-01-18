@@ -1,0 +1,94 @@
+main {
+  .heading {
+    background-image: url(../image/contactUs.png);
+    background-position: 47%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding: 5rem 0rem;
+    @media only screen and (min-width: 768px) {
+      padding: 6rem 0rem;
+    }
+    @media (min-width: 1024px) {
+      padding: 4rem 5.5rem;
+      text-align: left;
+    }
+    h1,
+    span {
+      color: var(--white);
+    }
+  }
+  .about_details {
+    .doctor_img {
+      height: 17rem;
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+    .details {
+      border: 1px solid var(--gray-border);
+      padding: 0.5rem;
+      .name {
+        display: flex;
+        align-items: center;
+        margin-left: -0.5rem;
+        @media only screen and (min-width: 768px) {
+          margin-left: -1rem;
+        }
+        @media (min-width: 1024px) {
+          margin-left: -1.6rem;
+        }
+        color: var(--blue_bold_text);
+        .horizontal_bar {
+          letter-spacing: -0.1rem;
+          color: var(--blue_bold_text);
+          margin-bottom: 0.4rem;
+          @media only screen and (min-width: 768px) {
+            font-size: 1rem;
+          }
+          @media (min-width: 1024px) {
+            font-size: 1.4rem;
+          }
+        }
+      }
+      @media only screen and (min-width: 768px) {
+        padding: 1rem;
+      }
+      @media (min-width: 1024px) {
+        padding: 1.5rem;
+      }
+      .artical {
+        border-bottom: 1px dashed var(--gray);
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+      .point_articals {
+        padding: 0.5rem;
+        background-color: var(--para_background);
+        margin-bottom: 0.5rem;
+        p {
+          margin: 0rem;
+        }
+      }
+      .about_point {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.5rem;
+        color: var(--blue_bold_text);
+        padding-bottom: 0.5rem;
+        border-bottom: 1px dashed var(--gray);
+        h3,
+        span {
+          margin-bottom: 0rem;
+          color: var(--blue_bold_text);
+        }
+        span {
+          margin-right: 0.4rem;
+        }
+        .fas {
+          color: var(--blue_bold_text);
+        }
+      }
+    }
+  }
+}

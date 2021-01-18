@@ -161,21 +161,21 @@
     margin-bottom: 0.5rem;
   }
 }
+.servise_details .details h4 {
+  margin-bottom: 0.6rem;
+}
+.servise_details .details h4 .horizontal_bar {
+  font-size: 1.2rem;
+  letter-spacing: -0.12rem;
+  color: var(--blue_bold_text);
+  margin-left: -1.6rem;
+}
 .servise_details .details ul li {
   border-bottom: 0.1rem solid var(--gray-border);
   margin-bottom: 0.6rem;
   display: flex;
   height: 1.7rem;
   justify-content: space-between;
-}
-.servise_details .details ul li h4 {
-  margin-bottom: 0.6rem;
-}
-.servise_details .details ul li h4 .horizontal_bar {
-  font-size: 1.2rem;
-  letter-spacing: -0.12rem;
-  color: var(--blue_bold_text);
-  margin-left: -1.6rem;
 }
 .servise_details .details ul li span {
   font-size: 0.8rem;

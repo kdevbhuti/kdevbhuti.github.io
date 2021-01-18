@@ -15,12 +15,7 @@ body main {
 }
 @media only screen and (min-width: 768px) {
   body main {
-    margin: 7rem 2rem;
-  }
-}
-@media (min-width: 1024px) {
-  body main {
-    margin: 7rem 2rem;
+    margin: 3rem 2rem;
   }
 }
 body main section {
@@ -29,36 +24,26 @@ body main section {
   width: 100%;
   box-shadow: 0rem 0rem 1rem var(--gray);
 }
-body main section input[type="text"],
-body main section [type="password"],
-body main section [type="email"] {
+body main section input[type=text],
+body main section [type=password],
+body main section [type=email],
+body main section [type=date] {
   width: 100%;
-}
-body main section select {
-  width: 100%;
-}
-body main section select .hide_option {
-  display: none;
 }
 body main section .select_box {
   position: relative;
 }
-body main section .select_box button {
+body main section .select_box .select {
+  width: 100%;
+  appearance: none;
+}
+body main section .select_box .select .hide_option {
+  display: none;
+}
+body main section .select_box .fa-caret-down {
   position: absolute;
-  right: 0.14rem;
-  padding: 0rem;
-  height: 2.6rem;
-  width: 0.8rem;
-  border: 0rem;
-  box-shadow: 2px 2px 1px grey;
-  pointer-events: none;
-}
-body main section .select_box button .fas {
-  position: static;
-  color: var(--deep_blue);
-}
-body main section .input-number {
-  position: relative;
+  top: 0.7rem;
+  right: 0.8rem;
 }
 @media only screen and (min-width: 768px) {
   body main section {
@@ -72,7 +57,9 @@ body main section .input-number {
 }
 body main section h1 {
   color: var(--blue_bold_text);
-  margin-bottom: 1.5rem;
+  border-bottom: 1.5px solid var(--gray-border);
+  margin: 0rem -1rem 1rem;
+  padding-bottom: 1.5rem;
 }
 body main section hr {
   margin: 1rem -1rem 1rem;
@@ -89,17 +76,14 @@ body main section .log-button button {
   margin-bottom: 0.8rem;
 }
 body main section .log-button .fa-arrow-right {
-  color: var(--white);
-}
-body main section .fas {
   position: absolute;
   right: 1rem;
-  top: 0.8rem;
-  color: var(--gray);
+  top: 0.65rem;
+  color: var(--white);
 }
 @media (min-width: 1024px) {
-  body main section .fas {
-    top: 0.9rem;
+  body main section .log-button .fa-arrow-right {
+    top: 0.75rem;
   }
 }
 body main section label {
@@ -124,13 +108,14 @@ section {
 section h1 {
   text-align: center;
 }
-section input[type="file"] {
+section input[type=file] {
   margin-bottom: 0.4rem;
 }
 section textarea {
   width: 100%;
-  outline: none;
-  margin-bottom: 0.4rem;
+}
+section input[type=date] {
+  width: 100%;
 }
 
-/*# sourceMappingURL=bookAppointment.css.map */
+/*# sourceMappingURL=appointment.css.map */

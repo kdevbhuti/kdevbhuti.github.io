@@ -140,21 +140,22 @@
     @media (min-width: 1024px) {
       margin-bottom: 0.5rem;
     }
+    h4 {
+      margin-bottom: 0.6rem;
+      .horizontal_bar {
+        font-size: 1.2rem;
+        letter-spacing: -0.12rem;
+        color: var(--blue_bold_text);
+        margin-left: -1.6rem;
+      }
+    }
     ul li {
       border-bottom: 0.1rem solid var(--gray-border);
       margin-bottom: 0.6rem;
       display: flex;
       height: 1.7rem;
       justify-content: space-between;
-      h4 {
-        margin-bottom: 0.6rem;
-        .horizontal_bar {
-          font-size: 1.2rem;
-          letter-spacing: -0.12rem;
-          color: var(--blue_bold_text);
-          margin-left: -1.6rem;
-        }
-      }
+
       span {
         font-size: 0.8rem;
       }
