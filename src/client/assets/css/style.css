@@ -314,6 +314,26 @@ section {
   color: var(--white);
 }
 
+.feature .dots {
+  margin-top: 1.5rem;
+  margin-left: 1rem;
+}
+
+.feature .dots .dot {
+  display: inline-block;
+  height: 0.5rem;
+  width: 0.5rem;
+  border: 2px solid var(--white);
+  margin: 0rem;
+  background-color: var(--gray);
+  border-radius: 50%;
+}
+
+.feature .dots .selected {
+  border: 2px solid var(--blue_bold_text);
+  background-color: transparent;
+}
+
 @media only screen and (min-width: 768px) {
   .feature .content_details {
     display: grid;

@@ -1,12 +1,15 @@
 @import "../css/variabls.css";
+
 @font-face {
   font-family: "Nexa Light";
   src: url(../font/Nexa-Light.otf);
 }
+
 @font-face {
   font-family: "Nexa Bold";
   src: url(../font/Nexa-Bold.otf);
 }
+
 h1,
 h2,
 h3,
@@ -21,18 +24,12 @@ h2 {
   font-size: 1.5rem;
   line-height: 1.7rem;
   margin-bottom: 0.5rem;
-}
-@media only screen and (min-width: 768px) {
-  h1,
-h2 {
+  @media only screen and (min-width: 768px) {
     font-size: 1.7rem;
     line-height: 2rem;
     margin-bottom: 0.7rem;
   }
-}
-@media (min-width: 1024px) {
-  h1,
-h2 {
+  @media (min-width: 1024px) {
     font-size: 1.9rem;
     line-height: 2.1rem;
     margin-bottom: 1rem;
@@ -43,16 +40,12 @@ h3 {
   font-size: 1.1rem;
   line-height: 1.3rem;
   margin-bottom: 0.5rem;
-}
-@media only screen and (min-width: 768px) {
-  h3 {
+  @media only screen and (min-width: 768px) {
     font-size: 1.2rem;
     line-height: 1.5rem;
     margin-bottom: 0.6rem;
   }
-}
-@media (min-width: 1024px) {
-  h3 {
+  @media (min-width: 1024px) {
     font-size: 1.3rem;
     line-height: 1.8rem;
     margin-bottom: 1rem;
@@ -63,16 +56,12 @@ h4 {
   font-size: 0.9rem;
   line-height: 1.1rem;
   margin-bottom: 0.2rem;
-}
-@media only screen and (min-width: 768px) {
-  h4 {
+  @media only screen and (min-width: 768px) {
     font-size: 1rem;
     line-height: 1.3rem;
     margin-bottom: 0.4rem;
   }
-}
-@media (min-width: 1024px) {
-  h4 {
+  @media (min-width: 1024px) {
     font-size: 1.1rem;
     line-height: 1.2rem;
     margin-bottom: 0.5rem;
@@ -83,16 +72,12 @@ h5 {
   font-size: 0.7rem;
   line-height: 0.9rem;
   margin-bottom: 0.3rem;
-}
-@media only screen and (min-width: 768px) {
-  h5 {
+  @media only screen and (min-width: 768px) {
     font-size: 0.9rem;
     line-height: 1.1rem;
     margin-bottom: 0.3rem;
   }
-}
-@media (min-width: 1024px) {
-  h5 {
+  @media (min-width: 1024px) {
     font-size: 0.9rem;
     line-height: 1.1rem;
     margin-bottom: 0.3rem;
@@ -103,16 +88,12 @@ h6 {
   font-size: 0.7rem;
   line-height: 1rem;
   margin-bottom: 0.2rem;
-}
-@media only screen and (min-width: 768px) {
-  h6 {
+  @media only screen and (min-width: 768px) {
     font-size: 0.6rem;
     line-height: 0.9rem;
     margin-bottom: 0.2rem;
   }
-}
-@media (min-width: 1024px) {
-  h6 {
+  @media (min-width: 1024px) {
     font-size: 0.7rem;
   }
 }
@@ -121,14 +102,10 @@ header {
   font-family: "Nexa Light";
   padding: 1rem;
   background-color: var(--white);
-}
-@media only screen and (min-width: 768px) {
-  header {
+  @media only screen and (min-width: 768px) {
     padding: 1rem 2rem;
   }
-}
-@media (min-width: 1024px) {
-  header {
+  @media (min-width: 1024px) {
     padding: 1.1rem 5.5rem;
   }
 }
@@ -140,22 +117,24 @@ p {
   font-size: 0.9rem;
   word-spacing: 1px;
   color: var(--deep_blue);
-}
-@media only screen and (min-width: 768px) {
-  p {
+  @media only screen and (min-width: 768px) {
     font-size: 1rem;
     word-spacing: 1.5px;
     margin-bottom: 0.7rem;
     line-height: 1.2rem;
   }
-}
-@media (min-width: 1024px) {
-  p {
+  @media (min-width: 1024px) {
     margin-bottom: 1.5rem;
     line-height: 1.3rem;
     font-size: 1.1rem;
   }
 }
+
+// body {
+//   font-family: "Nexa Light";
+//   letter-spacing: 0.4px;
+//   word-spacing: 0.3px;
+// }
 
 button {
   padding: 0.6rem 2rem;
@@ -164,23 +143,19 @@ button {
   font-size: 0.8rem;
   font-family: "Nexa Light";
   background-color: var(--deep_blue);
-}
-@media only screen and (min-width: 768px) {
-  button {
+  @media only screen and (min-width: 768px) {
     padding: 0.7rem 2rem;
   }
-}
-@media (min-width: 1024px) {
-  button {
+  @media (min-width: 1024px) {
     padding: 0.8rem 3rem;
   }
 }
 
 textarea,
-input[type=text],
-[type=password],
-[type=email],
-[type=date] {
+input[type="text"],
+[type="password"],
+[type="email"],
+[type="date"] {
   font-family: "nexa light";
   padding: 0.6rem 0.5rem;
   margin-bottom: 0.5rem;
@@ -189,45 +164,23 @@ input[type=text],
   line-height: 1.1rem;
   outline: none;
   border: 1px solid var(--gray-border);
-}
-textarea::placeholder,
-input[type=text]::placeholder,
-[type=password]::placeholder,
-[type=email]::placeholder,
-[type=date]::placeholder {
-  font-family: "Nexa Light";
-  color: var(--placeHolderColor);
-  font-size: 0.8rem;
-  line-height: 1.1rem;
-}
-@media only screen and (min-width: 768px) {
-  textarea::placeholder,
-input[type=text]::placeholder,
-[type=password]::placeholder,
-[type=email]::placeholder,
-[type=date]::placeholder {
-    font-size: 0.9rem;
+  &::placeholder {
+    font-family: "Nexa Light";
+    color: var(--placeHolderColor);
+    font-size: 0.8rem;
     line-height: 1.1rem;
+    @media only screen and (min-width: 768px) {
+      font-size: 0.9rem;
+      line-height: 1.1rem;
+    }
   }
-}
-@media only screen and (min-width: 768px) {
-  textarea,
-input[type=text],
-[type=password],
-[type=email],
-[type=date] {
+  @media only screen and (min-width: 768px) {
     padding: 0.6rem 0.5rem;
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
     line-height: 1.1rem;
   }
-}
-@media (min-width: 1024px) {
-  textarea,
-input[type=text],
-[type=password],
-[type=email],
-[type=date] {
+  @media (min-width: 1024px) {
     padding: 0.7rem 0.8rem;
     margin-bottom: 0.5rem;
   }
@@ -240,15 +193,11 @@ select {
   outline: none;
   color: var(--placeHolderColor);
   border: 1px solid var(--gray-border);
-}
-@media only screen and (min-width: 768px) {
-  select {
+  @media only screen and (min-width: 768px) {
     padding: 0.7rem 0.8rem;
     margin-bottom: 0.5rem;
   }
-}
-@media (min-width: 1024px) {
-  select {
+  @media (min-width: 1024px) {
     padding: 0.7rem 0.8rem;
     margin-bottom: 0.5rem;
   }
@@ -267,16 +216,12 @@ label {
   margin-bottom: 0.5rem;
   line-height: 1.1rem;
   font-size: 0.7rem;
-}
-@media only screen and (min-width: 768px) {
-  label {
+  @media only screen and (min-width: 768px) {
     margin-bottom: 0.6rem;
     line-height: 1.1rem;
     font-size: 0.8rem;
   }
-}
-@media (min-width: 1024px) {
-  label {
+  @media (min-width: 1024px) {
     margin-bottom: 0.7rem;
     line-height: 1.2rem;
     font-size: 0.9rem;
@@ -288,26 +233,23 @@ img {
   height: 100%;
   width: 100%;
 }
-
-ul li {
-  font-family: "Nexa Light";
-  font-size: 0.8rem;
-  margin-bottom: 0.2rem;
-  line-height: 1rem;
-  color: var(--deep_blue);
-}
-@media only screen and (min-width: 768px) {
-  ul li {
+ul {
+  li {
+    font-family: "Nexa Light";
     font-size: 0.8rem;
     margin-bottom: 0.2rem;
-    line-height: 0.9rem;
-  }
-}
-@media (min-width: 1024px) {
-  ul li {
-    font-size: 0.9rem;
-    margin-bottom: 0.2rem;
-    line-height: 1.1rem;
+    line-height: 1rem;
+    color: var(--deep_blue);
+    @media only screen and (min-width: 768px) {
+      font-size: 0.8rem;
+      margin-bottom: 0.2rem;
+      line-height: 0.9rem;
+    }
+    @media (min-width: 1024px) {
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem;
+      line-height: 1.1rem;
+    }
   }
 }
 
@@ -315,14 +257,10 @@ section {
   font-family: "Nexa Light";
   color: var(--deep_blue);
   padding: 1.5rem 1rem;
-}
-@media only screen and (min-width: 768px) {
-  section {
+  @media only screen and (min-width: 768px) {
     padding: 2rem;
   }
-}
-@media (min-width: 1024px) {
-  section {
+  @media (min-width: 1024px) {
     padding: 3.5rem 5.5rem;
   }
 }
@@ -332,9 +270,7 @@ i {
   font-size: 1rem;
   line-height: 1.2rem;
   color: var(--deep_blue);
-}
-@media (min-width: 1024px) {
-  i {
+  @media (min-width: 1024px) {
     font-size: 1.1rem;
     line-height: 1.3rem;
   }
@@ -346,12 +282,10 @@ a {
   line-height: 1.1rem;
   text-decoration: none;
   color: var(--deep_blue);
-}
-a:link {
-  text-decoration: none;
-}
-@media only screen and (min-width: 768px) {
-  a {
+  &:link {
+    text-decoration: none;
+  }
+  @media only screen and (min-width: 768px) {
     font-size: 1rem;
     line-height: 1.2rem;
   }
@@ -362,19 +296,13 @@ span {
   line-height: 1.2rem;
   font-size: 0.9rem;
   color: var(--deep_blue);
-}
-@media only screen and (min-width: 768px) {
-  span {
+  @media only screen and (min-width: 768px) {
     margin-bottom: 0.7rem;
     line-height: 1.1rem;
     font-size: 0.9rem;
   }
-}
-@media (min-width: 1024px) {
-  span {
+  @media (min-width: 1024px) {
     font-size: 1rem;
     line-height: 1.2rem;
   }
 }
-
-/*# sourceMappingURL=theme.css.map */

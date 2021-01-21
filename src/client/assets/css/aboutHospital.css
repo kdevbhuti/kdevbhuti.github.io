@@ -131,10 +131,38 @@ main .about_details .details .combine_content .about_point .fas {
 }
 
 main .heading {
-  background-image: url(../image/contactUs.png);
-  background-position: 47%;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: var(--light_blue);
+}
+@media only screen and (min-width: 768px) {
+  main .about_details .details .combine_content .servises {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    column-gap: 0.8rem;
+  }
+}
+main .about_details .details .combine_content .servises li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+@media only screen and (min-width: 768px) {
+  main .about_details .details .combine_content .servises li {
+    margin-bottom: 0rem;
+  }
+}
+main .about_details .details .combine_content .servises li span {
+  width: 0.6rem;
+  margin-right: 1.5rem;
+  margin-bottom: 0rem;
+}
+main .about_details .details .combine_content .servises li span .fas {
+  color: var(--blue_bold_text);
+}
+main .about_details .details .combine_content .about_point,
+main .about_details .details .combine_content .artical {
+  border: none;
 }
 
-/*# sourceMappingURL=doctorProfile.css.map */
+/*# sourceMappingURL=aboutHospital.css.map */
