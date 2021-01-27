@@ -38,8 +38,6 @@ section {
 
 .find_healthcare .search_btn {
   border: none;
-  background-color: var(--deep_blue);
-  color: var(--white);
 }
 
 @media only screen and (min-width: 768px) {
@@ -220,7 +218,7 @@ section {
 }
 
 .doctor .doctor_details .doc_details ul li {
-  margin-left: 1.8rem;
+  margin-left: 1.6rem;
 }
 
 .doctor .doctor_details .doc_details {
@@ -315,6 +313,7 @@ section {
 }
 
 .feature .dots {
+  display: none;
   margin-top: 1.5rem;
   margin-left: 1rem;
 }
@@ -389,6 +388,10 @@ section {
 
   .feature .content_details .infertility {
     grid-area: 6/3 / span 7 / span 1;
+  }
+
+  .feature .dots {
+    display: block;
   }
 }
 

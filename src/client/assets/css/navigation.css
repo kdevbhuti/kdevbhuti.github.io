@@ -6,13 +6,9 @@ header .navigation {
   align-items: center;
 }
 
-header .navigation .quote_btn {
-  background-color: var(--deep_blue);
-  color: var(--white);
-}
-
 header .navigation .login_btn {
   background-color: var(--white);
+  color: var(--deep_blue);
 }
 
 header .navigation .nav_logo {

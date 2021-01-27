@@ -9,9 +9,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
     integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBU_tEhxuXZcjFllj0h9LAgCdri79CGJ1c&callback=initMap&libraries=&v=weekly"
-    defer></script>
+
 </head>
 
 <header>
@@ -38,7 +36,7 @@
   <section>
     <div id="map"></div>
   </section>
-  <div class="combine_section">
+  <section class="combine_section">
     <section class="contact-details">
       <div class="details">
         <i class="fas fa-home"></i>
@@ -70,9 +68,7 @@
       <textarea class="message_input" placeholder="Enter Message"></textarea>
       <button>Send Message</button>
     </section>
-  </div>
-
-  <hr id="division">
+  </section>
 
   <footer class="footer">
     <img class="footer_img" src="../assets/image/footer.png" alt="">
@@ -93,14 +89,24 @@
   </footer>
 </main>
 <script>
-  let map;
-
   function initMap() {
-    map = new google.maps.Map(document.getElementById("map"), {
-      center: { lat: 12.586, lng: 77.450 },
-      zoom: 8,
+    const myLatLng = { lat: 28.5355, lng: 77.3910 };
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 11,
+      center: myLatLng,
+    });
+    new google.maps.Marker({
+      position: myLatLng,
+      map,
+      title: "Hello World!",
     });
   }
 </script>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBU_tEhxuXZcjFllj0h9LAgCdri79CGJ1c"
+  type="text/javascript"></script> -->
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBU_tEhxuXZcjFllj0h9LAgCdri79CGJ1c&callback=initMap"
+  type="text/javascript">
+  </script>
 
 </html>

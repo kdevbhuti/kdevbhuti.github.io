@@ -38,8 +38,6 @@ main {
           margin-bottom: 0.5rem;
         }
         button {
-          background-color: var(--deep_blue);
-          color: var(--white);
           border: none;
           margin-bottom: 0.5rem;
           width: 100%;
@@ -77,12 +75,12 @@ main {
         .artical {
           border-bottom: 1px dashed var(--gray);
           padding: 0.5rem;
-          margin-bottom: 0.5rem;
+          margin-bottom: 0rem;
         }
         .point_articals {
           padding: 0.5rem;
           background-color: var(--para_background);
-          margin-bottom: 0.5rem;
+          margin-bottom: 0rem;
           p {
             margin: 0rem;
           }
@@ -91,10 +89,14 @@ main {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          margin-bottom: 0.5rem;
           color: var(--blue_bold_text);
           padding-bottom: 0.5rem;
+          padding-top: 0.5rem;
           border-bottom: 1px dashed var(--gray);
+          @media only screen and (min-width: 768px) {
+            padding-bottom: 0.7rem;
+            padding-top: 0.7rem;
+          }
           h3,
           span {
             margin-bottom: 0rem;

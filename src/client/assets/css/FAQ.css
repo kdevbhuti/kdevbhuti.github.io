@@ -22,18 +22,33 @@ main .heading h1,
 main .heading span {
   color: var(--white);
 }
-main .questions {
+main .about_details .ans {
+  padding: 0.5rem;
+  background-color: var(--para_background);
+  margin-bottom: 0rem;
+}
+main .about_details .ans p {
+  margin: 0rem;
+}
+main .about_details .questions {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
   color: var(--blue_bold_text);
 }
-main .questions h3 {
+main .about_details .questions .fa-chevron-down {
+  font-size: 0.8rem;
+  color: var(--blue_bold_text);
+  background-color: var(--para_background);
+  border-radius: 50%;
+  padding: 0.2rem;
+}
+main .about_details .questions h3 {
   margin-bottom: 0rem;
   color: var(--blue_bold_text);
 }
-main .questions .fas {
+main .about_details .questions .fas {
   color: var(--blue_bold_text);
 }
 

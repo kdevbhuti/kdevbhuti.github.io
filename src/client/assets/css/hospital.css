@@ -123,8 +123,20 @@ main .combine-section .filter-section .filter-list .filter-head h4 {
   margin: 0rem;
   font-family: "Nexa Light";
 }
-main .combine-section .filter-section .filter-list .filter-head .fas {
+main .combine-section .filter-section .filter-list .filter-head .search-tool {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+main .combine-section .filter-section .filter-list .filter-head .search-tool .fas {
   font-size: 0.8rem;
+  margin-right: 0.2rem;
+}
+main .combine-section .filter-section .filter-list .filter-head .search-tool .minimize-bar {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--gray);
+  margin-bottom: 0rem;
 }
 main .combine-section .filter-section .filter-list ul {
   margin-bottom: 0.5rem;
@@ -214,8 +226,6 @@ main .combine-section .hospital-details .details .far {
 }
 main .combine-section .hospital-details .details .call_btn {
   display: block;
-  background-color: var(--deep_blue);
-  color: var(--white);
   border: none;
   margin: 0 auto 0.5rem;
 }
@@ -241,7 +251,7 @@ main .combine-section .hospital-details .details ul {
 }
 @media only screen and (min-width: 768px) {
   main .combine-section .hospital-details .details ul {
-    padding-left: 0.3rem;
+    padding-left: 0rem;
     margin-bottom: 0rem;
   }
 }

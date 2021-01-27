@@ -192,20 +192,16 @@ main .facility .visual_aboup button {
 main .facility .visual_aboup .health_points {
   margin-bottom: 0rem;
 }
-main .facility .background_figure {
+main .facility .background_video {
   display: none;
-  width: 100%;
-  height: 100%;
-  position: relative;
 }
 @media (min-width: 1024px) {
-  main .facility .background_figure {
+  main .facility .background_video {
+    position: relative;
     display: block;
-  }
-}
-@media (min-width: 1024px) {
-  main .facility .background_figure img {
-    filter: blur(15px) brightness(0.5);
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
   }
 }
 

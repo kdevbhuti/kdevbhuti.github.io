@@ -20,18 +20,36 @@ main {
       color: var(--white);
     }
   }
-  .questions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-    color: var(--blue_bold_text);
-    h3 {
+
+  .about_details {
+    .ans {
+      padding: 0.5rem;
+      background-color: var(--para_background);
       margin-bottom: 0rem;
-      color: var(--blue_bold_text);
+      p {
+        margin: 0rem;
+      }
     }
-    .fas {
+    .questions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
       color: var(--blue_bold_text);
+      .fa-chevron-down {
+        font-size: 0.8rem;
+        color: var(--blue_bold_text);
+        background-color: var(--para_background);
+        border-radius: 50%;
+        padding: 0.2rem;
+      }
+      h3 {
+        margin-bottom: 0rem;
+        color: var(--blue_bold_text);
+      }
+      .fas {
+        color: var(--blue_bold_text);
+      }
     }
   }
 }

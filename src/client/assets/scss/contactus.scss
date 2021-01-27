@@ -1,12 +1,5 @@
 @import "../css/variabls.css";
 
-#division {
-  display: none;
-  margin: 0rem;
-  @media (min-width: 1024px) {
-    display: block;
-  }
-}
 .heading {
   background-image: url(../image/contactUs.png);
   background-position: 47%;
@@ -61,6 +54,7 @@
 }
 
 .contact-details {
+  padding-top: 0rem;
   @media only screen and (min-width: 768px) {
     display: flex;
     justify-content: space-between;
@@ -129,12 +123,14 @@
 }
 
 .combine_section {
+  padding: 0rem;
   @media (min-width: 1024px) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 4.2rem);
     padding: 0rem 5.5rem 2rem;
     align-items: end;
+    border-bottom: 1px solid var(--gray-border);
     input {
       padding: 0.8rem 0.5rem;
     }

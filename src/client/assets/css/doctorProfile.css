@@ -47,8 +47,6 @@ main .about_details .details .combine_img .doctor_img {
   margin-bottom: 0.5rem;
 }
 main .about_details .details .combine_img button {
-  background-color: var(--deep_blue);
-  color: var(--white);
   border: none;
   margin-bottom: 0.5rem;
   width: 100%;
@@ -92,12 +90,12 @@ main .about_details .details .combine_content .name .horizontal_bar {
 main .about_details .details .combine_content .artical {
   border-bottom: 1px dashed var(--gray);
   padding: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0rem;
 }
 main .about_details .details .combine_content .point_articals {
   padding: 0.5rem;
   background-color: var(--para_background);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0rem;
 }
 main .about_details .details .combine_content .point_articals p {
   margin: 0rem;
@@ -106,10 +104,16 @@ main .about_details .details .combine_content .about_point {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.5rem;
   color: var(--blue_bold_text);
   padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
   border-bottom: 1px dashed var(--gray);
+}
+@media only screen and (min-width: 768px) {
+  main .about_details .details .combine_content .about_point {
+    padding-bottom: 0.7rem;
+    padding-top: 0.7rem;
+  }
 }
 main .about_details .details .combine_content .about_point h3,
 main .about_details .details .combine_content .about_point span {

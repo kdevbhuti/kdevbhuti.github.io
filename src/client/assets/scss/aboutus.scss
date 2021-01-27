@@ -178,18 +178,14 @@ main {
         margin-bottom: 0rem;
       }
     }
-    .background_figure {
+    .background_video {
       display: none;
-      width: 100%;
-      height: 100%;
-      position: relative;
       @media (min-width: 1024px) {
+        position: relative;
         display: block;
-      }
-      img {
-        @media (min-width: 1024px) {
-          filter: blur(15px) brightness(0.5);
-        }
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
       }
     }
   }

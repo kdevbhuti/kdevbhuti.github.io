@@ -114,6 +114,7 @@ h6 {
 @media (min-width: 1024px) {
   h6 {
     font-size: 0.7rem;
+    line-height: 0.9rem;
   }
 }
 
@@ -136,7 +137,7 @@ header {
 p {
   font-family: "Nexa Light";
   margin-bottom: 0.5rem;
-  line-height: 1rem;
+  line-height: 1.1rem;
   font-size: 0.9rem;
   word-spacing: 1px;
   color: var(--deep_blue);
@@ -163,6 +164,7 @@ button {
   outline: none;
   font-size: 0.8rem;
   font-family: "Nexa Light";
+  color: var(--white);
   background-color: var(--deep_blue);
 }
 @media only screen and (min-width: 768px) {

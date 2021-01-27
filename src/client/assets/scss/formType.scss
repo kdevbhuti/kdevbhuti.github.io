@@ -61,8 +61,6 @@ body {
       .log-button {
         position: relative;
         button {
-          background-color: var(--deep_blue);
-          color: var(--white);
           letter-spacing: 0.2rem;
           border: none;
           width: 100%;
@@ -71,10 +69,10 @@ body {
         .fa-arrow-right {
           position: absolute;
           right: 1rem;
-          top: 0.65rem;
+          top: 0.6rem;
           color: var(--white);
           @media (min-width: 1024px) {
-            top: 0.75rem;
+            top: 0.7rem;
           }
         }
       }

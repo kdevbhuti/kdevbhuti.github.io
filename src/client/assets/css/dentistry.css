@@ -209,6 +209,7 @@
 }
 .servises .servise_head .buttons button {
   padding: 0.5rem 0.6rem;
+  background-color: var(--gray_background);
   border-radius: 50%;
   border: none;
 }

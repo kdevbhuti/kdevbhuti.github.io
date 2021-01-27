@@ -108,8 +108,20 @@ main {
             margin: 0rem;
             font-family: "Nexa Light";
           }
-          .fas {
-            font-size: 0.8rem;
+          .search-tool {
+            display: inline-flex;
+            align-items: center;
+            margin-left: 1rem;
+            .fas {
+              font-size: 0.8rem;
+              margin-right: 0.2rem;
+            }
+            .minimize-bar {
+              font-size: 1.5rem;
+              font-weight: bold;
+              color: var(--gray);
+              margin-bottom: 0rem;
+            }
           }
         }
         ul {
@@ -195,8 +207,6 @@ main {
         }
         .call_btn {
           display: block;
-          background-color: var(--deep_blue);
-          color: var(--white);
           border: none;
           margin: 0 auto 0.5rem;
           @media only screen and (min-width: 768px) {
@@ -217,7 +227,7 @@ main {
           padding-left: 0.6rem;
           margin-bottom: 0.5rem;
           @media only screen and (min-width: 768px) {
-            padding-left: 0.3rem;
+            padding-left: 0rem;
             margin-bottom: 0rem;
           }
 

@@ -68,8 +68,6 @@ body main section .log-button {
   position: relative;
 }
 body main section .log-button button {
-  background-color: var(--deep_blue);
-  color: var(--white);
   letter-spacing: 0.2rem;
   border: none;
   width: 100%;
@@ -78,12 +76,12 @@ body main section .log-button button {
 body main section .log-button .fa-arrow-right {
   position: absolute;
   right: 1rem;
-  top: 0.65rem;
+  top: 0.6rem;
   color: var(--white);
 }
 @media (min-width: 1024px) {
   body main section .log-button .fa-arrow-right {
-    top: 0.75rem;
+    top: 0.7rem;
   }
 }
 body main section label {

@@ -30,34 +30,20 @@ body main section [type=email],
 body main section [type=date] {
   width: 100%;
 }
-body main section select {
-  width: 100%;
-}
-body main section select .hide_option {
-  display: none;
-}
 body main section .select_box {
   position: relative;
 }
-body main section .select_box button {
+body main section .select_box .select {
+  width: 100%;
+  appearance: none;
+}
+body main section .select_box .select .hide_option {
+  display: none;
+}
+body main section .select_box .fa-caret-down {
   position: absolute;
-  right: 0rem;
-  top: 0rem;
-  padding: 0rem;
-  height: 2.7rem;
-  width: 0.8rem;
-  border: 0.5px solid var(--gray);
-  background-color: var(--gray-border);
-  pointer-events: none;
-}
-@media (min-width: 1024px) {
-  body main section .select_box button {
-    height: 3.1rem;
-  }
-}
-body main section .select_box button .fas {
-  position: static;
-  color: var(--deep_blue);
+  top: 0.7rem;
+  right: 0.8rem;
 }
 @media only screen and (min-width: 768px) {
   body main section {
@@ -82,8 +68,6 @@ body main section .log-button {
   position: relative;
 }
 body main section .log-button button {
-  background-color: var(--deep_blue);
-  color: var(--white);
   letter-spacing: 0.2rem;
   border: none;
   width: 100%;
@@ -92,12 +76,12 @@ body main section .log-button button {
 body main section .log-button .fa-arrow-right {
   position: absolute;
   right: 1rem;
-  top: 0.65rem;
+  top: 0.6rem;
   color: var(--white);
 }
 @media (min-width: 1024px) {
   body main section .log-button .fa-arrow-right {
-    top: 0.75rem;
+    top: 0.7rem;
   }
 }
 body main section label {
@@ -127,7 +111,7 @@ main .fa-question-circle {
 }
 @media only screen and (min-width: 768px) {
   main .fa-question-circle {
-    top: 0.8rem;
+    top: 0.7rem;
   }
 }
 @media (min-width: 1024px) {
