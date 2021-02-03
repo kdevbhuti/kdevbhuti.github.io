@@ -1,0 +1,373 @@
+@import "./variabls.css";
+
+main {
+  .find_healthcare {
+    text-align: center;
+    background-color: var(--light_blue);
+    @media (min-width: 1024px) {
+      text-align: left;
+      background-image: url("../image/img1_head.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding: 5.5rem;
+    }
+    p {
+      @media (min-width: 1024px) {
+        width: 35rem;
+      }
+    }
+    .combine_inputfild {
+      @media only screen and (min-width: 768px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      @media (min-width: 1024px) {
+        justify-content: flex-start;
+      }
+      .input_field_location {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 0.5rem;
+        @media only screen and (min-width: 768px) {
+          width: 20rem;
+          margin-bottom: 0rem;
+        }
+        @media (min-width: 1024px) {
+          width: 12rem;
+        }
+        input {
+          margin-bottom: 0rem;
+          width: 100%;
+          border: none;
+        }
+        .fas {
+          background-color: var(--white);
+          padding: 0.7rem 0.4rem;
+          align-self: center;
+          @media (min-width: 1024px) {
+            height: 1.2rem;
+          }
+        }
+      }
+      .search_input {
+        width: 100%;
+        @media only screen and (min-width: 768px) {
+          margin-bottom: 0rem;
+          margin-left: 0.1rem;
+        }
+        @media (min-width: 1024px) {
+          width: 22rem;
+        }
+      }
+      .search_btn {
+        border: none;
+      }
+    }
+  }
+
+  .How_work {
+    text-align: center;
+    @media (min-width: 1024px) {
+      text-align: left;
+    }
+    .work_content {
+      @media only screen and (min-width: 768px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(7, 1fr);
+        gap: 0.5rem;
+        @media (min-width: 1024px) {
+          column-gap: 2rem;
+        }
+      }
+
+      .work_label {
+        padding: 0.7rem;
+        border: 1px solid var(--deep_blue);
+        border-radius: 4px;
+        text-align: left;
+        @media only screen and (min-width: 768px) {
+          margin-bottom: 0rem;
+        }
+        @media (min-width: 1024px) {
+          padding: 1.5rem 0.5rem;
+        }
+        .num {
+          font-size: 1.1rem;
+          line-height: 1.3rem;
+          color: var(--light_blue);
+          @media (min-width: 1024px) {
+            font-size: 1.3rem;
+            line-height: 1.8rem;
+          }
+        }
+      }
+      .enable_article {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        text-align: center;
+        @media only screen and (min-width: 768px) {
+          justify-content: center;
+          grid-area: 1/2 / span 7 / span 1;
+        }
+        figure {
+          height: 15rem;
+          width: 15rem;
+          margin-bottom: 1rem;
+          @media (min-width: 1024px) {
+            width: 23rem;
+            height: 23rem;
+          }
+        }
+        p {
+          font-size: 0.7rem;
+          line-height: 0.9rem;
+        }
+      }
+      .disable_article {
+        display: none;
+      }
+      .disable_h3 {
+        border: 1px solid var(--gray-border);
+        color: var(--gray);
+        .num {
+          color: var(--gray);
+        }
+      }
+    }
+  }
+
+  .doctor {
+    text-align: center;
+    background-color: var(--deep_blue);
+    @media (min-width: 1024px) {
+      text-align: left;
+    }
+    h2,
+    p {
+      color: var(--white);
+    }
+    .doctor_details {
+      @media only screen and (min-width: 768px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 1rem;
+        @media (min-width: 1024px) {
+          grid-template-columns: repeat(4, 1fr);
+          grid-template-rows: repeat(1, 1fr);
+          gap: 0.5rem;
+        }
+      }
+      .doc_details {
+        background-color: var(--white);
+        text-align: left;
+        margin-bottom: 1rem;
+        border-bottom: 0.3rem solid var(--light_blue);
+        @media only screen and (min-width: 768px) {
+          margin-bottom: 0rem;
+        }
+
+        figure {
+          width: 100%;
+          height: 23rem;
+          margin-bottom: 0.5rem;
+          @media (min-width: 1024px) {
+            height: 18rem;
+          }
+        }
+        h4 {
+          color: var(--blue_bold_text);
+          font-size: 1rem;
+          .horizontal_bar {
+            color: var(--blue_bold_text);
+            letter-spacing: -1px;
+            font-size: 1rem;
+          }
+        }
+        ul {
+          padding-left: 1.3rem;
+          padding-bottom: 0.5rem;
+        }
+      }
+      // Animation ///////////////////////
+      @media (min-width: 1024px) {
+        .fade {
+          animation-name: fade;
+          animation-duration: 1.2s;
+        }
+        @keyframes fade {
+          from {
+            opacity: 0.4;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+      }
+      // ///////////////////////////////
+      .surgery {
+        margin-bottom: 0rem;
+      }
+    }
+
+    .dots {
+      display: none;
+      @media (min-width: 1024px) {
+        display: flex;
+        margin-top: 1rem;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .dot {
+        padding: 0.3rem;
+        border-radius: 50%;
+        background-color: var(--gray);
+      }
+      .selected {
+        background-color: var(--deep_blue);
+        border: 2px solid var(--blue_color);
+      }
+    }
+  }
+
+  .feature {
+    text-align: center;
+    @media (min-width: 1024px) {
+      text-align: left;
+    }
+    .content_details {
+      @media only screen and (min-width: 768px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 1rem;
+        @media (min-width: 1024px) {
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-rows: repeat(11, 3rem);
+          gap: 0.5rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .dentistry {
+          grid-area: 1/1 / span 4 / span 1;
+        }
+
+        .cancer {
+          grid-area: 1/2 / span 6 / span 1;
+        }
+        .cardiologic {
+          grid-area: 1/3 / span 5 / span 1;
+        }
+        .multi_organ {
+          grid-area: 5/ 1 / span 7 / span 1;
+        }
+        .orthopedics {
+          grid-area: 7/ 2 / span 5 / span 1;
+        }
+        .infertility {
+          grid-area: 6/ 3 / span 6 / span 1;
+        }
+      }
+
+      .img_block {
+        position: relative;
+        margin-bottom: 1rem;
+        @media only screen and (min-width: 768px) {
+          margin-bottom: 0rem;
+        }
+        figure {
+          height: 20rem;
+          width: 100%;
+          @media (min-width: 1024px) {
+            height: 100%;
+          }
+        }
+
+        ul {
+          position: absolute;
+          bottom: 0.5rem;
+          left: 0.5rem;
+          z-index: 20;
+          text-align: left;
+          h4,
+          li {
+            color: var(--white);
+          }
+        }
+        .blue_gradient {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          z-index: 10;
+          background: linear-gradient(to top, var(--deep_blue), transparent);
+        }
+      }
+      .infertility {
+        margin-bottom: 0rem;
+      }
+    }
+    .feature_dots {
+      display: none;
+      @media (min-width: 1024px) {
+        display: flex;
+        margin-top: 1rem;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .feature_dot {
+        padding: 0.3rem;
+        border-radius: 50%;
+        background-color: var(--gray);
+      }
+      .selected {
+        background-color: var(--white);
+        border: 2px solid var(--blue_color);
+      }
+    }
+  }
+
+  .exclusive_services {
+    text-align: center;
+    @media (min-width: 1024px) {
+      text-align: left;
+    }
+    background-color: var(--gray_background);
+    .servise_links {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 0.6rem;
+      @media only screen and (min-width: 768px) {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+      }
+      @media (min-width: 1024px) {
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: 1fr;
+        gap: 0.2rem;
+      }
+      .link_img_block {
+        padding: 0.5rem;
+        background-color: var(--white);
+        border-radius: 9px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        @media (min-width: 1024px) {
+          border-radius: 0rem;
+        }
+        figure {
+          height: 4rem;
+          width: 4rem;
+        }
+      }
+    }
+  }
+}

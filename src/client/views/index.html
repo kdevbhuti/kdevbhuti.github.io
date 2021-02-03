@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
     integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
-  <!-- <script defer src="https://maps.googleapis.com/maps/api/json?key=YOUR_API_KEY&libraries=place&callback=initMap"> -->
   </script>
 </head>
 <header>
@@ -37,11 +36,11 @@
       </p>
       <div class="combine_inputfild">
         <div class="input_field_location">
-          <i class="fas fa-map-marker-alt icon"></i>
+          <i class="fas fa-map-marker-alt"></i>
           <input type="text" placeholder="Ahemdabad">
-          <i class="fas fa-crosshairs icon"></i>
+          <i class="fas fa-crosshairs"></i>
         </div>
-        <input id="search_doc" type="text" placeholder="Search for Doctor, hospitals and treatments">
+        <input class="search_input" type="text" placeholder="Search for Doctor, hospitals and treatments">
         <button class="search_btn" type="submit">Search</button>
       </div>
     </article>
@@ -52,22 +51,75 @@
     <p>Various facilities are provided here. But there is a protocol which needs to be followed so that you get the
       service at its best.</p>
     <div class="work_content">
-      <h3 class="work_label active"><span class="num">01</span> Fix Consultation</h3>
-      <article>
+      <h3 class="work_label" name="work_label-fix_consultation"><span class="num">01</span> Fix Consultation</h3>
+      <article class="enable_article" id="work_label-fix_consultation">
         <figure>
-          <img class="consultation_img" src="../assets/image/img1.png" alt="">
+          <img src="../assets/image/img1.png" alt="">
         </figure>
         <h4>Fix Consultation</h4>
         <p>This depicts that user will have to fix appointment first when it selects a particuler doctor.</p>
       </article>
-      <!-- <div class="work_label_delement"> -->
-      <h3 class="work_label disable"><span class="num">02</span> Upload Medical Reports</h3>
-      <h3 class="work_label disable"><span class="num">03</span> Consult with doctor</h3>
-      <h3 class="work_label disable"><span class="num">04</span> Fix Surgery</h3>
-      <h3 class="work_label disable"><span class="num">05</span> Hospital send estimates</h3>
-      <h3 class="work_label disable"><span class="num">06</span> Payment</h3>
-      <h3 class="work_label disable surgery"><span class="num">07</span> Surgery Completed</h3>
-      <!-- </div> -->
+
+
+      <h3 class="work_label disable_h3" name="work_label-medical_report"><span class="num">02</span> Upload Medical
+        Reports</h3>
+      <article class="disable_article" id="work_label-medical_report">
+        <figure>
+          <img src="../assets/image/img2.png" alt="">
+        </figure>
+        <h4>Upload Medical Reports</h4>
+        <p>This depicts that user will have to fix appointment first when it selects a particuler doctor.</p>
+
+      </article>
+
+
+      <h3 class="work_label disable_h3" name="work_label-consult_doctor"><span class="num">03</span> Consult with doctor
+      </h3>
+      <article class="disable_article" id="work_label-consult_doctor">
+        <figure>
+          <img src="../assets/image/img3.jpeg" alt="">
+        </figure>
+        <h4>Consult with doctor</h4>
+        <p>This depicts that user will have to fix appointment first when it selects a particuler doctor.</p>
+      </article>
+      <h3 class="work_label disable_h3" name="work_label-fix_surgery"><span class="num">04</span> Fix Surgery</h3>
+      <article class="disable_article" id="work_label-fix_surgery">
+        <figure>
+          <img src="../assets/image/img4.jpeg" alt="">
+        </figure>
+        <h4>Fix Surgery</h4>
+        <p>This depicts that user will have to fix appointment first when it selects a particuler doctor.</p>
+      </article>
+
+      <h3 class="work_label disable_h3" name="work_label-estimates"><span class="num">05</span> Hospital send estimates
+      </h3>
+
+      <article class="disable_article" id="work_label-estimates">
+        <figure>
+          <img src="../assets/image/img5.jpg" alt="">
+        </figure>
+        <h4>Hospital send estimates</h4>
+        <p>This depicts that user will have to fix appointment first when it selects a particuler doctor.</p>
+      </article>
+
+      <h3 class="work_label disable_h3" name="work_label-pyment"><span class="num">06</span> Payment</h3>
+
+      <article class="disable_article" id="work_label-pyment">
+        <figure>
+          <img src="../assets/image/img6.jpg" alt="">
+        </figure>
+        <h4>Upload Medical Reports</h4>
+        <p>This depicts that user will have to fix appointment first when it selects a particuler doctor.</p>
+      </article>
+      <h3 class="work_label disable_h3 surgery" name="work_label-surgery"><span class="num">07</span> Surgery Completed
+      </h3>
+      <article class="disable_article" id="work_label-surgery">
+        <figure>
+          <img src="../assets/image/img7.jpeg" alt="">
+        </figure>
+        <h4>Surgery Completed</h4>
+        <p>This depicts that user will have to fix appointment first when it selects a particuler doctor.</p>
+      </article>
     </div>
   </section>
 
@@ -78,44 +130,44 @@
       is also a mecca for patients.</p>
     <article class="doctor_details">
       <div class="doc_details">
-        <figure>
-          <img class="doc_image" src="../assets/image/doc.image--002.jpg" alt="">
+        <figure class="fade">
+          <img src="../assets/image/doc.image--002.jpg" alt="">
         </figure>
-        <h4><span class="horizontal_bar">&#8212;&#8212;&nbsp;&nbsp;</span>Duke Sanson</h4>
-        <ul>
+        <h4 class="fade"><span class="horizontal_bar">&#8212;&#8212;&nbsp;&nbsp;</span>Duke Sanson</h4>
+        <ul class="fade">
           <li>Neuro Surgeon</li>
           <li>Chain Department of Neurological Surgery</li>
           <li>Australia</li>
         </ul>
       </div>
       <div class="doc_details">
-        <figure>
-          <img class="doc_image" src="../assets/image/image--004.jpg" alt="">
+        <figure class="fade">
+          <img src="../assets/image/image--004.jpg" alt="">
         </figure>
-        <h4><span class="horizontal_bar">&#8212;&#8212;&nbsp;&nbsp;</span>Georgea Peter</h4>
-        <ul>
+        <h4 class="fade"><span class="horizontal_bar">&#8212;&#8212;&nbsp;&nbsp;</span>Georgea Peter</h4>
+        <ul class="fade">
           <li>Breast Cancer Surgeon</li>
           <li>Director, UT, Southwest</li>
           <li>London</li>
         </ul>
       </div>
       <div class="doc_details">
-        <figure>
-          <img class="doc_image" src="../assets/image/image--005.jpg" alt="">
+        <figure class="fade">
+          <img src="../assets/image/image--005.jpg" alt="">
         </figure>
-        <h4><span class="horizontal_bar">&#8212;&#8212;&nbsp;&nbsp;</span>Charlie Moon</h4>
-        <ul>
+        <h4 class="fade"><span class="horizontal_bar">&#8212;&#8212;&nbsp;&nbsp;</span>Charlie Moon</h4>
+        <ul class="fade">
           <li>Cardiac Surgeon</li>
           <li>MBBS, MD, FRCP, MRCP, Fellowship</li>
           <li>New Delhi, India</li>
         </ul>
       </div>
       <div class="doc_details surgery">
-        <figure>
-          <img class="doc_image" src="../assets//image/image--003.jpg" alt="">
+        <figure class="fade">
+          <img src="../assets//image/image--003.jpg" alt="">
         </figure>
-        <h4><span class="horizontal_bar">&#8212;&#8212;&nbsp;&nbsp;</span>Rose Moon</h4>
-        <ul>
+        <h4 class="fade"><span class="horizontal_bar">&#8212;&#8212;&nbsp;&nbsp;</span>Rose Moon</h4>
+        <ul class="fade">
           <li>Plastic Surgeon</li>
           <li>Department of Plastic and Reconstructive Surgery</li>
           <li>Dubai</li>
@@ -140,6 +192,7 @@
           </li>
           <li>50+ Specialists</li>
         </ul>
+        <div class="blue_gradient"></div>
         <figure>
           <img class="feture_img" src="../assets/image/image--009.jpg" alt="">
         </figure>
@@ -152,8 +205,11 @@
           </li>
           <li>50+ Specialists</li>
         </ul>
+        <div class="blue_gradient"></div>
+        <figure>
+          <img class="feture_img" src="../assets/image/image--010.jpg" alt="">
+        </figure>
 
-        <img class="feture_img" src="../assets/image/image--010.jpg" alt="">
       </div>
 
       <div class="img_block cardiologic">
@@ -163,7 +219,11 @@
           </li>
           <li>50+ Specialists</li>
         </ul>
-        <img class="feture_img" src="../assets/image/image--011.jpg" alt="">
+        <div class="blue_gradient"></div>
+        <figure>
+          <img src="../assets/image/image--011.jpg" alt="">
+        </figure>
+
       </div>
 
       <div class="img_block multi_organ">
@@ -173,7 +233,11 @@
           </li>
           <li>50+ Specialists</li>
         </ul>
-        <img class="feture_img" src="../assets/image/image--006.jpg" alt="">
+        <div class="blue_gradient"></div>
+        <figure>
+          <img src="../assets/image/image--006.jpg" alt="">
+        </figure>
+
       </div>
 
       <div class="img_block orthopedics">
@@ -183,7 +247,11 @@
           </li>
           <li>50+ Specialists</li>
         </ul>
-        <img class="feture_img" src="../assets/image/image--008.jpg" alt="">
+        <div class="blue_gradient"></div>
+        <figure>
+          <img src="../assets/image/image--008.jpg" alt="">
+        </figure>
+
       </div>
 
       <div class="img_block infertility">
@@ -193,13 +261,17 @@
           </li>
           <li>50+ Specialists</li>
         </ul>
-        <img class="feture_img" src="../assets/image/image--000.jpg" alt="">
+        <div class="blue_gradient"></div>
+        <figure>
+          <img src="../assets/image/image--000.jpg" alt="">
+        </figure>
+
       </div>
     </div>
-    <div class="dots">
-      <botton class="dot selected" name="0"></botton>
-      <botton class="dot"></botton>
-      <botton class="dot"></botton>
+    <div class="Feature_dots">
+      <botton class="feature_dot selected" name="0"></botton>
+      <botton class="feature_dot"></botton>
+      <botton class="feature_dot"></botton>
     </div>
   </section>
 
@@ -209,28 +281,40 @@
       you can see</p>
     <div class="servise_links">
       <div class="link_img_block">
-        <img class="servise_icon" src="../assets/image/Icons-01.png" alt="">
-
+        <figure>
+          <img class="servise_icon" src="../assets/image/Icons-01.png" alt="">
+        </figure>
         <h5 class="lable">TRAVEL</h5>
       </div>
       <div class="link_img_block">
-        <img class="servise_icon" src="../assets/image/Icons-02.png" alt="">
+        <figure>
+          <img class="servise_icon" src="../assets/image/Icons-02.png" alt="">
+        </figure>
+
         <h5 class="lable">FOOD</h5>
       </div>
       <div class="link_img_block">
-        <img class="servise_icon" src="../assets/image/Icons-03.png" alt="">
+        <figure>
+          <img class="servise_icon" src="../assets/image/Icons-03.png" alt="">
+        </figure>
         <h5 class="lable">ACCOMODATION</h5>
       </div>
       <div class="link_img_block">
-        <img class="servise_icon" src="../assets/image/Icons-07.png" alt="">
+        <figure>
+          <img class="servise_icon" src="../assets/image/Icons-07.png" alt="">
+        </figure>
         <h5 class="lable">LABS</h5>
       </div>
       <div class="link_img_block">
-        <img class="servise_icon" src="../assets/image/Icons-10.png" alt="">
+        <figure>
+          <img class="servise_icon" src="../assets/image/Icons-10.png" alt="">
+        </figure>
         <h5 class="lable">REPORTS</h5>
       </div>
       <div class="link_img_block">
-        <img class="servise_icon" src="../assets/image/Icons-06.png" alt="">
+        <figure>
+          <img class="servise_icon" src="../assets/image/Icons-06.png" alt="">
+        </figure>
         <h5 class="lable">AMBULANCE</h5>
       </div>
     </div>
@@ -265,30 +349,117 @@
 
 </main>
 <script>
-  var dot = document.getElementsByClassName("dot");
-  dot[0].addEventListener("click", changePic);
-  dot[1].addEventListener("click", changePic);
-  dot[2].addEventListener("click", changePic);
-  dot[3].addEventListener("click", changePic);
 
-
-  var doc_details = document.getElementsByClassName("doc_details");
-  var duplicate = [];
-  for (var i = 0; i < doc_details.length; i++) {
-    duplicate[i] = document.getElementsByClassName("doc_details")[i].cloneNode(true);
+  var work = document.getElementsByClassName("work_label");
+  for (var i = 0; i < 7; i++) {
+    work[i].addEventListener("click", enableWorkView);
   }
 
-  function changePic() {
-    var index = event.target.getAttribute('name')
-    for (var i = 0; i < doc_details.length; i++) {
-      if (doc_details.length == index) {
-        index = 0;
+
+  function disableAllWorkLable() {
+    var name = "";
+    elemant = {};
+    for (var i = 0; i < 7; i++) {
+      //disable all h3 heading
+      if (!(work[i].classList.contains("disable_h3"))) {
+        work[i].classList.add("disable_h3")
       }
-      doc_details[i].innerHTML = duplicate[index].innerHTML;
-      index++;
+      name = work[i].getAttribute('name')
+      //disable all articals
+      elemant = document.getElementById(name);
+      if (elemant.classList.contains("enable_article")) {
+        elemant.classList.add("disable_article");
+        elemant.classList.remove("enable_article")
+      }
     }
   }
 
+  function enableWorkView() {
+    if (event.currentTarget.classList.contains("disable_h3")) {
+      disableAllWorkLable();
+
+      event.currentTarget.classList.remove("disable_h3");
+
+      var name = event.currentTarget.getAttribute('name');
+      var artical = document.getElementById(name);
+      if (artical.classList.contains("disable_article")) {
+        artical.classList.add("enable_article")
+        artical.classList.remove("disable_article")
+      }
+    }
+  }
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  function carusal() {
+    var doc_details = document.getElementsByClassName("doc_details");
+    var doctor_dot = document.getElementsByClassName("dot");
+    index = 0;
+    setInterval(() => {
+      if (window.screen.availWidth >= 1024) {
+        var temp = document.getElementsByClassName("doc_details")[0].cloneNode(true);
+        //For doctor details slide
+        for (var i = 0; i < doc_details.length - 1; i++) {
+          doc_details[i].innerHTML = doc_details[i + 1].innerHTML;
+        }
+        doc_details[i].innerHTML = temp.innerHTML;
+
+        //FOr dots slide
+        index++
+        if (index == doctor_dot.length) {
+          index = 0
+        }
+        if (index - 1 < 0) {
+          doctor_dot[doctor_dot.length - 1].classList.remove("selected");
+        } else {
+          doctor_dot[index - 1].classList.remove("selected")
+        }
+
+        doctor_dot[index].classList.add("selected");
+
+      }
+    }, 3000);
+  }
+
+  carusal();
+
+  //////////////////////////////////////////////////////////////////////////////////////////
+
+  function carusalFeature() {
+    var feature_img_block = document.getElementsByClassName("img_block");
+    var dot = document.getElementsByClassName("feature_dot");
+    var temp = {};
+    var index = 0;
+    setInterval(() => {
+      if (window.screen.availWidth >= 1024) {
+        temp = feature_img_block[0].cloneNode(true);
+        temp2 = feature_img_block[1].cloneNode(true);
+        for (var i = 0; i < feature_img_block.length - 2; i = i + 2) {
+          feature_img_block[i].innerHTML = feature_img_block[i + 2].innerHTML;
+          feature_img_block[i + 1].innerHTML = feature_img_block[i + 3].innerHTML;
+        }
+        feature_img_block[i + 1].innerHTML = temp2.innerHTML;
+        feature_img_block[i].innerHTML = temp.innerHTML;
+
+        //Feature dot///////////////////////
+        index++
+        if (index == dot.length) {
+          index = 0
+        }
+        if (index - 1 < 0) {
+          dot[dot.length - 1].classList.remove("selected");
+        } else {
+          dot[index - 1].classList.remove("selected")
+        }
+
+        dot[index].classList.add("selected");
+      }
+
+    }, 3000)
+  }
+
+
+  carusalFeature()
 </script>
 
 </html>

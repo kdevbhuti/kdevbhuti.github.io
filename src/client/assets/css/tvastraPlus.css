@@ -85,6 +85,11 @@ main .heading .heading-content span {
     padding: 1.5rem 2rem;
   }
 }
+@media (min-width: 1024px) {
+  main .heading .heading-content {
+    padding-left: 5.5rem;
+  }
+}
 main .heading .liniar-gradiant-background {
   position: relative;
   background: linear-gradient(var(--light_blue), var(--white));
@@ -93,6 +98,11 @@ main .heading .liniar-gradiant-background {
 @media only screen and (min-width: 768px) {
   main .heading .liniar-gradiant-background {
     height: 29rem;
+  }
+}
+@media (min-width: 1024px) {
+  main .heading .liniar-gradiant-background {
+    height: 25rem;
   }
 }
 main .heading .healthcare-plan {
@@ -111,6 +121,12 @@ main .heading .healthcare-plan {
   main .heading .healthcare-plan {
     width: calc(100% - 4rem);
     margin: 0rem 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  main .heading .healthcare-plan {
+    width: calc(100% - 11rem);
+    margin: 0rem 5.5rem;
   }
 }
 main .heading .healthcare-plan .description {
@@ -161,12 +177,22 @@ main .heading .healthcare-plan .all-plans .plan {
     grid-template-rows: repeat(11, 2.5rem);
   }
 }
+@media (min-width: 1024px) {
+  main .heading .healthcare-plan .all-plans .plan {
+    grid-template-rows: repeat(10, 2.5rem);
+  }
+}
 main .heading .healthcare-plan .all-plans .plan ul {
   grid-area: 3/1/span 5/span 1;
 }
 @media only screen and (min-width: 768px) {
   main .heading .healthcare-plan .all-plans .plan ul {
     grid-area: 3/1/span 6/span 1;
+  }
+}
+@media (min-width: 1024px) {
+  main .heading .healthcare-plan .all-plans .plan ul {
+    grid-area: 3/1/span 5/span 1;
   }
 }
 main .heading .healthcare-plan .all-plans .plan ul li {
@@ -370,7 +396,18 @@ main .benefites .benefit_points .benefit_list_items li span .fa-check-circle {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  main .benefites .grid_zoro_free_clinic_consultation {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6rem;
+  }
+}
+@media (min-width: 1024px) {
+  main .benefites .grid_zoro_free_clinic_consultation .zoro_free_clinic_consultation_document {
+    grid-area: 1/1/span 1/span 2;
   }
 }
 @media only screen and (min-width: 768px) {
@@ -401,8 +438,16 @@ main .benefites .free_health_checkups {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     gap: 1rem;
+  }
+}
+@media (min-width: 1024px) {
+  main .benefites .unlimited_online_consultation,
+main .benefites .flat_Off_on_prescription_medicine,
+main .benefites .free_health_checkups {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5rem;
   }
 }
 @media only screen and (min-width: 768px) {
@@ -415,6 +460,23 @@ main .benefites .free_health_checkups .free_health_checkups_document {
     grid-area: 1/2/span 1/span 1;
   }
 }
+@media (min-width: 1024px) {
+  main .benefites .unlimited_online_consultation .unlimited_online_consultation_document,
+main .benefites .unlimited_online_consultation .free_health_checkups_document,
+main .benefites .flat_Off_on_prescription_medicine .unlimited_online_consultation_document,
+main .benefites .flat_Off_on_prescription_medicine .free_health_checkups_document,
+main .benefites .free_health_checkups .unlimited_online_consultation_document,
+main .benefites .free_health_checkups .free_health_checkups_document {
+    grid-area: 1/2/span 1/span 2;
+  }
+}
+@media (min-width: 1024px) {
+  main .benefites .unlimited_online_consultation .flat_Off_on_prescription_medicine_document,
+main .benefites .flat_Off_on_prescription_medicine .flat_Off_on_prescription_medicine_document,
+main .benefites .free_health_checkups .flat_Off_on_prescription_medicine_document {
+    grid-area: 1/1/span 1/span 2;
+  }
+}
 main .benefites .test_include h4 {
   margin-bottom: 1rem;
 }
@@ -423,6 +485,12 @@ main .benefites .test_include .tests {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 1rem;
+}
+@media (min-width: 1024px) {
+  main .benefites .test_include .tests {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }
 }
 main .benefites .test_include .tests .test_figure {
   height: 10rem;
@@ -479,6 +547,11 @@ main .why_we_love_tvastra .heading_of_love_tvastra button {
     gap: 1rem;
   }
 }
+@media (min-width: 1024px) {
+  main .why_we_love_tvastra .all_doctor_reviews {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 main .why_we_love_tvastra .all_doctor_reviews .doctor_review {
   box-shadow: 0rem 0rem 1rem var(--gray-border);
   padding: 1rem;
@@ -487,6 +560,9 @@ main .why_we_love_tvastra .all_doctor_reviews .doctor_review {
 }
 @media only screen and (min-width: 768px) {
   main .why_we_love_tvastra .all_doctor_reviews .doctor_review {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin-bottom: 0rem;
   }
 }
