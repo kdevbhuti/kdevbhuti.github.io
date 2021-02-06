@@ -218,6 +218,7 @@
   background-color: var(--gray_background);
   border-radius: 50%;
   border: none;
+  cursor: pointer;
 }
 @media only screen and (min-width: 768px) {
   .servises .servise_head {
