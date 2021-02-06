@@ -23,9 +23,15 @@ main .heading span {
   color: var(--white);
 }
 main .about_details .ans {
+  display: none;
   padding: 0.5rem;
   background-color: var(--para_background);
-  margin-bottom: 0rem;
+  margin-bottom: 0.5rem;
+}
+@media only screen and (min-width: 768px) {
+  main .about_details .ans {
+    margin-bottom: 1rem;
+  }
 }
 main .about_details .ans p {
   margin: 0rem;
@@ -37,16 +43,19 @@ main .about_details .questions {
   margin-bottom: 1rem;
   color: var(--blue_bold_text);
 }
-main .about_details .questions .fa-chevron-down {
+main .about_details .questions .fa-chevron-down,
+main .about_details .questions .fa-chevron-up {
   font-size: 0.8rem;
   color: var(--blue_bold_text);
   background-color: var(--para_background);
   border-radius: 50%;
   padding: 0.2rem;
+  cursor: pointer;
 }
 main .about_details .questions h3 {
   margin-bottom: 0rem;
   color: var(--blue_bold_text);
+  cursor: pointer;
 }
 main .about_details .questions .fas {
   color: var(--blue_bold_text);

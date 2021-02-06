@@ -48,7 +48,7 @@ main .about_details .details .combine_img .doctor_img {
 }
 main .about_details .details .combine_img button {
   border: none;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   width: 100%;
 }
 @media only screen and (min-width: 768px) {
@@ -73,6 +73,8 @@ main .about_details .details .combine_content .name {
   }
 }
 main .about_details .details .combine_content .name .horizontal_bar {
+  font-size: 1.5rem;
+  line-height: 1.7rem;
   letter-spacing: -0.1rem;
   color: var(--blue_bold_text);
   margin-bottom: 0.4rem;
@@ -92,15 +94,16 @@ main .about_details .details .combine_content .artical {
   padding: 0.5rem;
   margin-bottom: 0rem;
 }
-main .about_details .details .combine_content .point_articals {
+main .about_details .details .combine_content .ans {
   padding: 0.5rem;
   background-color: var(--para_background);
   margin-bottom: 0rem;
+  display: none;
 }
-main .about_details .details .combine_content .point_articals p {
+main .about_details .details .combine_content .ans p {
   margin: 0rem;
 }
-main .about_details .details .combine_content .about_point {
+main .about_details .details .combine_content .question {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -110,28 +113,32 @@ main .about_details .details .combine_content .about_point {
   border-bottom: 1px dashed var(--gray);
 }
 @media only screen and (min-width: 768px) {
-  main .about_details .details .combine_content .about_point {
+  main .about_details .details .combine_content .question {
     padding-bottom: 0.7rem;
     padding-top: 0.7rem;
   }
 }
-main .about_details .details .combine_content .about_point h3,
-main .about_details .details .combine_content .about_point span {
+main .about_details .details .combine_content .question h3,
+main .about_details .details .combine_content .question span {
   margin-bottom: 0rem;
   color: var(--blue_bold_text);
 }
-main .about_details .details .combine_content .about_point span {
+main .about_details .details .combine_content .question h3 {
+  cursor: pointer;
+}
+main .about_details .details .combine_content .question span {
   margin-right: 0.4rem;
 }
-main .about_details .details .combine_content .about_point .fa-chevron-down {
+main .about_details .details .combine_content .question .fa-chevron-down {
   font-size: 0.8rem;
   color: var(--blue_bold_text);
   background-color: var(--para_background);
   border-radius: 50%;
   padding: 0.2rem;
 }
-main .about_details .details .combine_content .about_point .fas {
+main .about_details .details .combine_content .question .fas {
   color: var(--blue_bold_text);
+  cursor: pointer;
 }
 
 main .heading {

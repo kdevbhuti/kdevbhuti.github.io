@@ -64,6 +64,10 @@
   ul {
     li {
       margin-bottom: 0.4rem;
+      font-size: 0.9rem;
+      @media only screen and (min-width: 768px) {
+        font-size: 1rem;
+      }
     }
     li::before {
       content: "\25CF";
@@ -209,14 +213,15 @@
       margin: 0rem;
     }
     h3 {
-      text-align: left;
-      margin: 1.4rem 0rem;
-      @media (min-width: 1024px) {
-        margin: 1.1rem 0rem;
-      }
+      display: flex;
+      height: 3rem;
+      justify-content: flex-start;
+      align-items: center;
+
       .horizontal_bar {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         letter-spacing: -0.1rem;
+        margin-bottom: 0rem;
         color: var(--blue_bold_text);
       }
     }
@@ -233,6 +238,10 @@
   }
   .cardiology {
     margin: 0rem;
+  }
+
+  .disable {
+    display: none;
   }
   .contents {
     @media only screen and (min-width: 768px) {

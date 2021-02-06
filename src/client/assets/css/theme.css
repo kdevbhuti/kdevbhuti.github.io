@@ -122,7 +122,6 @@ h6 {
 header {
   font-family: "Nexa Light";
   padding: 1rem;
-  background-color: var(--white);
 }
 @media only screen and (min-width: 768px) {
   header {
@@ -316,7 +315,6 @@ ul li {
 
 section {
   font-family: "Nexa Light";
-  color: var(--deep_blue);
   padding: 1.5rem 1rem;
 }
 @media only screen and (min-width: 768px) {

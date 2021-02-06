@@ -45,7 +45,7 @@
 
             </div>
 
-            <input type="date" data-placeholder="dd / mm / yyyy">
+            <input type="date" id="date">
             <input type="text" placeholder="Enter Phone Number">
             <div id="place">
                 <input type="text" class="place-city" placeholder="Enter City">
@@ -63,11 +63,7 @@
 <footer>
     <p>All Rights Reserved. <span><i class="far fa-copyright"></i></span> tvastra 2018</p>
 </footer>
-<script>
-    let select = document.querySelector(".select");
-    select.addEventListener("change", () => {
-        select.style.color = '#151e3b';
-    })
-</script>
+<script src="../scripts/selectPlaceHolder.js"></script>
+<script src="../scripts/datePlaceHolder.js"></script>
 
 </html>

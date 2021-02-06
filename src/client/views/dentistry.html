@@ -110,8 +110,8 @@
         <div class="servise_head">
             <h2>More Services</h2>
             <div class="buttons">
-                <button><i class="fas fa-chevron-left"></i></button>
-                <button><i class="fas fa-chevron-right"></i></button>
+                <button id="left-arrow"><i class="fas fa-chevron-left"></i></button>
+                <button id="right-arrow"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
         <div class="contents">
@@ -132,6 +132,24 @@
                     <img src="../assets/image/image--011.jpg" alt="">
                 </figure>
                 <h3><span class="horizontal_bar">&#8212;&#8212;&nbsp;&nbsp;</span>Cardiology</h3>
+            </div>
+            <div class="servise_content disable">
+                <figure>
+                    <img src="../assets/image/image--009.jpg" alt="">
+                </figure>
+                <h3><span class="horizontal_bar">&#8212;&#8212;&nbsp;&nbsp;</span>Dentistry</h3>
+            </div>
+            <div class="servise_content disable">
+                <figure>
+                    <img src="../assets/image/image--006.jpg" alt="">
+                </figure>
+                <h3><span class="horizontal_bar">&#8212;&#8212;&nbsp;&nbsp;</span>Multi Organ Treatment</h3>
+            </div>
+            <div class="servise_content disable">
+                <figure>
+                    <img src="../assets/image/image--000.jpg" alt="">
+                </figure>
+                <h3><span class="horizontal_bar">&#8212;&#8212;&nbsp;&nbsp;</span>Infertility Treatment</h3>
             </div>
         </div>
 
@@ -154,5 +172,71 @@
         <p>All Rights Reserved. <span><i class="far fa-copyright"></i></span> tvastra 2018</p>
     </footer>
 </main>
+<script>
+    document.getElementById("right-arrow").addEventListener("click", slideRight);
+    function slideRight() {
+        var servise_content = document.getElementsByClassName("servise_content");
+        var flag = false;
+        for (var i = 0; i < servise_content.length; i++) {
+            if (servise_content[i].classList.contains("disable")) {
+
+                for (j = 0; j < 3; j++) {
+                    if (i === servise_content.length) {
+                        console.log(servise_content.length)
+                        i = 0;
+                        flag = true;
+                    }
+                    servise_content[i].classList.remove("disable");
+                    i++;
+                }
+                console.log(servise_content)
+                if (flag) {
+                    break
+                } else {
+                    while (i < servise_content.length) {
+                        servise_content[i].classList.add("disable")
+                        i++;
+                    }
+                    break
+                }
+            } else {
+                servise_content[i].classList.add("disable");
+            }
+        }
+    }
+
+
+    document.getElementById("left-arrow").addEventListener("click", leftSlide)
+    function leftSlide() {
+        var servise_content = document.getElementsByClassName("servise_content");
+        var flag = false;
+        for (var i = servise_content.length - 1; i >= 0; i--) {
+            if (servise_content[i].classList.contains("disable")) {
+
+                for (j = 0; j < 3; j++) {
+                    if (i === servise_content.length) {
+                        console.log(servise_content.length)
+                        i = 0;
+                        flag = true;
+                    }
+                    servise_content[i].classList.remove("disable");
+                    i--;
+                }
+                console.log(servise_content)
+                if (flag) {
+                    break
+                } else {
+                    while (i >= 0) {
+                        servise_content[i].classList.add("disable")
+                        i--;
+                    }
+                    break
+                }
+            } else {
+                servise_content[i].classList.add("disable");
+            }
+        }
+    }
+</script>
 
 </html>

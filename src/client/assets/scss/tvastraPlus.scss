@@ -7,6 +7,7 @@ main {
     border: none;
     border-radius: 5px;
     margin-bottom: 0.5rem;
+    padding: 0.5rem 1rem;
   }
   .heading {
     padding: 0rem;
@@ -68,6 +69,7 @@ main {
         padding-bottom: 1rem;
         display: block;
         margin-bottom: 0rem;
+        color: var(--deep_blue);
       }
 
       .all-plans {
@@ -163,7 +165,7 @@ main {
         justify-content: center;
         align-items: center;
         gap: 1.5rem;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
       }
       .star_rating_view {
         .rating {
@@ -186,6 +188,10 @@ main {
         }
       }
       .bar_rating_view {
+        margin-bottom: 2rem;
+        @media only screen and (min-width: 768px) {
+          margin-bottom: 0rem;
+        }
         .star_bar {
           display: flex;
           justify-content: center;
@@ -245,10 +251,19 @@ main {
         align-items: flex-end;
       }
       .medical_document {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
         .fas {
           font-size: 2rem;
           color: var(--blue_color);
           margin-bottom: 0.5rem;
+        }
+        .doctor_appointment_img {
+          height: 3rem;
+          width: 3rem;
         }
         .total {
           display: block;
@@ -269,26 +284,33 @@ main {
     text-align: center;
     @media only screen and (min-width: 768px) {
       text-align: left;
+      padding-top: 0rem;
     }
     h2 {
       font-size: 1rem;
       font-family: "Nexa Light";
-      padding-bottom: 1rem;
+      padding-bottom: 0.5rem;
       border-bottom-right-radius: 2px;
       border-bottom-left-radius: 3px;
       border-bottom: 5px solid var(--para_background);
       @media only screen and (min-width: 768px) {
         text-align: center;
+        width: 20rem;
+        margin: 0rem auto 1.5rem;
       }
     }
     .benefit_points {
       margin-bottom: 1.5rem;
+      @media only screen and (min-width: 768px) {
+        margin-bottom: 0rem;
+      }
       h3 {
         font-size: 1.5rem;
         line-height: 1.7rem;
+        margin-bottom: 1rem;
       }
       figure {
-        height: 15rem;
+        height: 16rem;
         width: 100%;
         border-radius: 6px;
         box-shadow: 0rem 0rem 1rem var(--gray-border);
@@ -299,7 +321,7 @@ main {
       }
       .benefit_list_items {
         text-align: left;
-        li {
+        p {
           display: flex;
           margin-bottom: 0.7rem;
           span {
@@ -333,6 +355,13 @@ main {
         }
       }
       .top_hospital_onboarded {
+        margin-bottom: 1rem;
+        @media only screen and (min-width: 768px) {
+          margin-bottom: 0rem;
+        }
+        h4 {
+          margin-bottom: 1rem;
+        }
         @media only screen and (min-width: 768px) {
           text-align: center;
         }
@@ -343,12 +372,16 @@ main {
           background-color: var(--light_blue);
           gap: 1px;
           margin-bottom: 1rem;
-          figure {
-            height: 5rem;
-            width: 100%;
+          .hospital_logo {
             background-color: var(--white);
-            img {
-              object-fit: fill;
+            display: flex;
+            justify-content: center;
+            figure {
+              height: 5rem;
+              width: 8rem;
+              img {
+                object-fit: fill;
+              }
             }
           }
         }
@@ -368,17 +401,24 @@ main {
       @media (min-width: 1024px) {
         grid-template-columns: repeat(3, 1fr);
         gap: 5rem;
+        margin-bottom: 4rem;
       }
       .unlimited_online_consultation_document,
       .free_health_checkups_document {
+        margin-bottom: 1.5rem;
         @media only screen and (min-width: 768px) {
           grid-area: 1/ 2 / span 1 / span 1;
+          margin-bottom: 0rem;
         }
         @media (min-width: 1024px) {
           grid-area: 1/2 / span 1 / span 2;
         }
       }
       .flat_Off_on_prescription_medicine_document {
+        margin-bottom: 1.5rem;
+        @media only screen and (min-width: 768px) {
+          margin-bottom: 0rem;
+        }
         @media (min-width: 1024px) {
           grid-area: 1/1 / span 1 / span 2;
         }
@@ -424,11 +464,33 @@ main {
             margin-bottom: 0rem;
           }
         }
+        .block_item {
+          display: none;
+        }
+      }
+
+      .dots {
+        display: flex;
+        margin-top: 1rem;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        .dot {
+          padding: 0.3rem;
+          border-radius: 50%;
+          background-color: var(--gray);
+        }
+        .selected {
+          background-color: var(--blue_color);
+        }
       }
     }
   }
 
   .why_we_love_tvastra {
+    @media only screen and (min-width: 768px) {
+      padding-top: 0rem;
+    }
     .heading_of_love_tvastra {
       display: flex;
       justify-content: space-between;
@@ -498,7 +560,7 @@ main {
             button {
               background-color: var(--para_background);
               color: var(--blue_bold_text);
-              font-size: 0.4rem;
+              font-size: 0.6rem;
               font-family: "Nexa Bold";
               border: none;
               border-radius: 5px;
@@ -506,6 +568,11 @@ main {
           }
         }
       }
+    }
+  }
+  .about_details {
+    @media only screen and (min-width: 768px) {
+      padding-top: 0rem;
     }
   }
 }

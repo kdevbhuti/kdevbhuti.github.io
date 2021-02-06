@@ -23,9 +23,13 @@ main {
 
   .about_details {
     .ans {
+      display: none;
       padding: 0.5rem;
       background-color: var(--para_background);
-      margin-bottom: 0rem;
+      margin-bottom: 0.5rem;
+      @media only screen and (min-width: 768px) {
+        margin-bottom: 1rem;
+      }
       p {
         margin: 0rem;
       }
@@ -36,16 +40,19 @@ main {
       align-items: center;
       margin-bottom: 1rem;
       color: var(--blue_bold_text);
-      .fa-chevron-down {
+      .fa-chevron-down,
+      .fa-chevron-up {
         font-size: 0.8rem;
         color: var(--blue_bold_text);
         background-color: var(--para_background);
         border-radius: 50%;
         padding: 0.2rem;
+        cursor: pointer;
       }
       h3 {
         margin-bottom: 0rem;
         color: var(--blue_bold_text);
+        cursor: pointer;
       }
       .fas {
         color: var(--blue_bold_text);

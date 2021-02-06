@@ -39,7 +39,7 @@ main {
         }
         button {
           border: none;
-          margin-bottom: 0.5rem;
+          margin-bottom: 1rem;
           width: 100%;
         }
       }
@@ -60,6 +60,8 @@ main {
           }
           color: var(--blue_bold_text);
           .horizontal_bar {
+            font-size: 1.5rem;
+            line-height: 1.7rem;
             letter-spacing: -0.1rem;
             color: var(--blue_bold_text);
             margin-bottom: 0.4rem;
@@ -77,15 +79,16 @@ main {
           padding: 0.5rem;
           margin-bottom: 0rem;
         }
-        .point_articals {
+        .ans {
           padding: 0.5rem;
           background-color: var(--para_background);
           margin-bottom: 0rem;
+          display: none;
           p {
             margin: 0rem;
           }
         }
-        .about_point {
+        .question {
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -102,6 +105,9 @@ main {
             margin-bottom: 0rem;
             color: var(--blue_bold_text);
           }
+          h3 {
+            cursor: pointer;
+          }
           span {
             margin-right: 0.4rem;
           }
@@ -114,6 +120,7 @@ main {
           }
           .fas {
             color: var(--blue_bold_text);
+            cursor: pointer;
           }
         }
       }
