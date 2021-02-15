@@ -182,7 +182,8 @@ textarea,
 input[type=text],
 [type=password],
 [type=email],
-[type=date] {
+[type=date],
+[type=number] {
   font-family: "nexa light";
   padding: 0.6rem 0.5rem;
   margin-bottom: 0.5rem;
@@ -196,7 +197,8 @@ textarea::placeholder,
 input[type=text]::placeholder,
 [type=password]::placeholder,
 [type=email]::placeholder,
-[type=date]::placeholder {
+[type=date]::placeholder,
+[type=number]::placeholder {
   font-family: "Nexa Light";
   color: var(--placeHolderColor);
   font-size: 0.8rem;
@@ -207,7 +209,8 @@ input[type=text]::placeholder,
 input[type=text]::placeholder,
 [type=password]::placeholder,
 [type=email]::placeholder,
-[type=date]::placeholder {
+[type=date]::placeholder,
+[type=number]::placeholder {
     font-size: 0.9rem;
     line-height: 1.1rem;
   }
@@ -217,7 +220,8 @@ input[type=text]::placeholder,
 input[type=text],
 [type=password],
 [type=email],
-[type=date] {
+[type=date],
+[type=number] {
     padding: 0.6rem 0.5rem;
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
@@ -229,7 +233,8 @@ input[type=text],
 input[type=text],
 [type=password],
 [type=email],
-[type=date] {
+[type=date],
+[type=number] {
     padding: 0.7rem 0.8rem;
     margin-bottom: 0.5rem;
   }

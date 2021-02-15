@@ -5,15 +5,15 @@ function home(req, res){
 }
 
 function signup(req, res){
-    res.render("signup")
+    res.render("signup", {status: undefined})
  }
 
-function login(req, res){
-    res.render("login")
+function emailLogin(req, res){
+    res.render("emailLogin", {status: undefined})
 }
 
 module.exports=({
     home: home,
     signup: signup,
-    login: login
+    emailLogin: emailLogin
 });

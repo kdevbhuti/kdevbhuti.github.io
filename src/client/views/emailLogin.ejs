@@ -1,22 +1,21 @@
 <html>
 
 <head>
-    <title>Signup</title>
+    <title>Email Login</title>
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/theme.css">
     <link rel="stylesheet" href="/css/navigation.css">
-    <link rel="stylesheet" href="/css/signup.css">
+    <link rel="stylesheet" href="/css/login.css">
     <link rel="stylesheet" href="/css/serverMessageBox.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
-
 <header>
     <nav class="navigation">
         <img class="nav_logo" src="/image/Logo.jpg" alt="">
         <ul>
-            <li><a href="">Doctor</a></li>
+            <li><a href="/">Doctor</a></li>
             <li><a href="">Hospital</a></li>
             <li><a href="">Treatment</a></li>
             <li><a href="">About</a></li>
@@ -28,6 +27,7 @@
         <i class="fas fa-bars"></i>
     </nav>
 </header>
+
 <main>
 
     <% if(status){ %>
@@ -49,44 +49,32 @@
                         <i class="fas fa-times" id="closeServerMessageBox"></i>
         </section>
         <%}%>
-
-            <section>
-                <form action="/signup" method="POST">
-                    <h1>Sign Up</h1>
-                    <input type="text" required name="name" placeholder="Enter name">
-                    <input type="email" id="email" required name="email" placeholder="Enter email">
-                    <input type="text" id="password" required name="password" placeholder="Enter password">
-                    <div class="select_box">
-                        <select class="select" required name="gender">
-                            <option value="" class="hide_option">Enter your gender</option>
-                            <option value="Male">Male</option>
-                            <option value="Femail">Femail</option>
-                        </select>
-                        <i class="fas fa-caret-down"></i>
-
+            <section class="form">
+                <form method="POST" action="/emailLogin">
+                    <h1>Email Login</h1>
+                    <input type="email" required name="email" placeholder="Enter Email Adderesh">
+                    <div class="input_icon_block">
+                        <input type="password" autocomplete="off" required name="password" id="password"
+                            placeholder="Enter password">
+                        <i class="fas fa-eye-slash" id="password-eye"></i>
                     </div>
-
-                    <input type="date" required name="date" id="date">
-                    <input type="text" id="phNumber" name="phoneNumber" placeholder="Enter Phone Number">
-                    <div id="place">
-                        <input type="text" required name="city" class="place-city" placeholder="Enter City">
-                        <input type="text" required name="state" class="place-state" placeholder="Enter State">
+                    <div class="links">
+                        <a href="">Login with OTP</a>
+                        <a href="">ForGot password</a>
                     </div>
-                    <input type="text" required name="country" placeholder="Select your country">
                     <div class="log-button">
-                        <button id="signup">SIGN UP</button>
+                        <button id="login">LOGIN</button>
                         <i class="fas fa-arrow-right"></i>
                     </div>
                 </form>
-                <label for="">Allready Registered? <a href="/emailLogin">Login</a></label>
+                <label for="signup">Not Registered? <a id="signup" href="/signup">Sign Up</a></label>
             </section>
 </main>
+
 <footer>
     <p>All Rights Reserved. <span><i class="far fa-copyright"></i></span> tvastra 2018</p>
 </footer>
-<script src="/scripts/selectPlaceHolder.js"></script>
-<script src="/scripts/datePlaceHolder.js"></script>
-<script src="/scripts/signup.js"></script>
+<script src="/scripts/emailLogin.js"></script>
 <script src="/scripts/serverMessageBox.js"></script>
 
 </html>

@@ -1,0 +1,58 @@
+@import "../css/variabls.css";
+
+body {
+  position: relative;
+  .server-message {
+    position: absolute;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+    top: 5rem;
+    right: 0.5rem;
+    width: 16rem;
+    border-left: 0.4rem solid var(--blue_bold_text);
+    background-color: var(--white);
+    text-align: left;
+    .msg_logo {
+      font-size: 1.5rem;
+    }
+    .msg {
+      margin-right: 1rem;
+      h4 {
+        margin-bottom: 0.2rem;
+      }
+      span {
+        margin-bottom: 0rem;
+        font-family: "Nexa bold";
+        font-size: 0.6rem;
+        line-height: 0.8rem;
+        @media only screen and (min-width: 768px) {
+          font-size: 0.8rem;
+          line-height: 1rem;
+        }
+      }
+    }
+  }
+  .Failure {
+    border-color: var(--red_error);
+    .msg_logo {
+      color: var(--red_error);
+    }
+    h4,
+    span {
+      color: var(--red_error);
+    }
+  }
+  .Success {
+    border-color: var(--green);
+    .msg_logo {
+      color: var(--green);
+    }
+    h4,
+    span {
+      color: var(--green);
+    }
+  }
+}

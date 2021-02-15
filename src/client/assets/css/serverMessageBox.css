@@ -1,0 +1,61 @@
+@import "../css/variabls.css";
+body {
+  position: relative;
+}
+body .server-message {
+  position: absolute;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  top: 5rem;
+  right: 0.5rem;
+  width: 16rem;
+  border-left: 0.4rem solid var(--blue_bold_text);
+  background-color: var(--white);
+  text-align: left;
+}
+body .server-message .msg_logo {
+  font-size: 1.5rem;
+}
+body .server-message .msg {
+  margin-right: 1rem;
+}
+body .server-message .msg h4 {
+  margin-bottom: 0.2rem;
+}
+body .server-message .msg span {
+  margin-bottom: 0rem;
+  font-family: "Nexa bold";
+  font-size: 0.6rem;
+  line-height: 0.8rem;
+}
+@media only screen and (min-width: 768px) {
+  body .server-message .msg span {
+    font-size: 0.8rem;
+    line-height: 1rem;
+  }
+}
+body .Failure {
+  border-color: var(--red_error);
+}
+body .Failure .msg_logo {
+  color: var(--red_error);
+}
+body .Failure h4,
+body .Failure span {
+  color: var(--red_error);
+}
+body .Success {
+  border-color: var(--green);
+}
+body .Success .msg_logo {
+  color: var(--green);
+}
+body .Success h4,
+body .Success span {
+  color: var(--green);
+}
+
+/*# sourceMappingURL=serverMessageBox.css.map */

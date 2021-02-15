@@ -1,0 +1,32 @@
+@import "./formType.scss";
+
+main {
+  .form {
+    .otp_div {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      input[type="text"] {
+        border: none;
+        border-bottom: 3px solid var(--blue_color);
+        text-align: center;
+        font-family: "Nexa Bold";
+        width: 2rem;
+        color: var(--blue_color);
+        @media only screen and (min-width: 768px) {
+          width: 3rem;
+          font-size: 1.2rem;
+        }
+      }
+    }
+    .coundown {
+      font-family: "Nexa Bold";
+      color: var(--blue_color);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .log-button {
+      margin-bottom: 0rem;
+    }
+  }
+}

@@ -1,0 +1,91 @@
+<html>
+
+<Head>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/theme.css">
+    <link rel="stylesheet" href="../assets/css/navigation.css">
+    <link rel="stylesheet" href="../assets/css/OTP.css">
+    <link rel="stylesheet" href="../assets/css/serverMessageBox.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</Head>
+<header>
+    <nav class="navigation">
+        <img class="nav_logo" src="/image/Logo.jpg" alt="">
+        <ul>
+            <li><a href="/">Doctor</a></li>
+            <li><a href="">Hospital</a></li>
+            <li><a href="">Treatment</a></li>
+            <li><a href="">About</a></li>
+        </ul>
+        <div class="nav_btn">
+            <button class="login_btn">Login\Sign Up</button>
+            <button class="quote_btn">Get a Quote</button>
+        </div>
+        <i class="fas fa-bars"></i>
+    </nav>
+</header>
+<main>
+    <section class="form">
+        <form action="">
+            <h1>OTP</h1>
+            <p>We have send one time password (OTP) to your registerde Phone Number.</p>
+            <div class="otp_div">
+                <input type="text" maxlength="1" autocomplete="off" id="otp-1" class="otp_input">
+                <input type="text" maxlength="1" autocomplete="off" id="otp-2" class="otp_input">
+                <input type="text" maxlength="1" autocomplete="off" id="otp-3" class="otp_input">
+                <input type="text" maxlength="1" autocomplete="off" id="otp-4" class="otp_input">
+            </div>
+            <span class="coundown">Resend in 60 sec</span>
+            <div class="log-button">
+                <button>SUBMIT</button>
+                <i class="fas fa-arrow-right"></i>
+            </div>
+        </form>
+    </section>
+</main>
+<footer>
+    <p>All Rights Reserved. <span><i class="far fa-copyright"></i></span> tvastra 2018</p>
+</footer>
+
+<script>
+    let otp = document.getElementsByClassName("otp_input")
+    for (var i = 0; i < otp.length; i++) {
+        otp[i].addEventListener("input", otpFunction);
+        otp[i].addEventListener("keydown", changePosition)
+    }
+
+
+    function otpFunction(event) {
+        if (!(new RegExp("[0-9]").test(event.target.value))) {
+            event.target.value = "";
+        } else if (event.target.value !== "") {
+            var next = document.getElementById(event.target.id).nextElementSibling
+            if (next) {
+                next.focus();
+            }
+        } else {
+            var pre = document.getElementById(event.target.id).previousElementSibling;
+            if (pre) {
+                pre.focus();
+            }
+        }
+    }
+
+    function changePosition(event) {
+        if (event.keyCode === 37) {
+            var pre = document.getElementById(event.target.id).previousElementSibling;
+            if (pre) {
+                pre.focus();
+            }
+        } else if (event.keyCode === 39) {
+            var next = document.getElementById(event.target.id).nextElementSibling
+            if (next) {
+                next.focus();
+            }
+        }
+    }
+</script>
+
+</html>

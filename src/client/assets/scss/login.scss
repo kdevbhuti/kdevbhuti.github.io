@@ -1,16 +1,33 @@
 @import "./formType.scss";
 
 main {
-  section .input-number {
-    position: relative;
-  }
-  .fa-question-circle {
-    position: absolute;
-    right: 1rem;
-    top: 0.6rem;
-    color: var(--gray);
-    @media only screen and (min-width: 768px) {
-      top: 0.7rem;
+  .form {
+    .input_icon_block {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid var(--gray-border);
+      margin-bottom: 0.5rem;
+      input {
+        margin-bottom: 0rem;
+        border: none;
+      }
+      .fas {
+        color: var(--blue_color);
+        padding: 0.5rem;
+        @media only screen and (min-width: 768px) {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+    .links {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.6rem;
+      a {
+        font-family: "Nexa bold";
+        color: var(--blue_bold_text);
+      }
     }
   }
 }

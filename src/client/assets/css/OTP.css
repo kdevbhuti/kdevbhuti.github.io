@@ -107,34 +107,33 @@ body footer p {
   font-family: "Nexa Bold";
 }
 
-main .form .input_icon_block {
+main .form .otp_div {
   display: flex;
+  gap: 1rem;
   justify-content: center;
-  align-items: center;
-  border: 1px solid var(--gray-border);
-  margin-bottom: 0.5rem;
 }
-main .form .input_icon_block input {
-  margin-bottom: 0rem;
+main .form .otp_div input[type=text] {
   border: none;
-}
-main .form .input_icon_block .fas {
+  border-bottom: 3px solid var(--blue_color);
+  text-align: center;
+  font-family: "Nexa Bold";
+  width: 2rem;
   color: var(--blue_color);
-  padding: 0.5rem;
 }
 @media only screen and (min-width: 768px) {
-  main .form .input_icon_block .fas {
-    margin-right: 0.5rem;
+  main .form .otp_div input[type=text] {
+    width: 3rem;
+    font-size: 1.2rem;
   }
 }
-main .form .links {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.6rem;
+main .form .coundown {
+  font-family: "Nexa Bold";
+  color: var(--blue_color);
+  margin-bottom: 0.5rem;
+  display: block;
 }
-main .form .links a {
-  font-family: "Nexa bold";
-  color: var(--blue_bold_text);
+main .form .log-button {
+  margin-bottom: 0rem;
 }
 
-/*# sourceMappingURL=login.css.map */
+/*# sourceMappingURL=OTP.css.map */

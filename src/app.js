@@ -1,15 +1,26 @@
 const express = require("express");
-const router = express.Router();
 const app= express();
 
 const compression = require("compression");
 const cors = require("cors")
-const ejs = require("ejs");
 const bodyParser = require("body-parser")
 const logger = require("morgan");
 const path = require("path");
+const session = require("express-session")
 
 const mainRoutes = require("./backend/routes/MainRoutes");
+const connectDB = require("./backend/database/mongoose");
+
+connectDB();
+
+app.use(session({
+    name: "tvastra",
+    secret: 'Tvastrakey',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {}
+}))
+
 
 app.use(compression());
 app.use(cors());
