@@ -5,7 +5,7 @@ body {
   .server-message {
     position: absolute;
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
     align-items: center;
     gap: 1rem;
     padding: 0.5rem;
@@ -15,22 +15,28 @@ body {
     border-left: 0.4rem solid var(--blue_bold_text);
     background-color: var(--white);
     text-align: left;
-    .msg_logo {
-      font-size: 1.5rem;
-    }
-    .msg {
-      margin-right: 1rem;
-      h4 {
-        margin-bottom: 0.2rem;
+    .status_message {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: left;
+      align-items: center;
+      .msg_logo {
+        font-size: 1.5rem;
       }
-      span {
-        margin-bottom: 0rem;
-        font-family: "Nexa bold";
-        font-size: 0.6rem;
-        line-height: 0.8rem;
-        @media only screen and (min-width: 768px) {
-          font-size: 0.8rem;
-          line-height: 1rem;
+      .msg {
+        margin-right: 1rem;
+        h4 {
+          margin-bottom: 0.2rem;
+        }
+        span {
+          margin-bottom: 0rem;
+          font-family: "Nexa bold";
+          font-size: 0.6rem;
+          line-height: 0.8rem;
+          @media only screen and (min-width: 768px) {
+            font-size: 0.8rem;
+            line-height: 1rem;
+          }
         }
       }
     }

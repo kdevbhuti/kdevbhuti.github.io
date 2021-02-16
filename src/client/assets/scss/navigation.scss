@@ -1,0 +1,117 @@
+@import "./variabls.css";
+
+header {
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .login_btn {
+      background-color: var(--white);
+      color: var(--deep_blue);
+    }
+    .nav_logo {
+      height: 1.5rem;
+      width: 6.4rem;
+      margin: 0rem;
+      @media only screen and (min-width: 768px) {
+        height: 1.6rem;
+        width: 6.9rem;
+        margin: 0rem;
+      }
+    }
+    ul {
+      display: none;
+      @media (min-width: 1024px) {
+        display: inline-flex;
+        justify-content: space-around;
+        flex-shrink: 6;
+        li {
+          margin: 0rem 1rem;
+        }
+      }
+    }
+    .nav_btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.3rem;
+      button {
+        display: none;
+        @media (min-width: 1024px) {
+          width: 7rem;
+          font-size: 0.7rem;
+          display: block;
+          padding: 0.5rem 0.3rem;
+          border-radius: 0.2rem;
+          border: 0.09rem solid var(--deep_blue);
+          flex: 6 6 3rem;
+        }
+      }
+      .profile_dropdown {
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        font-family: "Nexa Bold";
+        margin-bottom: 0rem;
+        &:hover {
+          cursor: pointer;
+        }
+        .fa-chevron-down {
+          font-size: 0.7rem;
+          margin-left: 0.3rem;
+        }
+      }
+    }
+    .dropDown {
+      display: none;
+      position: absolute;
+      width: 15rem;
+      top: 4.7rem;
+      right: 5.5rem;
+      background: var(--white);
+      .user_details {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.5rem;
+        border-bottom: 1px solid var(--gray-border);
+        span {
+          display: block;
+          margin-bottom: 0rem;
+          &.user_name {
+            font-family: "nexa bold";
+            color: var(--blue_bold_text);
+          }
+        }
+        figure {
+          width: 3.5rem;
+          height: 3.5rem;
+        }
+      }
+      ul {
+        display: flex;
+        flex-direction: column;
+
+        li {
+          margin: 0rem;
+          a {
+            display: block;
+            padding: 0.8rem 1rem;
+            font-family: "nexa bold";
+            border-left: 5px solid var(--white);
+            &:hover {
+              background-color: var(--gray-border);
+              border-left: 5px solid var(--blue_color);
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+    .fa-bars {
+      @media (min-width: 1024px) {
+        display: none;
+      }
+    }
+  }
+}

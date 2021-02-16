@@ -7,18 +7,30 @@ const bodyParser = require("body-parser")
 const logger = require("morgan");
 const path = require("path");
 const session = require("express-session")
+const MongoStore = require('connect-mongo')(session);
 
 const mainRoutes = require("./backend/routes/MainRoutes");
 const connectDB = require("./backend/database/mongoose");
 
-connectDB();
+app.use(express.json());
+app.use(express.urlencoded({extended:true}))
+
+
+
+var sessionStorage = new MongoStore({
+    mongooseConnection: connectDB,
+    collection: "session",
+})
 
 app.use(session({
-    name: "tvastra",
-    secret: 'Tvastrakey',
+    name: "_tvastra",
+    secret: 'TvastraKey',
     resave: false,
-    saveUninitialized: false,
-    cookie: {}
+    saveUninitialized: true,
+    store: sessionStorage,
+    cookie: {
+        maxAge: 1000 * 60 * 15, //15 min
+    }
 }))
 
 
@@ -49,4 +61,3 @@ app.listen(app.get("port"), ()=>{
     console.log("Application running in port: " + app.get("port"));
 })
 
-module.exports = app;

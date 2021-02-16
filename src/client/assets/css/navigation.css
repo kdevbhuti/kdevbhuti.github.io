@@ -1,28 +1,18 @@
 @import "./variabls.css";
-
 header .navigation {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 header .navigation .login_btn {
   background-color: var(--white);
   color: var(--deep_blue);
 }
-
 header .navigation .nav_logo {
   height: 1.5rem;
   width: 6.4rem;
   margin: 0rem;
 }
-header .navigation ul {
-  display: none;
-}
-header .navigation button {
-  display: none;
-}
-
 @media only screen and (min-width: 768px) {
   header .navigation .nav_logo {
     height: 1.6rem;
@@ -30,30 +20,102 @@ header .navigation button {
     margin: 0rem;
   }
 }
-
+header .navigation ul {
+  display: none;
+}
 @media (min-width: 1024px) {
-  header .navigation .nav_logo {
-    height: 2rem;
-    width: 8rem;
-    margin: 0rem;
-  }
   header .navigation ul {
     display: inline-flex;
     justify-content: space-around;
+    flex-shrink: 6;
   }
-
   header .navigation ul li {
     margin: 0rem 1rem;
   }
-  header .navigation i {
-    display: none;
-  }
-
-  header .navigation button {
-    display: inline-flex;
-    padding: 0.5rem 0.8rem;
+}
+header .navigation .nav_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+}
+header .navigation .nav_btn button {
+  display: none;
+}
+@media (min-width: 1024px) {
+  header .navigation .nav_btn button {
+    width: 7rem;
+    font-size: 0.7rem;
+    display: block;
+    padding: 0.5rem 0.3rem;
     border-radius: 0.2rem;
     border: 0.09rem solid var(--deep_blue);
     flex: 6 6 3rem;
   }
 }
+header .navigation .nav_btn .profile_dropdown {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-family: "Nexa Bold";
+  margin-bottom: 0rem;
+}
+header .navigation .nav_btn .profile_dropdown:hover {
+  cursor: pointer;
+}
+header .navigation .nav_btn .profile_dropdown .fa-chevron-down {
+  font-size: 0.7rem;
+  margin-left: 0.3rem;
+}
+header .navigation .dropDown {
+  display: none;
+  position: absolute;
+  width: 15rem;
+  top: 4.7rem;
+  right: 5.5rem;
+  background: var(--white);
+}
+header .navigation .dropDown .user_details {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--gray-border);
+}
+header .navigation .dropDown .user_details span {
+  display: block;
+  margin-bottom: 0rem;
+}
+header .navigation .dropDown .user_details span.user_name {
+  font-family: "nexa bold";
+  color: var(--blue_bold_text);
+}
+header .navigation .dropDown .user_details figure {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+header .navigation .dropDown ul {
+  display: flex;
+  flex-direction: column;
+}
+header .navigation .dropDown ul li {
+  margin: 0rem;
+}
+header .navigation .dropDown ul li a {
+  display: block;
+  padding: 0.8rem 1rem;
+  font-family: "nexa bold";
+  border-left: 5px solid var(--white);
+}
+header .navigation .dropDown ul li a:hover {
+  background-color: var(--gray-border);
+  border-left: 5px solid var(--blue_color);
+  cursor: pointer;
+}
+@media (min-width: 1024px) {
+  header .navigation .fa-bars {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=navigation.css.map */
