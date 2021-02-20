@@ -17,6 +17,10 @@ function emailLogin(req, res){
     }
 }
 
+function phoneLogin(){
+    
+}
+
 module.exports=({
     emailLogin: emailLogin
 })

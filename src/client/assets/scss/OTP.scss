@@ -24,6 +24,16 @@ main {
       color: var(--blue_color);
       margin-bottom: 0.5rem;
       display: block;
+      #time {
+        color: var(--blue_color);
+      }
+    }
+    .resetOTP {
+      background-color: var(--white);
+      border: none;
+      font-family: "Nexa Bold";
+      color: var(--blue_bold_text);
+      margin: 0rem auto 0.5rem;
     }
     .log-button {
       margin-bottom: 0rem;

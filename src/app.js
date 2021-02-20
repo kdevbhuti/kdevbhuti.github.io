@@ -8,15 +8,16 @@ const logger = require("morgan");
 const path = require("path");
 const session = require("express-session")
 const MongoStore = require('connect-mongo')(session);
+const cookieParser = require("cookie-parser")
 
 const mainRoutes = require("./backend/routes/MainRoutes");
 const connectDB = require("./backend/database/mongoose");
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
+app.use(cookieParser())
 
-
-
+// creating seassion
 var sessionStorage = new MongoStore({
     mongooseConnection: connectDB,
     collection: "session",
@@ -32,6 +33,9 @@ app.use(session({
         maxAge: 1000 * 60 * 15, //15 min
     }
 }))
+// /////////////////////////////////////////
+
+
 
 
 app.use(compression());

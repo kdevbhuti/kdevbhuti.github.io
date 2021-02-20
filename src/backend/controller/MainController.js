@@ -1,4 +1,7 @@
 
+
+
+
 function home(req, res){
     res.render("index", {status: undefined, message: "login Successfilly", name: req.session.name});
 }
@@ -11,6 +14,8 @@ function emailLogin(req, res){
     res.render("emailLogin", {status: undefined})
 }
 
+
+
 function logOut(req, res){
     if(req.session.userid){
         req.session.destroy();
@@ -18,14 +23,12 @@ function logOut(req, res){
     res.redirect("/emaillogin")
 }
 
-function OTP(req, res){
-    res.render("OTP")
-}
+
 
 module.exports=({
     home: home,
     signup: signup,
     emailLogin: emailLogin,
     logOut: logOut,
-    OTP: OTP
+    // createNewPassword: createNewPassword
 });

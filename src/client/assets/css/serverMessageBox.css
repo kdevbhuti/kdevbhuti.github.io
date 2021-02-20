@@ -63,5 +63,15 @@ body .Success h4,
 body .Success span {
   color: var(--green);
 }
+body .Info {
+  border-color: var(--info_color);
+}
+body .Info .msg_logo {
+  color: var(--info_color);
+}
+body .Info h4,
+body .Info span {
+  color: var(--info_color);
+}
 
 /*# sourceMappingURL=serverMessageBox.css.map */

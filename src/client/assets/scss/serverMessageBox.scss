@@ -61,4 +61,14 @@ body {
       color: var(--green);
     }
   }
+  .Info {
+    border-color: var(--info_color);
+    .msg_logo {
+      color: var(--info_color);
+    }
+    h4,
+    span {
+      color: var(--info_color);
+    }
+  }
 }

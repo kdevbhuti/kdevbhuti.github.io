@@ -1,11 +1,12 @@
 <html>
 
 <head>
-    <title>Signup</title>
+    <title>Email Login</title>
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/theme.css">
     <link rel="stylesheet" href="/css/navigation.css">
-    <link rel="stylesheet" href="/css/signup.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/serverMessageBox.css">
     <link rel="stylesheet" href="/css/serverMessageBox.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
@@ -16,7 +17,7 @@
     <nav class="navigation">
         <img class="nav_logo" src="/image/Logo.jpg" alt="">
         <ul>
-            <li><a href="">Doctor</a></li>
+            <li><a href="/">Doctor</a></li>
             <li><a href="">Hospital</a></li>
             <li><a href="">Treatment</a></li>
             <li><a href="">About</a></li>
@@ -28,8 +29,8 @@
         <i class="fas fa-bars"></i>
     </nav>
 </header>
-<main>
 
+<main>
     <% if(status){ %>
         <section class="server-message <%=status%>" id="serverMessageSection">
             <div class="status_message">
@@ -51,43 +52,35 @@
         </section>
         <%}%>
 
+
             <section class="form">
-                <form action="/signup" method="POST">
-                    <h1>Sign Up</h1>
-                    <input type="text" required name="name" placeholder="Enter name">
-                    <input type="email" id="email" required name="email" placeholder="Enter email">
-                    <input type="text" id="password" required name="password" placeholder="Enter password">
-                    <div class="select_box">
-                        <select class="select" required name="gender">
-                            <option value="" class="hide_option">Enter your gender</option>
-                            <option value="Male">Male</option>
-                            <option value="Femail">Femail</option>
-                        </select>
-                        <i class="fas fa-caret-down"></i>
-
+                <form method="post" action="/Phonelogin">
+                    <h1>Phone Login</h1>
+                    <input type="text" id="phNumber" name="phNumber" required required maxlength="10"
+                        placeholder="Enter Mobile Number">
+                    <div class="links phoneLoginLink">
+                        <input type="submit" name="command" value="LogIn with password">
                     </div>
-
-                    <input type="date" required name="date" id="date">
-                    <input type="text" id="phNumber" name="phoneNumber" placeholder="Enter Phone Number">
-                    <div id="place">
-                        <input type="text" required name="city" class="place-city" placeholder="Enter City">
-                        <input type="text" required name="state" class="place-state" placeholder="Enter State">
-                    </div>
-                    <input type="text" required name="country" placeholder="Select your country">
                     <div class="log-button">
-                        <button id="signup">SIGN UP</button>
+                        <button id="login">SUBMIT</button>
                         <i class="fas fa-arrow-right"></i>
                     </div>
                 </form>
-                <label for="">Allready Registered? <a href="/emailLogin">Login</a></label>
             </section>
 </main>
+
 <footer>
     <p>All Rights Reserved. <span><i class="far fa-copyright"></i></span> tvastra 2018</p>
 </footer>
-<script src="/scripts/selectPlaceHolder.js"></script>
-<script src="/scripts/datePlaceHolder.js"></script>
-<script src="/scripts/signup.js"></script>
 <script src="/scripts/serverMessageBox.js"></script>
+<script>
+    document.getElementById("login").addEventListener("click", function () {
+        let phNumber = document.getElementById("phNumber");
+        if (new RegExp("[0-9]{10}").test(phNumber.value)) {
+            phNumber.setCustomValidity("");
+        } else {
+            phNumber.setCustomValidity("Must contain 10 digits");
+        }
+    })
 
-</html>
+</script>

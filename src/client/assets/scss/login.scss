@@ -24,10 +24,17 @@ main {
       display: flex;
       justify-content: space-between;
       margin-bottom: 0.6rem;
-      a {
+      input[type="submit"] {
         font-family: "Nexa bold";
         color: var(--blue_bold_text);
+        border: none;
+        background-color: var(--white);
+        cursor: pointer;
       }
+    }
+    .phoneLoginLink {
+      display: flex;
+      justify-content: center;
     }
   }
 }

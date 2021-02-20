@@ -132,9 +132,16 @@ main .form .links {
   justify-content: space-between;
   margin-bottom: 0.6rem;
 }
-main .form .links a {
+main .form .links input[type=submit] {
   font-family: "Nexa bold";
   color: var(--blue_bold_text);
+  border: none;
+  background-color: var(--white);
+  cursor: pointer;
+}
+main .form .phoneLoginLink {
+  display: flex;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=login.css.map */

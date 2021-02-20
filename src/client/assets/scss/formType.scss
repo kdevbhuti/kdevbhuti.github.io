@@ -47,7 +47,11 @@ body {
         .fa-caret-down {
           position: absolute;
           top: 0.7rem;
-          right: 0.8rem;
+          right: 0.9rem;
+          pointer-events: none;
+          @media (min-width: 1024px) {
+            right: 1.1rem;
+          }
         }
       }
       // ///////////////////////////////////////////////////////////////////////////////

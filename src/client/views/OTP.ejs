@@ -27,28 +27,55 @@
     </nav>
 </header>
 <main>
-    <section class="form">
-        <form action="">
-            <h1>OTP</h1>
-            <p>We have send one time password (OTP) to your registerde Phone Number.</p>
-            <div class="otp_div">
-                <input type="text" maxlength="1" autocomplete="off" id="otp-1" class="otp_input">
-                <input type="text" maxlength="1" autocomplete="off" id="otp-2" class="otp_input">
-                <input type="text" maxlength="1" autocomplete="off" id="otp-3" class="otp_input">
-                <input type="text" maxlength="1" autocomplete="off" id="otp-4" class="otp_input">
+
+    <% if(status){ %>
+        <section class="server-message <%=status%>" id="serverMessageSection">
+            <div class="status_message">
+                <% if(status==="Failure" ) { %>
+                    <i class=" msg_logo fas fa-times-circle"></i>
+                    <% } else if(status==="Success" ) { %>
+                        <i class=" msg_logo fas fa-check-circle"></i>
+                        <%}else if(status==="Info" ){ %>
+                            <i class="msg_logo fas fa-info-circle"></i>
+                            <% }%>
+                                <div class="msg">
+                                    <h4>
+                                        <%=status%>
+                                    </h4>
+                                    <span>
+                                        <%=message%>
+                                    </span>
+                                </div>
             </div>
-            <span class="coundown">Resend in 60 sec</span>
-            <div class="log-button">
-                <button>SUBMIT</button>
-                <i class="fas fa-arrow-right"></i>
-            </div>
-        </form>
-    </section>
+            <i class="fas fa-times" id="closeServerMessageBox"></i>
+        </section>
+        <%}%>
+
+            <section class="form">
+                <form action="/OTP" method="POST">
+                    <h1>OTP</h1>
+                    <p>We have send one time password (OTP) to your registerde Phone Number.</p>
+                    <div class="otp_div">
+                        <input type="text" name="otp1" maxlength="1" autocomplete="off" id="otp-1" class="otp_input">
+                        <input type="text" name="otp2" maxlength="1" autocomplete="off" id="otp-2" class="otp_input">
+                        <input type="text" name="otp3" maxlength="1" autocomplete="off" id="otp-3" class="otp_input">
+                        <input type="text" name="otp4" maxlength="1" autocomplete="off" id="otp-4" class="otp_input">
+                    </div>
+                    <input type="hidden" name="requestId" value=<%=requestId%>>
+                    <input type="hidden" name="buttonCommand" value=<%=buttonCommand%>>
+                    <span class="coundown" id="OTPtimer">Resend in <span id="time">5</span> sec</span>
+                    <input class="resetOTP" type="submit" name="command" id="resendOTP" value="Resend">
+                    <div class="log-button">
+                        <button type="submit">>SUBMIT</button>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </form>
+            </section>
 </main>
 <footer>
     <p>All Rights Reserved. <span><i class="far fa-copyright"></i></span> tvastra 2018</p>
 </footer>
-
+<script src="/scripts/serverMessageBox.js"></script>
 <script>
     let otp = document.getElementsByClassName("otp_input")
     for (var i = 0; i < otp.length; i++) {
@@ -86,6 +113,34 @@
             }
         }
     }
+
+    ///////////////////////////////////////////////////////////////////
+    var time = document.getElementById("time");
+    var sec = 40;
+    startTimer();
+
+    function startTimer() {
+        document.getElementById("OTPtimer").style.display = "block";
+        document.getElementById("resendOTP").style.display = "none";
+        sec = 40;
+        var timer = setInterval(() => {
+            if (sec >= 0) {
+                time.innerText = sec;
+            } else if (sec == -1) {
+                document.getElementById("OTPtimer").style.display = "none";
+                document.getElementById("resendOTP").style.display = "block";
+                stopTimmer();
+            }
+            console.log(sec)
+            sec--
+        }, 1000);
+        function stopTimmer() {
+            clearInterval(timer);
+        }
+    }
+
+
+
 </script>
 
 </html>
