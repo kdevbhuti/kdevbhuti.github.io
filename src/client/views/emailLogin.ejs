@@ -53,15 +53,15 @@
             <section class="form">
                 <form method="POST" action="/emailLogin">
                     <h1>Email Login</h1>
-                    <input type="email" name="email" placeholder="Enter Email Adderesh">
+                    <input type="email" id="email" name="email" placeholder="Enter Email Adderesh">
                     <div class="input_icon_block">
                         <input type="password" autocomplete="off" name="password" id="password"
                             placeholder="Enter password">
                         <i class="fas fa-eye-slash" id="password-eye"></i>
                     </div>
                     <div class="links">
-                        <input type="submit" name="command" value="LogIn with OTP">
-                        <input type="submit" name="command" value="ForGot password">
+                        <input type="submit" id="loginWithOTP" name="command" value="LogIn with OTP">
+                        <input type="submit" id="forgotPassword" name="command" value="ForGot password">
                     </div>
                     <div class="log-button">
                         <button id="login">LOGIN</button>
@@ -78,5 +78,23 @@
 <script src="/scripts/passwordValidation.js"></script>
 <script src="/scripts/passwordVisibility.js"></script>
 <script src="/scripts/serverMessageBox.js"></script>
+<script>
+    function emailLogin() {
+        document.getElementById("login").addEventListener("click", function () {
+            document.getElementById("email").required = true;
+            document.getElementById("password").required = true;
+        })
+        document.getElementById("loginWithOTP").addEventListener("click", function () {
+            document.getElementById("email").required = false;
+            document.getElementById("password").required = false;
+        })
+        document.getElementById("forgotPassword").addEventListener("click", function () {
+            document.getElementById("email").required = true;
+            document.getElementById("password").required = false;
+        })
+    }
+
+    emailLogin();
+</script>
 
 </html>

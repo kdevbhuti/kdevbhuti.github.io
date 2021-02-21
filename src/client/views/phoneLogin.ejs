@@ -56,10 +56,9 @@
             <section class="form">
                 <form method="post" action="/Phonelogin">
                     <h1>Phone Login</h1>
-                    <input type="text" id="phNumber" name="phNumber" required required maxlength="10"
-                        placeholder="Enter Mobile Number">
+                    <input type="text" id="phNumber" name="phNumber" maxlength="10" placeholder="Enter Mobile Number">
                     <div class="links phoneLoginLink">
-                        <input type="submit" name="command" value="LogIn with password">
+                        <input type="submit" id="loinWithPassword" name="command" value="LogIn with password">
                     </div>
                     <div class="log-button">
                         <button id="login">SUBMIT</button>
@@ -76,11 +75,18 @@
 <script>
     document.getElementById("login").addEventListener("click", function () {
         let phNumber = document.getElementById("phNumber");
+        phNumber.required = true;
         if (new RegExp("[0-9]{10}").test(phNumber.value)) {
             phNumber.setCustomValidity("");
         } else {
             phNumber.setCustomValidity("Must contain 10 digits");
         }
+    })
+
+    document.getElementById("loinWithPassword").addEventListener("click", function () {
+        let phNumber = document.getElementById("phNumber");
+        phNumber.required = false;
+        phNumber.setCustomValidity("");
     })
 
 </script>

@@ -3,8 +3,8 @@ const UserModel = require("../database/moduls/userModul");
 const Nexmo = require("nexmo");
 
 const nexmo = new Nexmo({
-    apiKey: 'b754168a',
-    apiSecret: 'LStiP3lO64iDnlhj',
+    apiKey: 'b6687f25',
+    apiSecret: 'uZhi1jwc8FKpFfav',
 });
 
 
@@ -21,14 +21,18 @@ function forGotPassword(req, res, next) {
                         number: "91" + user.phoneNumber,
                         brand: "Tvastra",
                         pin_expiry: 60,
-                        code_length: '4'
+                        code_length: '4',
                     },
                         (err, result) => {
                             if (result.status === "0") {
                                 const verifyRequestId = result.request_id;
                                 res.render("OTP", { status: "Info", message: "Valid for 60 secs", requestId: verifyRequestId, buttonCommand: "forgotPassword" })
+                            }else{
+                                console.log(result)
                             }
                         })
+                }else{
+                    res.render("emailLogin", {status: "Failure", message: "Email is not associated with any user."})
                 }
             })
         }
@@ -54,7 +58,8 @@ function resendOTP(req, res, next) {
                 } else {
                     console.log(result);
                     if(result.status != 0){
-                            res.redirect("/emailLogin")
+                        console.log(result)
+                        res.redirect("/emailLogin")
                     }else{
                         res.render("OTP", { status: "Info", message: "Valid for 60 secs", requestId: requestId, buttonCommand: buttonCommand})
                     }
@@ -129,13 +134,15 @@ function phoneLogin(req, res) {
                     number: "91" + user.phoneNumber,
                     brand: "Tvastra",
                     pin_expiry: 60,
-                    code_length: '4'
+                    code_length: '4',
                 },
                     (err, result) => {
 
                         if (result.status === "0") {
                             const verifyRequestId = result.request_id;
                             res.render("OTP", { status: "Info", message: "Valid for 60 secs", requestId: verifyRequestId, buttonCommand: "phoneLogin" })
+                        }else{
+                            console.log(result)
                         }
                     })
             } else {
@@ -145,11 +152,21 @@ function phoneLogin(req, res) {
     }
 }
 
+function loinWithPassword(req, res, next){
+    const {command} = req.body;
+    if(command === "LogIn with password"){
+        res.redirect("/emailLogin")
+    }else{
+        next();
+    }
+}
+
 module.exports = ({
     forGotPassword: forGotPassword,
     checkOTP: checkOTP,
     changePassword: changePassword,
     logInWithOtp: logInWithOtp,
     phoneLogin: phoneLogin,
-    resendOTP: resendOTP
+    resendOTP: resendOTP,
+    loginWithPassword: loinWithPassword
 })

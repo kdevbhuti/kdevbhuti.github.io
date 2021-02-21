@@ -19,7 +19,7 @@ router.route("/logout").get(mainController.logOut)
 router.route("/OTP").post(verifyProfileController.resendOTP, verifyProfileController.checkOTP)
 router.route("/ChangePassword").post(verifyProfileController.changePassword)
 
-router.route("/PhoneLogin").post(verifyProfileController.phoneLogin)
+router.route("/PhoneLogin").post(verifyProfileController.loginWithPassword ,verifyProfileController.phoneLogin)
 
 
 module.exports = router;
