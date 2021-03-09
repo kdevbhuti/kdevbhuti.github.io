@@ -1,0 +1,222 @@
+<html>
+
+<head>
+    <title>Dentistry</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/theme.css">
+    <link rel="stylesheet" href="../assets/css/navigation.css">
+    <link rel="stylesheet" href="../assets/css/editProfile.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<!-- 
+<header>
+    <nav class="navigation">
+        <img class="nav_logo" src="/image/Logo.jpg" alt="">
+        <ul>
+            <li><a href="/doctor">Doctor</a></li>
+            <li><a href="/hospital">Hospital</a></li>
+            <li class="tratmentItems"><span>Treatment</span><i class="fas fa-angle-down"></i>
+                <ul class="treatmentsMenu" id="treatmentMenu">
+                    <li class="tratment_item"><a href="">Dentistry</a></li>
+                    <li class="tratment_item"><a href="">Cancer</a></li>
+                    <li class="tratment_item"><a href="">Multi Organ Transplant</a></li>
+                    <li class="tratment_item"><a href="">Orthopedics Surgery</a></li>
+                    <li class="tratment_item"><a href="">Infertiliti Treatment</a></li>
+                </ul>
+            </li>
+            <li><a href="">About</a></li>
+        </ul>
+        <div class="nav_btn">
+            <button class="login_btn">Login\Sign Up</button>
+            <button class="quote_btn">Get a Quote</button>
+            <% if(user){ %>
+                <span class="profile_dropdown" id="profile_menu">
+                    <%=user.name%><i class="fas fa-chevron-down"></i>
+                </span>
+                <% } %>
+                    <i class="fas fa-bars"></i>
+        </div>
+
+        <div class="dropDown" id="dropdown_profile_items">
+            <div class="user_details">
+                <figure>
+                    <img src="/image/doc.image--002.jpg" alt="">
+                </figure>
+                <div>
+                    <span class="user_name">
+                        <%=user.name%>
+                    </span>
+                    <span class="user_ph">
+                        <%=user.phoneNumber%>
+                    </span>
+                </div>
+            </div>
+            <ul>
+                <li><a href="">My Appointment</a></li>
+                <li><a href="/logout">log out</a></li>
+            </ul>
+        </div>
+
+    </nav>
+</header> -->
+<main>
+    <section class="dashboard_LeftBar">
+        <h2>DashBoard</h2>
+        <ul>
+            <li>
+                <i class="fas fa-user-edit"></i>
+                <span>Profile</span>
+            </li>
+            <li>
+                <i class="fas fa-th-list"></i>
+                <span>Appointments</span>
+            </li>
+            <li>
+                <i class="fas fa-pen-fancy"></i>
+                <span>Create / Edit Schedules</span>
+            </li>
+            <li>
+                <i class="fas fa-file-alt"></i>
+                <span>Medical Records</span>
+            </li>
+            <li>
+                <i class="fas fa-user-cog"></i>
+                <span>Settings</span>
+            </li>
+        </ul>
+
+    </section>
+
+    <section class="dashboard_content">
+        <div class="dashboard_heading">
+            <h1>Accounts</h1>
+            <button>save Change</button>
+        </div>
+
+        <div class="profileDetails level1 subContainer">
+            <div class=" profilePhote">
+                <h3>Profile Photo</h3>
+                <div class="pictureContainner">
+                    <figure>
+                        <img src="" alt="">
+                    </figure>
+                    <div class="instructionToEnterPhoto">
+                        <span class="instruction">Pick a photo from your system</span>
+                        <label for="selectProfilePicture">Select Photo</label>
+                        <input type="file" class="profileInput" id="selectProfilePicture">
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="inputContainer">
+                <h3>Name</h3>
+                <input type="text">
+            </div>
+        </div>
+        <div class="subcontainer">
+            <div class="inputContainer">
+                <h3>Phone Number</h3>
+                <input type="text">
+            </div>
+            <div class="inputContainer">
+                <h3>Email</h3>
+                <input type="email">
+            </div>
+            <div class="inputContainer">
+                <h3>Gender</h3>
+                <input type="text">
+            </div>
+            <div class="inputContainer">
+                <h3>Date Of Birth.</h3>
+                <input type="date">
+            </div>
+            <div class="inputContainer">
+                <h3>Time Zone</h3>
+                <input type="text">
+            </div>
+        </div>
+        <div class="subcontainer">
+            <div class="inputContainer">
+                <h3>House No./Street Name/Area</h3>
+                <input type="text">
+            </div>
+            <div class="inputContainer">
+                <h3>Colony/Street/Locality</h3>
+                <input type="text">
+            </div>
+            <div class="inputContainer">
+                <h3>City</h3>
+                <input type="text">
+            </div>
+            <div class="inputContainer">
+                <h3>State</h3>
+                <input type="text">
+            </div>
+            <div class="inputContainer">
+                <h3>Country</h3>
+                <input type="text">
+            </div>
+        </div>
+        <div class="subcontainer lastSubcontainer">
+            <div class="inputContainer">
+                <h3>Speciality</h3>
+                <input type="text">
+            </div>
+            <div class="inputContainer">
+                <h3>Qualifications</h3>
+                <input type="text">
+            </div>
+            <div class="inputContainer">
+                <h3>Treatments</h3>
+                <input type="text">
+            </div>
+            <div class="inputContainer">
+                <h3>Achievements</h3>
+                <input type="text">
+            </div>
+            <div class="inputContainer">
+                <h3>Hospitals</h3>
+                <input type="text">
+            </div>
+            <div class="inputContainer">
+                <h3>Awards</h3>
+                <input type="text">
+            </div>
+            <div class="inputContainer">
+                <h3>Year Of Experience</h3>
+                <input type="text">
+            </div>
+            <div class="inputContainer">
+                <h3>Average Fees</h3>
+                <input type="text">
+            </div>
+            <div class="inputContainer">
+                <h3>Your Description</h3>
+                <input type="text">
+            </div>
+        </div>
+    </section>
+</main>
+<footer class="footer">
+    <img class="footer_img" src="../assets/image/footer.png" alt="">
+    <ul>
+        <li><a href="">Doctor</a> </li>
+        <li><a href="">Hospital</a></li>
+        <li><a href="">Treatment</a></li>
+        <li><a href="">FAQs</a></li>
+    </ul>
+    <div id="footer-icon">
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-pinterest-p"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-google-plus-g"></i>
+        <i class="fab fa-instagram"></i>
+    </div>
+    <p>All Rights Reserved. <span><i class="far fa-copyright"></i></span> tvastra 2018</p>
+</footer>
+
+</html>

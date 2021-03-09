@@ -1,9 +1,6 @@
 
-
-
-
 function home(req, res){
-    res.render("index", {status: undefined, message: "login Successfilly", name: req.session.name});
+    res.render("index", {status: undefined, message: "login Successfilly", user: req.session.user});
 }
 
 function signup(req, res){
@@ -11,24 +8,39 @@ function signup(req, res){
  }
 
 function emailLogin(req, res){
-    res.render("emailLogin", {status: undefined})
+    if(req.cookies.loginFirst){
+        res.clearCookie('loginFirst');
+        res.render("emailLogin", {status: "Failure", message: "Please Login first."});
+    }else{
+        res.render("emailLogin", {status: undefined})
+    }
 }
 
-
+function wellcome(req, res){
+    res.render("wellcome", {user: req.session.user})
+}
 
 function logOut(req, res){
-    if(req.session.userid){
+    if(req.session.user){
         req.session.destroy();
     }
     res.redirect("/emaillogin")
 }
 
+function doctor(req, res){
+    res.render("doctor");
+}
 
+function hospital(req, res){
+    res.render("hospital")
+}
 
 module.exports=({
     home: home,
     signup: signup,
     emailLogin: emailLogin,
     logOut: logOut,
-    // createNewPassword: createNewPassword
+    doctor: doctor,
+    hospital: hospital,
+    wellcome: wellcome
 });

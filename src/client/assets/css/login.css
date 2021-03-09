@@ -118,7 +118,7 @@ main .form .input_icon_block {
   justify-content: center;
   align-items: center;
   border: 1px solid var(--gray-border);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.7rem;
 }
 main .form .input_icon_block input {
   margin-bottom: 0rem;
@@ -136,15 +136,21 @@ main .form .input_icon_block .fas {
 main .form .links {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.7rem;
 }
 main .form .links input[type=submit] {
   font-family: "Nexa bold";
   color: var(--blue_bold_text);
   border: none;
+  padding: 0rem;
   background-color: var(--white);
   cursor: pointer;
   outline: none;
+}
+@media only screen and (min-width: 768px) {
+  main .form .links input[type=submit] {
+    font-size: 1rem;
+  }
 }
 main .form .phoneLoginLink {
   display: flex;

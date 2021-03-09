@@ -1,0 +1,48 @@
+@import "./formType.scss";
+
+body {
+  position: relative;
+  main {
+    .form {
+      .tagContainer {
+        border: 1px solid var(--gray-border);
+        padding: 0.2rem 0.5rem;
+        margin-bottom: 0.5rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.2rem;
+        .tag {
+          background-color: var(--gray_tag);
+          padding: 0.2rem;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          gap: 0.2rem;
+          flex-wrap: wrap;
+          span {
+            margin: 0rem;
+          }
+          .fa-times {
+            font-size: 0.7rem;
+          }
+        }
+        input {
+          padding: 0rem;
+          margin: 0.2rem;
+          border: none;
+          min-width: 5rem;
+          max-width: 10rem;
+        }
+      }
+      text-align: left;
+      h1 {
+        text-align: center;
+      }
+      h4 {
+        color: var(--blue_bold_text);
+      }
+    }
+  }
+}

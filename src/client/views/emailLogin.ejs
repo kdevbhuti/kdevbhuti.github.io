@@ -15,16 +15,25 @@
     <nav class="navigation">
         <img class="nav_logo" src="/image/Logo.jpg" alt="">
         <ul>
-            <li><a href="/">Doctor</a></li>
-            <li><a href="">Hospital</a></li>
-            <li><a href="">Treatment</a></li>
+            <li><a href="/doctor">Doctor</a></li>
+            <li><a href="/hospital">Hospital</a></li>
+            <li class="tratmentItems"><span>Treatment</span><i class="fas fa-angle-down"></i>
+                <ul class="treatmentsMenu" id="treatmentMenu">
+                    <li class="tratment_item"><a href="">Dentistry</a></li>
+                    <li class="tratment_item"><a href="">Cancer</a></li>
+                    <li class="tratment_item"><a href="">Multi Organ Transplant</a></li>
+                    <li class="tratment_item"><a href="">Orthopedics Surgery</a></li>
+                    <li class="tratment_item"><a href="">Infertiliti Treatment</a></li>
+                </ul>
+            </li>
             <li><a href="">About</a></li>
         </ul>
         <div class="nav_btn">
             <button class="login_btn">Login\Sign Up</button>
             <button class="quote_btn">Get a Quote</button>
+            <i class="fas fa-bars"></i>
         </div>
-        <i class="fas fa-bars"></i>
+
     </nav>
 </header>
 

@@ -86,9 +86,8 @@ function checkOTP(req, res) {
                     res.render("createNewPassword");
                 }else{
                     UserModel.findById(req.cookies.userId, function(err, user){
-                        if(!req.session.userid){
-                            req.session.userid = user._id;
-                            req.session.name = user.name
+                        if(!req.session.user){
+                            req.session.userid = user;
                        }
                        res.clearCookie('userId');
                         res.redirect("/")

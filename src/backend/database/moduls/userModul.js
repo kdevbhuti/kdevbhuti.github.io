@@ -30,9 +30,13 @@ const userSchema = new mongoose.Schema({
     },
     country:{
         type: String
+    },
+    userType: {
+        type: String
     }
 });
 
 var userModel = connectDB.model('User', userSchema);
+
 
 module.exports = userModel;

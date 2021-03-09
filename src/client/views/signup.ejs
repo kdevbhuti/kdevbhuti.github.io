@@ -16,16 +16,25 @@
     <nav class="navigation">
         <img class="nav_logo" src="/image/Logo.jpg" alt="">
         <ul>
-            <li><a href="">Doctor</a></li>
-            <li><a href="">Hospital</a></li>
-            <li><a href="">Treatment</a></li>
+            <li><a href="/doctor">Doctor</a></li>
+            <li><a href="/hospital">Hospital</a></li>
+            <li class="tratmentItems"><span>Treatment</span><i class="fas fa-angle-down"></i>
+                <ul class="treatmentsMenu">
+                    <li class="tratment_item"><a href="">Dentistry</a></li>
+                    <li class="tratment_item"><a href="">Cancer</a></li>
+                    <li class="tratment_item"><a href="">Multi Organ Transplant</a></li>
+                    <li class="tratment_item"><a href="">Orthopedics Surgery</a></li>
+                    <li class="tratment_item"><a href="">Infertiliti Treatment</a></li>
+                </ul>
+            </li>
             <li><a href="">About</a></li>
         </ul>
         <div class="nav_btn">
             <button class="login_btn">Login\Sign Up</button>
             <button class="quote_btn">Get a Quote</button>
+            <i class="fas fa-bars"></i>
         </div>
-        <i class="fas fa-bars"></i>
+
     </nav>
 </header>
 <main>
@@ -73,7 +82,23 @@
                         <input type="text" required name="city" class="place-city" placeholder="Enter City">
                         <input type="text" required name="state" class="place-state" placeholder="Enter State">
                     </div>
-                    <input type="text" required name="country" placeholder="Select your country">
+
+                    <div class="select_box country">
+                        <select class="select" required name="country">
+                            <option value="" class="hide_option">Enter your gender</option>
+                            <option value="India">India</option>
+                            <option value="Bangladesh">Bangladesh</option>
+                        </select>
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+
+                    <!-- <input type="text" required name="country" placeholder="Select your country"> -->
+
+                    <div class="isDoctor">
+                        <input type="checkbox" name="isDoctor" id="isDoctor">
+                        <label for="isDoctor">Is Doctor</label>
+                    </div>
+
                     <div class="log-button">
                         <button id="signup">SIGN UP</button>
                         <i class="fas fa-arrow-right"></i>
@@ -89,5 +114,16 @@
 <script src="/scripts/datePlaceHolder.js"></script>
 <script src="/scripts/signup.js"></script>
 <script src="/scripts/serverMessageBox.js"></script>
+
+<!-- <script>
+    var tratment_item = document.getElementsByClassName("tratment_item");
+    for (var i = 0; i < tratment_item; i++) {
+        tratment_item[i].addEventListener("mouseover", displayItems)
+    }
+
+    function displayItems() {
+        document.getElementById("treatmentMenu").style.display = block;
+    }
+</script> -->
 
 </html>

@@ -28,16 +28,46 @@ header .navigation ul {
     display: inline-flex;
     justify-content: space-around;
     flex-shrink: 6;
+    gap: 1rem;
   }
-  header .navigation ul li {
-    margin: 0rem 1rem;
+  header .navigation ul li a:hover {
+    font-family: "Nexa Bold";
+    color: var(--blue_bold_text);
+  }
+  header .navigation ul .tratmentItems {
+    cursor: pointer;
+  }
+  header .navigation ul .tratmentItems span:hover {
+    font-family: "Nexa Bold";
+    color: var(--blue_bold_text);
+  }
+  header .navigation ul .tratmentItems:hover .treatmentsMenu {
+    display: block;
+  }
+  header .navigation ul .tratmentItems .treatmentsMenu {
+    display: none;
+    padding-top: 0.3rem;
+    position: absolute;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    position: absolute;
+    background-color: var(--gray_background);
+    top: 2.5rem;
+    width: 15rem;
+    margin-left: -5rem;
+  }
+  header .navigation ul .tratmentItems .treatmentsMenu .tratment_item {
+    padding: 0.6rem 1rem;
+  }
+  header .navigation ul .tratmentItems .treatmentsMenu .tratment_item:hover {
+    background-color: var(--white);
   }
 }
 header .navigation .nav_btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.5rem;
 }
 header .navigation .nav_btn button {
   display: none;
@@ -54,25 +84,62 @@ header .navigation .nav_btn button {
   }
 }
 header .navigation .nav_btn .profile_dropdown {
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  font-family: "Nexa Bold";
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  background-color: var(--light_blue);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 0rem;
-}
-header .navigation .nav_btn .profile_dropdown:hover {
-  cursor: pointer;
+  font-family: "Nexa bold";
+  font-size: 0.6rem;
+  line-height: 0.8rem;
+  overflow: hidden;
 }
 header .navigation .nav_btn .profile_dropdown .fa-chevron-down {
   font-size: 0.7rem;
   margin-left: 0.3rem;
 }
+@media (min-width: 1024px) {
+  header .navigation .nav_btn .profile_dropdown {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    border-radius: unset;
+    width: auto;
+    height: auto;
+    display: block;
+    background-color: var(--white);
+  }
+  header .navigation .nav_btn .profile_dropdown:hover {
+    cursor: pointer;
+  }
+}
+@media (min-width: 1024px) {
+  header .navigation .nav_btn .fa-bars {
+    display: none;
+  }
+}
 header .navigation .dropDown {
   display: none;
   position: absolute;
   width: 15rem;
-  top: 4.7rem;
-  right: 5.5rem;
+  top: 5.2rem;
+  right: 1rem;
   background: var(--white);
+  text-align: left;
+}
+@media only screen and (min-width: 768px) {
+  header .navigation .dropDown {
+    right: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  header .navigation .dropDown {
+    right: 5.5rem;
+  }
 }
 header .navigation .dropDown .user_details {
   display: flex;
@@ -97,6 +164,7 @@ header .navigation .dropDown .user_details figure {
 header .navigation .dropDown ul {
   display: flex;
   flex-direction: column;
+  gap: 0rem;
 }
 header .navigation .dropDown ul li {
   margin: 0rem;
@@ -111,11 +179,6 @@ header .navigation .dropDown ul li a:hover {
   background-color: var(--gray-border);
   border-left: 5px solid var(--blue_color);
   cursor: pointer;
-}
-@media (min-width: 1024px) {
-  header .navigation .fa-bars {
-    display: none;
-  }
 }
 
 /*# sourceMappingURL=navigation.css.map */

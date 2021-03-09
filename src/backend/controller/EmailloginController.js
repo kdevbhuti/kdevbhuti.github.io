@@ -1,25 +1,36 @@
 const UserModel = require("../database/moduls/userModul");
+const doctorModel = require("../database/moduls/doctorModule")
 
-function emailLogin(req, res){
+async function emailLogin(req, res){
     var {email, password} = req.body;
     if(email && password){
-        UserModel.findOne({email:email}, function (err, user){
-           if(user && user.password === password){
-               if(!req.session.userid){
-                    req.session.userid = user._id;
-                    req.session.name = user.name
-               }
+        const findUser = await UserModel.findOne({email:email});
+        console.log(findUser)
+        if(findUser){
+           if(findUser.password === password){
+               if(!req.session.user){
+                    req.session.user = findUser;
+                }
                 return res.redirect("/");
             }else{
                 return res.render("emailLogin", {status: "Failure", message: "Incorrect email or password"});
-           }
-        })
+            }
+        }else{
+            const findDoctor = await doctorModel.findOne({email:email});
+            console.log(findDoctor)
+            if(findDoctor && findDoctor.password === password){
+                if(!req.session.user){
+                    req.session.user = findDoctor;
+                }
+                return res.redirect("/");
+            }else{
+                return res.render("emailLogin", {status: "Failure", message: "Incorrect email or password"});
+            }
+        }
     }
 }
 
-function phoneLogin(){
-    
-}
+
 
 module.exports=({
     emailLogin: emailLogin

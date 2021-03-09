@@ -1,10 +1,11 @@
 
 
+
 function home(req, res, next){
-    if(req.session.userid){
+    if(req.session.user){
         if(!req.session.login){
             req.session.login = true;
-            res.render("index", {status: "Success", message: "login Successfilly", name: req.session.name});
+            res.render("index", {status: "Success", message: "login Successfilly", user: req.session.user});
         }else{
             next()
         }
@@ -14,6 +15,16 @@ function home(req, res, next){
    
 }
 
+function auth(req, res, next){
+    if(req.session.user){
+        next();
+    }else{
+        res.cookie('loginFirst', true);
+        res.redirect("emailLogin");
+    }
+}
+
 module.exports = {
-    home: home
+    home: home,
+    auth: auth
 }

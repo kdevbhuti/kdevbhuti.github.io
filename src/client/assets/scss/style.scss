@@ -58,7 +58,7 @@ main {
           margin-left: 0.1rem;
         }
         @media (min-width: 1024px) {
-          width: 22rem;
+          width: 24rem;
         }
       }
       .search_btn {
@@ -351,7 +351,7 @@ main {
       @media (min-width: 1024px) {
         grid-template-columns: repeat(6, 1fr);
         grid-template-rows: 1fr;
-        gap: 0.2rem;
+        gap: 0.5rem;
       }
       .link_img_block {
         padding: 0.5rem;

@@ -27,7 +27,9 @@ body {
       input[type="text"],
       [type="password"],
       [type="email"],
-      [type="date"] {
+      [type="date"],
+      [type="number"],
+      textarea {
         width: 100%;
       }
 

@@ -25,11 +25,13 @@
     <div class="nav_btn">
       <button class="login_btn">Login\Sign Up</button>
       <button class="quote_btn">Get a Quote</button>
-      <% if(name){ %>
+      <% if(user){ %>
         <span class="profile_dropdown" id="profile_menu">
-          <%=name%><i class="fas fa-chevron-down"></i>
+          <%=user.name%><i class="fas fa-chevron-down"></i>
         </span>
         <% } %>
+
+          <i class="fas fa-bars"></i>
     </div>
 
     <div class="dropDown" id="dropdown_profile_items">
@@ -39,10 +41,10 @@
         </figure>
         <div>
           <span class="user_name">
-            <%=name%>
+            <%=user.name%>
           </span>
           <span class="user_ph">
-            9556629948
+            <%=user.phoneNumber%>
           </span>
         </div>
       </div>
@@ -52,7 +54,7 @@
       </ul>
     </div>
 
-    <i class="fas fa-bars"></i>
+
   </nav>
 </header>
 <main>
@@ -408,26 +410,6 @@
 </main>
 <script src="/scripts/index.js"></script>
 <script src="/scripts/serverMessageBox.js"></script>
-<script>
-
-  document.getElementById("profile_menu").addEventListener("click", dropdownProfileMenu)
-  let dropdown = document.getElementById("dropdown_profile_items");
-
-  document.addEventListener("click", (event) => {
-    console.log("click")
-    if (!(document.getElementById("profile_menu").contains(event.target))) {
-      if (dropdown.style.display === "block") {
-        dropdown.style.display = "none";
-      }
-    }
-  })
-  function dropdownProfileMenu() {
-    if (dropdown.style.display === "block") {
-      dropdown.style.display = "none";
-    } else {
-      dropdown.style.display = "block";
-    }
-  }
-</script>
+<script src="/scripts/profileMenu.js"></script>
 
 </html>

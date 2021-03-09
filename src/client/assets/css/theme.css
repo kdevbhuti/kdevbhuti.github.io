@@ -215,6 +215,17 @@ input[type=text]::placeholder,
     line-height: 1.1rem;
   }
 }
+@media (min-width: 1024px) {
+  textarea::placeholder,
+input[type=text]::placeholder,
+[type=password]::placeholder,
+[type=email]::placeholder,
+[type=date]::placeholder,
+[type=number]::placeholder {
+    font-size: 1rem;
+    line-height: 1.2rem;
+  }
+}
 @media only screen and (min-width: 768px) {
   textarea,
 input[type=text],
@@ -237,6 +248,8 @@ input[type=text],
 [type=number] {
     padding: 0.7rem 0.8rem;
     margin-bottom: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.2rem;
   }
 }
 
@@ -244,6 +257,7 @@ select {
   font-family: "Nexa Light";
   padding: 0.6rem 0.5rem;
   margin-bottom: 0.5rem;
+  font-size: 0.9rem;
   outline: none;
   color: var(--placeHolderColor);
   border: 1px solid var(--gray-border);
@@ -251,12 +265,14 @@ select {
 @media only screen and (min-width: 768px) {
   select {
     padding: 0.7rem 0.8rem;
+    font-size: 0.9rem;
     margin-bottom: 0.5rem;
   }
 }
 @media (min-width: 1024px) {
   select {
     padding: 0.7rem 0.8rem;
+    font-size: 1rem;
     margin-bottom: 0.5rem;
   }
 }
