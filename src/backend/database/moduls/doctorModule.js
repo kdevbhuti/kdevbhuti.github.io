@@ -2,37 +2,9 @@ const mongoose = require("mongoose");
 const connectDB = require("../mongoose");
 
 const doctorSchema = new mongoose.Schema({ 
-    name:{
+    email:{
         type: String,
-    }, 
-    email: {
-     type: String,
-     unique: true
-    },
-    password:{
-        type: String
-    },
-    gender:{
-        type: String
-    },
-    date:{
-        type: Date
-    },
-    phoneNumber:{
-        type: Number,
-        unique: true
-    },
-    city: {
-        type: String
-    },
-    state:{
-        type: String
-    },
-    country:{
-        type: String
-    },
-    userType: {
-        type: String
+        require
     },
     description:{
         type: String,
@@ -58,10 +30,24 @@ const doctorSchema = new mongoose.Schema({
     specializations:{
         type: [String]
     },
+    treatments:{
+        type: [String]
+    },
     fees:{
         type: Number
-    }
+    },
+    timezone:{
+        type: String
+    },
+    houseArea :{
+        type: String
+    },
+    colony_Street_Locality: {
+        type: String
+    },
+    doctor: {type: mongoose.Schema.Types.ObjectId, ref: "User"}
 });
+
 
 var doctorModel = connectDB.model('Doctor', doctorSchema);
 

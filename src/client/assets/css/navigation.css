@@ -141,7 +141,7 @@ header .navigation .dropDown {
     right: 5.5rem;
   }
 }
-header .navigation .dropDown .user_details {
+header .navigation .dropDown .user_details .profileAnchor {
   display: flex;
   justify-content: left;
   align-items: center;
@@ -149,15 +149,16 @@ header .navigation .dropDown .user_details {
   padding: 0.5rem;
   border-bottom: 1px solid var(--gray-border);
 }
-header .navigation .dropDown .user_details span {
+header .navigation .dropDown .user_details .profileAnchor span {
   display: block;
   margin-bottom: 0rem;
 }
-header .navigation .dropDown .user_details span.user_name {
+header .navigation .dropDown .user_details .profileAnchor span.user_name {
   font-family: "nexa bold";
   color: var(--blue_bold_text);
+  margin-bottom: 0.5rem;
 }
-header .navigation .dropDown .user_details figure {
+header .navigation .dropDown .user_details .profileAnchor figure {
   width: 3.5rem;
   height: 3.5rem;
 }

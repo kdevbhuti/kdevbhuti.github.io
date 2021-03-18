@@ -1,0 +1,339 @@
+<html>
+
+<head>
+    <title>Dentistry</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/editProfile.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<header>
+    <nav class="navigation">
+        <img class="nav_logo" src="/image/Logo.jpg" alt="">
+        <ul>
+            <li><a href="/doctor">Doctor</a></li>
+            <li><a href="/hospital">Hospital</a></li>
+            <li class="tratmentItems"><span>Treatment</span><i class="fas fa-angle-down"></i>
+                <ul class="treatmentsMenu" id="treatmentMenu">
+                    <li class="tratment_item"><a href="">Dentistry</a></li>
+                    <li class="tratment_item"><a href="">Cancer</a></li>
+                    <li class="tratment_item"><a href="">Multi Organ Transplant</a></li>
+                    <li class="tratment_item"><a href="">Orthopedics Surgery</a></li>
+                    <li class="tratment_item"><a href="">Infertiliti Treatment</a></li>
+                </ul>
+            </li>
+            <li><a href="">About</a></li>
+        </ul>
+        <div class="nav_btn">
+            <button class="login_btn">Login\Sign Up</button>
+            <button class="quote_btn">Get a Quote</button>
+            <% if(user){ %>
+                <span class="profile_dropdown" id="profile_menu">
+                    <%=user.doctor ? user.doctor.name : user.patient.name%><i class="fas fa-chevron-down"></i>
+                </span>
+                <% } %>
+                    <i class="fas fa-bars"></i>
+        </div>
+
+        <div class="dropDown" id="dropdown_profile_items">
+            <div class="user_details">
+                <figure>
+                    <img src="/image/doc.image--002.jpg" alt="">
+                </figure>
+                <div>
+                    <span class="user_name">
+                        <%=user.doctor? user.doctor.name : user.patient.name%>
+                    </span>
+                    <span class="user_ph">
+                        <%=user.doctor? user.doctor.phoneNumber : user.patient.phoneNumber%>
+                    </span>
+                </div>
+            </div>
+            <ul>
+                <li><a href="">My Appointment</a></li>
+                <li><a href="/logout">log out</a></li>
+            </ul>
+        </div>
+
+    </nav>
+</header>
+<main>
+    <section class="dashboard_LeftBar">
+        <h2>DashBoard</h2>
+        <ul class="dashboard_list">
+            <li class="dashboard_ListItem">
+                <i class="fas fa-user-edit"></i>
+                <span>Profile</span>
+            </li>
+            <li class="dashboard_ListItem">
+                <i class="fas fa-th-list"></i>
+                <span>Appointments</span>
+            </li>
+            <li class="dashboard_ListItem">
+                <i class="fas fa-pen-fancy"></i>
+                <span>Create / Edit Schedules</span>
+            </li>
+            <li class="dashboard_ListItem">
+                <i class="fas fa-file-alt"></i>
+                <span>Medical Records</span>
+            </li>
+            <li class="dashboard_ListItem">
+                <i class="fas fa-user-cog"></i>
+                <span>Settings</span>
+            </li>
+        </ul>
+
+    </section>
+
+    <section class="dashboard_content">
+        <form action="/editProfile" method="POST" enctype="multipart/form-data">
+            <div class="dashboard_heading">
+                <h1>Accounts</h1>
+                <button>save Change</button>
+            </div>
+
+            <div class="profileDetails level1 subContainer">
+                <div class=" profilePhote">
+                    <h3>Profile Photo</h3>
+                    <div class="pictureContainner">
+                        <figure>
+                            <img src="/image/profile/<%=user.profilePicture%>" alt="">
+                        </figure>
+                        <div class="instructionToEnterPhoto">
+                            <span class="instruction">Pick a photo from your system</span>
+                            <label for="selectProfilePicture">Select Photo</label>
+                            <input type="file" name="profilePicture" class="profileInput" id="selectProfilePicture">
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="inputContainer">
+                    <h3>Name</h3>
+                    <input type="text" name="name" value="<%=user.doctor? user.doctor.name : user.patient.name%>">
+                </div>
+            </div>
+            <div class="subcontainer">
+                <div class="inputContainer">
+                    <h3>Phone Number</h3>
+                    <input type="text" name="phoneNumber"
+                        value="<%=user.doctor ? user.doctor.phoneNumber : user.patient.phoneNumber%>">
+                </div>
+                <div class="inputContainer">
+                    <h3>Email</h3>
+                    <input type="email" name="email" value="<%=user.doctor ? user.doctor.email: user.patient.email%>">
+                </div>
+                <div class="inputContainer">
+                    <h3>Gender</h3>
+                    <select class="select" required name="gender">
+                        <option value="<%=user.doctor ? user.doctor.gender: user.patient.gender%>" class="hide_option">
+                            <%=user.doctor ? user.doctor.gender: user.patient.gender%>
+                        </option>
+                        <option value="Male">Male</option>
+                        <option value="Femail">Femail</option>
+                    </select>
+                </div>
+                <div class="inputContainer">
+                    <h3>Date Of Birth.</h3>
+                    <input type="date" name="date" value="<%=user.doctor ? user.doctor.date : user.patient.date%>">
+                </div>
+                <div class="inputContainer">
+                    <h3>Time Zone</h3>
+                    <input type="text" name="timezone" value="<%=user.timezone%>">
+                </div>
+            </div>
+            <div class="subcontainer">
+                <div class="inputContainer">
+                    <h3>House No./Street Name/Area</h3>
+                    <input type="text" name="houseArea" value="<%=user.houseArea%>">
+                </div>
+                <div class=" inputContainer">
+                    <h3>Colony/Street/Locality</h3>
+                    <input type="text" name="colony_Street_Locality" value="<%=user.colony_Street_Locality%>">
+                </div>
+                <div class=" inputContainer">
+                    <h3>City</h3>
+                    <input type="text" name="city" value="<%=user.doctor ? user.doctor.city : user.patient.city%>">
+                </div>
+                <div class="inputContainer">
+                    <h3>State</h3>
+                    <input type="text" name="state" value="<%=user.doctor ? user.doctor.state : user.patient.state%>">
+                </div>
+                <div class="inputContainer">
+                    <h3>Country</h3>
+                    <input type="text" name="country"
+                        value="<%=user.doctor ? user.doctor.country : user.patient.country%>">
+                </div>
+            </div>
+            <% if(user.doctor) {%>
+                <div class="subcontainer lastSubcontainer">
+                    <div class="inputContainer">
+                        <h3>Speciality</h3>
+                        <div class="tagContainer validator" id="specializations">
+                            <% for(let i=0; i< user.specializations.length; i++){ %>
+                                <div class="tag">
+                                    <span>
+                                        <%=user.specializations[i]%>
+                                    </span>
+                                    <input type="hidden" name="specializations" value="<%=user.specializations[i]%>">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                <%}%>
+                                    <input type="text" class="tagInput">
+                        </div>
+                    </div>
+                    <div class="inputContainer">
+                        <h3>Qualifications</h3>
+                        <div class="tagContainer validator" id="qualifications">
+                            <% for(let i=0; i< user.qualifications.length; i++){ %>
+                                <div class="tag">
+                                    <span>
+                                        <%=user.qualifications[i]%>
+                                    </span>
+                                    <input type="hidden" name="qualifications" value="<%=user.qualifications[i]%>">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                <%}%>
+                                    <input type="text" class="tagInput">
+                        </div>
+                    </div>
+                    <div class="inputContainer">
+                        <h3>Treatments</h3>
+                        <div class="tagContainer validator" id="treatments">
+                            <% for(let i=0; i< user.treatments.length; i++){ %>
+                                <div class="tag">
+                                    <span>
+                                        <%=user.treatments[i]%>
+                                    </span>
+                                    <input type="hidden" name="treatments" value="<%=user.treatments[i]%>">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                <%}%>
+                                    <input type="text" class="tagInput">
+                        </div>
+                    </div>
+                    <div class="inputContainer">
+                        <h3>Achievements</h3>
+                        <div class="tagContainer" id="achievements">
+                            <% for(let i=0; i< user.achievements.length; i++){ %>
+                                <div class="tag">
+                                    <span>
+                                        <%=user.achievements[i]%>
+                                    </span>
+                                    <input type="hidden" name="achievements" value="<%=user.achievements[i]%>">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                <%}%>
+                                    <input type="text" class="tagInput">
+                        </div>
+                    </div>
+                    <div class="inputContainer">
+                        <h3>Hospitals</h3>
+                        <div class="tagContainer" id="hospitals">
+                            <% for(let i=0; i< user.hospitals.length; i++){ %>
+                                <div class="tag">
+                                    <span>
+                                        <%=user.hospitals[i]%>
+                                    </span>
+                                    <input type="hidden" name="hospitals" value="<%=user.hospitals[i]%>">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                <%}%>
+                                    <input type="text" class="tagInput">
+                        </div>
+                    </div>
+                    <div class="inputContainer">
+
+                        <h3>Awards</h3>
+                        <div class="tagContainer" id="awards">
+                            <% for(let i=0; i< user.awards.length; i++){ %>
+                                <div class="tag">
+                                    <span>
+                                        <%=user.awards[i]%>
+                                    </span>
+                                    <input type="hidden" name="awards" value="<%=user.awards[i]%>">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                <%}%>
+                                    <input type="text" class="tagInput">
+                        </div>
+                    </div>
+                    <div class="inputContainer">
+                        <h3>Year Of Experience</h3>
+                        <input type="text" name="experiences" value="<%=user.experiences%>">
+                    </div>
+                    <div class="inputContainer">
+                        <h3>Average Fees</h3>
+                        <input type="number" name="fees" value="<%=user.fees%>">
+                    </div>
+                    <div class="inputContainer">
+                        <h3>Your Description</h3>
+                        <input type="text" name="description" value="<%=user.description%>">
+                    </div>
+                </div>
+                <%}%>
+        </form>
+    </section>
+</main>
+<footer class="footer">
+    <img class="footer_img" src="../assets/image/footer.png" alt="">
+    <ul>
+        <li><a href="">Doctor</a> </li>
+        <li><a href="">Hospital</a></li>
+        <li><a href="">Treatment</a></li>
+        <li><a href="">FAQs</a></li>
+    </ul>
+    <div id="footer-icon">
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-pinterest-p"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-google-plus-g"></i>
+        <i class="fab fa-instagram"></i>
+    </div>
+    <p>All Rights Reserved. <span><i class="far fa-copyright"></i></span> tvastra 2018</p>
+</footer>
+<script>
+
+
+
+
+    const input = document.getElementsByClassName("tagInput")
+
+    for (var i = 0; i < input.length; i++) {
+        input[i].addEventListener("change", function (event) {
+            var spanName = event.target.parentNode.id;
+
+            const tag = addTag(event.target.value, spanName)
+            event.target.parentNode.insertBefore(tag, event.target)
+            event.target.value = '';
+        })
+    }
+
+
+    function addTag(label, spanName) {
+        const div = document.createElement('div');
+        div.setAttribute('class', 'tag');
+        const span = document.createElement('span');
+        // span.setAttribute("name", spanName);
+        span.innerHTML = label;
+        const input = document.createElement("input");
+        input.setAttribute('type', 'hidden');
+        input.setAttribute("name", spanName);
+        input.value = label;
+        const crossButton = document.createElement('i');
+        crossButton.classList.add('fas', 'fa-times');
+
+        div.appendChild(span);
+        div.appendChild(input)
+        div.appendChild(crossButton);
+
+        return div;
+    }
+</script>
+
+</html>

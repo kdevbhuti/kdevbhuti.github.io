@@ -1,68 +1,54 @@
 
 const userModule = require('../database/moduls/userModul');
-const doctorModel = require('../database/moduls/doctorModule')
+const patientModel = require("../database/moduls/patientModel");
+const getData = require("./dataProvider");
 
 
 async function signup(req, res){
     const {name, email, password, gender, date, phoneNumber, city, state, country} = req.body;
-
-    
+    var isDoctor = false;
     if(req.body.isDoctor){
-        if(name && email && password && gender && date && phoneNumber && city && state && country){
-            const user = new doctorModel({
-                name: name,
-                email: email,
-                password: password,
-                gender: gender,
-                date: date,
-                phoneNumber: phoneNumber,
-                city: city,
-                state: state,
-                country: country,
-            });
+        isDoctor = true;
+    }
+
+    if(name && email && password && gender && date && phoneNumber && city && state && country){
+        const user = new userModule({
+            name: name,
+            email: email,
+            password: password,
+            gender: gender,
+            date: date,
+            phoneNumber: phoneNumber,
+            city: city,
+            state: state,
+            country: country,
+            isDoctor: isDoctor
+        });
+
+        try{
             const userData = await user.save();
             if(userData){
                 if(!req.session.user){
-                    req.session.user = userData;
+                    req.session.user = await getData.getSession(userData);
                 }
-                return res.redirect("/wellcome");
-            }else{
-                res.render("signup",{status: "Failure", message: "Email or mobile number allready registered"});
+                if(userData.isDoctor) {
+                    res.redirect("/wellcome") 
+                }else{
+                    const patient = new patientModel({
+                        email: userData.email,
+                        patient: userData.id,
+                    })
+                    await patient.save();
+                    res.redirect("/");
+                } 
             }
-            
-        }else{
-            res.render("signup")
+        }catch(err){
+            res.render("signup",{status: "Failure", message: "Email or mobile number allready registered"});
         }
+        
     }else{
-    //    userType = "patient";
-   }
-    // if(name && email && password && gender && date && phoneNumber && city && state && country){
-    //    const user = new userModule({
-    //         name: name,
-    //         email: email,
-    //         password: password,
-    //          gender: gender,
-    //         date: date,
-    //         phoneNumber: phoneNumber,
-    //         city: city,
-    //         state: state,
-    //         country: country,
-    //         userType: userType,
-    //     });
-    //     user.save((err, doc)=>{
-    //         if(!doc){
-    //             res.render("signup",{status: "Failure", message: "Email or mobile number allready registered"});
-    //         }else{
-    //             if(!req.session.userid){
-    //                 req.session.userid = doc._id;
-    //                 req.session.name = doc.name
-    //            }
-    //             return res.redirect("/");
-    //         }
-    //     })
-    // }else{
-    //     res.render("signup")
-    // }
+        res.render("signup")
+    }
     
 }
 

@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
         type: String
     },
     date:{
-        type: Date
+        type: String
     },
     phoneNumber:{
         type: Number,
@@ -33,6 +33,10 @@ const userSchema = new mongoose.Schema({
     },
     userType: {
         type: String
+    },
+    isDoctor: {
+        type: Boolean,
+        require
     }
 });
 

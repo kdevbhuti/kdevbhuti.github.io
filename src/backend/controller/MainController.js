@@ -1,3 +1,5 @@
+const getData = require("./dataProvider");
+
 
 function home(req, res){
     res.render("index", {status: undefined, message: "login Successfilly", user: req.session.user});
@@ -5,7 +7,7 @@ function home(req, res){
 
 function signup(req, res){
     res.render("signup", {status: undefined})
- }
+}
 
 function emailLogin(req, res){
     if(req.cookies.loginFirst){
@@ -16,8 +18,9 @@ function emailLogin(req, res){
     }
 }
 
-function wellcome(req, res){
-    res.render("wellcome", {user: req.session.user})
+async function wellcome(req, res){
+    const doctorData = await getData.getDoctorDetails(req.session.user.id);
+    doctorData ? res.redirect("/") : res.render("wellcome", {user: req.session.user});
 }
 
 function logOut(req, res){
@@ -35,6 +38,18 @@ function hospital(req, res){
     res.render("hospital")
 }
 
+async function editProfile(req, res) {
+    const isDoctor = await getData.isDoctor(req.session.user.id);
+    if(isDoctor){
+        const allDoctorDetails = await getData.getAllDoctorDetails(req.session.user.id);
+        res.render("editProfile", {user: allDoctorDetails});
+    }else{
+        const allPatientDetails = await getData.getAllPatientDetails(req.session.user.id);
+        
+        res.render("editProfile", {user: allPatientDetails});
+    }
+}
+
 module.exports=({
     home: home,
     signup: signup,
@@ -42,5 +57,6 @@ module.exports=({
     logOut: logOut,
     doctor: doctor,
     hospital: hospital,
-    wellcome: wellcome
+    wellcome: wellcome,
+    editProfile:editProfile
 });

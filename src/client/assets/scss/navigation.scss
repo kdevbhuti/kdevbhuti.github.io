@@ -139,23 +139,27 @@ header {
         right: 5.5rem;
       }
       .user_details {
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        gap: 1rem;
-        padding: 0.5rem;
-        border-bottom: 1px solid var(--gray-border);
-        span {
-          display: block;
-          margin-bottom: 0rem;
-          &.user_name {
-            font-family: "nexa bold";
-            color: var(--blue_bold_text);
+        .profileAnchor {
+          display: flex;
+          justify-content: left;
+          align-items: center;
+          gap: 1rem;
+          padding: 0.5rem;
+          border-bottom: 1px solid var(--gray-border);
+
+          span {
+            display: block;
+            margin-bottom: 0rem;
+            &.user_name {
+              font-family: "nexa bold";
+              color: var(--blue_bold_text);
+              margin-bottom: 0.5rem;
+            }
           }
-        }
-        figure {
-          width: 3.5rem;
-          height: 3.5rem;
+          figure {
+            width: 3.5rem;
+            height: 3.5rem;
+          }
         }
       }
       ul {

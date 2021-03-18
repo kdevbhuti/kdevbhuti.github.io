@@ -29,9 +29,10 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     store: sessionStorage,
-    cookie: {
-        maxAge: 1000 * 60 * 15, //15 min
-    }
+    cookie: {}
+    // cookie: {
+    //     maxAge: 1000 * 60 * 15, //15 min
+    // }
 }))
 // /////////////////////////////////////////
 
