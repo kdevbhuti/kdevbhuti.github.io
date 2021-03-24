@@ -1,0 +1,202 @@
+main {
+  position: relative;
+}
+@media (min-width: 1024px) {
+  main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    padding: 3.5rem 5.5rem 0rem;
+    grid-gap: 2rem;
+  }
+}
+main .dashboard_LeftBar {
+  display: none;
+}
+@media (min-width: 1024px) {
+  main .dashboard_LeftBar {
+    padding: 0rem;
+    display: block;
+    grid-area: 1/1/span 1/span 1;
+  }
+}
+main .dashboard_LeftBar .dashboard_list .dashboard_ListItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 3rem;
+  width: 100%;
+  margin-bottom: 0rem;
+  border-left: 0.5rem solid var(--white);
+}
+main .dashboard_LeftBar .dashboard_list .dashboard_ListItem:hover {
+  background-color: var(--gray_background);
+  border-left: 0.5rem solid var(--blue_color);
+  cursor: pointer;
+}
+main .dashboard_LeftBar .dashboard_list .dashboard_ListItem span {
+  font-size: 1.2rem;
+  margin-bottom: 0rem;
+}
+main .dashboard_LeftBar .dashboard_list .dashboard_ListItem .selected {
+  font-family: "Nexa bold";
+  color: var(--blue_bold_text);
+}
+main .dashboard_LeftBar .dashboard_list .dashboard_ListItem .fas {
+  color: var(--blue_color);
+  font-size: 1.3rem;
+  padding-left: 0.5rem;
+}
+@media (min-width: 1024px) {
+  main .schedule {
+    grid-area: 1/2/span 1/span 3;
+    padding: 0rem;
+  }
+}
+main .schedule .scheduleHead {
+  text-align: center;
+}
+@media (min-width: 1024px) {
+  main .schedule .scheduleHead {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+main .schedule .scheduleHead .newSchedueButton {
+  background-color: var(--blue_color);
+  border: none;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+}
+main .schedule .scheduleContainer {
+  border: 1px solid var(--gray-border);
+  padding: 0.5rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+}
+@media (min-width: 1024px) {
+  main .schedule .scheduleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+main .schedule .scheduleContainer .scheduleDay {
+  color: var(--blue_bold_text);
+}
+@media (min-width: 1024px) {
+  main .schedule .scheduleContainer .scheduleDay {
+    margin-bottom: 0rem;
+  }
+}
+main .schedule .scheduleContainer .hospital_time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+@media (min-width: 1024px) {
+  main .schedule .scheduleContainer .hospital_time {
+    flex-direction: column;
+    margin-bottom: 0rem;
+  }
+}
+main .schedule .scheduleContainer .hospital_time .hospital {
+  margin-bottom: 0rem;
+}
+@media (min-width: 1024px) {
+  main .schedule .scheduleContainer .hospital_time .hospital {
+    margin-bottom: 0.5rem;
+  }
+}
+main .schedule .scheduleContainer .hospital_time .time {
+  font-size: 1rem;
+  margin-bottom: 0rem;
+}
+main .schedule .scheduleContainer .scheduleButtons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+main .schedule .scheduleContainer .scheduleButtons .removeSlot,
+main .schedule .scheduleContainer .scheduleButtons .viewSlot {
+  background-color: var(--blue_color);
+  border: none;
+  border-radius: 5px;
+}
+@media (min-width: 1024px) {
+  main .schedule .scheduleContainer .scheduleButtons .removeSlot,
+main .schedule .scheduleContainer .scheduleButtons .viewSlot {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+main .schedule-form {
+  padding: 0rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  main .schedule-form {
+    grid-area: 1/1/span 1/span 4;
+  }
+}
+main .schedule-form .transparentBackground {
+  box-sizing: border-box;
+  display: none;
+  position: absolute;
+  top: 0.5rem;
+  background-color: var(--deep_blue);
+  opacity: 0.5;
+  width: 100%;
+  height: 100vh;
+}
+main .schedule-form .formContainer {
+  display: none;
+  box-sizing: border-box;
+  background-color: var(--white);
+  position: absolute;
+  top: 3rem;
+  padding: 1rem;
+  width: calc(100% - 2rem);
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+@media only screen and (min-width: 768px) {
+  main .schedule-form .formContainer {
+    width: 25rem;
+  }
+}
+main .schedule-form .formContainer h1 {
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--gray-border);
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+main .schedule-form .formContainer select,
+main .schedule-form .formContainer input {
+  width: 100%;
+}
+main .schedule-form .formContainer .clocklet-options {
+  padding: 0.5rem;
+}
+main .schedule-form .formContainer .submitButton {
+  display: flex;
+  justify-content: space-between;
+}
+main .schedule-form .formContainer .submitButton button {
+  background-color: var(--blue_color);
+  border: none;
+  border-radius: 5px;
+  padding: 0.8rem 0.7rem;
+}
+
+/*# sourceMappingURL=edit-sedule.css.map */

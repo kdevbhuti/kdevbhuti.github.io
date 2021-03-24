@@ -1,6 +1,7 @@
 const UserModel = require("../database/moduls/userModul")
 const DoctorModule = require("../database/moduls/doctorModule");
 const PataintModel = require("../database/moduls/patientModel");
+const doctorModel = require("../database/moduls/doctorModule");
 const DEFAULT_PROFILE_PICTURE = "default_profilepic.jpg";
 
 const  getprofilePicture = async (user)=> {
@@ -16,14 +17,14 @@ const  getprofilePicture = async (user)=> {
 }
 
 const getSession = async (user)=>{
-    const profilePicture = await getprofilePicture(user);
     return({
         id: user._id,
-        email: user.email,
-        name: user.name,
-        phoneNumber: user.phoneNumber,
-        profilePicture: profilePicture,
     })
+}
+
+const getUserDetails = async (id)=>{
+    const user = await UserModel.findOne({_id: id});
+    return user;
 }
 
 const getDoctorDetails = async (id)=>{
@@ -57,11 +58,18 @@ const getAllPatientDetails = async (patientId)=>{
     return patientDetails;
 }
 
+const getEntireDoctor = async (id)=>{
+    let allDoctor = doctorModel.find({ doctor : { '$ne' : id}}).populate("doctor");
+    return allDoctor;
+}
+
 module.exports = {
     getprofilePicture: getprofilePicture,
     getSession: getSession,
     getDoctorDetails: getDoctorDetails,
     getAllDoctorDetails: getAllDoctorDetails,
     isDoctor: isDoctor,
-    getAllPatientDetails
+    getAllPatientDetails : getAllPatientDetails,
+    getUserDetails: getUserDetails,
+    getEntireDoctor: getEntireDoctor
 }

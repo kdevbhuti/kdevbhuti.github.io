@@ -11,7 +11,6 @@ const getDoctorDetails = async (req, res) => {
        console.log(err);
     }else{
         var doctorUser = new doctor({
-        email: req.session.user.email,
         description:description,
         profilePicture: req.file,
         hospitals:hospital,
@@ -25,7 +24,6 @@ const getDoctorDetails = async (req, res) => {
       });
       const doctorData =  await doctorUser.save();
       if(doctorData){
-          req.session.user.profilePicture = doctorData.profilePicture ? doctorData.profilePicture.filename : "default_profilepic.jpg";
           res.redirect("/");
       }
     }

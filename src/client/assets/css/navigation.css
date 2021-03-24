@@ -51,6 +51,7 @@ header .navigation ul {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     position: absolute;
+    text-align: center;
     background-color: var(--gray_background);
     top: 2.5rem;
     width: 15rem;

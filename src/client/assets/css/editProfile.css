@@ -20,14 +20,28 @@ main .dashboard_LeftBar .dashboard_list .dashboard_ListItem {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 1rem;
+  height: 3rem;
+  width: 100%;
+  margin-bottom: 0rem;
+  border-left: 0.5rem solid var(--white);
+}
+main .dashboard_LeftBar .dashboard_list .dashboard_ListItem:hover {
+  background-color: var(--gray_background);
+  border-left: 0.5rem solid var(--blue_color);
+  cursor: pointer;
 }
 main .dashboard_LeftBar .dashboard_list .dashboard_ListItem span {
-  font-size: large;
+  font-size: 1.2rem;
   margin-bottom: 0rem;
+}
+main .dashboard_LeftBar .dashboard_list .dashboard_ListItem .selected {
+  font-family: "Nexa bold";
+  color: var(--blue_bold_text);
 }
 main .dashboard_LeftBar .dashboard_list .dashboard_ListItem .fas {
   color: var(--blue_color);
+  font-size: 1.3rem;
+  padding-left: 0.5rem;
 }
 main .dashboard_content {
   padding-bottom: 0rem;
@@ -53,6 +67,11 @@ main .dashboard_content .dashboard_heading {
     padding-left: 2rem;
     padding-right: 2rem;
     margin: 0rem -2rem 1rem -2rem;
+  }
+}
+@media (min-width: 1024px) {
+  main .dashboard_content .dashboard_heading {
+    margin: 0rem 0rem 1rem 0rem;
   }
 }
 main .dashboard_content .dashboard_heading h1 {
@@ -81,6 +100,9 @@ main .dashboard_content .level1 .profilePhote .pictureContainner .instructionToE
 main .dashboard_content .level1 .profilePhote .pictureContainner .instructionToEnterPhoto label {
   font-family: "Nexa bold";
   color: var(--blue_bold_text);
+}
+main .dashboard_content .level1 .profilePhote .pictureContainner .instructionToEnterPhoto .profileInput {
+  visibility: hidden;
 }
 main .dashboard_content .subcontainer {
   padding-bottom: 0.4rem;

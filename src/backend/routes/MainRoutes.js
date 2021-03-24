@@ -5,7 +5,7 @@ const mainController = require("../controller/MainController");
 const signupController = require("../controller/SignupController");
 const emailLoginController = require("../controller/EmailloginController")
 const middilewar = require("../controller/Middleware")
-const verifyProfileController= require("../controller/VerifyProfileController")
+const verifyProfileController = require("../controller/VerifyProfileController")
 const doctorDetails = require("../controller/doctorDetailsController");
 const editProfile = require("../controller/editProfileController")
 
@@ -17,7 +17,6 @@ router.route('/emailLogin').get(mainController.emailLogin)
 router.route("/doctor").get(middilewar.auth, mainController.doctor)
 router.route("/hospital").get(middilewar.auth, mainController.hospital)
 router.route("/wellcome").get(middilewar.auth, mainController.wellcome)
-
 
 router.route('/signup').post(signupController.signup)
 router.route('/emailLogin').post(verifyProfileController.logInWithOtp,verifyProfileController.forGotPassword, emailLoginController.emailLogin)

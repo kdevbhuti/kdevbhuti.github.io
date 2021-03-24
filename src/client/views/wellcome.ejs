@@ -40,17 +40,19 @@
 
         <div class="dropDown" id="dropdown_profile_items">
             <div class="user_details">
-                <figure>
-                    <img src="/image/doc.image--002.jpg" alt="">
-                </figure>
-                <div>
-                    <span class="user_name">
-                        <%=user.name%>
-                    </span>
-                    <span class="user_ph">
-                        <%=user.phoneNumber%>
-                    </span>
-                </div>
+                <a class="profileAnchor" href="">
+                    <figure>
+                        <img src="/image/doc.image--002.jpg" alt="">
+                    </figure>
+                    <div>
+                        <span class="user_name">
+                            <%=user.name%>
+                        </span>
+                        <span class="user_ph">
+                            <%=user.phoneNumber%>
+                        </span>
+                    </div>
+                </a>
             </div>
             <ul>
                 <li><a href="">My Appointment</a></li>
@@ -64,7 +66,7 @@
     <section class="form">
         <form action="/doctorDetails" method="POST" enctype="multipart/form-data">
             <h1>wellcome</h1>
-            <span>Complete your Profile to access your site</span>
+            <span class="instruction">Complete your Profile to access your site</span>
             <h4>Describe yourself</h4>
             <textarea name="description" required id="" rows="6"></textarea>
             <h4>Upload Your Profile Picture</h4>
@@ -96,7 +98,7 @@
                 <input type="text" class="tagInput">
             </div>
             <h4>Yours Average Fees</h4>
-            <input type="number" name="avgFees">
+            <input type="number" required name="avgFees">
             <div class="log-button">
                 <button id="submit">SUBMIT</button>
                 <i class="fas fa-arrow-right"></i>

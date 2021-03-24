@@ -4,6 +4,7 @@ const PatientModel = require("../database/moduls/patientModel");
 const getData = require("./dataProvider")
 const uploadImage = require("./multerStorage");
 
+
 const  editProfile = async (req, res)=>{
     uploadImage(req, res, async (err) =>{
         if(err){
@@ -16,19 +17,36 @@ const  editProfile = async (req, res)=>{
            const isDoctor = await getData.isDoctor(req.session.user.id)
            if(isDoctor){
                 try{
-                    const doctor = await DoctorModel.findOneAndUpdate({email: req.session.user.email}, {$set: userData });
-                    const user = await UserModel.findOneAndUpdate({_id: req.session.user.id}, {$set: userData})
+                    const doctor = await DoctorModel.findOneAndUpdate({doctor: req.session.user.id}, {$set: userData }, {new: true});
+                    const user = await UserModel.findOneAndUpdate({_id: req.session.user.id}, {$set: userData}, {new: true});
                     if(user && doctor){
-                        res.redirect("/editProfile");
+                        if(doctor.profilePicture){
+                            doctor.profilePicture = doctor.profilePicture.filename;
+                        }else{
+                            doctor.profilePicture = "default_profilepic.jpg";
+                        }
+                        doctor.doctor = user;
+                        res.render("editProfile", {user: doctor, status: "Success", message: "User details updated"});
                     }
                 }catch(err){
                     console.log(err);
                 }
             }else{
-                const patient = await PatientModel.findOneAndUpdate({email: req.session.user.email}, {$set: userData });
-                const user = await UserModel.findOneAndUpdate({_id: req.session.user.id}, {$set: userData})
-                if(user && patient){
-                    res.redirect("/editProfile");
+                try{
+                    const patient = await PatientModel.findOneAndUpdate({patient: req.session.user.id}, {$set: userData }, {new: true});
+                    const user = await UserModel.findOneAndUpdate({_id: req.session.user.id}, {$set: userData}, {new: true})
+                    if(user && patient){
+                        if(patient.profilePicture){
+                            patient.profilePicture = patient.profilePicture.filename;
+                        }else{
+                            patient.profilePicture = "default_profilepic.jpg";
+                        }
+                        patient.patient = user;
+                        res.render("editProfile", {user: patient, status: "Success", message: "User details updated"});
+                    }
+                }catch(err){
+                    const allPatientDetails = await getData.getAllPatientDetails(req.session.user.id);
+                    res.render("editProfile", {user: allPatientDetails, status: "Failure",  message: "Problem to update user details"});
                 }
             }
         

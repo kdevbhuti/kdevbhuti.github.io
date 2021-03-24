@@ -1,11 +1,17 @@
+const getData = require("./dataProvider");
 
 
-
-function home(req, res, next){
+async function home(req, res, next){
     if(req.session.user){
         if(!req.session.login){
             req.session.login = true;
-            res.render("index", {status: "Success", message: "login Successfilly", user: req.session.user});
+            const isDoctor = await getData.isDoctor(req.session.user.id);
+            if(isDoctor){
+                var allUserDetails = await getData.getAllDoctorDetails(req.session.user.id);
+            }else{
+                var allUserDetails = await getData.getAllPatientDetails(req.session.user.id);
+            }
+            res.render("index", {status: "Success", message: "login Successfilly", user: allUserDetails});
         }else{
             next()
         }

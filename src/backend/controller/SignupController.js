@@ -35,7 +35,6 @@ async function signup(req, res){
                     res.redirect("/wellcome") 
                 }else{
                     const patient = new patientModel({
-                        email: userData.email,
                         patient: userData.id,
                     })
                     await patient.save();

@@ -1,0 +1,183 @@
+<html>
+
+<head>
+    <title>Dentistry</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/theme.css">
+    <link rel="stylesheet" href="../assets/css/navigation.css">
+    <link rel="stylesheet" href="../assets/css/edit-sedule.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/serverMessageBox.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/clocklet@0.3.0/css/clocklet.min.css">
+</head>
+<header>
+    <nav class="navigation">
+        <img class="nav_logo" src="/image/Logo.jpg" alt="">
+        <ul>
+            <li><a href="/doctor">Doctor</a></li>
+            <li><a href="/hospital">Hospital</a></li>
+            <li class="tratmentItems"><span>Treatment</span><i class="fas fa-angle-down"></i>
+                <ul class="treatmentsMenu" id="treatmentMenu">
+                    <li class="tratment_item"><a href="">Dentistry</a></li>
+                    <li class="tratment_item"><a href="">Cancer</a></li>
+                    <li class="tratment_item"><a href="">Multi Organ Transplant</a></li>
+                    <li class="tratment_item"><a href="">Orthopedics Surgery</a></li>
+                    <li class="tratment_item"><a href="">Infertiliti Treatment</a></li>
+                </ul>
+            </li>
+            <li><a href="">About</a></li>
+        </ul>
+        <div class="nav_btn">
+            <button class="login_btn">Login\Sign Up</button>
+            <button class="quote_btn">Get a Quote</button>
+            <% if(user){ %>
+                <span class="profile_dropdown" id="profile_menu">
+                    <%=user.doctor ? user.doctor.name : user.patient.name%><i class="fas fa-chevron-down"></i>
+                </span>
+                <% } %>
+                    <i class="fas fa-bars"></i>
+        </div>
+
+        <div class="dropDown" id="dropdown_profile_items">
+            <div class="user_details">
+                <a class="profileAnchor" href="">
+                    <figure>
+                        <img src="/image/profile/<%=user.profilePicture%>" alt="Profile Picture">
+                    </figure>
+                    <div>
+                        <span class="user_name">
+                            <%=user.doctor? user.doctor.name : user.patient.name%>
+                        </span>
+                        <span class="user_ph">
+                            <%=user.doctor? user.doctor.phoneNumber : user.patient.phoneNumber%>
+                        </span>
+                    </div>
+                </a>
+            </div>
+            <ul>
+                <li><a href="">My Appointment</a></li>
+                <li><a href="/logout">log out</a></li>
+            </ul>
+        </div>
+
+    </nav>
+</header>
+<main>
+    <section class="dashboard_LeftBar">
+        <h2>DashBoard</h2>
+        <ul class="dashboard_list">
+            <li class="dashboard_ListItem">
+                <i class="fas fa-user-edit"></i>
+                <span>Profile</span>
+            </li>
+            <li class="dashboard_ListItem">
+                <i class="fas fa-th-list"></i>
+                <span>Appointments</span>
+            </li>
+            <li class="dashboard_ListItem">
+                <i class="fas fa-pen-fancy"></i>
+                <span class="selected">Create / Edit Schedules</span>
+            </li>
+            <li class="dashboard_ListItem">
+                <i class="fas fa-file-alt"></i>
+                <span>Medical Records</span>
+            </li>
+            <li class="dashboard_ListItem">
+                <i class="fas fa-user-cog"></i>
+                <span>Settings</span>
+            </li>
+        </ul>
+
+    </section>
+    <section class="schedule">
+        <div class="scheduleHead">
+            <button class="newSchedueButton" id="newSchedule">Create new schedule</button>
+            <h1>All Schedule</h1>
+        </div>
+        <div class="scheduleContainer">
+            <h3 class="scheduleDay">Monday</h3>
+            <div class="hospital_time">
+                <h3 class="hospital">Mission</h3>
+                <span class="time">01:34pm - 02:30pm</span>
+            </div>
+            <div class="scheduleButtons">
+                <button class="removeSlot">Remove slots</button>
+                <button class="viewSlot">Views slots</button>
+                <input type="checkbox">
+            </div>
+        </div>
+        <div class="scheduleContainer">
+            <h3 class="scheduleDay">Monday</h3>
+            <div class="hospital_time">
+                <h3 class="hospital">Mission</h3>
+                <span class="time">01:34pm - 02:30pm</span>
+            </div>
+            <div class="scheduleButtons">
+                <button class="removeSlot">Remove slots</button>
+                <button class="viewSlot">Views slots</button>
+                <input type="checkbox">
+            </div>
+        </div>
+    </section>
+
+    <section class="schedule-form">
+        <div class=" transparentBackground" id="transparentBackground">
+        </div>
+        <form action="" class="formContainer" id="formContainer">
+            <h1>Create Schedule</h1>
+            <div>
+                <h4>Select Available Day</h4>
+                <select name="" id="" required multiple>
+                    <option value=" monday">Monday</option>
+                    <option value="tuesday">Tuesday</option>
+                    <option value="wednestday">Wednestday</option>
+                    <option value="thusday">Thusday</option>
+                    <option value="friday">Friday</option>
+                    <option value="saterday">Saterday</option>
+                </select>
+                <h4>Select The Hospital</h4>
+                <select name="" id="">
+                </select>
+                <h4>From (time)</h4>
+                <input type="text"
+                    data-clocklet="class-name: clocklet-options; format: hh:mm a; alignment: right; placement: top; append-to: parent;"
+                    placeholder="Start Time" required>
+                <h4>To (time)</h4>
+                <input type="text"
+                    data-clocklet="class-name: clocklet-options; format: hh:mm a; alignment: right; placement: top; append-to: parent;"
+                    placeholder="End Time" required>
+                <h4>Intervals</h4>
+                <input type="number" required>
+            </div>
+            <div class="submitButton">
+                <button id="cancleButton">Cancle</button>
+                <button>Create Schedule</button>
+            </div>
+        </form>
+
+
+    </section>
+</main>
+<script>
+    document.getElementById("newSchedule").addEventListener("click", showForm);
+    function showForm() {
+        let transparentBackground = document.getElementById("transparentBackground")
+        let formContainer = document.getElementById("formContainer");
+        transparentBackground.style.display = "block";
+        formContainer.style.display = "block";
+    }
+
+    document.getElementById("cancleButton").addEventListener("click", hideForm);
+    function hideForm() {
+        let transparentBackground = document.getElementById("transparentBackground")
+        let formContainer = document.getElementById("formContainer");
+        transparentBackground.style.display = "none";
+        formContainer.style.display = "none";
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/clocklet@0.3.0"></script>
+
+</html>

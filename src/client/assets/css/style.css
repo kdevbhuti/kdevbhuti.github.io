@@ -403,6 +403,9 @@ main .exclusive_services .servise_links .link_img_block {
   align-items: center;
   gap: 0.5rem;
 }
+main .exclusive_services .servise_links .link_img_block h5 {
+  color: var(--gray);
+}
 @media (min-width: 1024px) {
   main .exclusive_services .servise_links .link_img_block {
     border-radius: 0rem;

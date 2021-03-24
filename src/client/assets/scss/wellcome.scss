@@ -4,6 +4,10 @@ body {
   position: relative;
   main {
     .form {
+      .instruction {
+        display: block;
+        text-align: center;
+      }
       .tagContainer {
         border: 1px solid var(--gray-border);
         padding: 0.2rem 0.5rem;

@@ -154,6 +154,10 @@ button {
   }
 }
 
+input[type="file"] {
+  margin-bottom: 0.5rem;
+}
+
 textarea,
 input[type="text"],
 [type="password"],

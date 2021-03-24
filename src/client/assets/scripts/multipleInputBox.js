@@ -5,7 +5,6 @@ function validate() {
     var validate = document.getElementsByClassName("validator");
     for (var i = 0; i < validate.length; i++) {
         if (validate[i].children[0].tagName.toLocaleLowerCase() === "input") {
-            console.log("true")
             validate[i].lastElementChild.required = true;
         } else {
             validate[i].lastElementChild.required = false;
@@ -40,9 +39,15 @@ function addTag(label, spanName) {
     const crossButton = document.createElement('i');
     crossButton.classList.add('fas', 'fa-times');
 
+    
+
     div.appendChild(span);
     div.appendChild(input)
     div.appendChild(crossButton);
 
+    crossButton.addEventListener("click",(event)=>{
+        event.target.parentNode.remove();
+    })
     return div;
 }
+

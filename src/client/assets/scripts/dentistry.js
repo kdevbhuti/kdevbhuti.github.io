@@ -47,7 +47,6 @@ function leftSlide() {
                 servise_content[i].classList.remove("disable");
                 i--;
             }
-            console.log(servise_content)
             if (flag) {
                 break
             } else {

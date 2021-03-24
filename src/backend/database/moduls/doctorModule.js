@@ -2,10 +2,6 @@ const mongoose = require("mongoose");
 const connectDB = require("../mongoose");
 
 const doctorSchema = new mongoose.Schema({ 
-    email:{
-        type: String,
-        require
-    },
     description:{
         type: String,
     }, 
