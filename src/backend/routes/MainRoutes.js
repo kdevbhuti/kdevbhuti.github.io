@@ -7,7 +7,8 @@ const emailLoginController = require("../controller/EmailloginController")
 const middilewar = require("../controller/Middleware")
 const verifyProfileController = require("../controller/VerifyProfileController")
 const doctorDetails = require("../controller/doctorDetailsController");
-const editProfile = require("../controller/editProfileController")
+const editProfile = require("../controller/editProfileController");
+const editSchedule = require("../controller/editSchedule");
 
 router.route('/').get(middilewar.home, mainController.home)
 router.route('/signup').get(mainController.signup)
@@ -29,5 +30,7 @@ router.route("/PhoneLogin").post(verifyProfileController.loginWithPassword ,veri
 router.route("/doctorDetails").post(doctorDetails.getDoctorDetails);
 router.route("/editProfile").get(middilewar.auth, mainController.editProfile);
 router.route("/editProfile").post(editProfile.editProfile);
+router.route("/editSchedule").get(middilewar.auth, mainController.editeSchedule);
+router.route("/editSchedule").post(editSchedule.editeSchedule);
 
 module.exports = router;

@@ -68,6 +68,11 @@ async function editProfile(req, res) {
     }
 }
 
+async function editeSchedule(req, res){
+    const allDoctorDetails = await getData.getAllDoctorDetails(req.session.user.id);
+    res.render("edit-schedule", {user: allDoctorDetails, status: undefined});
+}
+
 module.exports=({
     home: home,
     signup: signup,
@@ -76,5 +81,6 @@ module.exports=({
     doctor: doctor,
     hospital: hospital,
     wellcome: wellcome,
-    editProfile:editProfile
+    editProfile:editProfile,
+    editeSchedule: editeSchedule
 });

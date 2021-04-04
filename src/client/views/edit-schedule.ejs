@@ -2,12 +2,12 @@
 
 <head>
     <title>Dentistry</title>
-    <link rel="stylesheet" href="../assets/css/reset.css">
-    <link rel="stylesheet" href="../assets/css/theme.css">
-    <link rel="stylesheet" href="../assets/css/navigation.css">
-    <link rel="stylesheet" href="../assets/css/edit-sedule.css">
-    <link rel="stylesheet" href="../assets/css/footer.css">
-    <link rel="stylesheet" href="../assets/css/serverMessageBox.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/edit-sedule.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/serverMessageBox.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -126,11 +126,11 @@
     <section class="schedule-form">
         <div class=" transparentBackground" id="transparentBackground">
         </div>
-        <form action="" class="formContainer" id="formContainer">
+        <form action="/editSchedule" method="POST" class="formContainer" id="formContainer">
             <h1>Create Schedule</h1>
             <div>
                 <h4>Select Available Day</h4>
-                <select name="" id="" required multiple>
+                <select name="day" id="" required multiple>
                     <option value=" monday">Monday</option>
                     <option value="tuesday">Tuesday</option>
                     <option value="wednestday">Wednestday</option>
@@ -139,16 +139,16 @@
                     <option value="saterday">Saterday</option>
                 </select>
                 <h4>Select The Hospital</h4>
-                <select name="" id="">
+                <select name="hospitalName" id="">
                 </select>
                 <h4>From (time)</h4>
                 <input type="text"
                     data-clocklet="class-name: clocklet-options; format: hh:mm a; alignment: right; placement: top; append-to: parent;"
-                    placeholder="Start Time" required>
+                    placeholder="Start Time" name="startTime" required>
                 <h4>To (time)</h4>
                 <input type="text"
                     data-clocklet="class-name: clocklet-options; format: hh:mm a; alignment: right; placement: top; append-to: parent;"
-                    placeholder="End Time" required>
+                    placeholder="End Time" name="endTime" required>
                 <h4>Intervals</h4>
                 <input type="number" required>
             </div>
