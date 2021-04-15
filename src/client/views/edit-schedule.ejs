@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/edit-sedule.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/serverMessageBox.css">
+    <link rel="stylesheet" href="css/serverMessageBox.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -66,100 +67,140 @@
     </nav>
 </header>
 <main>
-    <section class="dashboard_LeftBar">
-        <h2>DashBoard</h2>
-        <ul class="dashboard_list">
-            <li class="dashboard_ListItem">
-                <i class="fas fa-user-edit"></i>
-                <span>Profile</span>
-            </li>
-            <li class="dashboard_ListItem">
-                <i class="fas fa-th-list"></i>
-                <span>Appointments</span>
-            </li>
-            <li class="dashboard_ListItem">
-                <i class="fas fa-pen-fancy"></i>
-                <span class="selected">Create / Edit Schedules</span>
-            </li>
-            <li class="dashboard_ListItem">
-                <i class="fas fa-file-alt"></i>
-                <span>Medical Records</span>
-            </li>
-            <li class="dashboard_ListItem">
-                <i class="fas fa-user-cog"></i>
-                <span>Settings</span>
-            </li>
-        </ul>
 
-    </section>
-    <section class="schedule">
-        <div class="scheduleHead">
-            <button class="newSchedueButton" id="newSchedule">Create new schedule</button>
-            <h1>All Schedule</h1>
-        </div>
-        <div class="scheduleContainer">
-            <h3 class="scheduleDay">Monday</h3>
-            <div class="hospital_time">
-                <h3 class="hospital">Mission</h3>
-                <span class="time">01:34pm - 02:30pm</span>
+    <% if(status){ %>
+        <section class="server-message <%=status%>" id="serverMessageSection">
+            <div class="status_message">
+                <% if(status==="Failure" ) { %>
+                    <i class=" msg_logo fas fa-times-circle"></i>
+                    <% } else if(status==="Success" ) { %>
+                        <i class=" msg_logo fas fa-check-circle"></i>
+                        <%}%>
+                            <div class="msg">
+                                <h4>
+                                    <%=status%>
+                                </h4>
+                                <span>
+                                    <%=message%>
+                                </span>
+                            </div>
             </div>
-            <div class="scheduleButtons">
-                <button class="removeSlot">Remove slots</button>
-                <button class="viewSlot">Views slots</button>
-                <input type="checkbox">
-            </div>
-        </div>
-        <div class="scheduleContainer">
-            <h3 class="scheduleDay">Monday</h3>
-            <div class="hospital_time">
-                <h3 class="hospital">Mission</h3>
-                <span class="time">01:34pm - 02:30pm</span>
-            </div>
-            <div class="scheduleButtons">
-                <button class="removeSlot">Remove slots</button>
-                <button class="viewSlot">Views slots</button>
-                <input type="checkbox">
-            </div>
-        </div>
-    </section>
+            <i class="fas fa-times" id="closeServerMessageBox"></i>
+        </section>
+        <%}%>
 
-    <section class="schedule-form">
-        <div class=" transparentBackground" id="transparentBackground">
-        </div>
-        <form action="/editSchedule" method="POST" class="formContainer" id="formContainer">
-            <h1>Create Schedule</h1>
-            <div>
-                <h4>Select Available Day</h4>
-                <select name="day" id="" required multiple>
-                    <option value=" monday">Monday</option>
-                    <option value="tuesday">Tuesday</option>
-                    <option value="wednestday">Wednestday</option>
-                    <option value="thusday">Thusday</option>
-                    <option value="friday">Friday</option>
-                    <option value="saterday">Saterday</option>
-                </select>
-                <h4>Select The Hospital</h4>
-                <select name="hospitalName" id="">
-                </select>
-                <h4>From (time)</h4>
-                <input type="text"
-                    data-clocklet="class-name: clocklet-options; format: hh:mm a; alignment: right; placement: top; append-to: parent;"
-                    placeholder="Start Time" name="startTime" required>
-                <h4>To (time)</h4>
-                <input type="text"
-                    data-clocklet="class-name: clocklet-options; format: hh:mm a; alignment: right; placement: top; append-to: parent;"
-                    placeholder="End Time" name="endTime" required>
-                <h4>Intervals</h4>
-                <input type="number" required>
-            </div>
-            <div class="submitButton">
-                <button id="cancleButton">Cancle</button>
-                <button>Create Schedule</button>
-            </div>
-        </form>
+            <section class="dashboard_LeftBar">
+                <h2>DashBoard</h2>
+                <ul class="dashboard_list">
+                    <a class="link" href="/editProfile">
+                        <li class="dashboard_ListItem">
+                            <i class="fas fa-user-edit"></i>
+                            <span>Profile</span>
+                        </li>
+                    </a>
+                    <a class="link">
+                        <li class="dashboard_ListItem">
+                            <i class="fas fa-th-list"></i>
+                            <span>Appointments</span>
+                        </li>
+                    </a>
+
+                    <a class="link" href="/editSchedule">
+                        <li class="dashboard_ListItem">
+                            <i class="fas fa-pen-fancy"></i>
+                            <span class="selected">Create / Edit Schedules</span>
+                        </li>
+                    </a>
+                    <a class="link">
+                        <li class="dashboard_ListItem">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Medical Records</span>
+                        </li>
+                    </a>
+                    <a class="link">
+                        <li class="dashboard_ListItem">
+                            <i class="fas fa-user-cog"></i>
+                            <span>Settings</span>
+                        </li>
+                    </a>
+                </ul>
+            </section>
+
+            <section class="schedule">
+                <div class="scheduleHead">
+                    <button class="newSchedueButton" id="newSchedule">Create new schedule</button>
+                    <h1>All Schedule</h1>
+                </div>
+                <%if(schedules.length===0){%>
+                    <h3 class="noSchedukeMessage">No Schedule yet. Create One Now By Clicking Create New Button</h3>
+                    <%}%>
+                        <%schedules.forEach((schedule)=>{%>
+                            <div class="scheduleContainer">
+                                <h3 class="scheduleDay">
+                                    <%=schedule.weekDay%>
+                                </h3>
+                                <div class="hospital_time">
+                                    <h3 class="hospital">
+                                        <%=schedule.hospitalName%>
+                                    </h3>
+                                    <span class="time">
+                                        <%=schedule.startTime%> - <%=schedule.endTime%>
+                                    </span>
+                                </div>
+                                <div class="scheduleButtons">
+                                    <button class="removeSlot" value=<%=schedule._id%>>Remove slots</button>
+                                    <button class="viewSlot">Views slots</button>
+                                    <input type="checkbox">
+                                </div>
+                            </div>
+                            <%})%>
+            </section>
+
+            <section class="schedule-form">
+                <div class=" transparentBackground" id="transparentBackground">
+                </div>
+                <form action="/editSchedule" method="POST" class="formContainer" id="formContainer">
+                    <h1>Create Schedule</h1>
+                    <div>
+                        <h4>Select Available Day</h4>
+                        <select name="day" id="" required multiple>
+                            <option value="monday">Monday</option>
+                            <option value="tuesday">Tuesday</option>
+                            <option value="wednestday">Wednestday</option>
+                            <option value="thusday">Thusday</option>
+                            <option value="friday">Friday</option>
+                            <option value="saterday">Saterday</option>
+                        </select>
+                        <h4>Select The Hospital</h4>
+                        <select name="hospitalName" id="">
+                            <option value="">Select Hospital</option>
+                            <%user.hospitals.forEach((hospital)=>{%>
+                                <option value="<%=hospital%>">
+                                    <%=hospital%>
+                                </option>
+                                <%})%>
+
+                        </select>
+                        <h4>From (time)</h4>
+                        <input type="text"
+                            data-clocklet="class-name: clocklet-options; format: hh:mm a; alignment: right; placement: top; append-to: parent;"
+                            placeholder="Start Time" id="startTime" name="startTime" autocomplete="off" required>
+                        <h4>To (time)</h4>
+                        <input type="text"
+                            data-clocklet="class-name: clocklet-options; format: hh:mm a; alignment: right; placement: top; append-to: parent;"
+                            placeholder="End Time" id="endTime" name="endTime" autocomplete="off" required>
+                        <h4>Intervals</h4>
+                        <input type="number" id="interval" name="interval" placeholder="Enter interval in minutes..."
+                            autocomplete="off" required>
+                    </div>
+                    <div class="submitButton">
+                        <button type="button" class="cancle" id="cancleButton">Cancle</button>
+                        <button type="submit" id="submit" class="submit">Create Schedule</button>
+                    </div>
+                </form>
 
 
-    </section>
+            </section>
 </main>
 <script>
     document.getElementById("newSchedule").addEventListener("click", showForm);
@@ -178,6 +219,75 @@
         formContainer.style.display = "none";
     }
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/clocklet@0.3.0"></script>
+<script src="/scripts/profileMenu.js"></script>
+<script src="/scripts/serverMessageBox.js"></script>
+
+<script>
+    // clock time validation////////////////////////////////////////
+    document.getElementById("submit").addEventListener("click", timeValidation);
+
+    function timeValidation() {
+        let startTime = document.getElementById("startTime");
+        let endTime = document.getElementById("endTime");
+        console.log(startTime.value)
+        if (startTime.value === "") {
+            startTime.setCustomValidity("Please fill up the field.");
+        } else {
+            startTime.setCustomValidity("");
+        }
+        if (endTime.value === "") {
+            endTime.setCustomValidity("Please fill up the field.");
+        } else {
+            endTime.setCustomValidity("");
+        }
+        let stime = startTime.value.split(" ");
+        let startMeridiem = stime[1];
+        let etime = endTime.value.split(" ");
+        let endMeridiem = etime[1];
+
+        let startHour = parseInt(stime[0].split(":")[0], 10);
+        let startMin = parseInt(stime[0].split(":")[1], 10);
+
+        let endHour = parseInt(etime[0].split(":")[0], 10);
+        let endMin = parseInt(etime[0].split(":")[1], 10);
+
+        if (startMeridiem === endMeridiem) {
+            if ((startHour > endHour) || ((startHour === endHour) && (startMin > endMin)) || ((startHour === endHour) && (startMin === endMin))) {
+                endTime.setCustomValidity("Ending time must be come after seduled start time " + startTime.value + ".");
+            }
+        } else if (startMeridiem === "pm") {
+            startTime.setCustomValidity("Time must be Anti meridiem.")
+        } else if (endMeridiem === "am") {
+            endTime.setCustomValidity("Time must be Post meridiem.")
+        } else {
+            startTime.setCustomValidity("");
+            endTime.setCustomValidity("");
+        }
+    }
+
+    //Time interval validation///////////////////////////
+    document.getElementById("submit").addEventListener("click", validateInterval);
+
+    function validateInterval() {
+        const interval = document.getElementById("interval");
+        if (interval.value === "") {
+            interval.setCustomValidity("Please fill up the field.");
+        } else if (interval.value < 15) {
+            interval.setCustomValidity("Value must be gretter then or equal to 15.");
+        } else {
+            interval.setCustomValidity("")
+        }
+    }
+
+    //delete schedule////////////////////////////////////////////
+    const removeSchedule = document.getElementsByClassName("removeSlot");
+    for (let i = 0; i < removeSchedule.length; i++) {
+        removeSchedule[i].addEventListener("click", (event) => {
+            window.location.replace("remove-schedule?schedule_id=" + event.target.value);
+        })
+    }
+</script>
 
 </html>

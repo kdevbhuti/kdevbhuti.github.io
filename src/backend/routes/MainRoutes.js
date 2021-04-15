@@ -33,4 +33,6 @@ router.route("/editProfile").post(editProfile.editProfile);
 router.route("/editSchedule").get(middilewar.auth, mainController.editeSchedule);
 router.route("/editSchedule").post(editSchedule.editeSchedule);
 
+
+router.route("/remove-schedule").get(middilewar.auth, editSchedule.removeSchedule)
 module.exports = router;

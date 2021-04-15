@@ -44,7 +44,6 @@ const doctorSchema = new mongoose.Schema({
     doctor: {type: mongoose.Schema.Types.ObjectId, ref: "User"}
 });
 
-
 var doctorModel = connectDB.model('Doctor', doctorSchema);
 
 module.exports = doctorModel;

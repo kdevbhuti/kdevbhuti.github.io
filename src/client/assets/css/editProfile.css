@@ -14,9 +14,10 @@ main .dashboard_LeftBar {
   main .dashboard_LeftBar {
     padding: 0rem;
     display: block;
+    grid-area: 1/1/span 1/span 1;
   }
 }
-main .dashboard_LeftBar .dashboard_list .dashboard_ListItem {
+main .dashboard_LeftBar .dashboard_list .link .dashboard_ListItem {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -25,20 +26,20 @@ main .dashboard_LeftBar .dashboard_list .dashboard_ListItem {
   margin-bottom: 0rem;
   border-left: 0.5rem solid var(--white);
 }
-main .dashboard_LeftBar .dashboard_list .dashboard_ListItem:hover {
+main .dashboard_LeftBar .dashboard_list .link .dashboard_ListItem:hover {
   background-color: var(--gray_background);
   border-left: 0.5rem solid var(--blue_color);
   cursor: pointer;
 }
-main .dashboard_LeftBar .dashboard_list .dashboard_ListItem span {
+main .dashboard_LeftBar .dashboard_list .link .dashboard_ListItem span {
   font-size: 1.2rem;
   margin-bottom: 0rem;
 }
-main .dashboard_LeftBar .dashboard_list .dashboard_ListItem .selected {
+main .dashboard_LeftBar .dashboard_list .link .dashboard_ListItem .selected {
   font-family: "Nexa bold";
   color: var(--blue_bold_text);
 }
-main .dashboard_LeftBar .dashboard_list .dashboard_ListItem .fas {
+main .dashboard_LeftBar .dashboard_list .link .dashboard_ListItem .fas {
   color: var(--blue_color);
   font-size: 1.3rem;
   padding-left: 0.5rem;
@@ -72,6 +73,7 @@ main .dashboard_content .dashboard_heading {
 @media (min-width: 1024px) {
   main .dashboard_content .dashboard_heading {
     margin: 0rem 0rem 1rem 0rem;
+    padding-left: 0rem;
   }
 }
 main .dashboard_content .dashboard_heading h1 {
@@ -102,7 +104,7 @@ main .dashboard_content .level1 .profilePhote .pictureContainner .instructionToE
   color: var(--blue_bold_text);
 }
 main .dashboard_content .level1 .profilePhote .pictureContainner .instructionToEnterPhoto .profileInput {
-  visibility: hidden;
+  display: none;
 }
 main .dashboard_content .subcontainer {
   padding-bottom: 0.4rem;
@@ -110,6 +112,9 @@ main .dashboard_content .subcontainer {
   padding-right: 1rem;
   margin: 0rem -1rem 0.5rem -1rem;
   border-bottom: 1px solid var(--gray-border);
+}
+main .dashboard_content .subcontainer h3 {
+  color: var(--blue_bold_text);
 }
 @media only screen and (min-width: 768px) {
   main .dashboard_content .subcontainer {
@@ -128,6 +133,7 @@ main .dashboard_content .subcontainer {
   main .dashboard_content .subcontainer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    align-items: end;
     padding: 0rem 0rem 1rem 0rem;
     margin: 0rem 0rem 1rem 0rem;
   }
@@ -150,6 +156,8 @@ main .dashboard_content .subcontainer .inputContainer .tagContainer {
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
+  height: 3rem;
+  overflow: auto;
   gap: 0.5rem;
 }
 main .dashboard_content .subcontainer .inputContainer .tagContainer .tag {

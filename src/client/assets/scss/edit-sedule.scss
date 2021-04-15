@@ -16,37 +16,42 @@ main {
       grid-area: 1/1 / span 1 / span 1;
     }
     .dashboard_list {
-      .dashboard_ListItem {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        height: 3rem;
-        width: 100%;
-        margin-bottom: 0rem;
-        border-left: 0.5rem solid var(--white);
-        &:hover {
-          background-color: var(--gray_background);
-          border-left: 0.5rem solid var(--blue_color);
-          cursor: pointer;
-        }
-        span {
-          font-size: 1.2rem;
+      .link {
+        .dashboard_ListItem {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          height: 3rem;
+          width: 100%;
           margin-bottom: 0rem;
-        }
-        .selected {
-          font-family: "Nexa bold";
-          color: var(--blue_bold_text);
-        }
-        .fas {
-          color: var(--blue_color);
-          font-size: 1.3rem;
-          padding-left: 0.5rem;
+          border-left: 0.5rem solid var(--white);
+          &:hover {
+            background-color: var(--gray_background);
+            border-left: 0.5rem solid var(--blue_color);
+            cursor: pointer;
+          }
+          span {
+            font-size: 1.2rem;
+            margin-bottom: 0rem;
+          }
+          .selected {
+            font-family: "Nexa bold";
+            color: var(--blue_bold_text);
+          }
+          .fas {
+            color: var(--blue_color);
+            font-size: 1.3rem;
+            padding-left: 0.5rem;
+          }
         }
       }
     }
   }
 
   .schedule {
+    .noSchedukeMessage {
+      color: var(--blue_bold_text);
+    }
     @media (min-width: 1024px) {
       grid-area: 1/2 / span 1 / span 3;
       padding: 0rem;
@@ -67,7 +72,7 @@ main {
       }
     }
     .scheduleContainer {
-      border: 1px solid var(--gray-border);
+      border: 1.5px solid var(--gray-border);
       padding: 0.5rem;
       text-align: center;
       margin-bottom: 0.5rem;
@@ -76,6 +81,7 @@ main {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 0.8rem;
       }
       .scheduleDay {
         color: var(--blue_bold_text);
@@ -110,7 +116,13 @@ main {
         align-items: center;
         .removeSlot,
         .viewSlot {
-          background-color: var(--blue_color);
+          &.removeSlot {
+            background-color: var(--red-button);
+          }
+          &.viewSlot {
+            background-color: var(--green-button);
+          }
+
           border: none;
           border-radius: 5px;
           @media (min-width: 1024px) {
@@ -172,10 +184,15 @@ main {
         display: flex;
         justify-content: space-between;
         button {
-          background-color: var(--blue_color);
           border: none;
           border-radius: 5px;
           padding: 0.8rem 0.7rem;
+          &.cancle {
+            background-color: var(--red-button);
+          }
+          &.submit {
+            background-color: var(--blue_color);
+          }
         }
       }
     }

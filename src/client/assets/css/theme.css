@@ -228,7 +228,7 @@ input[type=text]::placeholder,
 [type=date]::placeholder,
 [type=number]::placeholder {
     font-size: 1rem;
-    line-height: 1.2rem;
+    line-height: 1.3rem;
   }
 }
 @media only screen and (min-width: 768px) {
@@ -254,7 +254,7 @@ input[type=text],
     padding: 0.7rem 0.8rem;
     margin-bottom: 0.5rem;
     font-size: 1rem;
-    line-height: 1.2rem;
+    line-height: 1.3rem;
   }
 }
 
@@ -284,10 +284,16 @@ select {
 
 select option {
   font-family: "Nexa Light";
-  color: var(--deep_blue);
   line-height: 1.1rem;
   font-size: 0.9rem;
+  padding: 0.3rem;
   color: var(--deep_blue);
+}
+@media only screen and (min-width: 768px) {
+  select option {
+    line-height: 1.2rem;
+    font-size: 1rem;
+  }
 }
 
 label {

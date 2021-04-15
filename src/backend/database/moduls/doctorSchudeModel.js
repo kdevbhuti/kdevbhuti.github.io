@@ -6,14 +6,30 @@ const scheduleSchema = new mongooes.Schema({
       type: String,
       require  
     },
-    endTime:{
-        type: TimeRanges
-    },
     hospitalName:{
         type: String
     },
+    startTime:{
+        type: String
+    },
+    endTime:{
+        type: String
+    },
+    interval:{
+        type: Number
+    },
+    isActive:{
+        type: Boolean
+    },
+    schedules: [{
+            time:{
+                type: String
+            },
+            isActive:{
+                type: Boolean
+            },
+        }],
     doctor: {type: mongooes.Schema.Types.ObjectId, ref: "User"},
-    patient: {type: mongooes.Schema.Types.ObjectId, ref: "User"}
 })
 
 const scheduleModel = connectDB.model("Schedule", scheduleSchema);

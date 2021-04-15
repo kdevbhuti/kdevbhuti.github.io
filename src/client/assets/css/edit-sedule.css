@@ -20,7 +20,7 @@ main .dashboard_LeftBar {
     grid-area: 1/1/span 1/span 1;
   }
 }
-main .dashboard_LeftBar .dashboard_list .dashboard_ListItem {
+main .dashboard_LeftBar .dashboard_list .link .dashboard_ListItem {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -29,23 +29,26 @@ main .dashboard_LeftBar .dashboard_list .dashboard_ListItem {
   margin-bottom: 0rem;
   border-left: 0.5rem solid var(--white);
 }
-main .dashboard_LeftBar .dashboard_list .dashboard_ListItem:hover {
+main .dashboard_LeftBar .dashboard_list .link .dashboard_ListItem:hover {
   background-color: var(--gray_background);
   border-left: 0.5rem solid var(--blue_color);
   cursor: pointer;
 }
-main .dashboard_LeftBar .dashboard_list .dashboard_ListItem span {
+main .dashboard_LeftBar .dashboard_list .link .dashboard_ListItem span {
   font-size: 1.2rem;
   margin-bottom: 0rem;
 }
-main .dashboard_LeftBar .dashboard_list .dashboard_ListItem .selected {
+main .dashboard_LeftBar .dashboard_list .link .dashboard_ListItem .selected {
   font-family: "Nexa bold";
   color: var(--blue_bold_text);
 }
-main .dashboard_LeftBar .dashboard_list .dashboard_ListItem .fas {
+main .dashboard_LeftBar .dashboard_list .link .dashboard_ListItem .fas {
   color: var(--blue_color);
   font-size: 1.3rem;
   padding-left: 0.5rem;
+}
+main .schedule .noSchedukeMessage {
+  color: var(--blue_bold_text);
 }
 @media (min-width: 1024px) {
   main .schedule {
@@ -71,7 +74,7 @@ main .schedule .scheduleHead .newSchedueButton {
   border-radius: 5px;
 }
 main .schedule .scheduleContainer {
-  border: 1px solid var(--gray-border);
+  border: 1.5px solid var(--gray-border);
   padding: 0.5rem;
   text-align: center;
   margin-bottom: 0.5rem;
@@ -82,6 +85,7 @@ main .schedule .scheduleContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 0.8rem;
   }
 }
 main .schedule .scheduleContainer .scheduleDay {
@@ -124,9 +128,16 @@ main .schedule .scheduleContainer .scheduleButtons {
 }
 main .schedule .scheduleContainer .scheduleButtons .removeSlot,
 main .schedule .scheduleContainer .scheduleButtons .viewSlot {
-  background-color: var(--blue_color);
   border: none;
   border-radius: 5px;
+}
+main .schedule .scheduleContainer .scheduleButtons .removeSlot.removeSlot,
+main .schedule .scheduleContainer .scheduleButtons .viewSlot.removeSlot {
+  background-color: var(--red-button);
+}
+main .schedule .scheduleContainer .scheduleButtons .removeSlot.viewSlot,
+main .schedule .scheduleContainer .scheduleButtons .viewSlot.viewSlot {
+  background-color: var(--green-button);
 }
 @media (min-width: 1024px) {
   main .schedule .scheduleContainer .scheduleButtons .removeSlot,
@@ -193,10 +204,15 @@ main .schedule-form .formContainer .submitButton {
   justify-content: space-between;
 }
 main .schedule-form .formContainer .submitButton button {
-  background-color: var(--blue_color);
   border: none;
   border-radius: 5px;
   padding: 0.8rem 0.7rem;
+}
+main .schedule-form .formContainer .submitButton button.cancle {
+  background-color: var(--red-button);
+}
+main .schedule-form .formContainer .submitButton button.submit {
+  background-color: var(--blue_color);
 }
 
 /*# sourceMappingURL=edit-sedule.css.map */

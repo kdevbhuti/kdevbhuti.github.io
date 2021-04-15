@@ -15,31 +15,33 @@ main {
       grid-area: 1/1 / span 1 / span 1;
     }
     .dashboard_list {
-      .dashboard_ListItem {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        height: 3rem;
-        width: 100%;
-        margin-bottom: 0rem;
-        border-left: 0.5rem solid var(--white);
-        &:hover {
-          background-color: var(--gray_background);
-          border-left: 0.5rem solid var(--blue_color);
-          cursor: pointer;
-        }
-        span {
-          font-size: 1.2rem;
+      .link {
+        .dashboard_ListItem {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          height: 3rem;
+          width: 100%;
           margin-bottom: 0rem;
-        }
-        .selected {
-          font-family: "Nexa bold";
-          color: var(--blue_bold_text);
-        }
-        .fas {
-          color: var(--blue_color);
-          font-size: 1.3rem;
-          padding-left: 0.5rem;
+          border-left: 0.5rem solid var(--white);
+          &:hover {
+            background-color: var(--gray_background);
+            border-left: 0.5rem solid var(--blue_color);
+            cursor: pointer;
+          }
+          span {
+            font-size: 1.2rem;
+            margin-bottom: 0rem;
+          }
+          .selected {
+            font-family: "Nexa bold";
+            color: var(--blue_bold_text);
+          }
+          .fas {
+            color: var(--blue_color);
+            font-size: 1.3rem;
+            padding-left: 0.5rem;
+          }
         }
       }
     }
@@ -68,6 +70,7 @@ main {
       }
       @media (min-width: 1024px) {
         margin: 0rem 0rem 1rem 0rem;
+        padding-left: 0rem;
       }
       h1 {
         margin-bottom: 0rem;
@@ -100,7 +103,7 @@ main {
               color: var(--blue_bold_text);
             }
             .profileInput {
-              visibility: hidden;
+              display: none;
             }
           }
         }
@@ -112,6 +115,9 @@ main {
       padding-right: 1rem;
       margin: 0rem -1rem 0.5rem -1rem;
       border-bottom: 1px solid var(--gray-border);
+      h3 {
+        color: var(--blue_bold_text);
+      }
       @media only screen and (min-width: 768px) {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -126,6 +132,7 @@ main {
       @media (min-width: 1024px) {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+        align-items: end;
         padding: 0rem 0rem 1rem 0rem;
         margin: 0rem 0rem 1rem 0rem;
       }
@@ -149,6 +156,8 @@ main {
           justify-content: flex-start;
           align-items: center;
           flex-wrap: wrap;
+          height: 3rem;
+          overflow: auto;
           gap: 0.5rem;
           .tag {
             background-color: var(--gray_tag);

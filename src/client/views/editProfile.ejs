@@ -91,26 +91,38 @@
             <section class="dashboard_LeftBar">
                 <h2>DashBoard</h2>
                 <ul class="dashboard_list">
-                    <li class="dashboard_ListItem">
-                        <i class="fas fa-user-edit"></i>
-                        <span class="selected">Profile</span>
-                    </li>
-                    <li class="dashboard_ListItem">
-                        <i class="fas fa-th-list"></i>
-                        <span>Appointments</span>
-                    </li>
-                    <li class="dashboard_ListItem">
-                        <i class="fas fa-pen-fancy"></i>
-                        <span>Create / Edit Schedules</span>
-                    </li>
-                    <li class="dashboard_ListItem">
-                        <i class="fas fa-file-alt"></i>
-                        <span>Medical Records</span>
-                    </li>
-                    <li class="dashboard_ListItem">
-                        <i class="fas fa-user-cog"></i>
-                        <span>Settings</span>
-                    </li>
+                    <a class="link" href="/editProfile">
+                        <li class="dashboard_ListItem">
+                            <i class="fas fa-user-edit"></i>
+                            <span class="selected">Profile</span>
+                        </li>
+                    </a>
+                    <a class="link">
+                        <li class="dashboard_ListItem">
+                            <i class="fas fa-th-list"></i>
+                            <span>Appointments</span>
+                        </li>
+                    </a>
+
+                    <a class="link" href="/editSchedule">
+                        <li class="dashboard_ListItem">
+                            <i class="fas fa-pen-fancy"></i>
+                            <span>Create / Edit Schedules</span>
+                        </li>
+                    </a>
+                    <a class="link">
+                        <li class="dashboard_ListItem">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Medical Records</span>
+                        </li>
+                    </a>
+                    <a class="link">
+                        <li class="dashboard_ListItem">
+                            <i class="fas fa-user-cog"></i>
+                            <span>Settings</span>
+                        </li>
+                    </a>
+
                 </ul>
 
             </section>
@@ -119,7 +131,7 @@
                 <form action="/editProfile" method="POST" enctype="multipart/form-data">
                     <div class="dashboard_heading">
                         <h1>Accounts</h1>
-                        <button>save Change</button>
+                        <button>Save Change</button>
                     </div>
 
                     <div class="profileDetails level1 subContainer">
@@ -164,7 +176,7 @@
                                     <%=user.doctor ? user.doctor.gender: user.patient.gender%>
                                 </option>
                                 <option value="Male">Male</option>
-                                <option value="Femail">Femail</option>
+                                <option value="Female">Female</option>
                             </select>
                         </div>
                         <div class="inputContainer">

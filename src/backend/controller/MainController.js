@@ -70,7 +70,16 @@ async function editProfile(req, res) {
 
 async function editeSchedule(req, res){
     const allDoctorDetails = await getData.getAllDoctorDetails(req.session.user.id);
-    res.render("edit-schedule", {user: allDoctorDetails, status: undefined});
+    const schedules = await getData.getDoctorSchedules(req.session.user.id);
+    if(req.session.user.status === "deleteSchedule"){
+        res.render("edit-schedule", {user: allDoctorDetails, status: "Success", message: "Schedule is successfully deleted.", schedules: schedules});
+        req.session.user.status = "";
+    }else if(req.session.user.status === "deleteScheduleFail"){
+        res.render("edit-schedule", {user: allDoctorDetails, status: "Failure", message: "Schedule is not deleted.", schedules: schedules});
+        req.session.user.status = "";
+    }else{
+        res.render("edit-schedule", {user: allDoctorDetails, status: undefined, schedules: schedules});
+    }
 }
 
 module.exports=({
@@ -82,5 +91,5 @@ module.exports=({
     hospital: hospital,
     wellcome: wellcome,
     editProfile:editProfile,
-    editeSchedule: editeSchedule
+    editeSchedule: editeSchedule,
 });
