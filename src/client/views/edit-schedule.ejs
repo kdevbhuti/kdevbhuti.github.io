@@ -136,24 +136,51 @@
                     <%}%>
                         <%schedules.forEach((schedule)=>{%>
                             <div class="scheduleContainer">
-                                <h3 class="scheduleDay">
-                                    <%=schedule.weekDay%>
-                                </h3>
-                                <div class="hospital_time">
-                                    <h3 class="hospital">
-                                        <%=schedule.hospitalName%>
+                                <div class="container">
+                                    <h3 class="scheduleDay">
+                                        <%=schedule.weekDay%>
                                     </h3>
-                                    <span class="time">
-                                        <%=schedule.startTime%> - <%=schedule.endTime%>
-                                    </span>
+                                    <div class="hospital_time">
+                                        <h3 class="hospital">
+                                            <%=schedule.hospitalName%>
+                                        </h3>
+                                        <span class="time">
+                                            <%=schedule.startTime%> - <%=schedule.endTime%>
+                                        </span>
+                                    </div>
+                                    <div class="scheduleButtons">
+                                        <button class="removeSlot" value=<%=schedule._id%>>Remove slots</button>
+                                        <button class="viewSlot" value="<%=schedule._id%>_schedule">Views slots</button>
+                                        <input type="checkbox">
+                                    </div>
                                 </div>
-                                <div class="scheduleButtons">
-                                    <button class="removeSlot" value=<%=schedule._id%>>Remove slots</button>
-                                    <button class="viewSlot">Views slots</button>
-                                    <input type="checkbox">
+                                <div class="scheduleTime" id="<%=schedule._id%>_schedule">
+                                    <%schedule.schedules.forEach((timing)=>{%>
+                                        <div class="scheduletimeContainer">
+                                            <span class="timing">
+                                                <%=timing.time%>
+                                            </span>
+                                            <input type="checkbox">
+                                        </div>
+                                        <%})%>
+
+
+                                            <!-- <div class="scheduletimeContainer">
+                                        <span class="timing">12:33 AM - 00:44 AM</span>
+                                        <input type="checkbox">
+                                    </div>
+                                    <div class="scheduletimeContainer">
+                                        <span class="timing">12:33 AM - 00:44 AM</span>
+                                        <input type="checkbox">
+                                    </div>
+                                    <div class="scheduletimeContainer">
+                                        <span class="timing">12:33 AM - 00:44 AM</span>
+                                        <input type="checkbox">
+                                    </div> -->
                                 </div>
                             </div>
                             <%})%>
+
             </section>
 
             <section class="schedule-form">
@@ -161,19 +188,19 @@
                 </div>
                 <form action="/editSchedule" method="POST" class="formContainer" id="formContainer">
                     <h1>Create Schedule</h1>
-                    <div>
+                    <div class="formData">
                         <h4>Select Available Day</h4>
                         <select name="day" id="" required multiple>
-                            <option value="monday">Monday</option>
-                            <option value="tuesday">Tuesday</option>
-                            <option value="wednestday">Wednestday</option>
-                            <option value="thusday">Thusday</option>
-                            <option value="friday">Friday</option>
-                            <option value="saterday">Saterday</option>
+                            <option value="Monday">Monday</option>
+                            <option value="Tuesday">Tuesday</option>
+                            <option value="Wednestday">Wednestday</option>
+                            <option value="Thusday">Thusday</option>
+                            <option value="Friday">Friday</option>
+                            <option value="Saterday">Saterday</option>
                         </select>
                         <h4>Select The Hospital</h4>
-                        <select name="hospitalName" id="">
-                            <option value="">Select Hospital</option>
+                        <select class="select" name="hospitalName" id="">
+                            <option class="hide_option" value="">Select Hospital</option>
                             <%user.hospitals.forEach((hospital)=>{%>
                                 <option value="<%=hospital%>">
                                     <%=hospital%>
@@ -223,6 +250,7 @@
 <script src="https://cdn.jsdelivr.net/npm/clocklet@0.3.0"></script>
 <script src="/scripts/profileMenu.js"></script>
 <script src="/scripts/serverMessageBox.js"></script>
+<script type="text/javascript" src="/scripts/selectPlaceHolder.js"></script>
 
 <script>
     // clock time validation////////////////////////////////////////
@@ -286,6 +314,20 @@
     for (let i = 0; i < removeSchedule.length; i++) {
         removeSchedule[i].addEventListener("click", (event) => {
             window.location.replace("remove-schedule?schedule_id=" + event.target.value);
+        })
+    }
+
+    //view slots////////////////////////////////////
+    const viewSlots = document.getElementsByClassName("viewSlot")
+    for (let i = 0; i < viewSlots.length; i++) {
+        viewSlots[i].addEventListener("click", (event) => {
+            const timeElements = document.getElementById(event.target.value);
+
+            if (timeElements.style.display === "flex") {
+                timeElements.style.display = "none";
+            } else {
+                timeElements.style.display = "flex";
+            }
         })
     }
 </script>

@@ -131,7 +131,7 @@
                 <form action="/editProfile" method="POST" enctype="multipart/form-data">
                     <div class="dashboard_heading">
                         <h1>Accounts</h1>
-                        <button>Save Change</button>
+                        <button id="submit">Save Change</button>
                     </div>
 
                     <div class="profileDetails level1 subContainer">
@@ -226,7 +226,7 @@
                                             </span>
                                             <input type="hidden" name="specializations"
                                                 value="<%=user.specializations[i]%>">
-                                            <i class="fas fa-times"></i>
+                                            <i class="fas fa-times crossBtn"></i>
                                         </div>
                                         <%}%>
                                             <input type="text" class="tagInput">
@@ -242,7 +242,7 @@
                                             </span>
                                             <input type="hidden" name="qualifications"
                                                 value="<%=user.qualifications[i]%>">
-                                            <i class="fas fa-times"></i>
+                                            <i class="fas fa-times crossBtn"></i>
                                         </div>
                                         <%}%>
                                             <input type="text" class="tagInput">
@@ -257,7 +257,7 @@
                                                 <%=user.treatments[i]%>
                                             </span>
                                             <input type="hidden" name="treatments" value="<%=user.treatments[i]%>">
-                                            <i class="fas fa-times"></i>
+                                            <i class="fas fa-times crossBtn"></i>
                                         </div>
                                         <%}%>
                                             <input type="text" class="tagInput">
@@ -272,7 +272,7 @@
                                                 <%=user.achievements[i]%>
                                             </span>
                                             <input type="hidden" name="achievements" value="<%=user.achievements[i]%>">
-                                            <i class="fas fa-times"></i>
+                                            <i class="fas fa-times crossBtn"></i>
                                         </div>
                                         <%}%>
                                             <input type="text" class="tagInput">
@@ -287,7 +287,7 @@
                                                 <%=user.hospitals[i]%>
                                             </span>
                                             <input type="hidden" name="hospitals" value="<%=user.hospitals[i]%>">
-                                            <i class="fas fa-times"></i>
+                                            <i class="fas fa-times crossBtn"></i>
                                         </div>
                                         <%}%>
                                             <input type="text" class="tagInput">
@@ -303,7 +303,7 @@
                                                 <%=user.awards[i]%>
                                             </span>
                                             <input type="hidden" name="awards" value="<%=user.awards[i]%>">
-                                            <i class="fas fa-times"></i>
+                                            <i class="fas fa-times crossBtn"></i>
                                         </div>
                                         <%}%>
                                             <input type="text" class="tagInput">
@@ -345,42 +345,13 @@
 </footer>
 <script src="/scripts/profileMenu.js"></script>
 <script src="/scripts/serverMessageBox.js"></script>
+<script src="/scripts/multipleInputBox.js"></script>
 <script>
-
-
-
-
-    const input = document.getElementsByClassName("tagInput")
-
-    for (var i = 0; i < input.length; i++) {
-        input[i].addEventListener("change", function (event) {
-            var spanName = event.target.parentNode.id;
-
-            const tag = addTag(event.target.value, spanName)
-            event.target.parentNode.insertBefore(tag, event.target)
-            event.target.value = '';
+    const crossBtn = document.getElementsByClassName("crossBtn");
+    for (let i = 0; i < crossBtn.length; i++) {
+        crossBtn[i].addEventListener("click", (event) => {
+            event.target.parentNode.remove()
         })
-    }
-
-
-    function addTag(label, spanName) {
-        const div = document.createElement('div');
-        div.setAttribute('class', 'tag');
-        const span = document.createElement('span');
-        // span.setAttribute("name", spanName);
-        span.innerHTML = label;
-        const input = document.createElement("input");
-        input.setAttribute('type', 'hidden');
-        input.setAttribute("name", spanName);
-        input.value = label;
-        const crossButton = document.createElement('i');
-        crossButton.classList.add('fas', 'fa-times');
-
-        div.appendChild(span);
-        div.appendChild(input)
-        div.appendChild(crossButton);
-
-        return div;
     }
 </script>
 

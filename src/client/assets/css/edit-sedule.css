@@ -76,75 +76,95 @@ main .schedule .scheduleHead .newSchedueButton {
 main .schedule .scheduleContainer {
   border: 1.5px solid var(--gray-border);
   padding: 0.5rem;
-  text-align: center;
-  margin-bottom: 0.5rem;
   border-radius: 5px;
+  margin-bottom: 0.5rem;
+}
+main .schedule .scheduleContainer .container {
+  text-align: center;
+  margin-bottom: 0.7rem;
 }
 @media (min-width: 1024px) {
-  main .schedule .scheduleContainer {
+  main .schedule .scheduleContainer .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0.8rem;
   }
 }
-main .schedule .scheduleContainer .scheduleDay {
+main .schedule .scheduleContainer .container .scheduleDay {
   color: var(--blue_bold_text);
 }
 @media (min-width: 1024px) {
-  main .schedule .scheduleContainer .scheduleDay {
+  main .schedule .scheduleContainer .container .scheduleDay {
     margin-bottom: 0rem;
   }
 }
-main .schedule .scheduleContainer .hospital_time {
+main .schedule .scheduleContainer .container .hospital_time {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.5rem;
 }
 @media (min-width: 1024px) {
-  main .schedule .scheduleContainer .hospital_time {
+  main .schedule .scheduleContainer .container .hospital_time {
     flex-direction: column;
     margin-bottom: 0rem;
   }
 }
-main .schedule .scheduleContainer .hospital_time .hospital {
+main .schedule .scheduleContainer .container .hospital_time .hospital {
   margin-bottom: 0rem;
 }
 @media (min-width: 1024px) {
-  main .schedule .scheduleContainer .hospital_time .hospital {
+  main .schedule .scheduleContainer .container .hospital_time .hospital {
     margin-bottom: 0.5rem;
   }
 }
-main .schedule .scheduleContainer .hospital_time .time {
+main .schedule .scheduleContainer .container .hospital_time .time {
   font-size: 1rem;
   margin-bottom: 0rem;
 }
-main .schedule .scheduleContainer .scheduleButtons {
+main .schedule .scheduleContainer .container .scheduleButtons {
   display: flex;
   gap: 0.5rem;
   justify-content: center;
   align-items: center;
 }
-main .schedule .scheduleContainer .scheduleButtons .removeSlot,
-main .schedule .scheduleContainer .scheduleButtons .viewSlot {
+main .schedule .scheduleContainer .container .scheduleButtons .removeSlot,
+main .schedule .scheduleContainer .container .scheduleButtons .viewSlot {
   border: none;
   border-radius: 5px;
 }
-main .schedule .scheduleContainer .scheduleButtons .removeSlot.removeSlot,
-main .schedule .scheduleContainer .scheduleButtons .viewSlot.removeSlot {
+main .schedule .scheduleContainer .container .scheduleButtons .removeSlot.removeSlot,
+main .schedule .scheduleContainer .container .scheduleButtons .viewSlot.removeSlot {
   background-color: var(--red-button);
 }
-main .schedule .scheduleContainer .scheduleButtons .removeSlot.viewSlot,
-main .schedule .scheduleContainer .scheduleButtons .viewSlot.viewSlot {
+main .schedule .scheduleContainer .container .scheduleButtons .removeSlot.viewSlot,
+main .schedule .scheduleContainer .container .scheduleButtons .viewSlot.viewSlot {
   background-color: var(--green-button);
 }
 @media (min-width: 1024px) {
-  main .schedule .scheduleContainer .scheduleButtons .removeSlot,
-main .schedule .scheduleContainer .scheduleButtons .viewSlot {
+  main .schedule .scheduleContainer .container .scheduleButtons .removeSlot,
+main .schedule .scheduleContainer .container .scheduleButtons .viewSlot {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
+}
+main .schedule .scheduleContainer .scheduleTime {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  display: none;
+}
+main .schedule .scheduleContainer .scheduleTime .scheduletimeContainer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--green-border);
+  padding: 0.2rem;
+}
+main .schedule .scheduleContainer .scheduleTime .scheduletimeContainer .timing {
+  font-size: 0.8rem;
+  margin: 0rem;
 }
 main .schedule-form {
   padding: 0rem;
@@ -192,11 +212,14 @@ main .schedule-form .formContainer h1 {
   margin-left: -1rem;
   margin-right: -1rem;
 }
-main .schedule-form .formContainer select,
-main .schedule-form .formContainer input {
+main .schedule-form .formContainer .formData select,
+main .schedule-form .formContainer .formData input {
   width: 100%;
 }
-main .schedule-form .formContainer .clocklet-options {
+main .schedule-form .formContainer .formData .select .hide_option {
+  display: none;
+}
+main .schedule-form .formContainer .formData .clocklet-options {
   padding: 0.5rem;
 }
 main .schedule-form .formContainer .submitButton {

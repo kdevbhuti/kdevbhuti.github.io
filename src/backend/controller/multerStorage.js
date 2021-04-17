@@ -23,8 +23,7 @@ const upload = multer({
     }else{
       callback("Image only")
     }
-
   }
-}).single("profilePicture")
+})
 
 module.exports = upload;

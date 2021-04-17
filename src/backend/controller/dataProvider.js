@@ -68,6 +68,11 @@ const getDoctorSchedules = async(id) =>{
     return schedules;
 }
 
+const getDoctorSchedulesByDay = async(id, day) =>{
+    const schedules = await DoctorScheduleModel.find({ doctor : id, weekDay: day});
+    return schedules;
+}
+
 module.exports = {
     getprofilePicture: getprofilePicture,
     getSession: getSession,
@@ -77,5 +82,6 @@ module.exports = {
     getAllPatientDetails : getAllPatientDetails,
     getUserDetails: getUserDetails,
     getEntireDoctor: getEntireDoctor,
-    getDoctorSchedules: getDoctorSchedules
+    getDoctorSchedules: getDoctorSchedules,
+    getDoctorSchedulesByDay: getDoctorSchedulesByDay
 }

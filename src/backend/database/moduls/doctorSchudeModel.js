@@ -6,6 +6,9 @@ const scheduleSchema = new mongooes.Schema({
       type: String,
       require  
     },
+    date:{
+        type: Date
+    },
     hospitalName:{
         type: String
     },

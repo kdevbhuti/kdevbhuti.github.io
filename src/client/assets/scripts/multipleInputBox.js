@@ -18,7 +18,7 @@ const input = document.getElementsByClassName("tagInput")
 for (var i = 0; i < input.length; i++) {
     input[i].addEventListener("change", function (event) {
         var spanName = event.target.parentNode.id;
-
+        
         const tag = addTag(event.target.value, spanName)
         event.target.parentNode.insertBefore(tag, event.target)
         event.target.value = '';

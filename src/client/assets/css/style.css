@@ -51,6 +51,11 @@ main .find_healthcare .combine_inputfild .input_field_location input {
   width: 100%;
   border: none;
 }
+@media (min-width: 1024px) {
+  main .find_healthcare .combine_inputfild .input_field_location input {
+    height: 2.6rem;
+  }
+}
 main .find_healthcare .combine_inputfild .input_field_location .fas {
   background-color: var(--white);
   padding: 0.7rem 0.4rem;
@@ -73,6 +78,7 @@ main .find_healthcare .combine_inputfild .search_input {
 @media (min-width: 1024px) {
   main .find_healthcare .combine_inputfild .search_input {
     width: 24rem;
+    height: 2.6rem;
   }
 }
 main .find_healthcare .combine_inputfild .search_btn {

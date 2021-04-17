@@ -12,8 +12,10 @@ async function emailLogin(req, res){
                 }
                 findUser.isDoctor ? res.redirect("wellcome") : res.redirect("/");
             }else{
-                return res.render("emailLogin", {status: "Failure", message: "Incorrect email or password"});
+                return res.render("emailLogin", {status: "Failure", message: "Incorrect password"});
             }
+        }else{
+            res.render("emailLogin", {status: "Failure", message: "Email is not registered."});
         }
     }
 }

@@ -59,6 +59,7 @@ header {
             top: 2.5rem;
             width: 15rem;
             margin-left: -5rem;
+            z-index: 500;
             .tratment_item {
               padding: 0.6rem 1rem;
               &:hover {
@@ -133,6 +134,7 @@ header {
       right: 1rem;
       background: var(--white);
       text-align: left;
+      z-index: 500;
       @media only screen and (min-width: 768px) {
         right: 2rem;
       }

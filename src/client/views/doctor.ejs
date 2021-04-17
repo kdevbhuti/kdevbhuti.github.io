@@ -16,16 +16,52 @@
     <nav class="navigation">
         <img class="nav_logo" src="/image/Logo.jpg" alt="">
         <ul>
-            <li><a href="">Doctor</a></li>
-            <li><a href="">Hospital</a></li>
-            <li><a href="">Treatment</a></li>
+            <li><a href="/doctor">Doctor</a></li>
+            <li><a href="/hospital">Hospital</a></li>
+            <li class="tratmentItems"><span>Treatment</span><i class="fas fa-angle-down"></i>
+                <ul class="treatmentsMenu" id="treatmentMenu">
+                    <li class="tratment_item"><a href="">Dentistry</a></li>
+                    <li class="tratment_item"><a href="">Cancer</a></li>
+                    <li class="tratment_item"><a href="">Multi Organ Transplant</a></li>
+                    <li class="tratment_item"><a href="">Orthopedics Surgery</a></li>
+                    <li class="tratment_item"><a href="">Infertiliti Treatment</a></li>
+                </ul>
+            </li>
             <li><a href="">About</a></li>
         </ul>
         <div class="nav_btn">
             <button class="login_btn">Login\Sign Up</button>
             <button class="quote_btn">Get a Quote</button>
+            <% if(user){ %>
+                <span class="profile_dropdown" id="profile_menu">
+                    <%=user.doctor ? user.doctor.name : user.patient.name%><i class="fas fa-chevron-down"></i>
+                </span>
+                <% } %>
+                    <i class="fas fa-bars"></i>
         </div>
-        <i class="fas fa-bars"></i>
+
+        <div class="dropDown" id="dropdown_profile_items">
+            <div class="user_details">
+                <a class="profileAnchor" href="/editProfile">
+                    <figure>
+                        <img src="/image/profile/<%=user.profilePicture%>" alt="Profile Picture">
+                    </figure>
+                    <div>
+                        <span class="user_name">
+                            <%=user.doctor? user.doctor.name : user.patient.name%>
+                        </span>
+                        <span class="user_ph">
+                            <%=user.doctor? user.doctor.phoneNumber : user.patient.phoneNumber%>
+                        </span>
+                    </div>
+                </a>
+            </div>
+            <ul>
+                <li><a href="">My Appointment</a></li>
+                <li><a href="/logout">log out</a></li>
+            </ul>
+        </div>
+
     </nav>
 </header>
 <main>
@@ -248,123 +284,6 @@
                     </figure>
                 </div>
                 <%}%>
-
-                    <!-- <div class="details">
-                        <h3><span class="horizontal_bar">&#8212;&#8212;&#8212;&nbsp;&nbsp;</span>Georgea Peter</h3>
-                        <ul>
-                            <li>
-                                <i class="fas fa-certificate"></i>
-                                <span>Georgea Peter</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-award"></i>
-                                <span>Breast Cancer Surgeon</span>
-                            </li>
-                            <li>
-                                <i class="far fa-clock"></i>
-                                <span>Director, UT, Southwest</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-building"></i>
-                                <span>doctor2</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>London</span>
-                            </li>
-                        </ul>
-                        <button class="appointment_btn">Book a appointment</button>
-                        <figure>
-                            <img src="../assets/image/image--004.jpg" alt="">
-                        </figure>
-                    </div>
-                    <div class="details">
-                        <h3><span class="horizontal_bar">&#8212;&#8212;&#8212;&nbsp;&nbsp;</span>Charlie Moon</h3>
-                        <ul>
-                            <li>
-                                <i class="fas fa-certificate"></i>
-                                <span>Charlie Moon</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-award"></i>
-                                <span>Cardiac Surgeon</span>
-                            </li>
-                            <li>
-                                <i class="far fa-clock"></i>
-                                <span>MBBS, MD, FRCP, MRCP, Fellowship</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-building"></i>
-                                <span>doctor3</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>New Delhi, India</span>
-                            </li>
-                        </ul>
-                        <button class="appointment_btn">Book a appointment</button>
-                        <figure>
-                            <img src="../assets/image/image--005.jpg" alt="">
-                        </figure>
-                    </div>
-                    <div class="details">
-                        <h3><span class="horizontal_bar">&#8212;&#8212;&#8212;&nbsp;&nbsp;</span>Rose Moon</h3>
-                        <ul>
-                            <li>
-                                <i class="fas fa-certificate"></i>
-                                <span>Rose Moon</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-award"></i>
-                                <span>Plastic Surgeon</span>
-                            </li>
-                            <li>
-                                <i class="far fa-clock"></i>
-                                <span>Department of Plastic and Reconstructive Surger</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-building"></i>
-                                <span>doctor4</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Dubai</span>
-                            </li>
-                        </ul>
-                        <button class="appointment_btn">Book a appointment</button>
-                        <figure>
-                            <img src="../assets/image/image--003.jpg" alt="">
-                        </figure>
-                    </div>
-                    <div class="details last_doc">
-                        <h3><span class="horizontal_bar">&#8212;&#8212;&#8212;&nbsp;&nbsp;</span>Rose Moon</h3>
-                        <ul>
-                            <li>
-                                <i class="fas fa-certificate"></i>
-                                <span>Rose Moon</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-award"></i>
-                                <span>Plastic Surgeon</span>
-                            </li>
-                            <li>
-                                <i class="far fa-clock"></i>
-                                <span>Department of Plastic and Reconstructive Surger</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-building"></i>
-                                <span>doctor5</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Dubai</span>
-                            </li>
-                        </ul>
-                        <button class="appointment_btn">Book a appointment</button>
-                        <figure>
-                            <img src="../assets/image/image--006.jpg" alt="">
-                        </figure>
-                    </div> -->
         </section>
     </div>
     <section class="quary_section">
@@ -395,5 +314,6 @@
     </div>
     <p>All Rights Reserved. <span><i class="far fa-copyright"></i></span> tvastra 2018</p>
 </footer>
+<script src="/scripts/profileMenu.js"></script>
 
 </html>

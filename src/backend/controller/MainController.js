@@ -78,6 +78,7 @@ async function editeSchedule(req, res){
         res.render("edit-schedule", {user: allDoctorDetails, status: "Failure", message: "Schedule is not deleted.", schedules: schedules});
         req.session.user.status = "";
     }else{
+        console.log(schedules);
         res.render("edit-schedule", {user: allDoctorDetails, status: undefined, schedules: schedules});
     }
 }
