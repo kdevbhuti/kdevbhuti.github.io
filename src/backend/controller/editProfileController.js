@@ -21,7 +21,7 @@ const  editProfile = async (req, res)=>{
                     doctor.profilePicture = "default_profilepic.jpg";
                 }
                 doctor.doctor = user;
-                res.render("editProfile", {user: doctor, status: "Success", message: "User details updated"});
+                res.render("dashboard", {user: doctor, status: ["Success", "User details updated"]});
             }
         }catch(err){
             console.log(err);
@@ -37,11 +37,11 @@ const  editProfile = async (req, res)=>{
                     patient.profilePicture = "default_profilepic.jpg";
                 }
                 patient.patient = user;
-                res.render("editProfile", {user: patient, status: "Success", message: "User details updated"});
+                res.render("dashboard", {user: patient, status: ["Success", "User details updated"]});
             }
         }catch(err){
             const allPatientDetails = await getData.getAllPatientDetails(req.session.user.id);
-            res.render("editProfile", {user: allPatientDetails, status: "Failure",  message: "Problem to update user details"});
+            res.render("dashboard", {user: allPatientDetails, status: "Failure",  message: "Problem to update user details"});
         }
     }
 }

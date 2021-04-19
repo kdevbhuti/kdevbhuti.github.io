@@ -10,12 +10,15 @@ async function emailLogin(req, res){
                if(!req.session.user){
                     req.session.user = await getData.getSession(findUser);
                 }
+                req.flash ('status', ['Success', "login Successfilly."]);
                 findUser.isDoctor ? res.redirect("wellcome") : res.redirect("/");
             }else{
-                return res.render("emailLogin", {status: "Failure", message: "Incorrect password"});
+                req.flash ('status', ['Failure', "Incorrect password."]);
+                res.redirect("emailLogin");
             }
         }else{
-            res.render("emailLogin", {status: "Failure", message: "Email is not registered."});
+            req.flash ('status', ['Failure', "Email is not registered."]);
+            res.redirect("emailLogin");
         }
     }
 }

@@ -12,7 +12,7 @@ const editSchedule = require("../controller/editSchedule");
 
 const upload = require("../controller/multerStorage");
 
-router.route('/').get(middilewar.home, mainController.home)
+router.route('/').get(middilewar.auth, mainController.home)
 router.route('/signup').get(mainController.signup)
 router.route('/emailLogin').get(mainController.emailLogin)
 // router.route("/CreateNewPassword").get(mainController.createNewPassword)

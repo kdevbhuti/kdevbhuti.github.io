@@ -7,7 +7,7 @@ async function home(req, res){
     }else{
         var allUserDetails = await getData.getAllPatientDetails(req.session.user.id);
     }
-    res.render("index", {status: undefined, user: allUserDetails});
+    res.render("index", {status: req.flash('status'), user: allUserDetails});
 }
 
 function signup(req, res){
@@ -15,12 +15,8 @@ function signup(req, res){
 }
 
 function emailLogin(req, res){
-    if(req.cookies.loginFirst){
-        res.clearCookie('loginFirst');
-        res.render("emailLogin", {status: "Failure", message: "Please Login first."});
-    }else{
-        res.render("emailLogin", {status: undefined})
-    }
+    res.render("emailLogin", {status: req.flash('status')});
+    console.log(res.local)
 }
 
 async function wellcome(req, res){
@@ -37,7 +33,8 @@ function logOut(req, res){
     if(req.session.user){
         req.session.destroy();
     }
-    res.render("emailLogin", {status: "Success", message: "Successfully logout" });
+
+    res.redirect("/emailLogin" );
 }
 
 async function doctor(req, res){
@@ -61,26 +58,27 @@ async function editProfile(req, res) {
     const isDoctor = await getData.isDoctor(req.session.user.id);
     if(isDoctor){
         const allDoctorDetails = await getData.getAllDoctorDetails(req.session.user.id);
-        res.render("editProfile", {user: allDoctorDetails, status: undefined});
+        console.log(allDoctorDetails)
+        res.render("dashboard", {user: allDoctorDetails, status: req.flash('status')});
     }else{
         const allPatientDetails = await getData.getAllPatientDetails(req.session.user.id);
-        res.render("editProfile", {user: allPatientDetails, status: undefined});
+        res.render("dashboard", {user: allPatientDetails, status: req.flash('status')});
     }
 }
 
 async function editeSchedule(req, res){
     const allDoctorDetails = await getData.getAllDoctorDetails(req.session.user.id);
     const schedules = await getData.getDoctorSchedules(req.session.user.id);
-    if(req.session.user.status === "deleteSchedule"){
-        res.render("edit-schedule", {user: allDoctorDetails, status: "Success", message: "Schedule is successfully deleted.", schedules: schedules});
-        req.session.user.status = "";
-    }else if(req.session.user.status === "deleteScheduleFail"){
-        res.render("edit-schedule", {user: allDoctorDetails, status: "Failure", message: "Schedule is not deleted.", schedules: schedules});
-        req.session.user.status = "";
-    }else{
-        console.log(schedules);
-        res.render("edit-schedule", {user: allDoctorDetails, status: undefined, schedules: schedules});
-    }
+    res.render("edit-schedule", {user: allDoctorDetails, schedules: schedules, status: req.flash('status')});
+    // if(req.session.user.status === "deleteSchedule"){
+    //     res.render("edit-schedule", {user: allDoctorDetails, status: "Success", message: "Schedule is successfully deleted.", schedules: schedules});
+    //     req.session.user.status = "";
+    // }else if(req.session.user.status === "deleteScheduleFail"){
+    //     res.render("edit-schedule", {user: allDoctorDetails, status: "Failure", message: "Schedule is not deleted.", schedules: schedules});
+    //     req.session.user.status = "";
+    // }else{
+    //     res.render("edit-schedule", {user: allDoctorDetails, status: undefined, schedules: schedules});
+    // }
 }
 
 module.exports=({

@@ -9,6 +9,7 @@ const path = require("path");
 const session = require("express-session")
 const MongoStore = require('connect-mongo')(session);
 const cookieParser = require("cookie-parser")
+var flash = require('connect-flash');
 
 const mainRoutes = require("./backend/routes/MainRoutes");
 const connectDB = require("./backend/database/mongoose");
@@ -44,6 +45,7 @@ app.use(cors());
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(flash());
 
 // app.set('views', path.join(__dirname, 'client/views'));
 

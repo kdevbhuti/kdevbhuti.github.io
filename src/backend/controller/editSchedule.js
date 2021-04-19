@@ -12,9 +12,11 @@ const editeSchedule = async (req, res)=>{
     const isScheduleCreated = await checkSchedule(startTime, endTime, req.session.user.id, days);
     const schedules = getScheduleTime(startTime, endTime, interval);
     if(!isScheduleCreated){
-        const doctorDetails = await getData.getAllDoctorDetails(req.session.user.id);
-        const schedules = await getData.getDoctorSchedules(req.session.user.id);
-        res.render("edit-schedule",{user: doctorDetails, schedules: schedules, status: "Failure", message: "Time already scheduled."});
+        req.flash('status', ['Failure', "Time already scheduled."]);
+        res.redirect("/editSchedule");
+        // const doctorDetails = await getData.getAllDoctorDetails(req.session.user.id);
+        // const schedules = await getData.getDoctorSchedules(req.session.user.id);
+        // res.render("edit-schedule",{user: doctorDetails, schedules: schedules, status: "Failure", message: "Time already scheduled."});
         return
     }
     var doctorSchude = [];
@@ -32,13 +34,14 @@ const editeSchedule = async (req, res)=>{
             doctor: await UserModel.findOne({_id: req.session.user.id})
         })
     }
-    console.log(doctorSchude)
         try{
             const schedule = await DoctorSchedule.insertMany(doctorSchude);
             if(schedule){
-                const doctorDetails = await getData.getAllDoctorDetails(req.session.user.id);
-                const schedules = await getData.getDoctorSchedules(req.session.user.id);
-                res.render("edit-schedule",{user: doctorDetails, schedules: schedules, status: "Success", message: "Schedule successfully created."});
+                req.flash('status', ['Success', "Schedule successfully created."]);
+                res.redirect("/editSchedule");
+                // const doctorDetails = await getData.getAllDoctorDetails(req.session.user.id);
+                // const schedules = await getData.getDoctorSchedules(req.session.user.id);
+                // res.render("edit-schedule",{user: doctorDetails, schedules: schedules, status: "Success", message: "Schedule successfully created."});
             }
         }catch(err){
             console.log(err);
@@ -51,12 +54,12 @@ async function removeSchedule(req, res){
     try{
         const deleteSchedule =  await DoctorSchedule.deleteOne({_id: req.query.schedule_id});
         if(deleteSchedule){
-            req.session.user.status = "deleteSchedule";
+            req.flash('status', ["Success", "Schedule is successfully deleted."]);
             res.redirect("/editSchedule");
         }
     }
     catch(err){
-        req.session.user.status = "deleteScheduleFail";
+        req.flash('status', ["Success", "deleteSchedule Fail."]);
         res.redirect("/editSchedule");
     }
     
