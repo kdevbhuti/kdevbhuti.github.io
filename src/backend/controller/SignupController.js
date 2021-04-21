@@ -32,19 +32,21 @@ async function signup(req, res){
                     req.session.user = await getData.getSession(userData);
                 }
                 if(userData.isDoctor) {
+                    req.flash ('status', ['Success', "login Successfilly."]);
                     res.redirect("/wellcome") 
                 }else{
                     const patient = new patientModel({
                         patient: userData.id,
                     })
                     await patient.save();
+                    req.flash ('status', ['Success', "login Successfilly."]);
                     res.redirect("/");
                 } 
             }
         }catch(err){
-            res.render("signup",{status: "Failure", message: "Email or mobile number allready registered"});
+            req.flash('status', ['Failure', "Email or mobile number allready registered"])
+            res.redirect('/signup');
         }
-        
     }else{
         res.render("signup")
     }

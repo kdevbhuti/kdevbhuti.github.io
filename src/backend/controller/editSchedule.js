@@ -1,9 +1,11 @@
 const DoctorSchedule =  require("../database/moduls/doctorSchudeModel");
-const UserModel = require("../database/moduls/userModul");
+const DoctorModel = require ("../database/moduls/doctorModule")
+const moment = require('moment');
 const getData = require("./dataProvider");
 
 const editeSchedule = async (req, res)=>{
     const { day, hospitalName, startTime, endTime, interval} = req.body;
+    console.log(nextDayAndTime(day).toString())
     if(typeof(day) === "string"){
         var days = [day];
     }else{
@@ -14,15 +16,13 @@ const editeSchedule = async (req, res)=>{
     if(!isScheduleCreated){
         req.flash('status', ['Failure', "Time already scheduled."]);
         res.redirect("/editSchedule");
-        // const doctorDetails = await getData.getAllDoctorDetails(req.session.user.id);
-        // const schedules = await getData.getDoctorSchedules(req.session.user.id);
-        // res.render("edit-schedule",{user: doctorDetails, schedules: schedules, status: "Failure", message: "Time already scheduled."});
         return
     }
     var doctorSchude = [];
     for(var i=0; i<days.length;i++){
         var date = nextDayAndTime(days[i]);
         doctorSchude.push({
+            userId: req.session.user.id,
             weekDay: days[i],
             date: date,
             hospitalName: hospitalName,
@@ -31,17 +31,18 @@ const editeSchedule = async (req, res)=>{
             interval: interval,
             isActive: true,
             schedules: schedules,
-            doctor: await UserModel.findOne({_id: req.session.user.id})
         })
     }
         try{
             const schedule = await DoctorSchedule.insertMany(doctorSchude);
-            if(schedule){
+            const doctor = await DoctorModel.findOneAndUpdate(
+                {doctor: req.session.user.id},
+                {$set: {schedule: await DoctorSchedule.find({userId: req.session.user.id})}},
+                {new: true}
+            );
+            if(schedule && doctor){
                 req.flash('status', ['Success', "Schedule successfully created."]);
                 res.redirect("/editSchedule");
-                // const doctorDetails = await getData.getAllDoctorDetails(req.session.user.id);
-                // const schedules = await getData.getDoctorSchedules(req.session.user.id);
-                // res.render("edit-schedule",{user: doctorDetails, schedules: schedules, status: "Success", message: "Schedule successfully created."});
             }
         }catch(err){
             console.log(err);
@@ -124,21 +125,19 @@ async function checkSchedule(startTime, endTime, userId, days){
 }
 
 function nextDayAndTime(weekDay, hour= 0, minute = 0) {
+    //dayArray define day as number 
     const dayArray = ["Sunday", "Monday", "Twesday", "Wednesday", "Thusday", "Friday", "Saterday"];
     var dayOfWeek = dayArray.findIndex(day => day === weekDay);
-    var now = new Date()
-    var result = new Date(
-                   now.getFullYear(),
-                   now.getMonth(),
-                   now.getDate() + (7 + dayOfWeek - now.getDay()) % 7,
-                   hour,
-                   minute)
-  
-    if (result < now)
-      result.setDate(result.getDate() + 7)
-    
-    return result
-  }
+    const today = moment().isoWeekday();
+    // if we haven't yet passed the day of the week that I need:
+    if (today <= dayOfWeek) { 
+        // then just give me this week's instance of that day
+        return moment().isoWeekday(dayOfWeek);
+    } else {
+        // otherwise, give me *next week's* instance of that same day
+        return moment().add(1, 'weeks').isoWeekday(dayOfWeek);
+    }
+}
 
 module.exports = {
     editeSchedule: editeSchedule,

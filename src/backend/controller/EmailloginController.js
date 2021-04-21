@@ -23,8 +23,6 @@ async function emailLogin(req, res){
     }
 }
 
-
-
 module.exports=({
     emailLogin: emailLogin
 })

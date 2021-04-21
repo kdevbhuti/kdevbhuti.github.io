@@ -236,52 +236,71 @@
         </section>
         <section class="doctor-details">
             <% for(var i=0; i<doctors.length ; i++){ %>
-                <div class="details">
-                    <h3><span class="horizontal_bar">&#8212;&#8212;&#8212;&nbsp;&nbsp;</span>
-                        <%=doctors[i].doctor.name%>
-                    </h3>
-                    <ul>
-                        <li>
-                            <i class="fas fa-certificate"></i>
-                            <span>
-                                <%=doctors[i].doctor.name%>
-                            </span>
-                        </li>
-                        <li>
-                            <i class="fas fa-award"></i>
-                            <%for(var j=0; j<doctors[i].qualifications.length; j++){%>
+                <div class="allDoctorDetails">
+                    <div class="details">
+                        <h3><span class="horizontal_bar">&#8212;&#8212;&#8212;&nbsp;&nbsp;</span>
+                            <%=doctors[i].doctor.name%>
+                        </h3>
+                        <ul>
+                            <li>
+                                <i class="fas fa-certificate"></i>
                                 <span>
-                                    <%=doctors[i].qualifications[j]%>
+                                    <%=doctors[i].doctor.name%>
                                 </span>
+                            </li>
+                            <li>
+                                <i class="fas fa-award"></i>
+                                <%for(var j=0; j<doctors[i].qualifications.length; j++){%>
+                                    <span>
+                                        <%=doctors[i].qualifications[j]%>
+                                    </span>
                                 <%}%>
-                        </li>
-                        <li>
-                            <i class="far fa-clock"></i>
-                            <span>
-                                <%=doctors[i].experiences%> year of experience
-                            </span>
-                        </li>
-                        <li>
-                            <i class="fas fa-building"></i>
-                            <%doctors[i].hospitals.forEach((hospital)=>{%>
+                            </li>
+                            <li>
+                                <i class="far fa-clock"></i>
                                 <span>
-                                    <%=hospital%>
+                                    <%=doctors[i].experiences%> year of experience
                                 </span>
+                            </li>
+                            <li>
+                                <i class="fas fa-building"></i>
+                                <%doctors[i].hospitals.forEach((hospital)=>{%>
+                                    <span>
+                                        <%=hospital%>
+                                    </span>
                                 <%})%>
 
-                        </li>
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>
-                                <%=doctors[i].doctor.country%>
-                            </span>
-                        </li>
-                    </ul>
-                    <button class="appointment_btn">Book a appointment</button>
-                    <figure>
-                        <img src="/image/profile/<%=doctors[i].profilePicture ? doctors[i].profilePicture.filename : 
-                            " default_profilepic.jpg" %>" alt="">
-                    </figure>
+                            </li>
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>
+                                    <%=doctors[i].doctor.country%>
+                                </span>
+                            </li>
+                        </ul>
+                        <button class="appointment_btn">Book a appointment</button>
+                        <figure>
+                            <img src="/image/profile/<%=doctors[i].profilePicture ? doctors[i].profilePicture.filename : 
+                                " default_profilepic.jpg" %>" alt="">
+                        </figure>
+                    </div>
+                    <div class="schedule">
+                        <ul class="">
+                            <div>
+                                <%for(let i=0; i<7; i++){%>
+                                    <span>
+                                        if(i === 1){
+                                            <%Today%>
+                                        <%}else if(i===2){%>
+                                            <%Tomorrow%>
+                                        <%}else{%>
+                                            <%=moment().add(i, "days" ).format("ddd MMM Do yyyy")%>
+                                        <%}%>
+                                    </span>
+                                <%}%>
+                            </div>
+                        </ul>
+                    </div>
                 </div>
 
                 <%}%>

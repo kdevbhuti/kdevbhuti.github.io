@@ -149,101 +149,106 @@ main {
       }
     }
     // //////////////////////////////////////////////////////////////////////////////////
+
     .doctor-details {
       @media only screen and (min-width: 768px) {
         padding: 0rem;
         grid-area: 1/2 / span 1 / span 3;
       }
-
-      .details {
-        margin-bottom: 1rem;
-        border: 0.1rem solid var(--gray-border);
-        @media only screen and (min-width: 768px) {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          grid-template-rows: 1.5rem repeat(7, 2rem) 1.5rem;
-          @media (min-width: 1024px) {
-            grid-template-rows: 1.5rem repeat(7, 2rem) 1.5rem;
-          }
-
-          align-items: center;
-          padding-left: 2rem;
-        }
-        h3 {
-          display: flex;
-          align-items: center;
-          color: var(--blue_color);
-          margin-top: 1rem;
-          @media only screen and (min-width: 768px) {
-            grid-area: 2/1 / span 1 / span 2;
-            margin: 0rem;
-          }
-          .horizontal_bar {
-            font-size: 1.2rem;
-            letter-spacing: -0.1rem;
-            color: var(--blue_bold_text);
-            margin-left: -0.1rem;
-            @media only screen and (min-width: 768px) {
-              margin-left: -2.1rem;
-            }
-          }
-        }
-        .fas,
-        .far {
-          color: var(--blue_color);
-          width: 0.8rem;
-          margin-bottom: 0.2rem;
-        }
-        .appointment_btn {
-          display: block;
-          border: none;
-          margin: 0 auto 0.5rem;
-          @media only screen and (min-width: 768px) {
-            grid-area: 7/1 / span 2 / span 2;
-            margin: auto auto auto 0rem;
-          }
-        }
-        figure {
-          height: 20rem;
-          width: 100%;
-          @media only screen and (min-width: 768px) {
-            img {
-              object-position: top;
-            }
-            grid-area: 1/3 / span 9 / span 1;
-            height: auto;
-          }
-        }
-        ul {
-          padding-left: 0.6rem;
+      .allDoctorDetails {
+        .details {
+          margin-bottom: 1rem;
+          border: 0.1rem solid var(--gray-border);
           @media only screen and (min-width: 768px) {
             display: grid;
-            padding-left: 0rem;
-            grid-template-columns: repeat(2, 1fr);
-            grid-auto-rows: auto;
-            gap: 0.5rem;
-            grid-area: 3/1 / span 4 / span 2;
-          }
-          li {
-            display: flex;
-            overflow: hidden;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 1.5rem repeat(7, 2rem) 1.5rem;
+            @media (min-width: 1024px) {
+              grid-template-rows: 1.5rem repeat(7, 2rem) 1.5rem;
+            }
+
             align-items: center;
-            justify-content: flex-start;
-            margin-bottom: 0.1rem;
+            padding-left: 2rem;
+          }
+          h3 {
+            display: flex;
+            align-items: center;
+            color: var(--blue_color);
+            margin-top: 1rem;
             @media only screen and (min-width: 768px) {
+              grid-area: 2/1 / span 1 / span 2;
               margin: 0rem;
+            }
+            .horizontal_bar {
+              font-size: 1.2rem;
+              letter-spacing: -0.1rem;
+              color: var(--blue_bold_text);
+              margin-left: -0.1rem;
+              @media only screen and (min-width: 768px) {
+                margin-left: -2.1rem;
+              }
+            }
+          }
+          .fas,
+          .far {
+            color: var(--blue_color);
+            width: 0.8rem;
+            margin-bottom: 0.2rem;
+          }
+          .appointment_btn {
+            display: block;
+            border: none;
+            margin: 0 auto 0.5rem;
+            @media only screen and (min-width: 768px) {
+              grid-area: 7/1 / span 2 / span 2;
+              margin: auto auto auto 0rem;
+            }
+          }
+          figure {
+            height: 20rem;
+            width: 100%;
+            @media only screen and (min-width: 768px) {
+              img {
+                object-position: top;
+              }
+              grid-area: 1/3 / span 9 / span 1;
+              height: auto;
+            }
+          }
+          ul {
+            padding-left: 0.6rem;
+            @media only screen and (min-width: 768px) {
+              display: grid;
+              padding-left: 0rem;
+              grid-template-columns: repeat(2, 1fr);
+              grid-auto-rows: auto;
+              gap: 0.5rem;
+              grid-area: 3/1 / span 4 / span 2;
+            }
+            li {
+              display: flex;
+              overflow: hidden;
+              align-items: center;
+              justify-content: flex-start;
+              margin-bottom: 0.1rem;
+              @media only screen and (min-width: 768px) {
+                margin: 0rem;
+              }
+            }
+          }
+          span {
+            display: block;
+            margin-bottom: 0.2rem;
+            margin-left: 0.9rem;
+            @media only screen and (min-width: 768px) {
+              margin-bottom: 0rem;
             }
           }
         }
-        span {
-          display: block;
-          margin-bottom: 0.2rem;
-          margin-left: 0.9rem;
-          @media only screen and (min-width: 768px) {
-            margin-bottom: 0rem;
-          }
+        .schedule {
         }
       }
+
       .last_doc {
         margin: 0rem;
       }

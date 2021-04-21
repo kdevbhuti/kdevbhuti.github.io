@@ -17,6 +17,11 @@ main .dashboard_LeftBar {
     grid-area: 1/1/span 1/span 1;
   }
 }
+@media (min-width: 1024px) {
+  main .dashboard_LeftBar .dashBoard_heading {
+    font-style: 2rem;
+  }
+}
 main .dashboard_LeftBar .dashboard_list .link .dashboard_ListItem {
   display: flex;
   align-items: center;
@@ -152,22 +157,26 @@ main .dashboard_content .subcontainer .inputContainer .tagContainer {
   border: 1px solid var(--gray-border);
   padding: 0.5rem 0.3rem;
   margin-bottom: 0.5rem;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
-  height: 3rem;
-  overflow: auto;
-  gap: 0.5rem;
+  white-space: nowrap;
+  height: 2rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+@media (min-width: 1024px) {
+  main .dashboard_content .subcontainer .inputContainer .tagContainer {
+    width: 14rem;
+    height: 3rem;
+  }
 }
 main .dashboard_content .subcontainer .inputContainer .tagContainer .tag {
   background-color: var(--gray_tag);
-  padding: 0.2rem;
+  padding: 0.4rem;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  gap: 0.2rem;
+  gap: 0.5rem;
   flex-wrap: wrap;
+  margin-right: 0.4rem;
 }
 main .dashboard_content .subcontainer .inputContainer .tagContainer .tag span {
   margin: 0rem;

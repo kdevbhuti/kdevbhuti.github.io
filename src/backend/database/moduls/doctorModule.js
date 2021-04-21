@@ -41,7 +41,8 @@ const doctorSchema = new mongoose.Schema({
     colony_Street_Locality: {
         type: String
     },
-    doctor: {type: mongoose.Schema.Types.ObjectId, ref: "User"}
+    doctor: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
+    schedule: [{type: mongoose.Schema.Types.ObjectId, ref: "Schedule"}]
 });
 
 var doctorModel = connectDB.model('Doctor', doctorSchema);

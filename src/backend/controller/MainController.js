@@ -1,3 +1,5 @@
+const scheduleModel = require("../database/moduls/doctorSchudeModel");
+const moment = require("moment");
 const getData = require("./dataProvider");
 
 async function home(req, res){
@@ -11,7 +13,7 @@ async function home(req, res){
 }
 
 function signup(req, res){
-    res.render("signup", {status: undefined})
+    res.render("signup", {status: req.flash('status')})
 }
 
 function emailLogin(req, res){
@@ -25,7 +27,7 @@ async function wellcome(req, res){
         res.redirect("/")
     }else{
         const userDetails = await getData.getUserDetails(req.session.user.id);
-        res.render("wellcome", {user: userDetails});
+        res.render("wellcome", {status: req.flash('status')});
     }
 }
 
@@ -46,8 +48,22 @@ async function doctor(req, res){
         allUserDetails = await getData.getAllPatientDetails(req.session.user.id);
     }
     var allDoctor = await getData.getEntireDoctor(req.session.user.id); 
-    if(allDoctor && allUserDetails)
+    if(allDoctor && allUserDetails){
+
+        // let todaysDate = moment().format("ddd MMM Do yyyy");
+        // console.log(todaysDate)
+        // var schedule = [];
+        // for(let i=0; i<allDoctor.length;i++){
+        //     schedule.forEach(element => {
+            
+        //     });
+        //     schedule.push(allDoctor[i].schedule)
+        // }
+        
+        // res.send(schedule)
+
         res.render("doctor",{user: allUserDetails, doctors: allDoctor});
+    }
 }
 
 function hospital(req, res){
@@ -59,26 +75,17 @@ async function editProfile(req, res) {
     if(isDoctor){
         const allDoctorDetails = await getData.getAllDoctorDetails(req.session.user.id);
         console.log(allDoctorDetails)
-        res.render("dashboard", {user: allDoctorDetails, status: req.flash('status')});
+        res.render("dashboard", {user: allDoctorDetails, status: req.flash('status'), page: "editProfile"});
     }else{
         const allPatientDetails = await getData.getAllPatientDetails(req.session.user.id);
-        res.render("dashboard", {user: allPatientDetails, status: req.flash('status')});
+        res.render("dashboard", {user: allPatientDetails, status: req.flash('status'), page: "editProfile"});
     }
 }
 
 async function editeSchedule(req, res){
     const allDoctorDetails = await getData.getAllDoctorDetails(req.session.user.id);
     const schedules = await getData.getDoctorSchedules(req.session.user.id);
-    res.render("edit-schedule", {user: allDoctorDetails, schedules: schedules, status: req.flash('status')});
-    // if(req.session.user.status === "deleteSchedule"){
-    //     res.render("edit-schedule", {user: allDoctorDetails, status: "Success", message: "Schedule is successfully deleted.", schedules: schedules});
-    //     req.session.user.status = "";
-    // }else if(req.session.user.status === "deleteScheduleFail"){
-    //     res.render("edit-schedule", {user: allDoctorDetails, status: "Failure", message: "Schedule is not deleted.", schedules: schedules});
-    //     req.session.user.status = "";
-    // }else{
-    //     res.render("edit-schedule", {user: allDoctorDetails, status: undefined, schedules: schedules});
-    // }
+    res.render("dashboard", {user: allDoctorDetails, schedules: schedules, page: "editSchedule", status: req.flash('status')});
 }
 
 module.exports=({

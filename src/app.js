@@ -18,6 +18,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 app.use(cookieParser())
 
+app.locals.moment = require('moment');
+
 // creating seassion
 var sessionStorage = new MongoStore({
     mongooseConnection: connectDB,

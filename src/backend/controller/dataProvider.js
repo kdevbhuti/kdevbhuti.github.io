@@ -34,11 +34,14 @@ const getDoctorDetails = async (id)=>{
 
 const getAllDoctorDetails = async (id)=>{
     const docDetails = await DoctorModule.findOne({doctor: id}).populate("doctor");
+    // const docDetailsWithSchedule = await DoctorScheduleModel.find({userId: id}).populate("doctorDetails").populate("doctor");
     if(docDetails){
         docDetails.profilePicture = docDetails.profilePicture ? docDetails.profilePicture.filename : DEFAULT_PROFILE_PICTURE;
     }
     return docDetails;
 }
+
+
 
 const isDoctor = async (userID)=>{
     const user = await UserModel.findOne({_id: userID});
@@ -59,12 +62,31 @@ const getAllPatientDetails = async (patientId)=>{
 }
 
 const getEntireDoctor = async (id)=>{
-    let allDoctor = DoctorModule.find({ doctor : { '$ne' : id}}).populate("doctor");
-    return allDoctor;
+    const getDoctorDetailsWithSchedule = await DoctorModule.find({ doctor : {'$ne': id}})
+    .populate({
+        path: "doctor",
+        model: 'User'
+    })
+    .populate({
+        path: "schedule",
+        model: "Schedule"
+    })
+    return getDoctorDetailsWithSchedule;
 }
 
+// const getDoctorSchedulesAccordingDate = async (id) => {
+//     const docSchedule = await getDoctorSchedules(id);
+//     var now = new Date(
+//         now.getFullYear(),
+//         now.getMonth(),
+//         now.getDate(),
+//         0,
+//         0
+//     );
+// }
+
 const getDoctorSchedules = async(id) =>{
-    const schedules = await DoctorScheduleModel.find({ doctor : id });
+    const schedules = await DoctorScheduleModel.find({ userId : id });
     return schedules;
 }
 

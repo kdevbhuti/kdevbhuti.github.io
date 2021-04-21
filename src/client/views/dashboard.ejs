@@ -5,12 +5,14 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/theme.css">
     <link rel="stylesheet" href="../css/navigation.css">
-    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/editProfile.css">
+    <link rel="stylesheet" href="../css/edit-sedule.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="css/serverMessageBox.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/clocklet@0.3.0/css/clocklet.min.css">
 </head>
 
 <header>
@@ -89,7 +91,7 @@
         <%}%>
 
             <section class="dashboard_LeftBar">
-                <h2>DashBoard</h2>
+                <h2 class="dashBoard_heading">DashBoard</h2>
                 <ul class="dashboard_list">
                     <a class="link" href="/editProfile">
                         <li class="dashboard_ListItem">
@@ -127,206 +129,298 @@
                 </ul>
 
             </section>
+            <%if(page==="editProfile" ){%>
+                <section class="dashboard_content">
+                    <form action="/editProfile" method="POST" enctype="multipart/form-data">
+                        <div class="dashboard_heading">
+                            <h1>Accounts</h1>
+                            <button id="submit">Save Change</button>
+                        </div>
 
-            <section class="dashboard_content">
-
-                <form action="/editProfile" method="POST" enctype="multipart/form-data">
-                    <div class="dashboard_heading">
-                        <h1>Accounts</h1>
-                        <button id="submit">Save Change</button>
-                    </div>
-
-                    <div class="profileDetails level1 subContainer">
-                        <div class=" profilePhote">
-                            <h3>Profile Photo</h3>
-                            <div class="pictureContainner">
-                                <figure>
-                                    <img src="/image/profile/<%=user.profilePicture%>" alt="">
-                                </figure>
-                                <div class="instructionToEnterPhoto">
-                                    <span class="instruction">Pick a photo from your system</span>
-                                    <label for="selectProfilePicture">Select Photo</label>
-                                    <input type="file" name="profilePicture" class="profileInput"
-                                        id="selectProfilePicture">
+                        <div class="profileDetails level1 subContainer">
+                            <div class=" profilePhote">
+                                <h3>Profile Photo</h3>
+                                <div class="pictureContainner">
+                                    <figure>
+                                        <img src="/image/profile/<%=user.profilePicture%>" alt="">
+                                    </figure>
+                                    <div class="instructionToEnterPhoto">
+                                        <span class="instruction">Pick a photo from your system</span>
+                                        <label for="selectProfilePicture">Select Photo</label>
+                                        <input type="file" name="profilePicture" class="profileInput"
+                                            id="selectProfilePicture">
+                                    </div>
                                 </div>
-                            </div>
 
 
-                        </div>
-                        <div class="inputContainer">
-                            <h3>Name</h3>
-                            <input type="text" name="name"
-                                value="<%=user.doctor? user.doctor.name : user.patient.name%>">
-                        </div>
-                    </div>
-                    <div class="subcontainer">
-                        <div class="inputContainer">
-                            <h3>Phone Number</h3>
-                            <input type="text" name="phoneNumber"
-                                value="<%=user.doctor ? user.doctor.phoneNumber : user.patient.phoneNumber%>">
-                        </div>
-                        <div class="inputContainer">
-                            <h3>Email</h3>
-                            <input type="email" name="email"
-                                value="<%=user.doctor ? user.doctor.email: user.patient.email%>">
-                        </div>
-                        <div class="inputContainer">
-                            <h3>Gender</h3>
-                            <select class="select" required name="gender">
-                                <option value="<%=user.doctor ? user.doctor.gender: user.patient.gender%>"
-                                    class="hide_option">
-                                    <%=user.doctor ? user.doctor.gender: user.patient.gender%>
-                                </option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                            </select>
-                        </div>
-                        <div class="inputContainer">
-                            <h3>Date Of Birth.</h3>
-                            <input type="date" name="date"
-                                value="<%=user.doctor ? user.doctor.date : user.patient.date%>">
-                        </div>
-                        <div class="inputContainer">
-                            <h3>Time Zone</h3>
-                            <input type="text" name="timezone" value="<%=user.timezone%>">
-                        </div>
-                    </div>
-                    <div class="subcontainer">
-                        <div class="inputContainer">
-                            <h3>House No./Street Name/Area</h3>
-                            <input type="text" name="houseArea" value="<%=user.houseArea%>">
-                        </div>
-                        <div class=" inputContainer">
-                            <h3>Colony/Street/Locality</h3>
-                            <input type="text" name="colony_Street_Locality" value="<%=user.colony_Street_Locality%>">
-                        </div>
-                        <div class=" inputContainer">
-                            <h3>City</h3>
-                            <input type="text" name="city"
-                                value="<%=user.doctor ? user.doctor.city : user.patient.city%>">
-                        </div>
-                        <div class="inputContainer">
-                            <h3>State</h3>
-                            <input type="text" name="state"
-                                value="<%=user.doctor ? user.doctor.state : user.patient.state%>">
-                        </div>
-                        <div class="inputContainer">
-                            <h3>Country</h3>
-                            <input type="text" name="country"
-                                value="<%=user.doctor ? user.doctor.country : user.patient.country%>">
-                        </div>
-                    </div>
-                    <% if(user.doctor) {%>
-                        <div class="subcontainer lastSubcontainer">
-                            <div class="inputContainer">
-                                <h3>Speciality</h3>
-                                <div class="tagContainer validator" id="specializations">
-                                    <% for(let i=0; i< user.specializations.length; i++){ %>
-                                        <div class="tag">
-                                            <span>
-                                                <%=user.specializations[i]%>
-                                            </span>
-                                            <input type="hidden" name="specializations"
-                                                value="<%=user.specializations[i]%>">
-                                            <i class="fas fa-times crossBtn"></i>
-                                        </div>
-                                        <%}%>
-                                            <input type="text" class="tagInput">
-                                </div>
                             </div>
                             <div class="inputContainer">
-                                <h3>Qualifications</h3>
-                                <div class="tagContainer validator" id="qualifications">
-                                    <% for(let i=0; i< user.qualifications.length; i++){ %>
-                                        <div class="tag">
-                                            <span>
-                                                <%=user.qualifications[i]%>
-                                            </span>
-                                            <input type="hidden" name="qualifications"
-                                                value="<%=user.qualifications[i]%>">
-                                            <i class="fas fa-times crossBtn"></i>
-                                        </div>
-                                        <%}%>
-                                            <input type="text" class="tagInput">
-                                </div>
+                                <h3>Name</h3>
+                                <input type="text" name="name"
+                                    value="<%=user.doctor? user.doctor.name : user.patient.name%>">
+                            </div>
+                        </div>
+                        <div class="subcontainer">
+                            <div class="inputContainer">
+                                <h3>Phone Number</h3>
+                                <input type="text" name="phoneNumber"
+                                    value="<%=user.doctor ? user.doctor.phoneNumber : user.patient.phoneNumber%>">
                             </div>
                             <div class="inputContainer">
-                                <h3>Treatments</h3>
-                                <div class="tagContainer validator" id="treatments">
-                                    <% for(let i=0; i< user.treatments.length; i++){ %>
-                                        <div class="tag">
-                                            <span>
-                                                <%=user.treatments[i]%>
-                                            </span>
-                                            <input type="hidden" name="treatments" value="<%=user.treatments[i]%>">
-                                            <i class="fas fa-times crossBtn"></i>
-                                        </div>
-                                        <%}%>
-                                            <input type="text" class="tagInput">
-                                </div>
+                                <h3>Email</h3>
+                                <input type="email" name="email"
+                                    value="<%=user.doctor ? user.doctor.email: user.patient.email%>">
                             </div>
                             <div class="inputContainer">
-                                <h3>Achievements</h3>
-                                <div class="tagContainer" id="achievements">
-                                    <% for(let i=0; i< user.achievements.length; i++){ %>
-                                        <div class="tag">
-                                            <span>
-                                                <%=user.achievements[i]%>
-                                            </span>
-                                            <input type="hidden" name="achievements" value="<%=user.achievements[i]%>">
-                                            <i class="fas fa-times crossBtn"></i>
-                                        </div>
-                                        <%}%>
-                                            <input type="text" class="tagInput">
-                                </div>
+                                <h3>Gender</h3>
+                                <select class="select" required name="gender">
+                                    <option value="<%=user.doctor ? user.doctor.gender: user.patient.gender%>"
+                                        class="hide_option">
+                                        <%=user.doctor ? user.doctor.gender: user.patient.gender%>
+                                    </option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
                             </div>
                             <div class="inputContainer">
-                                <h3>Hospitals</h3>
-                                <div class="tagContainer" id="hospitals">
-                                    <% for(let i=0; i< user.hospitals.length; i++){ %>
-                                        <div class="tag">
-                                            <span>
-                                                <%=user.hospitals[i]%>
-                                            </span>
-                                            <input type="hidden" name="hospitals" value="<%=user.hospitals[i]%>">
-                                            <i class="fas fa-times crossBtn"></i>
-                                        </div>
-                                        <%}%>
-                                            <input type="text" class="tagInput">
-                                </div>
+                                <h3>Date Of Birth.</h3>
+                                <input type="date" name="date"
+                                    value="<%=user.doctor ? user.doctor.date : user.patient.date%>">
                             </div>
                             <div class="inputContainer">
+                                <h3>Time Zone</h3>
+                                <input type="text" name="timezone" value="<%=user.timezone%>">
+                            </div>
+                        </div>
+                        <div class="subcontainer">
+                            <div class="inputContainer">
+                                <h3>House No./Street Name/Area</h3>
+                                <input type="text" name="houseArea" value="<%=user.houseArea%>">
+                            </div>
+                            <div class=" inputContainer">
+                                <h3>Colony/Street/Locality</h3>
+                                <input type="text" name="colony_Street_Locality"
+                                    value="<%=user.colony_Street_Locality%>">
+                            </div>
+                            <div class=" inputContainer">
+                                <h3>City</h3>
+                                <input type="text" name="city"
+                                    value="<%=user.doctor ? user.doctor.city : user.patient.city%>">
+                            </div>
+                            <div class="inputContainer">
+                                <h3>State</h3>
+                                <input type="text" name="state"
+                                    value="<%=user.doctor ? user.doctor.state : user.patient.state%>">
+                            </div>
+                            <div class="inputContainer">
+                                <h3>Country</h3>
+                                <input type="text" name="country"
+                                    value="<%=user.doctor ? user.doctor.country : user.patient.country%>">
+                            </div>
+                        </div>
+                        <% if(user.doctor) {%>
+                            <div class="subcontainer lastSubcontainer">
+                                <div class="inputContainer">
+                                    <h3>Speciality</h3>
+                                    <div class="tagContainer validator" id="specializations">
+                                        <% for(let i=0; i< user.specializations.length; i++){ %>
+                                            <div class="tag">
+                                                <span>
+                                                    <%=user.specializations[i]%>
+                                                </span>
+                                                <input type="hidden" name="specializations"
+                                                    value="<%=user.specializations[i]%>">
+                                                <i class="fas fa-times crossBtn"></i>
+                                            </div>
+                                            <%}%>
+                                                <input type="text" class="tagInput">
+                                    </div>
+                                </div>
+                                <div class="inputContainer">
+                                    <h3>Qualifications</h3>
+                                    <div class="tagContainer validator" id="qualifications">
+                                        <% for(let i=0; i< user.qualifications.length; i++){ %>
+                                            <div class="tag">
+                                                <span>
+                                                    <%=user.qualifications[i]%>
+                                                </span>
+                                                <input type="hidden" name="qualifications"
+                                                    value="<%=user.qualifications[i]%>">
+                                                <i class="fas fa-times crossBtn"></i>
+                                            </div>
+                                            <%}%>
+                                                <input type="text" class="tagInput">
+                                    </div>
+                                </div>
+                                <div class="inputContainer">
+                                    <h3>Treatments</h3>
+                                    <div class="tagContainer validator" id="treatments">
+                                        <% for(let i=0; i< user.treatments.length; i++){ %>
+                                            <div class="tag">
+                                                <span>
+                                                    <%=user.treatments[i]%>
+                                                </span>
+                                                <input type="hidden" name="treatments" value="<%=user.treatments[i]%>">
+                                                <i class="fas fa-times crossBtn"></i>
+                                            </div>
+                                            <%}%>
+                                                <input type="text" class="tagInput">
+                                    </div>
+                                </div>
+                                <div class="inputContainer">
+                                    <h3>Achievements</h3>
+                                    <div class="tagContainer" id="achievements">
+                                        <% for(let i=0; i< user.achievements.length; i++){ %>
+                                            <div class="tag">
+                                                <span>
+                                                    <%=user.achievements[i]%>
+                                                </span>
+                                                <input type="hidden" name="achievements"
+                                                    value="<%=user.achievements[i]%>">
+                                                <i class="fas fa-times crossBtn"></i>
+                                            </div>
+                                            <%}%>
+                                                <input type="text" class="tagInput">
+                                    </div>
+                                </div>
+                                <div class="inputContainer">
+                                    <h3>Hospitals</h3>
+                                    <div class="tagContainer" id="hospitals">
+                                        <% for(let i=0; i< user.hospitals.length; i++){ %>
+                                            <div class="tag">
+                                                <span>
+                                                    <%=user.hospitals[i]%>
+                                                </span>
+                                                <input type="hidden" name="hospitals" value="<%=user.hospitals[i]%>">
+                                                <i class="fas fa-times crossBtn"></i>
+                                            </div>
+                                            <%}%>
+                                                <input type="text" class="tagInput">
+                                    </div>
+                                </div>
+                                <div class="inputContainer">
 
-                                <h3>Awards</h3>
-                                <div class="tagContainer" id="awards">
-                                    <% for(let i=0; i< user.awards.length; i++){ %>
-                                        <div class="tag">
-                                            <span>
-                                                <%=user.awards[i]%>
-                                            </span>
-                                            <input type="hidden" name="awards" value="<%=user.awards[i]%>">
-                                            <i class="fas fa-times crossBtn"></i>
-                                        </div>
-                                        <%}%>
-                                            <input type="text" class="tagInput">
+                                    <h3>Awards</h3>
+                                    <div class="tagContainer" id="awards">
+                                        <% for(let i=0; i< user.awards.length; i++){ %>
+                                            <div class="tag">
+                                                <span>
+                                                    <%=user.awards[i]%>
+                                                </span>
+                                                <input type="hidden" name="awards" value="<%=user.awards[i]%>">
+                                                <i class="fas fa-times crossBtn"></i>
+                                            </div>
+                                            <%}%>
+                                                <input type="text" class="tagInput">
+                                    </div>
+                                </div>
+                                <div class="inputContainer">
+                                    <h3>Year Of Experience</h3>
+                                    <input type="text" name="experiences" value="<%=user.experiences%>">
+                                </div>
+                                <div class="inputContainer">
+                                    <h3>Average Fees</h3>
+                                    <input type="number" name="fees" value="<%=user.fees%>">
+                                </div>
+                                <div class="inputContainer">
+                                    <h3>Your Description</h3>
+                                    <input type="text" name="description" value="<%=user.description%>">
                                 </div>
                             </div>
-                            <div class="inputContainer">
-                                <h3>Year Of Experience</h3>
-                                <input type="text" name="experiences" value="<%=user.experiences%>">
-                            </div>
-                            <div class="inputContainer">
-                                <h3>Average Fees</h3>
-                                <input type="number" name="fees" value="<%=user.fees%>">
-                            </div>
-                            <div class="inputContainer">
-                                <h3>Your Description</h3>
-                                <input type="text" name="description" value="<%=user.description%>">
-                            </div>
+                            <%}%>
+                    </form>
+                </section>
+                <%}else if(page==="editSchedule" ){%>
+                    <section class="schedule">
+                        <div class="scheduleHead">
+                            <button class="newSchedueButton" id="newSchedule">Create new schedule</button>
+                            <h1>All Schedule</h1>
                         </div>
-                        <%}%>
-                </form>
-            </section>
+                        <%if(schedules.length===0){%>
+                            <h3 class="noSchedukeMessage">No Schedule yet. Create One Now By Clicking Create New Button
+                            </h3>
+                            <%}%>
+                                <%schedules.forEach((schedule)=>{%>
+                                    <div class="scheduleContainer">
+                                        <div class="container">
+                                            <h3 class="scheduleDay">
+                                                <%=schedule.weekDay%>
+                                            </h3>
+                                            <div class="hospital_time">
+                                                <h3 class="hospital">
+                                                    <%=schedule.hospitalName%>
+                                                </h3>
+                                                <span class="time">
+                                                    <%=schedule.startTime%> - <%=schedule.endTime%>
+                                                </span>
+                                            </div>
+                                            <div class="scheduleButtons">
+                                                <button class="removeSlot" value=<%=schedule._id%>>Remove slots</button>
+                                                <button class="viewSlot" value="<%=schedule._id%>_schedule">Views
+                                                    slots</button>
+                                                <input type="checkbox">
+                                            </div>
+                                        </div>
+                                        <div class="scheduleTime" id="<%=schedule._id%>_schedule">
+                                            <%schedule.schedules.forEach((timing)=>{%>
+                                                <div class="scheduletimeContainer">
+                                                    <span class="timing">
+                                                        <%=timing.time%>
+                                                    </span>
+                                                    <input type="checkbox">
+                                                </div>
+                                                <%})%>
+                                        </div>
+                                    </div>
+                                    <%})%>
+
+                    </section>
+
+                    <section class="schedule-form">
+                        <div class=" transparentBackground" id="transparentBackground">
+                        </div>
+                        <form action="/editSchedule" method="POST" class="formContainer" id="formContainer">
+                            <h1>Create Schedule</h1>
+                            <div class="formData">
+                                <h4>Select Available Day</h4>
+                                <select name="day" id="" required multiple>
+                                    <option value="Monday">Monday</option>
+                                    <option value="Tuesday">Tuesday</option>
+                                    <option value="Wednestday">Wednestday</option>
+                                    <option value="Thusday">Thusday</option>
+                                    <option value="Friday">Friday</option>
+                                    <option value="Saterday">Saterday</option>
+                                </select>
+                                <h4>Select The Hospital</h4>
+                                <select class="select" name="hospitalName" id="">
+                                    <option class="hide_option" value="">Select Hospital</option>
+                                    <%user.hospitals.forEach((hospital)=>{%>
+                                        <option value="<%=hospital%>">
+                                            <%=hospital%>
+                                        </option>
+                                        <%})%>
+
+                                </select>
+                                <h4>From (time)</h4>
+                                <input type="text"
+                                    data-clocklet="class-name: clocklet-options; format: hh:mm a; alignment: right; placement: top; append-to: parent;"
+                                    placeholder="Start Time" id="startTime" name="startTime" autocomplete="off"
+                                    required>
+                                <h4>To (time)</h4>
+                                <input type="text"
+                                    data-clocklet="class-name: clocklet-options; format: hh:mm a; alignment: right; placement: top; append-to: parent;"
+                                    placeholder="End Time" id="endTime" name="endTime" autocomplete="off" required>
+                                <h4>Intervals</h4>
+                                <input type="number" id="interval" name="interval"
+                                    placeholder="Enter interval in minutes..." autocomplete="off" required>
+                            </div>
+                            <div class="submitButton">
+                                <button type="button" class="cancle" id="cancleButton">Cancle</button>
+                                <button type="submit" id="submit" class="submit">Create Schedule</button>
+                            </div>
+                        </form>
+                    </section>
+                    <%}%>
 </main>
 <footer class="footer">
     <img class="footer_img" src="../assets/image/footer.png" alt="">
@@ -348,6 +442,9 @@
 <script src="/scripts/profileMenu.js"></script>
 <script src="/scripts/serverMessageBox.js"></script>
 <script src="/scripts/multipleInputBox.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clocklet@0.3.0"></script>
+<script type="text/javascript" src="/scripts/selectPlaceHolder.js"></script>
+<script src="scripts/editSchedule.js"></script>
 <script>
     const crossBtn = document.getElementsByClassName("crossBtn");
     for (let i = 0; i < crossBtn.length; i++) {

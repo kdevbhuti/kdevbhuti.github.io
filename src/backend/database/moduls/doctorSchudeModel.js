@@ -2,6 +2,9 @@ const mongooes = require("mongoose");
 const connectDB = require("../mongoose");
 
 const scheduleSchema = new mongooes.Schema({
+    userId: {
+        type: mongooes.Schema.Types.ObjectId,
+    },
     weekDay: {
       type: String,
       require  
@@ -32,7 +35,6 @@ const scheduleSchema = new mongooes.Schema({
                 type: Boolean
             },
         }],
-    doctor: {type: mongooes.Schema.Types.ObjectId, ref: "User"},
 })
 
 const scheduleModel = connectDB.model("Schedule", scheduleSchema);
