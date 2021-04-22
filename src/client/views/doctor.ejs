@@ -285,21 +285,19 @@
                         </figure>
                     </div>
                     <div class="schedule">
-                        <ul class="">
-                            <div>
-                                <%for(let i=0; i<7; i++){%>
-                                    <span>
-                                        if(i === 1){
-                                            <%Today%>
-                                        <%}else if(i===2){%>
-                                            <%Tomorrow%>
-                                        <%}else{%>
-                                            <%=moment().add(i, "days" ).format("ddd MMM Do yyyy")%>
-                                        <%}%>
-                                    </span>
-                                <%}%>
-                            </div>
-                        </ul>
+                        <div>
+                            <%for(let i=0; i<7; i++){%>
+                                <span>
+                                    if(i === 1){
+                                        <%Today%>
+                                    <%}else if(i===2){%>
+                                        <%Tomorrow%>
+                                    <%}else{%>
+                                        <%=moment().add(i, "days" ).format("ddd MMM Do yyyy")%>
+                                    <%}%>
+                                </span>
+                            <%}%>
+                        </div>
                     </div>
                 </div>
 
