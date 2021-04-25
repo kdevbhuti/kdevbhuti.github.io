@@ -171,82 +171,85 @@ main .combine-section .filter-section .filter-list ul li label {
     grid-area: 1/2/span 1/span 3;
   }
 }
-main .combine-section .doctor-details .details {
-  margin-bottom: 1rem;
+main .combine-section .doctor-details .allDoctorDetails {
   border: 0.1rem solid var(--gray-border);
+  margin-bottom: 1rem;
+}
+main .combine-section .doctor-details .allDoctorDetails .details {
+  margin-bottom: 1rem;
+  align-items: center;
+  padding-left: 2rem;
 }
 @media only screen and (min-width: 768px) {
-  main .combine-section .doctor-details .details {
+  main .combine-section .doctor-details .allDoctorDetails .details {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1.5rem repeat(7, 2rem) 1.5rem;
-    align-items: center;
-    padding-left: 2rem;
   }
 }
 @media only screen and (min-width: 768px) and (min-width: 1024px) {
-  main .combine-section .doctor-details .details {
+  main .combine-section .doctor-details .allDoctorDetails .details {
     grid-template-rows: 1.5rem repeat(7, 2rem) 1.5rem;
   }
 }
-main .combine-section .doctor-details .details h3 {
+main .combine-section .doctor-details .allDoctorDetails .details h3 {
   display: flex;
   align-items: center;
   color: var(--blue_color);
   margin-top: 1rem;
 }
 @media only screen and (min-width: 768px) {
-  main .combine-section .doctor-details .details h3 {
+  main .combine-section .doctor-details .allDoctorDetails .details h3 {
     grid-area: 2/1/span 1/span 2;
     margin: 0rem;
   }
 }
-main .combine-section .doctor-details .details h3 .horizontal_bar {
+main .combine-section .doctor-details .allDoctorDetails .details h3 .horizontal_bar {
   font-size: 1.2rem;
   letter-spacing: -0.1rem;
   color: var(--blue_bold_text);
   margin-left: -0.1rem;
 }
 @media only screen and (min-width: 768px) {
-  main .combine-section .doctor-details .details h3 .horizontal_bar {
+  main .combine-section .doctor-details .allDoctorDetails .details h3 .horizontal_bar {
     margin-left: -2.1rem;
   }
 }
-main .combine-section .doctor-details .details .fas,
-main .combine-section .doctor-details .details .far {
+main .combine-section .doctor-details .allDoctorDetails .details .fas,
+main .combine-section .doctor-details .allDoctorDetails .details .far {
   color: var(--blue_color);
   width: 0.8rem;
   margin-bottom: 0.2rem;
 }
-main .combine-section .doctor-details .details .appointment_btn {
+main .combine-section .doctor-details .allDoctorDetails .details .appointment_btn {
   display: block;
   border: none;
   margin: 0 auto 0.5rem;
 }
 @media only screen and (min-width: 768px) {
-  main .combine-section .doctor-details .details .appointment_btn {
+  main .combine-section .doctor-details .allDoctorDetails .details .appointment_btn {
     grid-area: 7/1/span 2/span 2;
     margin: auto auto auto 0rem;
   }
 }
-main .combine-section .doctor-details .details figure {
+main .combine-section .doctor-details .allDoctorDetails .details figure {
   height: 20rem;
   width: 100%;
 }
 @media only screen and (min-width: 768px) {
-  main .combine-section .doctor-details .details figure {
+  main .combine-section .doctor-details .allDoctorDetails .details figure {
     grid-area: 1/3/span 9/span 1;
     height: auto;
   }
-  main .combine-section .doctor-details .details figure img {
+  main .combine-section .doctor-details .allDoctorDetails .details figure img {
     object-position: top;
   }
 }
-main .combine-section .doctor-details .details ul {
+main .combine-section .doctor-details .allDoctorDetails .details ul {
   padding-left: 0.6rem;
 }
 @media only screen and (min-width: 768px) {
-  main .combine-section .doctor-details .details ul {
+  main .combine-section .doctor-details .allDoctorDetails .details ul {
     display: grid;
     padding-left: 0rem;
     grid-template-columns: repeat(2, 1fr);
@@ -255,7 +258,7 @@ main .combine-section .doctor-details .details ul {
     grid-area: 3/1/span 4/span 2;
   }
 }
-main .combine-section .doctor-details .details ul li {
+main .combine-section .doctor-details .allDoctorDetails .details ul li {
   display: flex;
   overflow: hidden;
   align-items: center;
@@ -263,19 +266,73 @@ main .combine-section .doctor-details .details ul li {
   margin-bottom: 0.1rem;
 }
 @media only screen and (min-width: 768px) {
-  main .combine-section .doctor-details .details ul li {
+  main .combine-section .doctor-details .allDoctorDetails .details ul li {
     margin: 0rem;
   }
 }
-main .combine-section .doctor-details .details span {
+main .combine-section .doctor-details .allDoctorDetails .details span {
   display: block;
   margin-bottom: 0.2rem;
   margin-left: 0.9rem;
 }
 @media only screen and (min-width: 768px) {
-  main .combine-section .doctor-details .details span {
+  main .combine-section .doctor-details .allDoctorDetails .details span {
     margin-bottom: 0rem;
   }
+}
+main .combine-section .doctor-details .allDoctorDetails .schedule {
+  margin-bottom: 1rem;
+}
+main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .morning, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .afternoon, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .evening {
+  display: flex;
+  justify-content: flex-start;
+  gap: 2rem;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--gray-border);
+}
+main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .morning .dayWithIcon, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .afternoon .dayWithIcon, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .evening .dayWithIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .morning .dayWithIcon h4, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .afternoon .dayWithIcon h4, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .evening .dayWithIcon h4 {
+  margin-bottom: 0rem;
+}
+main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .morning .timing, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .afternoon .timing, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .evening .timing {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .morning .timing .green, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .afternoon .timing .green, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .evening .timing .green {
+  display: block;
+  padding: 0.5rem;
+  margin-bottom: 0rem;
+  color: var(--green-time);
+  border: 2px solid var(--green-time);
+}
+main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleDays {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding-left: 2rem;
+}
+main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleDays .scheduleSpan {
+  margin-bottom: 0rem;
+}
+main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleDays .chevronBtn {
+  background-color: var(--gray-border);
+  border-radius: 50%;
+  padding: 0.7rem;
+  border: none;
+}
+main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleDays .chevronBtn i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.7rem;
 }
 main .combine-section .doctor-details .last_doc {
   margin: 0rem;

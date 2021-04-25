@@ -156,9 +156,12 @@ main {
         grid-area: 1/2 / span 1 / span 3;
       }
       .allDoctorDetails {
+        border: 0.1rem solid var(--gray-border);
+        margin-bottom: 1rem;
         .details {
           margin-bottom: 1rem;
-          border: 0.1rem solid var(--gray-border);
+          align-items: center; 
+          padding-left: 2rem;
           @media only screen and (min-width: 768px) {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -166,9 +169,6 @@ main {
             @media (min-width: 1024px) {
               grid-template-rows: 1.5rem repeat(7, 2rem) 1.5rem;
             }
-
-            align-items: center;
-            padding-left: 2rem;
           }
           h3 {
             display: flex;
@@ -246,6 +246,62 @@ main {
           }
         }
         .schedule {
+          margin-bottom: 1rem;
+          .scheduleWeeks{
+            .scheduleWeekDay{
+              .morning, .afternoon, .evening{
+                display: flex;
+                justify-content: flex-start;
+                gap: 2rem;
+                align-items: center;
+                padding: 1rem 2rem;
+                border-bottom: 1px solid var(--gray-border);
+                .dayWithIcon{
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  gap: 0.5rem;
+                  h4{
+                    margin-bottom: 0rem;
+                  }
+                }
+                .timing{
+                  display: flex;
+                  flex-wrap: wrap;
+                  gap: 0.5rem;
+                  .green{
+                    display: block;
+                    padding: 0.5rem;
+                    margin-bottom: 0rem;
+                    color: var(--green-time);
+                    border: 2px solid var(--green-time);
+                  }
+                }
+              }
+            }
+          }
+          .scheduleDays{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 1rem;
+            padding-left: 2rem;
+            .scheduleSpan{
+              margin-bottom: 0rem;
+            }
+            .chevronBtn{
+              background-color: var(--gray-border);
+              border-radius: 50%;
+              padding: 0.7rem;
+              border: none;
+              i{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 0.7rem;
+              }
+            }
+          }
         }
       }
 

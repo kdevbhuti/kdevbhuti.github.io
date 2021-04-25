@@ -27,7 +27,7 @@ async function wellcome(req, res){
         res.redirect("/")
     }else{
         const userDetails = await getData.getUserDetails(req.session.user.id);
-        res.render("wellcome", {status: req.flash('status')});
+        res.render("wellcome", {status: req.flash('status'), user: userDetails});
     }
 }
 
@@ -47,20 +47,13 @@ async function doctor(req, res){
     }else{
         allUserDetails = await getData.getAllPatientDetails(req.session.user.id);
     }
-    var allDoctor = await getData.getEntireDoctor(req.session.user.id); 
+    var allDoctor = await getData.getEntireDoctor(req.session.user.id);
+    // var schedule = await getData.getDoctorSchedulesAccordingDate(req.session.user.id) 
+    // res.send(schedule)
     if(allDoctor && allUserDetails){
-
-        // let todaysDate = moment().format("ddd MMM Do yyyy");
-        // console.log(todaysDate)
-        // var schedule = [];
-        // for(let i=0; i<allDoctor.length;i++){
-        //     schedule.forEach(element => {
-            
-        //     });
-        //     schedule.push(allDoctor[i].schedule)
-        // }
         
-        // res.send(schedule)
+       
+        // res.send(allDoctor)
 
         res.render("doctor",{user: allUserDetails, doctors: allDoctor});
     }
