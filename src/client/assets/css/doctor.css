@@ -60,7 +60,7 @@ main .sort-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.2rem 1rem;
+  padding: 1rem 1rem 0rem 1rem;
 }
 @media only screen and (min-width: 768px) {
   main .sort-section {
@@ -176,15 +176,14 @@ main .combine-section .doctor-details .allDoctorDetails {
   margin-bottom: 1rem;
 }
 main .combine-section .doctor-details .allDoctorDetails .details {
-  margin-bottom: 1rem;
   align-items: center;
-  padding-left: 2rem;
 }
 @media only screen and (min-width: 768px) {
   main .combine-section .doctor-details .allDoctorDetails .details {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1.5rem repeat(7, 2rem) 1.5rem;
+    padding-left: 2rem;
   }
 }
 @media only screen and (min-width: 768px) and (min-width: 1024px) {
@@ -285,11 +284,19 @@ main .combine-section .doctor-details .allDoctorDetails .schedule {
 }
 main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .morning, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .afternoon, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .evening {
   display: flex;
-  justify-content: flex-start;
-  gap: 2rem;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem;
   border-bottom: 1px solid var(--gray-border);
+}
+@media (min-width: 1024px) {
+  main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .morning, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .afternoon, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .evening {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 2rem;
+  }
 }
 main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .morning .dayWithIcon, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .afternoon .dayWithIcon, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .evening .dayWithIcon {
   display: flex;
@@ -303,24 +310,94 @@ main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks
 main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .morning .timing, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .afternoon .timing, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .evening .timing {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   gap: 0.5rem;
 }
-main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .morning .timing .green, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .afternoon .timing .green, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .evening .timing .green {
+@media (min-width: 1024px) {
+  main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .morning .timing, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .afternoon .timing, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .evening .timing {
+    justify-content: flex-start;
+  }
+}
+main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .morning .timing .timingTag, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .afternoon .timing .timingTag, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .evening .timing .timingTag {
   display: block;
   padding: 0.5rem;
   margin-bottom: 0rem;
+}
+main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .morning .timing .green, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .afternoon .timing .green, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .evening .timing .green {
   color: var(--green-time);
   border: 2px solid var(--green-time);
+}
+main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .morning .timing .blue, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .afternoon .timing .blue, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .evening .timing .blue {
+  color: var(--blue-time-font);
+  border: 2px solid var(--blue-time-font);
+}
+main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .morning .timing .yellow, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .afternoon .timing .yellow, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .evening .timing .yellow {
+  color: var(--yellow-time-font);
+  border: 2px solid var(--yellow-time-font);
+}
+main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .morning .timing .red, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .afternoon .timing .red, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .evening .timing .red {
+  color: var(--red-time-font);
+  border: 2px solid var(--red-time-font);
+}
+main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .hospital {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .hospital .hospitalColor {
+  margin-bottom: 0rem;
+}
+main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .hospital .green {
+  color: var(--green-time);
+}
+main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .hospital .blue {
+  color: var(--blue-time-font);
+}
+main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .hospital .yellow {
+  color: var(--yellow-time-font);
+}
+main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleWeeks .scheduleWeekDay .hospital .red {
+  color: var(--red-time-font);
 }
 main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleDays {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 1rem;
-  padding-left: 2rem;
+  margin-top: 1rem;
 }
-main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleDays .scheduleSpan {
+@media (min-width: 1024px) {
+  main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleDays {
+    justify-content: flex-start;
+    padding-left: 2rem;
+  }
+}
+main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleDays .doctorScheduleDate {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+@media only screen and (min-width: 768px) {
+  main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleDays .doctorScheduleDate {
+    flex-direction: row;
+  }
+}
+main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleDays .doctorScheduleDate .scheduleDayBlock {
+  cursor: pointer;
+}
+main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleDays .doctorScheduleDate .scheduleDayBlock .scheduleSpan, main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleDays .doctorScheduleDate .scheduleDayBlock .totalScheduleCount {
+  text-align: center;
+  display: block;
   margin-bottom: 0rem;
+  font-family: "nexa bold";
+  color: var(--gray);
+}
+main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleDays .doctorScheduleDate .scheduleDayBlock .totalScheduleCount {
+  color: var(--blue_bold_text);
 }
 main .combine-section .doctor-details .allDoctorDetails .schedule .scheduleDays .chevronBtn {
   background-color: var(--gray-border);

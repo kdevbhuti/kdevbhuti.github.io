@@ -53,7 +53,32 @@ async function doctor(req, res){
     if(allDoctor && allUserDetails){
         
        
-        // res.send(allDoctor)
+    //    for(let i=0; i<allDoctor.length; i++){
+    //         var scheduleByDate = [];
+    //         for(let j=0; j<7; j++){
+    //             var scheduleOfWeek = [];
+    //             allDoctor[i].schedule.forEach((docSchedule)=>{
+    //                 // console.log((moment(docSchedule.date).isSame(moment().add(j, "days"), "days") && (moment(docSchedule.date).isSame(moment().add(j, "days"), "months"))))
+    //                 if(moment(docSchedule.date).isSame(moment().add(j, "days"), "days") && (moment(docSchedule.date).isSame(moment().add(j, "days"), "months"))){
+    //                     scheduleOfWeek.push(docSchedule)
+    //                 }
+                    
+    //             })
+    //             scheduleByDate.push(scheduleOfWeek)
+    //         }
+    //     allDoctor[i].schedul = scheduleByDate
+
+    //     // scheduleByDate.forEach((element)=>{
+    //     //     if(element.length !== 0){
+    //     //         scheduleByDate.
+    //     //     }
+    //     // })
+
+    //     // res.send(scheduleByDate)
+
+    //    }
+
+    //    res.send(allDoctor)
 
         res.render("doctor",{user: allUserDetails, doctors: allDoctor});
     }

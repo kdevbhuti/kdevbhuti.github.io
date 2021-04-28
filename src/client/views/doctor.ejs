@@ -258,9 +258,7 @@
                             </li>
                             <li>
                                 <i class="far fa-clock"></i>
-                                <span>
-                                    <%=doctors[i].experiences%> year of experience
-                                </span>
+                                <span><%=doctors[i].experiences%> year of experience</span>
                             </li>
                             <li>
                                 <i class="fas fa-building"></i>
@@ -273,9 +271,7 @@
                             </li>
                             <li>
                                 <i class="fas fa-map-marker-alt"></i>
-                                <span>
-                                    <%=doctors[i].doctor.country%>
-                                </span>
+                                <span><%=doctors[i].doctor.country%></span>
                             </li>
                         </ul>
                         <button class="appointment_btn" value="<%=doctors[i]._id%>">Book an appointment</button>
@@ -289,54 +285,57 @@
                             <button class="chevronBtn leftBtn">
                                 <i class="fas fa-chevron-left"></i>
                             </button>
-                            <%for(let j=0; j<7; j++){%>
-                                <div>
-                                    <span class="scheduleSpan">
-                                        <%if(j === 0){%>
-                                            Today
-                                        <%}else if(j===1){%>
-                                            Tomorrow
-                                        <%}else{%>
-                                            <%=moment().add(j, "days").format("ddd MMM Do yyyy")%>
-                                        <%}%>
-                                    </span>
-                                    <input type="hidden" value="<%=doctors[i]._id%>ScheduleSpan_<%=j%>">
-                                </div>
-                            <%}%>
+                            <div class="doctorScheduleDate">
+                                <%for(let j=0; j<7; j++){%>
+                                    <div class="scheduleDayBlock">
+                                        <span class="scheduleSpan">
+                                            <%if(j === 0){%>
+                                                Today
+                                            <%}else if(j===1){%>
+                                                Tomorrow
+                                            <%}else{%>
+                                                <%=moment().add(j, "days").format("ddd MMM Do yyyy")%>
+                                            <%}%>
+                                        </span>
+                                        <span class="totalScheduleCount" id="<%=doctors[i]._id%>totalSchedule_<%=j%>_putSchedule"></span>
+                                        <input type="hidden" class="totalSchedule" value="<%=doctors[i]._id%>totalSchedule_<%=j%>">
+                                    </div>
+                                <%}%>
+                            </div>
                             <button class="chevronBtn rightBtn">
                                 <i class="fas fa-chevron-right"></i>
                             </button>
                         </div>
                         <div class="scheduleWeeks"> 
                             <%for(let j=0; j<7; j++){%>
-                                <div class="scheduleWeekDay" id="<%=doctors[i]._id%>ScheduleSpan_<%=j%>">
+                                <div class="scheduleWeekDay" id="<%=doctors[i]._id%>_getDocSubSchedule_<%=j%>">
 
                                     <%let scheduleByDate = doctors[i].schedule.filter((docSchedule)=>{%>
                                         <%return moment(docSchedule.date).isSame(moment().add(j, "days"), "days") && (moment(docSchedule.date).isSame(moment().add(j, "days"), "month"))%>
                                     <%})%> 
                                     <%let hospital = [];%>
-                                    <%let colourClass = ["green", "blue", "yellow, red, gray"]%>
+                                    <%let colourClass = ["green", "blue", "yellow", "red", "gray"]%>
                                    
                                     <%var morning = []%>
                                     <%var afternoon = []%>
                                     <%var evening = []%>
+                                    <%var totalSloat = 0%>
+                                
                                     <%scheduleByDate.forEach((element)=>{%>
                                         <%var colorIndex = hospital.indexOf(element.hospitalName)%>
                                         <%if(colorIndex === -1){%>
                                             <%hospital.push(element.hospitalName)%>
                                         <%}%>
-                                        
                                         <%element.schedules.forEach((elementSchedule)=>{%> 
+                                            <% totalSloat = totalSloat + 1; %>
                                             <%let startTime = elementSchedule.time.split(" - ")[0]%>
                                             <%let startTimeHour = moment(startTime, "HH:mm A").get("hour")%>
-                                      
+                                            
                                             <%if(startTimeHour < 12){%>
                                                 <%morning.push({
                                                     color: colourClass[hospital.indexOf(element.hospitalName)],
                                                     startTime: startTime
-                                                 })%>
-                                                 
-
+                                            })%>
                                             <%} else if(startTimeHour < 18){%>
                                                 <%afternoon.push({
                                                     color: colourClass[hospital.indexOf(element.hospitalName)],
@@ -349,18 +348,23 @@
                                                  })%>
                                             <%}%>
                                         <%})%>
-                                        
+                                       
                                     <%})%>
+                                   
+                                    <input type="hidden" id="<%=doctors[i]._id%>totalSchedule_<%=j%>" value=<%=totalSloat%>>
                                     <div class="morning">
                                         <div class="dayWithIcon">
                                             <i class="fas fa-sun"></i>
                                             <h4>Morning</h4>
                                         </div>
-                                        <div class="timing">
-                                            <%morning.forEach((morningTime)=>{%>
-                                                <span class="<%=morningTime.color%>"><%=morningTime.startTime%></span>
-                                            <%})%>
-                                        </div>
+                                        <%if(morning.length > 0){%>
+                                            <div class="timing">
+                                                <%morning.forEach((morningTime)=>{%>
+                                                    <span class="<%=morningTime.color%> timingTag"><%=morningTime.startTime%></span>
+                                                <%})%>
+                                            </div>
+                                        <%}%>
+                                     
                                        
                                     </div>
                                     <div class="afternoon">
@@ -368,23 +372,38 @@
                                             <i class="fas fa-sun"></i>
                                             <h4>Afternoon</h4>
                                         </div>
-                                        <div class="timing">
-                                            <%afternoon.forEach((afternoonTime)=>{%>
-                                                <span class="<%=afternoonTime.color%>"><%=afternoonTime.startTime%></span>
-                                            <%})%>
-                                        </div>
+                                        <%if(afternoon.length > 0){%>
+                                            <div class="timing">
+                                                <%afternoon.forEach((afternoonTime)=>{%>
+                                                    <span class="<%=afternoonTime.color%> timingTag"><%=afternoonTime.startTime%></span>
+                                                <%})%>
+                                            </div>
+                                        <%}%>
                                     </div>
                                     <div class="evening">
                                         <div class="dayWithIcon">
                                             <i class="fas fa-sun"></i>
                                             <h4>Evening</h4>
                                         </div>
-                                        <div class="timing">
-                                            <%evening.forEach((eveningTime)=>{%>
-                                                <span class="<%=eveningTime.color%>"><%=eveningTime.startTime%></span>
+                                        <%if(evening.length > 0){%>
+                                            <div class="timing">
+                                                <%evening.forEach((eveningTime)=>{%>
+                                                    <span class="<%=eveningTime.color%> timingTag"><%=eveningTime.startTime%></span>
+                                                <%})%>
+                                            </div>
+                                        <%}%>
+                                    </div>
+                                    <%if(hospital.length > 0){%>
+                                        <div class="hospital">
+                                            <%hospital.map((hospital, index)=>{%>
+                                                <h3 class="<%=colourClass[index]%> hospitalColor"><%=hospital%></h3>
                                             <%})%>
                                         </div>
-                                    </div>
+                                    <%} else {%>
+                                        <div class="hospital">
+                                            <h3 class="hospitalColor">None</h3>
+                                        </div>
+                                    <%}%>
                                 </div>  
                             <%}%>
                         </div>
@@ -422,57 +441,92 @@
     <p>All Rights Reserved. <span><i class="far fa-copyright"></i></span> tvastra 2018</p>
 </footer>
 <script src="/scripts/profileMenu.js"></script>
-<script>
-    const appointmentBtn = document.getElementsByClassName("appointment_btn");
-    for (let i = 0; i < appointmentBtn.length; i++) {
-        appointmentBtn[i].addEventListener("click", () => {
 
-        })
-    }
-</script>
 <script>
    const appointment_btn = document.getElementsByClassName("appointment_btn");
    for(let i=0; i<appointment_btn.length; i++){
        appointment_btn[i].addEventListener("click", (event)=>{
            const schedule = document.getElementById(event.target.value);
-           const scheduleSpan = schedule.getElementsByClassName("scheduleSpan");
+           const scheduleDiv = schedule.getElementsByClassName("scheduleDayBlock");
+           
+           removeSubSchedules(event.target.value);
 
            //For left shifting button
            const  leftBtn = schedule.getElementsByClassName("leftBtn")[0];
            leftBtn.addEventListener("click",(event)=>{
-                for(let j=0; j<scheduleSpan.length-3; j++){
-                    if(scheduleSpan[j].style.display === "block"){
-                        scheduleSpan[j].style.display = "none"
-                        scheduleSpan[j+3].style.display = "block";
+                for(let j=0; j<scheduleDiv.length-3; j++){
+                    if(scheduleDiv[j].style.display === "block"){
+                        scheduleDiv[j].style.display = "none"
+                        scheduleDiv[j+3].style.display = "block";
                         break;
                     }
                 }
            })
 
+           //For right shift button funtionality
            const  rightBtn = schedule.getElementsByClassName("rightBtn")[0];
            rightBtn.addEventListener("click",(event)=>{
-                for(let j=scheduleSpan.length-1; j>2; j--){
-                    if(scheduleSpan[j].style.display === "block"){
-                        scheduleSpan[j].style.display = "none"
-                        scheduleSpan[j-3].style.display = "block";
+                for(let j=scheduleDiv.length-1; j>2; j--){
+                    if(scheduleDiv[j].style.display === "block"){
+                        scheduleDiv[j].style.display = "none"
+                        scheduleDiv[j-3].style.display = "block";
                         break;
                     }
                 }
            })
 
-            for(let j=0; j<scheduleSpan.length; j++){
+           //For show first 3 schude date at data load
+            for(let j=0; j<scheduleDiv.length; j++){
                 if(j >= 3){
-                    scheduleSpan[j].style.display = "none"
+                    scheduleDiv[j].style.display = "none"
                 }else{
-                    scheduleSpan[j].style.display = "block"
+                    scheduleDiv[j].style.display = "block"
                 }
             }
+
+            //for block and unblock entire schedule with book appointment btn
            if(schedule.style.display === "block"){
             schedule.style.display = "none";
            }else{
             schedule.style.display = "block";
            }
+           
+           for(let j=0; j<scheduleDiv.length; j++){
+               const scheduleId = {id: event.target.value, index: j}
+               scheduleDiv[j].addEventListener("click", (event)=>{
+                   removeSubSchedules(scheduleId.id)
+                    const subSchedule = document.getElementById(scheduleId.id+"_getDocSubSchedule_"+scheduleId.index);
+                    subSchedule.style.display = "block";
+               })
+           }
        })
    }
+
+   function removeSubSchedules(scheduleId){
+        for(let i=0; i<7; i++){
+            let subSchedule = document.getElementById(scheduleId+"_getDocSubSchedule_"+i);
+            subSchedule.style.display = "none";
+        }
+   }
+</script>
+<script>
+    const allSchedules = document.getElementsByClassName("appointment_btn");
+   
+    for(let i=0; i<allSchedules.length; i++){
+         
+        allSchedules[i].addEventListener("click", (event)=>{
+            const getSchedule = document.getElementById(event.target.value);
+            //to get All schedule
+            const getTotalSchedule = getSchedule.getElementsByClassName("totalSchedule");
+            var totalScheduleValue;
+            var putTotalSchedule;
+            for(let i=0; i<getTotalSchedule.length; i++){
+                totalScheduleValue = document.getElementById(getTotalSchedule[i].value)
+                putTotalSchedule = document.getElementById(getTotalSchedule[i].value+"_putSchedule");
+                putTotalSchedule.textContent = totalScheduleValue.value + " Sloat available";
+            }
+
+        })
+    }
 </script>
 </html>
