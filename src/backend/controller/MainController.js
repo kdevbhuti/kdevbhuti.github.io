@@ -52,34 +52,6 @@ async function doctor(req, res){
     // res.send(schedule)
     if(allDoctor && allUserDetails){
         
-       
-    //    for(let i=0; i<allDoctor.length; i++){
-    //         var scheduleByDate = [];
-    //         for(let j=0; j<7; j++){
-    //             var scheduleOfWeek = [];
-    //             allDoctor[i].schedule.forEach((docSchedule)=>{
-    //                 // console.log((moment(docSchedule.date).isSame(moment().add(j, "days"), "days") && (moment(docSchedule.date).isSame(moment().add(j, "days"), "months"))))
-    //                 if(moment(docSchedule.date).isSame(moment().add(j, "days"), "days") && (moment(docSchedule.date).isSame(moment().add(j, "days"), "months"))){
-    //                     scheduleOfWeek.push(docSchedule)
-    //                 }
-                    
-    //             })
-    //             scheduleByDate.push(scheduleOfWeek)
-    //         }
-    //     allDoctor[i].schedul = scheduleByDate
-
-    //     // scheduleByDate.forEach((element)=>{
-    //     //     if(element.length !== 0){
-    //     //         scheduleByDate.
-    //     //     }
-    //     // })
-
-    //     // res.send(scheduleByDate)
-
-    //    }
-
-    //    res.send(allDoctor)
-
         res.render("doctor",{user: allUserDetails, doctors: allDoctor});
     }
 }
@@ -92,7 +64,6 @@ async function editProfile(req, res) {
     const isDoctor = await getData.isDoctor(req.session.user.id);
     if(isDoctor){
         const allDoctorDetails = await getData.getAllDoctorDetails(req.session.user.id);
-        console.log(allDoctorDetails)
         res.render("dashboard", {user: allDoctorDetails, status: req.flash('status'), page: "editProfile"});
     }else{
         const allPatientDetails = await getData.getAllPatientDetails(req.session.user.id);
@@ -105,6 +76,8 @@ async function editeSchedule(req, res){
     const schedules = await getData.getDoctorSchedules(req.session.user.id);
     res.render("dashboard", {user: allDoctorDetails, schedules: schedules, page: "editSchedule", status: req.flash('status')});
 }
+
+
 
 module.exports=({
     home: home,

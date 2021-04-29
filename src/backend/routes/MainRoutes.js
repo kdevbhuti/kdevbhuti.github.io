@@ -9,6 +9,7 @@ const verifyProfileController = require("../controller/VerifyProfileController")
 const doctorDetails = require("../controller/doctorDetailsController");
 const editProfile = require("../controller/editProfileController");
 const editSchedule = require("../controller/editSchedule");
+const bookSchedule = require("../controller/bookSchedule")
 
 const upload = require("../controller/multerStorage");
 
@@ -36,5 +37,8 @@ router.route("/editSchedule").get(middilewar.auth, mainController.editeSchedule)
 router.route("/editSchedule").post(editSchedule.editeSchedule);
 
 
+
+
 router.route("/remove-schedule").get(middilewar.auth, editSchedule.removeSchedule)
+router.route("/bookAppointment").get(bookSchedule.bookSchedule)
 module.exports = router;

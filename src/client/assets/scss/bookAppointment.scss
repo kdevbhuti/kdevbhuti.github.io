@@ -1,0 +1,117 @@
+main{
+    .bookAppointment{
+        background-color: var(--gray_background);
+        @media only screen and (min-width: 768px) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: 1fr;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        @media (min-width: 1024px) {
+            gap: 5rem;
+        }
+        .clinicAppointment{
+            padding: 1rem;
+            background-color: var(--white);
+            .clinicAppointmentHead{
+                padding-bottom: 1rem;
+                text-align: center;
+                border-bottom: 1px solid var(--green-border);
+                margin-left: -1rem;
+                margin-right: -1rem;
+            }
+            .docAppointmentDetails{
+                margin-bottom: 1rem;
+                @media (min-width: 1024px) {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-template-rows: repeat(2, 1fr);
+                    gap: 0.5rem;
+                }
+                li{
+                    .far{
+                        color: var(--blue_color)
+                    }
+                    .changeDateTime{
+                        font-family: "nexa bold";
+                        color: var(--blue_color);
+                    }
+                }
+            }
+            .doctorDetails{
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 1rem;
+                margin-bottom: 1rem;
+                .doctorFigure{
+                    height: 5rem;
+                    width: 5rem;
+                }
+            }
+            .hospitalDetails{
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 1rem;
+                .hospitalFigure{
+                    height: 5rem;
+                    width: 5rem;
+                    border-radius: 50%;
+                }
+                .hospitalName{
+                    margin-bottom: 0rem;
+                }
+            }
+        }
+        .patientDetails{
+            .patientDetailsHeading{
+                padding: 1rem 0rem;
+                text-align: center;
+                border-bottom: 1px solid var(--green-border);
+            }
+            .AppointmentFor{
+                background-color: var(--white);
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                flex-direction: column;
+                gap:0.5rem;
+                padding: 0.5rem;
+                .bookForOthers, .bookForSelf{
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+                    gap: 0.5rem;
+                    label{
+                        color: var(--blue_color);
+                        font-family: "nexa bold";
+                        margin-bottom: 0rem;
+                    }
+                }
+            }
+       
+            .patientInfoForm{
+                .infoHeading{
+                    margin: 1rem 0rem;
+                    text-align: center;
+                }
+                .inputHeadInfo{
+                    color: var(--blue_color);
+                }
+                .infoInputText{
+                    width: 100%;
+                }
+                .submitButton{
+                    background-color: var(--blue_color);
+                    width: 100%;
+                    outline: none;
+                    border: none;
+                }
+            }
+            
+        }
+    }
+}

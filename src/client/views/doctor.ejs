@@ -326,31 +326,39 @@
                                         <%if(colorIndex === -1){%>
                                             <%hospital.push(element.hospitalName)%>
                                         <%}%>
+                                        
                                         <%element.schedules.forEach((elementSchedule)=>{%> 
                                             <% totalSloat = totalSloat + 1; %>
                                             <%let startTime = elementSchedule.time.split(" - ")[0]%>
                                             <%let startTimeHour = moment(startTime, "HH:mm A").get("hour")%>
-                                            
+                                          
                                             <%if(startTimeHour < 12){%>
-                                                <%morning.push({
+                                                <%morning.unshift({
                                                     color: colourClass[hospital.indexOf(element.hospitalName)],
-                                                    startTime: startTime
+                                                    startTime: startTime,
+                                                    scheduleId: element._id,
+                                                    scheduleIntervalId: elementSchedule._id
                                             })%>
+                                           
                                             <%} else if(startTimeHour < 18){%>
-                                                <%afternoon.push({
+                                                <%afternoon.unshift({
                                                     color: colourClass[hospital.indexOf(element.hospitalName)],
-                                                    startTime: startTime
+                                                    startTime: startTime,
+                                                    scheduleId: element._id,
+                                                    scheduleIntervalId: elementSchedule._id
                                                  })%>
                                             <%} else {%>
-                                                <%evening.push({
+                                                <%evening.unshift({
                                                     color: colourClass[hospital.indexOf(element.hospitalName)],
-                                                    startTime: startTime
+                                                    startTime: startTime,
+                                                    scheduleId: element._id,
+                                                    scheduleIntervalId: elementSchedule._id
                                                  })%>
                                             <%}%>
                                         <%})%>
                                        
                                     <%})%>
-                                   
+                                  
                                     <input type="hidden" id="<%=doctors[i]._id%>totalSchedule_<%=j%>" value=<%=totalSloat%>>
                                     <div class="morning">
                                         <div class="dayWithIcon">
@@ -360,7 +368,11 @@
                                         <%if(morning.length > 0){%>
                                             <div class="timing">
                                                 <%morning.forEach((morningTime)=>{%>
-                                                    <span class="<%=morningTime.color%> timingTag"><%=morningTime.startTime%></span>
+                                                    <div class="<%=morningTime.color%> timingTag">
+                                                        <span><%=morningTime.startTime%></span>
+                                                        <input class="scheduleId" type="hidden" value=<%=morningTime.scheduleId%>>
+                                                        <input class="scheduleIntervalId" type="hidden" value=<%=morningTime.scheduleIntervalId%>>
+                                                    </div>
                                                 <%})%>
                                             </div>
                                         <%}%>
@@ -424,7 +436,7 @@
     </section>
 </main>
 <footer class="footer">
-    <img class="footer_img" src="../assets/image/footer.png" alt="">
+    <img class="footer_img" src="/image/footer.png" alt="">
     <ul>
         <li><a href="">Doctor</a> </li>
         <li><a href="">Hospital</a></li>
@@ -449,11 +461,10 @@
            const schedule = document.getElementById(event.target.value);
            const scheduleDiv = schedule.getElementsByClassName("scheduleDayBlock");
            
-           removeSubSchedules(event.target.value);
 
            //For left shifting button
            const  leftBtn = schedule.getElementsByClassName("leftBtn")[0];
-           leftBtn.addEventListener("click",(event)=>{
+           leftBtn.addEventListener("click",  (event)=>{
                 for(let j=0; j<scheduleDiv.length-3; j++){
                     if(scheduleDiv[j].style.display === "block"){
                         scheduleDiv[j].style.display = "none"
@@ -461,6 +472,7 @@
                         break;
                     }
                 }
+               
            })
 
            //For right shift button funtionality
@@ -474,33 +486,78 @@
                     }
                 }
            })
-
-           //For show first 3 schude date at data load
-            for(let j=0; j<scheduleDiv.length; j++){
-                if(j >= 3){
-                    scheduleDiv[j].style.display = "none"
-                }else{
-                    scheduleDiv[j].style.display = "block"
-                }
-            }
-
-            //for block and unblock entire schedule with book appointment btn
-           if(schedule.style.display === "block"){
-            schedule.style.display = "none";
-           }else{
-            schedule.style.display = "block";
-           }
            
-           for(let j=0; j<scheduleDiv.length; j++){
-               const scheduleId = {id: event.target.value, index: j}
-               scheduleDiv[j].addEventListener("click", (event)=>{
-                   removeSubSchedules(scheduleId.id)
-                    const subSchedule = document.getElementById(scheduleId.id+"_getDocSubSchedule_"+scheduleId.index);
-                    subSchedule.style.display = "block";
-               })
-           }
-       })
+       }, {once: true})
    }
+
+
+   const handleOnBookAppointment = (event)=>{
+        const schedule = document.getElementById(event.target.value);
+        const scheduleDiv = schedule.getElementsByClassName("scheduleDayBlock");
+        
+        removeSubSchedules(event.target.value);
+
+        //For show first 3 schude date at data load
+        for(let j=0; j<scheduleDiv.length; j++){
+            if(j >= 3){
+                scheduleDiv[j].style.display = "none"
+            }else{
+                scheduleDiv[j].style.display = "block"
+            }
+        }
+
+        //for block and unblock entire schedule with book appointment btn
+        if(schedule.style.display === "block"){
+        schedule.style.display = "none";
+        
+        }else{
+        schedule.style.display = "block";
+        }
+        
+        //for get the doctor time table 
+        for(let j=0; j<scheduleDiv.length; j++){
+            const scheduleId = {id: event.target.value, index: j}
+            scheduleDiv[j].addEventListener("click", (event)=> {getDoctorTimeTable(scheduleId)});
+        }
+
+        //to get number of schedule for per days
+        const getTotalSchedule = schedule.getElementsByClassName("totalSchedule");
+        var totalScheduleValue;
+        var putTotalSchedule;
+        for(let i=0; i<getTotalSchedule.length; i++){
+            totalScheduleValue = document.getElementById(getTotalSchedule[i].value)
+            putTotalSchedule = document.getElementById(getTotalSchedule[i].value+"_putSchedule");
+            putTotalSchedule.textContent = totalScheduleValue.value + " Sloat available";
+        }
+    }
+
+    const handleScheduletiming = (event)=>{
+                                
+        let scheduleId = event.currentTarget.getElementsByClassName("scheduleId")[0].value;
+        let scheduleIntervalId = event.currentTarget.getElementsByClassName("scheduleIntervalId")[0].value;
+
+        window.location.replace("bookAppointment?scheduleId=" + scheduleId + "&scheduleIntervalId=" + scheduleIntervalId);
+    }
+
+
+    const getDoctorTimeTable = (scheduleId)=>{
+        removeSubSchedules(scheduleId.id)
+        const subSchedule = document.getElementById(scheduleId.id+"_getDocSubSchedule_"+scheduleId.index);
+        subSchedule.style.display = "block";
+        //sendind data to backend////////////////////////////////////
+        const timingtag = subSchedule.getElementsByClassName("timingTag");
+        for(let i=0; i<timingtag.length; i++){
+            
+            timingtag[i].addEventListener("click", handleScheduletiming);
+            
+        }
+    }
+
+   for(let i=0; i<appointment_btn.length; i++){
+        appointment_btn[i].addEventListener("click", handleOnBookAppointment)
+   }
+
+  
 
    function removeSubSchedules(scheduleId){
         for(let i=0; i<7; i++){
@@ -508,25 +565,10 @@
             subSchedule.style.display = "none";
         }
    }
-</script>
-<script>
-    const allSchedules = document.getElementsByClassName("appointment_btn");
-   
-    for(let i=0; i<allSchedules.length; i++){
-         
-        allSchedules[i].addEventListener("click", (event)=>{
-            const getSchedule = document.getElementById(event.target.value);
-            //to get All schedule
-            const getTotalSchedule = getSchedule.getElementsByClassName("totalSchedule");
-            var totalScheduleValue;
-            var putTotalSchedule;
-            for(let i=0; i<getTotalSchedule.length; i++){
-                totalScheduleValue = document.getElementById(getTotalSchedule[i].value)
-                putTotalSchedule = document.getElementById(getTotalSchedule[i].value+"_putSchedule");
-                putTotalSchedule.textContent = totalScheduleValue.value + " Sloat available";
-            }
 
-        })
-    }
+
+
+
 </script>
+
 </html>

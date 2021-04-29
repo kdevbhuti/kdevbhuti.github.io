@@ -88,7 +88,8 @@ function getScheduleTime(startTime, endTime, interval){
     for(var i=0; i<times.length-1; i++){
         scheduleTime.push({
             time: times[i] + " - "+ times[i+1],
-            isActive: true
+            isActive: true,
+            isBooked: false
         })
     }
     return scheduleTime;

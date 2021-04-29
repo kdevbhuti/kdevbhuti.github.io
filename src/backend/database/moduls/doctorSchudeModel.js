@@ -34,6 +34,9 @@ const scheduleSchema = new mongooes.Schema({
             isActive:{
                 type: Boolean
             },
+            isBooked: {
+                type: Boolean
+            }
         }],
 })
 
