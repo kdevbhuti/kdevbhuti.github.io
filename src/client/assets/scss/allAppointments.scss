@@ -1,0 +1,104 @@
+main{
+    position: relative;
+     min-height: 53vh;
+    @media (min-width: 1024px) {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 1fr;
+      padding: 3.5rem 5.5rem 0rem;
+      grid-gap: 3rem;
+    }
+  .allAppointments{
+    @media (min-width: 1024px) {
+        grid-area: 1/2 / span 1 / span 3;
+        padding: 0rem;
+      }
+    .appointment{
+      .upcommingAppointment, .completeAppointment{
+        .appointmentDetails{
+          background-color: var(--gray_background);
+          padding: 0.5rem;
+          margin-bottom: 1rem;
+          @media only screen and (min-width: 768px) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+          }
+          .combineAppointmentWithButton{
+              display: flex;
+              gap: 0.5rem;
+              justify-content: flex-start;
+              align-items: center;
+            .appointmentDate{
+              display: inline-flex;
+              justify-content: center;
+              align-items: center;
+              height: 6rem;
+              width: 6rem;
+              font-family: "nexa Bold";
+              margin-bottom: 0rem;
+              background-color: var(--white);
+              font-size: 0.9rem;
+              line-height: 1.2rem;
+              @media only screen and (min-width: 768px) {
+                font-size: 1rem;
+                line-height: 1.2rem;
+              }
+            }
+            .appointmentSubDetails{
+              li{
+                display: block;
+                font-family: "nexa Bold";
+                font-size: 0.8rem;
+                line-height: 1.2rem;
+                color: var(--gray);
+                @media only screen and (min-width: 768px) {
+                  font-size: 0.9rem;
+                  line-height: 1.1rem;
+                }
+                @media (min-width: 1024px) {
+                  font-size: 1rem;
+                  line-height: 1.2rem;
+                }
+                &.name{
+                    color: var(--blue_color);
+                }
+                &.confirmedStatus{
+                  margin-top: 0.6rem;
+                  span{
+                    background-color: var(--gray);
+                    padding: 0.2rem;
+                    color: var(--white);
+                    border-radius: 4px;
+                  }
+                }
+                &.completedStatus{
+                  margin-top: 0.6rem;
+                  span{
+                    background-color: var(--orange);
+                    padding: 0.2rem;
+                    color: var(--white);
+                    border-radius: 4px;
+                  }
+                }
+              } 
+            }
+          }
+          .submitButtons{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 0.5rem;
+            button{
+              background-color: var(--blue_color);
+              border: none;
+              border-radius: 5px;
+              padding: 0.8rem 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

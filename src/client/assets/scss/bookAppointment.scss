@@ -113,5 +113,43 @@ main{
             }
             
         }
+        .confirmedAppointment{
+            margin-top: 1rem;
+            @media only screen and (min-width: 768px) {
+                margin-top: 0rem;
+            }
+            .conformHeading{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap:0.5rem;
+                margin-bottom: 0.5rem;
+                .fas{
+                    color: var(--blue_color);
+                    font-size: 1.5rem;
+                }
+                h1{
+                    margin-bottom: 0rem;
+                }
+            }
+            .infoHead{
+                color: var(--blue_color);
+            }
+            .infoSpan{
+                display: block;
+            }
+            .submitButtons{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                justify-content: center;
+                gap:0.5rem;
+                .cancleBtn, .rescheduleBtn{
+                    background-color: var(--blue_color);
+                    border: none;
+                    border-radius: 0.2rem;
+                }
+            }
+        }
     }
 }

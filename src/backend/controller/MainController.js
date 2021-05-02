@@ -1,5 +1,4 @@
 const scheduleModel = require("../database/moduls/doctorSchudeModel");
-const moment = require("moment");
 const getData = require("./dataProvider");
 
 async function home(req, res){

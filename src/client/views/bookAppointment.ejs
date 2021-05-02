@@ -34,7 +34,7 @@
             <button class="quote_btn">Get a Quote</button>
             <% if(user){ %>
                 <span class="profile_dropdown" id="profile_menu">
-                    <%=user.doctor ? user.doctor.name : user.patient.name%><i class="fas fa-chevron-down"></i>
+                    <%=user.name%><i class="fas fa-chevron-down"></i>
                 </span>
                 <% } %>
                     <i class="fas fa-bars"></i>
@@ -48,10 +48,10 @@
                     </figure>
                     <div>
                         <span class="user_name">
-                            <%=user.doctor? user.doctor.name : user.patient.name%>
+                            <%=user.name%>
                         </span>
                         <span class="user_ph">
-                            <%=user.doctor? user.doctor.phoneNumber : user.patient.phoneNumber%>
+                            <%=user.phoneNumber%>
                         </span>
                     </div>
                 </a>
@@ -75,11 +75,11 @@
                 </li>
                 <li>
                     <i class="far fa-clock"></i>
-                    <span>From 07:00 AM</span>
+                    <span><%=scheduleDetails.startTime%></span>
                 </li>
                 <li>
                     <i class="far fa-clock"></i>
-                    <span>07:15 AM</span>
+                    <span><%=scheduleDetails.endTime%></span>
                 </li>
                 <li>
                     <span class="changeDateTime">Change date & Time</span>
@@ -91,7 +91,7 @@
                 </figure>
                 <ul class="doctorDetailsList">
                     <li>
-                        <span><%=doctor.doctor.name%></span>
+                        <span><%=doctor.name%></span>
                     </li>
                     <li>
                         <span>
@@ -116,34 +116,56 @@
                 <span class="hospitalName"><%=scheduleDetails.hospital%></span>
             </div>
         </div>
-        <div class="patientDetails">
-            <h1 class="patientDetailsHeading">Patient Details:</h1>
-            
-            <h4>This Appointment is for :</h4>
-            <div class="AppointmentFor">
-                <div class="bookForSelf">
-                    <input id="selfBooking" name="booking" type="radio">
-                    <label for="selfBooking">Self</label>
+        <%if(!appointmentConfirmed){%>
+            <div class="patientDetails">
+                <h1 class="patientDetailsHeading">Patient Details:</h1>
+                
+                <h4>This Appointment is for :</h4>
+                <div class="AppointmentFor">
+                    <div class="bookForSelf">
+                        <input id="selfBooking" name="booking" checked=true type="radio">
+                        <label for="selfBooking">Self</label>
+                    </div>
+                <div class="bookForOthers">
+                        <input id="otherBooking" name="booking" type="radio">
+                        <label for="otherBooking">Someone Else</label>
                 </div>
-               <div class="bookForOthers">
-                    <input id="otherBooking" name="booking" type="radio">
-                    <label for="otherBooking">Someone Else</label>
-               </div>
-               
+                
+                </div>
+                <form class="patientInfoForm" action="/bookAppointment?scheduleId=<%=scheduleDetails.scheduleId%>" method="POST">
+                    <h3 class="infoHeading">Please provide the following information :</h3>
+                    <h4 class="inputHeadInfo">Patient's full name:</h4>
+                    <input class="infoInputText" id="userName" type="text" name="patientName" required value="<%=user.name%>">
+                    <h4 class="inputHeadInfo">Mobile Number :</h4>
+                    <input class="infoInputText"  type="text" maxlength="10" required name="phoneNumber" value="<%=user.phoneNumber%>">
+                    <h4 class="inputHeadInfo">Patient's mobile Number :</h4>
+                    <input class="infoInputText" id="phNumber" maxlength="10" required  type="text" name="allternativeNumber" value="<%=user.phoneNumber%>">
+                    <h4 class="inputHeadInfo">Patient's email</h4>
+                    <input class="infoInputText" id="email"  type="email" name="patientEmail" required value ="<%=user.email%>">
+                    <input type="hidden" name="doctorName" value="<%=doctor.name%>">
+                    <button id="submit" class="submitButton">Book Appointment</button>
+                </form>
+            
             </div>
-            <form class="patientInfoForm" action="">
-                <h3 class="infoHeading">Please provide the following information :</h3>
-                <h4 class="inputHeadInfo">Patient's full name:</h4>
-                <input class="infoInputText" type="text">
-                <h4 class="inputHeadInfo">Mobile Number :</h4>
-                <input class="infoInputText"  type="text">
-                <h4 class="inputHeadInfo">Patient's mobile Number :</h4>
-                <input class="infoInputText"  type="text">
-                <h4 class="inputHeadInfo">Patient's email</h4>
-                <input class="infoInputText"  type="text">
-                <button class="submitButton">Book Appointment</button>
-            </form>
-        </div>
+        <%} else {%>
+            <div class="confirmedAppointment">
+                <div class="conformHeading">
+                    <i class="fas fa-check-circle"></i>
+                    <h1>Appointment Confirmed</h1>
+                </div>
+                <h3>We have sent you an SMS with the details</h3>
+                <h4 class="infoHead">Patient Name:</h4>
+                <span class="infoSpan">Anil</span>
+                <h4 class="infoHead">Mobile Number</h4>
+                <span class="infoSpan">9869768968</span>
+                <div class="submitButtons">
+                    <button class="cancleBtn">Cancle Appointment</button>
+                    <button class="rescheduleBtn">Reschedule Appointment</button>
+                </div>
+            </div>
+        <%}%>
+            
+    
     </section>
 </main>
 <footer class="footer">
@@ -163,3 +185,46 @@
     </div>
     <p>All Rights Reserved. <span><i class="far fa-copyright"></i></span> tvastra 2018</p>
 </footer>
+
+<script>
+    const selfBook = document.getElementById("selfBooking");
+    const otherBooking = document.getElementById("otherBooking");
+    const nameDOMObj = document.getElementById("userName");
+    const nameValue = nameDOMObj.value;
+    const patientNumber = document.getElementById("phNumber");
+    const patientNumberValue = patientNumber.value;
+    const email = document.getElementById("email");
+    const emailValue = email.value;
+
+  
+    
+    selfBook.addEventListener("click", selfBookingHandler);
+    otherBooking.addEventListener("click", otherBookingHandeler)
+
+    function selfBookingHandler(event){
+        nameDOMObj.value = nameValue;
+        patientNumber.value = patientNumberValue;
+        email.value = emailValue
+
+    }
+
+    function otherBookingHandeler(){
+        nameDOMObj.value = "";
+        patientNumber.value = "";
+        email.value = "";
+    }
+    document.getElementById("submit").addEventListener("click", validatePhNo);
+
+    function validatePhNo(){
+        let phNumber = document.getElementById("phNumber");
+        if (new RegExp("[0-9]{10}").test(phNumber.value)) {
+            phNumber.setCustomValidity("");
+        } else {
+            phNumber.setCustomValidity("Must contain 10 digits");
+        }
+    }
+ 
+
+</script>
+
+</html>

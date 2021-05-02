@@ -314,7 +314,7 @@
                                         <%return moment(docSchedule.date).isSame(moment().add(j, "days"), "days") && (moment(docSchedule.date).isSame(moment().add(j, "days"), "month"))%>
                                     <%})%> 
                                     <%let hospital = [];%>
-                                    <%let colourClass = ["green", "blue", "yellow", "red", "gray"]%>
+                                    <%let colourClass = ["color1", "color2", "color3", "color4", "gray"]%>
                                    
                                     <%var morning = []%>
                                     <%var afternoon = []%>
@@ -328,31 +328,33 @@
                                         <%}%>
                                         
                                         <%element.schedules.forEach((elementSchedule)=>{%> 
-                                            <% totalSloat = totalSloat + 1; %>
+                                            <%if(!elementSchedule.isBooked){%>
+                                                <% totalSloat = totalSloat + 1; %>
+                                            <%}%>
                                             <%let startTime = elementSchedule.time.split(" - ")[0]%>
                                             <%let startTimeHour = moment(startTime, "HH:mm A").get("hour")%>
                                           
-                                            <%if(startTimeHour < 12){%>
-                                                <%morning.unshift({
+                                            <%if(startTimeHour < 12 && !elementSchedule.isBooked){%>
+                                                <%morning.push({
                                                     color: colourClass[hospital.indexOf(element.hospitalName)],
                                                     startTime: startTime,
-                                                    scheduleId: element._id,
-                                                    scheduleIntervalId: elementSchedule._id
+                                                    scheduleId: elementSchedule._id
+                                                   
                                             })%>
                                            
-                                            <%} else if(startTimeHour < 18){%>
-                                                <%afternoon.unshift({
+                                            <%} else if(startTimeHour < 18 && !elementSchedule.isBooked){%>
+                                                <%afternoon.push({
                                                     color: colourClass[hospital.indexOf(element.hospitalName)],
                                                     startTime: startTime,
-                                                    scheduleId: element._id,
-                                                    scheduleIntervalId: elementSchedule._id
+                                                    scheduleId: elementSchedule._id
+                                
                                                  })%>
-                                            <%} else {%>
-                                                <%evening.unshift({
+                                            <%} else if(!elementSchedule.isBooked) {%>
+                                                <%evening.push({
                                                     color: colourClass[hospital.indexOf(element.hospitalName)],
                                                     startTime: startTime,
-                                                    scheduleId: element._id,
-                                                    scheduleIntervalId: elementSchedule._id
+                                                    scheduleId: elementSchedule._id
+                                                    
                                                  })%>
                                             <%}%>
                                         <%})%>
@@ -371,7 +373,6 @@
                                                     <div class="<%=morningTime.color%> timingTag">
                                                         <span><%=morningTime.startTime%></span>
                                                         <input class="scheduleId" type="hidden" value=<%=morningTime.scheduleId%>>
-                                                        <input class="scheduleIntervalId" type="hidden" value=<%=morningTime.scheduleIntervalId%>>
                                                     </div>
                                                 <%})%>
                                             </div>
@@ -387,7 +388,10 @@
                                         <%if(afternoon.length > 0){%>
                                             <div class="timing">
                                                 <%afternoon.forEach((afternoonTime)=>{%>
-                                                    <span class="<%=afternoonTime.color%> timingTag"><%=afternoonTime.startTime%></span>
+                                                    <div class="<%=afternoonTime.color%> timingTag">
+                                                        <span><%=afternoonTime.startTime%></span>
+                                                        <input class="scheduleId" type="hidden" value=<%=afternoonTime.scheduleId%>>
+                                                    </div>
                                                 <%})%>
                                             </div>
                                         <%}%>
@@ -400,7 +404,10 @@
                                         <%if(evening.length > 0){%>
                                             <div class="timing">
                                                 <%evening.forEach((eveningTime)=>{%>
-                                                    <span class="<%=eveningTime.color%> timingTag"><%=eveningTime.startTime%></span>
+                                                    <div class="<%=eveningTime.color%> timingTag">
+                                                        <span><%=eveningTime.startTime%></span>
+                                                        <input class="scheduleId" type="hidden" value=<%=eveningTime.scheduleId%>>
+                                                    </div>
                                                 <%})%>
                                             </div>
                                         <%}%>
@@ -534,9 +541,7 @@
     const handleScheduletiming = (event)=>{
                                 
         let scheduleId = event.currentTarget.getElementsByClassName("scheduleId")[0].value;
-        let scheduleIntervalId = event.currentTarget.getElementsByClassName("scheduleIntervalId")[0].value;
-
-        window.location.replace("bookAppointment?scheduleId=" + scheduleId + "&scheduleIntervalId=" + scheduleIntervalId);
+        window.location.replace("bookAppointment?scheduleId=" + scheduleId);
     }
 
 

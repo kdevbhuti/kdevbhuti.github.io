@@ -1,9 +1,9 @@
-const mongooes = require("mongoose");
+const mongoose = require("mongoose");
 const connectDB = require("../mongoose");
 
-const scheduleSchema = new mongooes.Schema({
+const scheduleSchema = new mongoose.Schema({
     userId: {
-        type: mongooes.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
     },
     weekDay: {
       type: String,

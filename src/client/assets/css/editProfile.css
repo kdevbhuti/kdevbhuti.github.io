@@ -19,7 +19,8 @@ main .dashboard_LeftBar {
 }
 @media (min-width: 1024px) {
   main .dashboard_LeftBar .dashBoard_heading {
-    font-style: 2rem;
+    font-size: 1.6rem;
+    margin-left: 1rem;
   }
 }
 main .dashboard_LeftBar .dashboard_list .link .dashboard_ListItem {
@@ -165,11 +166,14 @@ main .dashboard_content .subcontainer .inputContainer .tagContainer {
 @media (min-width: 1024px) {
   main .dashboard_content .subcontainer .inputContainer .tagContainer {
     width: 14rem;
-    height: 3rem;
+    height: 2rem;
+  }
+  main .dashboard_content .subcontainer .inputContainer .tagContainer::-webkit-scrollbar {
+    display: none;
   }
 }
 main .dashboard_content .subcontainer .inputContainer .tagContainer .tag {
-  background-color: var(--gray_tag);
+  background-color: var(--blue_color);
   padding: 0.4rem;
   display: inline-flex;
   justify-content: center;
@@ -180,6 +184,7 @@ main .dashboard_content .subcontainer .inputContainer .tagContainer .tag {
 }
 main .dashboard_content .subcontainer .inputContainer .tagContainer .tag span {
   margin: 0rem;
+  color: var(--white);
 }
 main .dashboard_content .subcontainer .inputContainer .tagContainer .tag .fa-times {
   font-size: 0.7rem;

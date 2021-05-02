@@ -3,7 +3,6 @@ const DoctorModule = require("../database/moduls/doctorModule");
 const PataintModel = require("../database/moduls/patientModel");
 const DoctorScheduleModel = require("../database/moduls/doctorSchudeModel");
 const DEFAULT_PROFILE_PICTURE = "default_profilepic.jpg";
-const moment = require("moment");
 
 const  getprofilePicture = async (user)=> {
     let profilePicture = "";
@@ -75,11 +74,7 @@ const getEntireDoctor = async (id)=>{
     return getDoctorDetailsWithSchedule;
 }
 
-// const getDoctorSchedulesAccordingDate = async (id) => {
-//     const docSchedule = await getDoctorSchedules(id);
-//     let now = moment().format("ddd MMM Do yyyy")
-//     return docSchedule
-// }
+
 
 const getDoctorSchedules = async(id) =>{
     const schedules = await DoctorScheduleModel.find({ userId : id });

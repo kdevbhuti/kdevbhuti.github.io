@@ -16,7 +16,8 @@ main {
     }
     .dashBoard_heading {
       @media (min-width: 1024px) {
-        font-style: 2rem;
+        font-size: 1.6rem;
+        margin-left: 1rem;
       }
     }
     .dashboard_list {
@@ -163,10 +164,14 @@ main {
           overflow-y: hidden;
           @media (min-width: 1024px) {
             width: 14rem;
-            height: 3rem;
+            height: 2rem;
+            &::-webkit-scrollbar{
+              display: none;
+            }
           }
           .tag {
-            background-color: var(--gray_tag);
+            background-color: var(--blue_color);
+         
             padding: 0.4rem;
             display: inline-flex;
             justify-content: center;
@@ -176,6 +181,7 @@ main {
             margin-right: 0.4rem;
             span {
               margin: 0rem;
+              color: var(--white);
             }
             .fa-times {
               font-size: 0.7rem;
@@ -195,4 +201,5 @@ main {
       margin-bottom: 0rem;
     }
   }
+
 }

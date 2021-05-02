@@ -111,5 +111,45 @@ main .bookAppointment .patientDetails .patientInfoForm .submitButton {
   outline: none;
   border: none;
 }
+main .bookAppointment .confirmedAppointment {
+  margin-top: 1rem;
+}
+@media only screen and (min-width: 768px) {
+  main .bookAppointment .confirmedAppointment {
+    margin-top: 0rem;
+  }
+}
+main .bookAppointment .confirmedAppointment .conformHeading {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+main .bookAppointment .confirmedAppointment .conformHeading .fas {
+  color: var(--blue_color);
+  font-size: 1.5rem;
+}
+main .bookAppointment .confirmedAppointment .conformHeading h1 {
+  margin-bottom: 0rem;
+}
+main .bookAppointment .confirmedAppointment .infoHead {
+  color: var(--blue_color);
+}
+main .bookAppointment .confirmedAppointment .infoSpan {
+  display: block;
+}
+main .bookAppointment .confirmedAppointment .submitButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+main .bookAppointment .confirmedAppointment .submitButtons .cancleBtn, main .bookAppointment .confirmedAppointment .submitButtons .rescheduleBtn {
+  background-color: var(--blue_color);
+  border: none;
+  border-radius: 0.2rem;
+}
 
 /*# sourceMappingURL=bookAppointment.css.map */

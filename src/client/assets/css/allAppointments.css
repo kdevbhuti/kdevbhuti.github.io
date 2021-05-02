@@ -1,0 +1,110 @@
+main {
+  position: relative;
+  min-height: 53vh;
+}
+@media (min-width: 1024px) {
+  main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    padding: 3.5rem 5.5rem 0rem;
+    grid-gap: 3rem;
+  }
+}
+@media (min-width: 1024px) {
+  main .allAppointments {
+    grid-area: 1/2/span 1/span 3;
+    padding: 0rem;
+  }
+}
+main .allAppointments .appointment .upcommingAppointment .appointmentDetails, main .allAppointments .appointment .completeAppointment .appointmentDetails {
+  background-color: var(--gray_background);
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+@media only screen and (min-width: 768px) {
+  main .allAppointments .appointment .upcommingAppointment .appointmentDetails, main .allAppointments .appointment .completeAppointment .appointmentDetails {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+main .allAppointments .appointment .upcommingAppointment .appointmentDetails .combineAppointmentWithButton, main .allAppointments .appointment .completeAppointment .appointmentDetails .combineAppointmentWithButton {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-start;
+  align-items: center;
+}
+main .allAppointments .appointment .upcommingAppointment .appointmentDetails .combineAppointmentWithButton .appointmentDate, main .allAppointments .appointment .completeAppointment .appointmentDetails .combineAppointmentWithButton .appointmentDate {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 6rem;
+  width: 6rem;
+  font-family: "nexa Bold";
+  margin-bottom: 0rem;
+  background-color: var(--white);
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+}
+@media only screen and (min-width: 768px) {
+  main .allAppointments .appointment .upcommingAppointment .appointmentDetails .combineAppointmentWithButton .appointmentDate, main .allAppointments .appointment .completeAppointment .appointmentDetails .combineAppointmentWithButton .appointmentDate {
+    font-size: 1rem;
+    line-height: 1.2rem;
+  }
+}
+main .allAppointments .appointment .upcommingAppointment .appointmentDetails .combineAppointmentWithButton .appointmentSubDetails li, main .allAppointments .appointment .completeAppointment .appointmentDetails .combineAppointmentWithButton .appointmentSubDetails li {
+  display: block;
+  font-family: "nexa Bold";
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+  color: var(--gray);
+}
+@media only screen and (min-width: 768px) {
+  main .allAppointments .appointment .upcommingAppointment .appointmentDetails .combineAppointmentWithButton .appointmentSubDetails li, main .allAppointments .appointment .completeAppointment .appointmentDetails .combineAppointmentWithButton .appointmentSubDetails li {
+    font-size: 0.9rem;
+    line-height: 1.1rem;
+  }
+}
+@media (min-width: 1024px) {
+  main .allAppointments .appointment .upcommingAppointment .appointmentDetails .combineAppointmentWithButton .appointmentSubDetails li, main .allAppointments .appointment .completeAppointment .appointmentDetails .combineAppointmentWithButton .appointmentSubDetails li {
+    font-size: 1rem;
+    line-height: 1.2rem;
+  }
+}
+main .allAppointments .appointment .upcommingAppointment .appointmentDetails .combineAppointmentWithButton .appointmentSubDetails li.name, main .allAppointments .appointment .completeAppointment .appointmentDetails .combineAppointmentWithButton .appointmentSubDetails li.name {
+  color: var(--blue_color);
+}
+main .allAppointments .appointment .upcommingAppointment .appointmentDetails .combineAppointmentWithButton .appointmentSubDetails li.confirmedStatus, main .allAppointments .appointment .completeAppointment .appointmentDetails .combineAppointmentWithButton .appointmentSubDetails li.confirmedStatus {
+  margin-top: 0.6rem;
+}
+main .allAppointments .appointment .upcommingAppointment .appointmentDetails .combineAppointmentWithButton .appointmentSubDetails li.confirmedStatus span, main .allAppointments .appointment .completeAppointment .appointmentDetails .combineAppointmentWithButton .appointmentSubDetails li.confirmedStatus span {
+  background-color: var(--gray);
+  padding: 0.2rem;
+  color: var(--white);
+  border-radius: 4px;
+}
+main .allAppointments .appointment .upcommingAppointment .appointmentDetails .combineAppointmentWithButton .appointmentSubDetails li.completedStatus, main .allAppointments .appointment .completeAppointment .appointmentDetails .combineAppointmentWithButton .appointmentSubDetails li.completedStatus {
+  margin-top: 0.6rem;
+}
+main .allAppointments .appointment .upcommingAppointment .appointmentDetails .combineAppointmentWithButton .appointmentSubDetails li.completedStatus span, main .allAppointments .appointment .completeAppointment .appointmentDetails .combineAppointmentWithButton .appointmentSubDetails li.completedStatus span {
+  background-color: var(--orange);
+  padding: 0.2rem;
+  color: var(--white);
+  border-radius: 4px;
+}
+main .allAppointments .appointment .upcommingAppointment .appointmentDetails .submitButtons, main .allAppointments .appointment .completeAppointment .appointmentDetails .submitButtons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0.5rem;
+}
+main .allAppointments .appointment .upcommingAppointment .appointmentDetails .submitButtons button, main .allAppointments .appointment .completeAppointment .appointmentDetails .submitButtons button {
+  background-color: var(--blue_color);
+  border: none;
+  border-radius: 5px;
+  padding: 0.8rem 1rem;
+}
+
+/*# sourceMappingURL=allAppointments.css.map */

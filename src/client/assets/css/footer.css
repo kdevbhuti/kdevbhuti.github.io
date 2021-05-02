@@ -2,10 +2,11 @@
 
 footer {
   text-align: center;
-  padding: 1.5rem 1rem;
-  background-color: var(--deep_blue);
-  color: var(--white);
-  border-bottom: 0.5rem solid var(--blue_color);
+    padding: 1.5rem 1rem;
+    background-color: var(--deep_blue);
+    color: var(--white);
+    border-bottom: 0.5rem solid var(--blue_color);
+    box-sizing: border-box;
 }
 
 footer .footer_img {
