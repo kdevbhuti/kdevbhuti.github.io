@@ -3,7 +3,7 @@
   --white: #ffffff;
   --placeHolderColor: #e0d1c8;
   --gray-border: #d5d5d5;
-
+  --deep_gray : #404040;
   --light_blue: #93bede;
   --gray: #8e8e8e;
   --blue_bold_text: #378ce6;
@@ -24,4 +24,5 @@
   --color3-hospitalIdentifier: #2700ff;
   --color4-hospitalIdentifie: #00e1ff;
   --orange: #FA8072;
+  --smokewhite: #F5F5F5;
 }

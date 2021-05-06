@@ -1,0 +1,128 @@
+main {
+  position: relative;
+  min-height: 53vh;
+}
+@media only screen and (min-width: 768px) {
+  main {
+    min-height: 79vh;
+  }
+}
+@media (min-width: 1024px) {
+  main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    padding: 3.5rem 5.5rem 0rem;
+    grid-gap: 3rem;
+  }
+}
+main .dashboard_LeftBar {
+  display: none;
+}
+@media (min-width: 1024px) {
+  main .dashboard_LeftBar {
+    padding: 0rem;
+    display: block;
+    grid-area: 1/1/span 1/span 1;
+  }
+}
+@media (min-width: 1024px) {
+  main .dashboard_LeftBar .dashBoard_heading {
+    font-size: 1.6rem;
+    margin-left: 1rem;
+  }
+}
+main .dashboard_LeftBar .dashboard_list .link .dashboard_ListItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 3rem;
+  width: 100%;
+  margin-bottom: 0rem;
+  border-left: 0.5rem solid var(--white);
+}
+main .dashboard_LeftBar .dashboard_list .link .dashboard_ListItem:hover {
+  background-color: var(--gray_background);
+  border-left: 0.5rem solid var(--blue_color);
+  cursor: pointer;
+}
+main .dashboard_LeftBar .dashboard_list .link .dashboard_ListItem span {
+  font-size: 1.2rem;
+  margin-bottom: 0rem;
+}
+main .dashboard_LeftBar .dashboard_list .link .dashboard_ListItem .selected {
+  font-family: "Nexa bold";
+  color: var(--blue_bold_text);
+}
+main .dashboard_LeftBar .dashboard_list .link .dashboard_ListItem .fas {
+  color: var(--blue_color);
+  font-size: 1.3rem;
+  padding-left: 0.5rem;
+}
+main .settings {
+  grid-area: 1/2/span 1/span 3;
+}
+@media (min-width: 1024px) {
+  main .settings {
+    padding: 0rem;
+  }
+}
+main .settings .changePasswordForm .settingHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rem 1rem 1rem 1rem;
+  margin: 0rem -1rem 1rem -1rem;
+  border-bottom: 1px solid var(--gray-border);
+}
+@media only screen and (min-width: 768px) {
+  main .settings .changePasswordForm .settingHead {
+    padding: 0rem 2rem 1rem 2rem;
+    margin: 0rem -2rem 1rem -2rem;
+  }
+}
+main .settings .changePasswordForm .settingHead h1 {
+  margin-bottom: 0rem;
+}
+main .settings .changePasswordForm .settingHead .savePassword {
+  background-color: var(--blue_color);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  padding: 1rem;
+}
+main .settings .changePasswordForm .passwordChange {
+  padding: 0rem 1rem 1rem 1rem;
+  margin: 0rem -1rem 1rem -1rem;
+  border-bottom: 1px solid var(--gray-border);
+}
+@media only screen and (min-width: 768px) {
+  main .settings .changePasswordForm .passwordChange {
+    padding: 0rem 2rem 1rem 2rem;
+    margin: 0rem -2rem 1rem -2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+}
+main .settings .changePasswordForm .passwordChange .inputHead h3 {
+  color: var(--blue_color);
+}
+main .settings .changePasswordForm .passwordChange .inputHead .inputPassword {
+  width: 100%;
+}
+main .settings .changePasswordForm .passwordChange .inputHead .combineEyeSlash {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--gray-border);
+}
+main .settings .changePasswordForm .passwordChange .inputHead .combineEyeSlash .inputPassword {
+  border: none;
+  margin-bottom: 0rem;
+}
+main .settings .changePasswordForm .passwordChange .inputHead .combineEyeSlash .fas {
+  color: var(--blue_color);
+  padding: 0.5rem;
+}
+
+/*# sourceMappingURL=settings.css.map */

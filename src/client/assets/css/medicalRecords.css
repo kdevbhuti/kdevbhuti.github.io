@@ -1,0 +1,258 @@
+main {
+  position: relative;
+  min-height: 53vh;
+}
+@media only screen and (min-width: 768px) {
+  main {
+    min-height: 79vh;
+  }
+}
+@media (min-width: 1024px) {
+  main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    padding: 3.5rem 5.5rem 0rem;
+    grid-gap: 3rem;
+  }
+}
+main .dashboard_LeftBar {
+  display: none;
+}
+@media (min-width: 1024px) {
+  main .dashboard_LeftBar {
+    padding: 0rem;
+    display: block;
+    grid-area: 1/1/span 1/span 1;
+  }
+}
+@media (min-width: 1024px) {
+  main .dashboard_LeftBar .dashBoard_heading {
+    font-size: 1.6rem;
+    margin-left: 1rem;
+  }
+}
+main .dashboard_LeftBar .dashboard_list .link .dashboard_ListItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 3rem;
+  width: 100%;
+  margin-bottom: 0rem;
+  border-left: 0.5rem solid var(--white);
+}
+main .dashboard_LeftBar .dashboard_list .link .dashboard_ListItem:hover {
+  background-color: var(--gray_background);
+  border-left: 0.5rem solid var(--blue_color);
+  cursor: pointer;
+}
+main .dashboard_LeftBar .dashboard_list .link .dashboard_ListItem span {
+  font-size: 1.2rem;
+  margin-bottom: 0rem;
+}
+main .dashboard_LeftBar .dashboard_list .link .dashboard_ListItem .selected {
+  font-family: "Nexa bold";
+  color: var(--blue_bold_text);
+}
+main .dashboard_LeftBar .dashboard_list .link .dashboard_ListItem .fas {
+  color: var(--blue_color);
+  font-size: 1.3rem;
+  padding-left: 0.5rem;
+}
+main .medicalRecords {
+  grid-area: 1/2/span 1/span 3;
+}
+@media (min-width: 1024px) {
+  main .medicalRecords {
+    padding: 0rem;
+  }
+}
+main .medicalRecords .medicalRecordHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+main .medicalRecords .medicalRecordHead .addBecordBtn {
+  background-color: var(--blue_color);
+  padding: 1rem;
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+}
+main .medicalRecords .medicalRecordHead h1 {
+  margin-bottom: 0rem;
+}
+main .medicalRecords .allReportsContainer .report {
+  background-color: var(--smokewhite);
+  border-radius: 9px;
+}
+main .medicalRecords .allReportsContainer .report .combineReportDetails {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.5rem;
+  gap: 0.5rem;
+}
+main .medicalRecords .allReportsContainer .report .combineReportDetails .reportdate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  width: 5rem;
+  background-color: var(--white);
+}
+main .medicalRecords .allReportsContainer .report .combineReportDetails .reportdate .date {
+  display: block;
+  font-family: "Nexa bold";
+  margin-bottom: 0rem;
+  border-radius: 4px;
+}
+main .medicalRecords .allReportsContainer .report .reportDetailsWithBtn {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+main .medicalRecords .allReportsContainer .report .reportDetailsWithBtn .reportDetails li .reportTitle {
+  font-family: "Nexa Bold";
+  color: var(--blue_color);
+}
+main .medicalRecords .allReportsContainer .report .reportDetailsWithBtn .deleteReport {
+  background-color: var(--blue_color);
+  border: none;
+  border-radius: 4px;
+}
+main .medicalRecords .transparentBackground {
+  display: none;
+  background-color: var(--deep_gray);
+  opacity: 0.9;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+main .medicalRecords .confirmationBox {
+  display: flex;
+  display: none;
+  position: fixed;
+  top: 0rem;
+  z-index: 2000;
+  height: 100vh;
+  padding: 1rem;
+  box-sizing: border-box;
+  width: 100%;
+  left: 0rem;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+}
+main .medicalRecords .confirmationBox .docSubmitionForm {
+  background-color: var(--smokewhite);
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+@media only screen and (min-width: 768px) {
+  main .medicalRecords .confirmationBox .docSubmitionForm {
+    width: 27rem;
+  }
+}
+main .medicalRecords .confirmationBox .docSubmitionForm .imageSelectionSection {
+  display: flex;
+  background-color: var(--gray_tag);
+  padding: 1rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+main .medicalRecords .confirmationBox .docSubmitionForm .imageSelectionSection .selectedImg {
+  height: 4.5rem;
+  width: 4.5rem;
+}
+main .medicalRecords .confirmationBox .docSubmitionForm .imageSelectionSection #inputImgContent {
+  display: none;
+}
+main .medicalRecords .confirmationBox .docSubmitionForm .imageSelectionSection .imageSelectionButton {
+  background-color: var(--deep_gray);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  gap: 0.5rem;
+}
+main .medicalRecords .confirmationBox .docSubmitionForm .imageSelectionSection .imageSelectionButton .fas {
+  font-size: 1.5rem;
+  color: var(--white);
+}
+main .medicalRecords .confirmationBox .docSubmitionForm .imageSelectionSection .imageSelectionButton span {
+  color: var(--white);
+  display: block;
+}
+main .medicalRecords .confirmationBox .docSubmitionForm .inputBoxes {
+  border-bottom: 1px solid var(--gray-border);
+  margin-left: -1rem;
+  margin-right: -1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+main .medicalRecords .confirmationBox .docSubmitionForm .inputBoxes input {
+  width: 100%;
+}
+main .medicalRecords .confirmationBox .docSubmitionForm .reportType {
+  border-bottom: 1px solid var(--gray-border);
+  margin-left: -1rem;
+  margin-right: -1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+main .medicalRecords .confirmationBox .docSubmitionForm .reportType .reportTypeHead {
+  color: var(--blue_color);
+}
+main .medicalRecords .confirmationBox .docSubmitionForm .reportType .inputContainner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+main .medicalRecords .confirmationBox .docSubmitionForm .reportType .inputContainner li input[type=radio] {
+  display: none;
+}
+main .medicalRecords .confirmationBox .docSubmitionForm .reportType .inputContainner li label {
+  justify-content: center;
+  font-family: "Nexa Light";
+  margin-bottom: 0.5rem;
+  line-height: 1.1rem;
+  font-size: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+main .medicalRecords .confirmationBox .docSubmitionForm .reportType .inputContainner li label .far {
+  font-size: 2rem;
+  color: var(--gray);
+}
+main .medicalRecords .confirmationBox .docSubmitionForm .reportType .inputContainner li label span {
+  display: block;
+  font-size: 1.1rem;
+}
+main .medicalRecords .confirmationBox .docSubmitionForm .submitButtons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+}
+main .medicalRecords .confirmationBox .docSubmitionForm .submitButtons .cancleButton {
+  background-color: var(--orange);
+  border: none;
+}
+main .medicalRecords .confirmationBox .docSubmitionForm .submitButtons .SubmiteButton {
+  background-color: var(--blue_color);
+  border: none;
+}
+
+/*# sourceMappingURL=medicalRecords.css.map */

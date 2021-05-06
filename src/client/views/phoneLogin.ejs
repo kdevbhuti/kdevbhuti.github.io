@@ -36,36 +36,32 @@
             <div class="status_message">
                 <% if(status==="Failure" ) { %>
                     <i class=" msg_logo fas fa-times-circle"></i>
-                    <% } else if(status==="Success" ) { %>
-                        <i class=" msg_logo fas fa-check-circle"></i>
-                        <%}%>
-                            <div class="msg">
-                                <h4>
-                                    <%=status%>
-                                </h4>
-                                <span>
-                                    <%=message%>
-                                </span>
-                            </div>
+                <% } else if(status==="Success" ) { %>
+                    <i class=" msg_logo fas fa-check-circle"></i>
+                <%}%>
+                <div class="msg">
+                    <h4><%=status%></h4>
+                    <span><%=message%></span>
+                </div>
             </div>
             <i class="fas fa-times" id="closeServerMessageBox"></i>
         </section>
-        <%}%>
+    <%}%>
 
 
-            <section class="form">
-                <form method="post" action="/Phonelogin">
-                    <h1>Phone Login</h1>
-                    <input type="text" id="phNumber" name="phNumber" maxlength="10" placeholder="Enter Mobile Number">
-                    <div class="links phoneLoginLink">
-                        <input type="submit" id="loinWithPassword" name="command" value="LogIn with password">
-                    </div>
-                    <div class="log-button">
-                        <button id="login">SUBMIT</button>
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                </form>
-            </section>
+    <section class="form">
+        <form method="post" action="/Phonelogin">
+            <h1>Phone Login</h1>
+            <input type="text" id="phNumber" name="phNumber" maxlength="10" placeholder="Enter Mobile Number">
+            <div class="links phoneLoginLink">
+                <input type="submit" id="loinWithPassword" name="command" value="LogIn with password">
+            </div>
+            <div class="log-button">
+                <button id="login">SUBMIT</button>
+                <i class="fas fa-arrow-right"></i>
+            </div>
+        </form>
+    </section>
 </main>
 
 <footer>

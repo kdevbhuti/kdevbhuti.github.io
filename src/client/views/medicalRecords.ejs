@@ -1,0 +1,216 @@
+<html>
+
+<head>
+    <title>Medical Records</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/theme.css">
+    <link rel="stylesheet" href="/css/navigation.css">
+    <link rel="stylesheet" href="/css/medicalRecords.css">
+    <link rel="stylesheet" href="/css/serverMessageBox.css">
+    <link rel="stylesheet" href="/css/serverMessageBox.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+
+<header>
+    <nav class="navigation">
+        <img class="nav_logo" src="/image/Logo.jpg" alt="">
+        <ul>
+            <li><a href="/">Doctor</a></li>
+            <li><a href="">Hospital</a></li>
+            <li><a href="">Treatment</a></li>
+            <li><a href="">About</a></li>
+        </ul>
+        <div class="nav_btn">
+            <button class="login_btn">Login\Sign Up</button>
+            <button class="quote_btn">Get a Quote</button>
+        </div>
+        <i class="fas fa-bars"></i>
+    </nav>
+</header>
+
+<main>
+   
+    <% if(status.length> 0){ %>
+        <section class="server-message <%=status[0]%>" id="serverMessageSection">
+            <div class="status_message">
+                <% if(status[0]==="Failure" ) { %>
+                    <i class=" msg_logo fas fa-times-circle"></i>
+                <% } else if(status[0]==="Success" ) { %>
+                    <i class=" msg_logo fas fa-check-circle"></i>
+                <%}%>
+                <div class="msg">
+                    <h4><%=status[0]%></h4>
+                    <span><%=status[1]%></span>
+                </div>
+            </div>
+            <i class="fas fa-times" id="closeServerMessageBox"></i>
+        </section>
+    <%}%>
+
+    <section class="dashboard_LeftBar">
+        <h2 class="dashBoard_heading">DashBoard</h2>
+        <ul class="dashboard_list">
+            <a class="link" href="/editProfile">
+                <li class="dashboard_ListItem">
+                    <i class="fas fa-user-edit"></i>
+                    <span class="selected">Profile</span>
+                </li>
+            </a>
+            <a class="link" href="/allAppointments">
+                <li class="dashboard_ListItem">
+                    <i class="fas fa-th-list"></i>
+                    <span>Appointments</span>
+                </li>
+            </a>
+            <%if(user.doctor){%>
+                <a class="link" href="/editSchedule">
+                    <li class="dashboard_ListItem">
+                        <i class="fas fa-pen-fancy"></i>
+                        <span>Edit Schedules</span>
+                    </li>
+                </a>
+            <%}%>
+            <a class="link" href="/medicalRecords">
+                <li class="dashboard_ListItem">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Medical Records</span>
+                </li>
+            </a>
+            <a class="link" href="/settings">
+                <li class="dashboard_ListItem">
+                    <i class="fas fa-user-cog"></i>
+                    <span>Settings</span>
+                </li>
+            </a>
+
+        </ul>
+    </section>
+
+    <section class="medicalRecords">
+        <div class="medicalRecordHead">
+            <h1>Medical Record</h1>
+            <button class="addBecordBtn" id="addRecord">Add Records</button>
+        </div> 
+        <div class="allReportsContainer">
+            <div class="report">
+                <div class="combineReportDetails">
+                    <div class="reportdate">
+                        <span class="date">date</span>
+                    </div>
+                    <div class="reportDetailsWithBtn">
+                        <ul class="reportDetails">
+                            <li>
+                                <span class="reportTitle">Title</span>
+                            </li>
+                            <li>
+                                <span>name</span>
+                            </li>
+                            <li>
+                                <span class="reportType">Report</span>
+                            </li>
+                        </ul>
+                        <button class="deleteReport">Delete</button>
+                    </div>
+                   
+                </div>
+               
+            </div>
+        </div> 
+        <div class="confirmationBox" id="confirmationBox">
+        
+            
+            <form class="docSubmitionForm" action="">
+                <div id="imageSelectionSection" class="imageSelectionSection">
+                    <!-- <figure class="selectedImg">
+                        <img id="output" src="" alt="">
+                    </figure> -->
+                    <label for="inputImgContent" id="imageSelectionButton" class="imageSelectionButton">
+                        <i class="fas fa-plus"></i>
+                        <span class="">Add Photo</span>
+                    </label>
+                    <input type="file" id="inputImgContent" name="uploadedFile" accept="image/*" multiple >
+                </div>
+                <div class="inputBoxes">
+                    <input type="text" placeholder="Title">
+                    <input type="text" placeholder="Name">
+                    <input type="date" >
+                </div>
+                <div class="reportType">
+                    <h3 class="reportTypeHead">Type of Report</h3>
+                    <ul class="inputContainner">
+                        <li>
+                            <input type="radio" value="report" id="reportTypeInput">
+                            <label for="reportTypeInput">
+                                <i class="far fa-file-alt"></i>
+                                <span>Report</span>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" value="report" id="typeOfReportInput">
+                            <label for="typeOfReportInput">
+                                <i class="far fa-file-alt"></i>
+                                <span>Prescription</span>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" value="report" id="invoiceTypeInput">
+                            <label for="invoiceTypeInput">
+                                <i class="far fa-file-alt"></i>
+                                <span>Invoice</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="submitButtons">
+                    <button class="cancleButton" id="cancleButton">Cancle</button>
+                    <button class="SubmiteButton">Done</button>
+                </div>
+            </form>
+            
+        </div> 
+        <div class="transparentBackground" id="transparentBackground"></div> 
+    </section>
+  <script>
+      document.getElementById("inputImgContent").addEventListener("change", getImage);
+      
+      function getImage(event){
+        removeImages();
+        var imageSection = document.getElementById('imageSelectionSection');
+        for(var i=0; i<event.target.files.length; i++){
+            var figure = document.createElement("figure");
+            var img = document.createElement("img");
+            figure.className = "selectedImg"
+            img.src = URL.createObjectURL(event.target.files[i]);
+            figure.appendChild(img);
+            var imgSelectBtn = document.getElementById("imageSelectionButton")
+            
+            imageSection.insertBefore(figure, imgSelectBtn);
+        }
+      }
+      function removeImages(){
+        var figures = document.getElementsByClassName("selectedImg");
+        for(var i=0;i<figures.length; i++){
+            figures[i].remove();
+        }
+      }
+  </script>
+  <script>
+        document.getElementById("addRecord").addEventListener("click", showForm);
+      function showForm(event){
+          var confirmationBox  = document.getElementById("confirmationBox");
+          confirmationBox.style.display = "flex";
+          var transparentBackground = document.getElementById("transparentBackground");
+          transparentBackground.style.display = "block"
+      }
+
+      document.getElementById("cancleButton").addEventListener("click", hideForm)
+      function hideForm(){
+        var confirmationBox  = document.getElementById("confirmationBox");
+          confirmationBox.style.display = "none";
+          var transparentBackground = document.getElementById("transparentBackground");
+          transparentBackground.style.display = "none"
+      }
+  </script>
+</main>

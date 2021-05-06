@@ -11,6 +11,8 @@ const editProfile = require("../controller/editProfileController");
 const editSchedule = require("../controller/editSchedule");
 const bookSchedule = require("../controller/bookSchedule")
 const allAppointments = require("../controller/allAppointments");
+const settings = require("../controller/settings")
+const medicalRecords = require("../controller/medicalRecord")
 
 const upload = require("../controller/multerStorage");
 
@@ -44,4 +46,7 @@ router.route("/remove-schedule").get(middilewar.auth, editSchedule.removeSchedul
 router.route("/bookAppointment").get(bookSchedule.choiceSchedule);
 router.route("/bookAppointment").post(bookSchedule.bookAppointment)
 router.route("/allAppointments").get(allAppointments.allAppointments)
+router.route("/settings").get(settings.settings)
+router.route("/settings").post(settings.changePassword)
+router.route("/medicalRecords").get(medicalRecords.records);
 module.exports = router;
