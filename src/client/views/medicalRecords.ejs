@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/css/navigation.css">
     <link rel="stylesheet" href="/css/medicalRecords.css">
     <link rel="stylesheet" href="/css/serverMessageBox.css">
-    <link rel="stylesheet" href="/css/serverMessageBox.css">
+    <link rel="stylesheet" href="css/footer.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
@@ -17,16 +17,52 @@
     <nav class="navigation">
         <img class="nav_logo" src="/image/Logo.jpg" alt="">
         <ul>
-            <li><a href="/">Doctor</a></li>
-            <li><a href="">Hospital</a></li>
-            <li><a href="">Treatment</a></li>
+            <li><a href="/doctor">Doctor</a></li>
+            <li><a href="/hospital">Hospital</a></li>
+            <li class="tratmentItems"><span>Treatment</span><i class="fas fa-angle-down"></i>
+                <ul class="treatmentsMenu" id="treatmentMenu">
+                    <li class="tratment_item"><a href="">Dentistry</a></li>
+                    <li class="tratment_item"><a href="">Cancer</a></li>
+                    <li class="tratment_item"><a href="">Multi Organ Transplant</a></li>
+                    <li class="tratment_item"><a href="">Orthopedics Surgery</a></li>
+                    <li class="tratment_item"><a href="">Infertiliti Treatment</a></li>
+                </ul>
+            </li>
             <li><a href="">About</a></li>
         </ul>
         <div class="nav_btn">
             <button class="login_btn">Login\Sign Up</button>
             <button class="quote_btn">Get a Quote</button>
+            <% if(user){ %>
+                <span class="profile_dropdown" id="profile_menu">
+                    <%=user.doctor ? user.doctor.name : user.patient.name%><i class="fas fa-chevron-down"></i>
+                </span>
+                <% } %>
+                    <i class="fas fa-bars"></i>
         </div>
-        <i class="fas fa-bars"></i>
+
+        <div class="dropDown" id="dropdown_profile_items">
+            <div class="user_details">
+                <a class="profileAnchor" href="">
+                    <figure>
+                        <img src="/image/profile/<%=user.profilePicture%>" alt="">
+                    </figure>
+                    <div>
+                        <span class="user_name">
+                            <%=user.doctor? user.doctor.name : user.patient.name%>
+                        </span>
+                        <span class="user_ph">
+                            <%=user.doctor? user.doctor.phoneNumber : user.patient.phoneNumber%>
+                        </span>
+                    </div>
+                </a>
+            </div>
+            <ul>
+                <li><a href="">My Appointment</a></li>
+                <li><a href="/logout">log out</a></li>
+            </ul>
+        </div>
+
     </nav>
 </header>
 
@@ -94,68 +130,64 @@
             <button class="addBecordBtn" id="addRecord">Add Records</button>
         </div> 
         <div class="allReportsContainer">
-            <div class="report">
-                <div class="combineReportDetails">
-                    <div class="reportdate">
-                        <span class="date">date</span>
+            <%medicalReports.forEach((report) => {%>
+                <div class="report">
+                    <div class="combineReportDetails">
+                        <div class="reportdate">
+                            <span class="date"><%=moment(report.reportDate).format("DD MMM")%></span>
+                        </div>
+                        <div class="reportDetailsWithBtn">
+                            <ul class="reportDetails">
+                                <li>
+                                    <span class="reportTitle"><%=report.reportTitle%></span>
+                                </li>
+                                <li>
+                                    <span><%=report.patientName%></span>
+                                </li>
+                                <li>
+                                    <span class="reportType"><%=report.reportType%></span>
+                                </li>
+                            </ul>
+                            <button class="deleteReport" value="<%=report._id%>">Delete</button>
+                        </div>
                     </div>
-                    <div class="reportDetailsWithBtn">
-                        <ul class="reportDetails">
-                            <li>
-                                <span class="reportTitle">Title</span>
-                            </li>
-                            <li>
-                                <span>name</span>
-                            </li>
-                            <li>
-                                <span class="reportType">Report</span>
-                            </li>
-                        </ul>
-                        <button class="deleteReport">Delete</button>
-                    </div>
-                   
                 </div>
-               
-            </div>
+            <%})%>
         </div> 
         <div class="confirmationBox" id="confirmationBox">
-        
-            
-            <form class="docSubmitionForm" action="">
+            <form class="docSubmitionForm" id="docSubmitionForm" action="/storeMadicalReport" method="POST" enctype="multipart/form-data">
                 <div id="imageSelectionSection" class="imageSelectionSection">
-                    <!-- <figure class="selectedImg">
-                        <img id="output" src="" alt="">
-                    </figure> -->
+       
                     <label for="inputImgContent" id="imageSelectionButton" class="imageSelectionButton">
                         <i class="fas fa-plus"></i>
                         <span class="">Add Photo</span>
                     </label>
-                    <input type="file" id="inputImgContent" name="uploadedFile" accept="image/*" multiple >
+                    <input type="file" id="inputImgContent" name="medicalReports" accept="image/*" multiple >
                 </div>
                 <div class="inputBoxes">
-                    <input type="text" placeholder="Title">
-                    <input type="text" placeholder="Name">
-                    <input type="date" >
+                    <input type="text" required name="title" placeholder="Title">
+                    <input type="text" required name="patientName" placeholder="Name" value="<%=user.doctor? user.doctor.name : user.patient.name%>">
+                    <input type="date" id="date" required name="reportDate" >
                 </div>
                 <div class="reportType">
                     <h3 class="reportTypeHead">Type of Report</h3>
                     <ul class="inputContainner">
                         <li>
-                            <input type="radio" value="report" id="reportTypeInput">
+                            <input type="radio" name="reportType" value="report" id="reportTypeInput">
                             <label for="reportTypeInput">
                                 <i class="far fa-file-alt"></i>
                                 <span>Report</span>
                             </label>
                         </li>
                         <li>
-                            <input type="radio" value="report" id="typeOfReportInput">
+                            <input type="radio" name="reportType" value="report" id="typeOfReportInput">
                             <label for="typeOfReportInput">
                                 <i class="far fa-file-alt"></i>
                                 <span>Prescription</span>
                             </label>
                         </li>
                         <li>
-                            <input type="radio" value="report" id="invoiceTypeInput">
+                            <input type="radio" name="reportType" value="report" id="invoiceTypeInput">
                             <label for="invoiceTypeInput">
                                 <i class="far fa-file-alt"></i>
                                 <span>Invoice</span>
@@ -164,53 +196,70 @@
                     </ul>
                 </div>
                 <div class="submitButtons">
-                    <button class="cancleButton" id="cancleButton">Cancle</button>
-                    <button class="SubmiteButton">Done</button>
+                    <button type="button" class="cancleButton" id="cancleButton">Cancle</button>
+                    <button type="submit" class="SubmiteButton" id="SubmiteButton">Done</button>
                 </div>
             </form>
             
         </div> 
         <div class="transparentBackground" id="transparentBackground"></div> 
+        <div class="deleteReportPopUp" id="deleteReportPopUp">
+            <form class="deleteReportForm" id="deleteReportForm" action="" method="POST">
+                <h3 class="deleteFormHead">Delete Report?</h3>
+                <span class="deleteReportMsg">Are you sure you want to delete your report?</span>
+                <div class="deleteReportBtn">
+                    <button type="submit" class="yesBtn">Yes</button>
+                    <button type="button" class="noBtn" id="reportDeleteNoBtn">No</button>
+                </div>
+            </form>
+        </div>
     </section>
-  <script>
-      document.getElementById("inputImgContent").addEventListener("change", getImage);
-      
-      function getImage(event){
-        removeImages();
-        var imageSection = document.getElementById('imageSelectionSection');
-        for(var i=0; i<event.target.files.length; i++){
-            var figure = document.createElement("figure");
-            var img = document.createElement("img");
-            figure.className = "selectedImg"
-            img.src = URL.createObjectURL(event.target.files[i]);
-            figure.appendChild(img);
-            var imgSelectBtn = document.getElementById("imageSelectionButton")
-            
-            imageSection.insertBefore(figure, imgSelectBtn);
-        }
-      }
-      function removeImages(){
-        var figures = document.getElementsByClassName("selectedImg");
-        for(var i=0;i<figures.length; i++){
-            figures[i].remove();
-        }
-      }
-  </script>
-  <script>
-        document.getElementById("addRecord").addEventListener("click", showForm);
-      function showForm(event){
-          var confirmationBox  = document.getElementById("confirmationBox");
-          confirmationBox.style.display = "flex";
-          var transparentBackground = document.getElementById("transparentBackground");
-          transparentBackground.style.display = "block"
-      }
-
-      document.getElementById("cancleButton").addEventListener("click", hideForm)
-      function hideForm(){
-        var confirmationBox  = document.getElementById("confirmationBox");
-          confirmationBox.style.display = "none";
-          var transparentBackground = document.getElementById("transparentBackground");
-          transparentBackground.style.display = "none"
-      }
-  </script>
+  
 </main>
+<footer class="footer">
+    <img class="footer_img" src="/image/footer.png" alt="">
+    <ul>
+      <li><a href="">Doctor</a> </li>
+      <li><a href="">Hospital</a></li>
+      <li><a href="">Treatment</a></li>
+      <li><a href="">FAQs</a></li>
+    </ul>
+    <div id="footer-icon">
+      <i class="fab fa-facebook-f"></i>
+      <i class="fab fa-pinterest-p"></i>
+      <i class="fab fa-twitter"></i>
+      <i class="fab fa-google-plus-g"></i>
+      <i class="fab fa-instagram"></i>
+    </div>
+    <p>All Rights Reserved. <span><i class="far fa-copyright"></i></span> tvastra 2018</p>
+  </footer>
+<script>
+    document.getElementById("inputImgContent").addEventListener("change", getImage);
+    
+    function getImage(event){
+      removeImages();
+      let imageSection = document.getElementById('imageSelectionSection');
+      for(var i=0; i<event.target.files.length; i++){
+          var figure = document.createElement("figure");
+          var img = document.createElement("img");
+          figure.className = "selectedImg"
+          img.src = URL.createObjectURL(event.target.files[i]);
+          figure.appendChild(img);
+          var imgSelectBtn = document.getElementById("imageSelectionButton")
+          
+          imageSection.insertBefore(figure, imgSelectBtn);
+      }
+    }
+    function removeImages(){
+      var figures = document.getElementsByClassName("selectedImg");
+      for(var i=0; i<figures.length; i++){
+          console.log(figures[i])
+          figures[i].remove()
+      }
+    }
+</script>
+<script src="/scripts/medicalReport.js"></script>
+<script src="/scripts/serverMessageBox.js"></script>
+<script src="/scripts/profileMenu.js"></script>
+<script src="/scripts/datePlaceHolder.js"></script>
+</html>

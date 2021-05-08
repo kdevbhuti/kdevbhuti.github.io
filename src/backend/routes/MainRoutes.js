@@ -35,9 +35,10 @@ router.route("/PhoneLogin").post(verifyProfileController.loginWithPassword ,veri
 
 router.route("/doctorDetails").post(doctorDetails.getDoctorDetails);
 router.route("/editProfile").get(middilewar.auth, mainController.editProfile);
-router.route("/editProfile").post(upload.single("profilePicture"), editProfile.editProfile);
+router.route("/editProfile").post(upload.uploadProfile.single("profilePicture"), editProfile.editProfile);
 router.route("/editSchedule").get(middilewar.auth, mainController.editeSchedule);
 router.route("/editSchedule").post(editSchedule.editeSchedule);
+
 
 
 
@@ -49,4 +50,6 @@ router.route("/allAppointments").get(allAppointments.allAppointments)
 router.route("/settings").get(settings.settings)
 router.route("/settings").post(settings.changePassword)
 router.route("/medicalRecords").get(medicalRecords.records);
+router.route("/storeMadicalReport").post(upload.uploadMedicalReport.array("medicalReports", 10), medicalRecords.storeMadicalReport);
+router.route("/deleteReport").post(medicalRecords.deleteRecord)
 module.exports = router;
