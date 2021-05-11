@@ -13,6 +13,7 @@ const bookSchedule = require("../controller/bookSchedule")
 const allAppointments = require("../controller/allAppointments");
 const settings = require("../controller/settings")
 const medicalRecords = require("../controller/medicalRecord")
+const rescheduleAppointment = require("../controller/rescheduleAppointment")
 
 const upload = require("../controller/multerStorage");
 
@@ -33,7 +34,7 @@ router.route("/OTP").post(verifyProfileController.resendOTP, verifyProfileContro
 router.route("/ChangePassword").post(verifyProfileController.changePassword)
 router.route("/PhoneLogin").post(verifyProfileController.loginWithPassword ,verifyProfileController.phoneLogin)
 
-router.route("/doctorDetails").post(doctorDetails.getDoctorDetails);
+router.route("/doctorDetails").post(upload.uploadProfile.single("profilePicture"), doctorDetails.getDoctorDetails);
 router.route("/editProfile").get(middilewar.auth, mainController.editProfile);
 router.route("/editProfile").post(upload.uploadProfile.single("profilePicture"), editProfile.editProfile);
 router.route("/editSchedule").get(middilewar.auth, mainController.editeSchedule);
@@ -52,4 +53,6 @@ router.route("/settings").post(settings.changePassword)
 router.route("/medicalRecords").get(medicalRecords.records);
 router.route("/storeMadicalReport").post(upload.uploadMedicalReport.array("medicalReports", 10), medicalRecords.storeMadicalReport);
 router.route("/deleteReport").post(medicalRecords.deleteRecord)
+router.route("/rescheduleAppointment").get(rescheduleAppointment.reschedule);
+router.route("/rescheduling").get(rescheduleAppointment.rescheduling);
 module.exports = router;

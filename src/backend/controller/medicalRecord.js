@@ -1,7 +1,6 @@
 const MedicalRecord = require("../database/moduls/medicalRecords")
 const moment = require("moment")
 const getData = require("./dataProvider");
-const medicalRecord = require("../database/moduls/medicalRecords");
 
 const records = async(req, res) =>{
     const isDoctor = await getData.isDoctor(req.session.user.id);
@@ -10,9 +9,7 @@ const records = async(req, res) =>{
     }else{
         var allUserDetails = await getData.getAllPatientDetails(req.session.user.id);
     }
-    let medicalReports = await MedicalRecord.find({userId: req.session.user.id}).select("_id reportTitle patientName reportDate reportType")
-   
-    // res.send(medicalReports)
+    let medicalReports = await MedicalRecord.find({userId: req.session.user.id}).select("_id reportTitle patientName reportDate reportType");
     res.render("medicalRecords", {user :allUserDetails, medicalReports: medicalReports , status: req.flash('status')});
 }
 

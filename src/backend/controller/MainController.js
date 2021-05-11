@@ -66,14 +66,14 @@ async function editProfile(req, res) {
         res.render("dashboard", {user: allDoctorDetails, status: req.flash('status'), page: "editProfile"});
     }else{
         const allPatientDetails = await getData.getAllPatientDetails(req.session.user.id);
-        res.render("dashboard", {user: allPatientDetails, status: req.flash('status'), page: "editProfile"});
+        res.render("editProfile", {user: allPatientDetails, status: req.flash('status')});
     }
 }
 
 async function editeSchedule(req, res){
     const allDoctorDetails = await getData.getAllDoctorDetails(req.session.user.id);
     const schedules = await getData.getDoctorSchedules(req.session.user.id);
-    res.render("dashboard", {user: allDoctorDetails, schedules: schedules, page: "editSchedule", status: req.flash('status')});
+    res.render("edit-schedule", {user: allDoctorDetails, schedules: schedules, status: req.flash('status')});
 }
 
 

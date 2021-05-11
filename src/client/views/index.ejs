@@ -13,413 +13,416 @@
   <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
   </script>
 </head>
-<header>
-  <nav class="navigation">
-    <img class="nav_logo" src="/image/Logo.jpg" alt="">
-    <ul>
-      <li><a href="/doctor">Doctor</a></li>
-      <li><a href="">Hospital</a></li>
-      <li class="tratmentItems"><span>Treatment</span><i class="fas fa-angle-down"></i>
-        <ul class="treatmentsMenu">
-          <li class="tratment_item"><a href="">Dentistry</a></li>
-          <li class="tratment_item"><a href="">Cancer</a></li>
-          <li class="tratment_item"><a href="">Multi Organ Transplant</a></li>
-          <li class="tratment_item"><a href="">Orthopedics Surgery</a></li>
-          <li class="tratment_item"><a href="">Infertiliti Treatment</a></li>
-        </ul>
-      </li>
-      <li><a href="">About</a></li>
-    </ul>
-    <div class="nav_btn">
-      <button class="login_btn">Login\Sign Up</button>
-      <button class="quote_btn">Get a Quote</button>
-      <% if(user){ %>
-        <span class="profile_dropdown" id="profile_menu">
-          <%=user.doctor ? user.doctor.name : user.patient.name%>
-            <i class="fas fa-chevron-down"></i>
-        </span>
-        <% } %>
-
-          <i class="fas fa-bars"></i>
-    </div>
-
-    <div class="dropDown" id="dropdown_profile_items">
-
-      <div class="user_details">
-        <a class="profileAnchor" href="/editProfile">
-          <figure>
-            <img src=" /image/profile/<%=user.profilePicture %>" alt="">
-          </figure>
-          <div>
-            <span class="user_name">
-              <%=user.doctor? user.doctor.name : user.patient.name%>
-            </span>
-            <span class="user_ph">
-              <%=user.doctor? user.doctor.phoneNumber : user.patient.phoneNumber%>
-            </span>
-          </div>
-        </a>
-      </div>
+<body>
+  <header>
+    <nav class="navigation">
+      <img class="nav_logo" src="/image/Logo.jpg" alt="">
       <ul>
-        <li><a href="">My Appointment</a></li>
-        <li><a href="/logout">log out</a></li>
+        <li><a href="/doctor">Doctor</a></li>
+        <li><a href="">Hospital</a></li>
+        <li class="tratmentItems"><span>Treatment</span><i class="fas fa-angle-down"></i>
+          <ul class="treatmentsMenu">
+            <li class="tratment_item"><a href="">Dentistry</a></li>
+            <li class="tratment_item"><a href="">Cancer</a></li>
+            <li class="tratment_item"><a href="">Multi Organ Transplant</a></li>
+            <li class="tratment_item"><a href="">Orthopedics Surgery</a></li>
+            <li class="tratment_item"><a href="">Infertiliti Treatment</a></li>
+          </ul>
+        </li>
+        <li><a href="">About</a></li>
       </ul>
-    </div>
+      <div class="nav_btn">
+        <button class="login_btn">Login\Sign Up</button>
+        <button class="quote_btn">Get a Quote</button>
+        <% if(user){ %>
+          <span class="profile_dropdown" id="profile_menu">
+            <%=user.doctor ? user.doctor.name : user.patient.name%>
+              <i class="fas fa-chevron-down"></i>
+          </span>
+          <% } %>
 
-
-  </nav>
-</header>
-<main>
-
-  <% if(status.length> 0){ %>
-    <section class="server-message <%=status[0]%>" id="serverMessageSection">
-      <div class="status_message">
-        <% if(status[0]==="Failure" ) { %>
-          <i class=" msg_logo fas fa-times-circle"></i>
-          <% } else if(status[0]==="Success" ) { %>
-            <i class=" msg_logo fas fa-check-circle"></i>
-            <%}%>
-              <div class="msg">
-                <h4>
-                  <%=status[0]%>
-                </h4>
-                <span>
-                  <%=status[1]%>
-                </span>
-              </div>
+            <i class="fas fa-bars"></i>
       </div>
-      <i class="fas fa-times" id="closeServerMessageBox"></i>
-    </section>
-    <%}%>
 
+      <div class="dropDown" id="dropdown_profile_items">
 
-      <section class="find_healthcare">
-        <h1>Find Affordable Healthcare</h1>
-        <article>
-          <p>Join the thousands of others who have exercised their rights to quality Healthcare at a price ou can
-            afford.
-          </p>
-          <div class="combine_inputfild">
-            <div class="input_field_location">
-              <i class="fas fa-map-marker-alt"></i>
-              <input type="text" placeholder="Ahemdabad">
-              <i class="fas fa-crosshairs"></i>
+        <div class="user_details">
+          <a class="profileAnchor" href="/editProfile">
+            <figure>
+              <img src=" /image/profile/<%=user.profilePicture %>" alt="">
+            </figure>
+            <div>
+              <span class="user_name">
+                <%=user.doctor? user.doctor.name : user.patient.name%>
+              </span>
+              <span class="user_ph">
+                <%=user.doctor? user.doctor.phoneNumber : user.patient.phoneNumber%>
+              </span>
             </div>
-            <input class="search_input" type="text" placeholder="Search for Doctor, hospitals and treatments">
-            <button class="search_btn" type="submit">Search</button>
-          </div>
-        </article>
-      </section>
-
-      <section class="How_work">
-        <h2>How it works</h2>
-        <p>Various facilities are provided here. But there is a protocol which needs to be followed so that you get the
-          service at its best.</p>
-        <div class="work_content">
-          <h3 class="work_label" name="work_label-fix_consultation"><span class="num">01</span> Fix Consultation</h3>
-          <article class="enable_article" id="work_label-fix_consultation">
-            <figure>
-              <img src="./image/img1.png" alt="">
-            </figure>
-            <h4>Fix Consultation</h4>
-            <p>This depicts that user will have to fix appointment first when it selects a particuler doctor.</p>
-          </article>
-
-
-          <h3 class="work_label disable_h3" name="work_label-medical_report"><span class="num">02</span> Upload Medical
-            Reports</h3>
-          <article class="disable_article" id="work_label-medical_report">
-            <figure>
-              <img src="/image/img2.png" alt="">
-            </figure>
-            <h4>Upload Medical Reports</h4>
-            <p>This depicts that user will have to fix appointment first when it selects a particuler doctor.</p>
-
-          </article>
-
-
-          <h3 class="work_label disable_h3" name="work_label-consult_doctor"><span class="num">03</span> Consult with
-            doctor
-          </h3>
-          <article class="disable_article" id="work_label-consult_doctor">
-            <figure>
-              <img src="/image/img3.jpeg" alt="">
-            </figure>
-            <h4>Consult with doctor</h4>
-            <p>This depicts that user will have to fix appointment first when it selects a particuler doctor.</p>
-          </article>
-          <h3 class="work_label disable_h3" name="work_label-fix_surgery"><span class="num">04</span> Fix Surgery</h3>
-          <article class="disable_article" id="work_label-fix_surgery">
-            <figure>
-              <img src="/image/img4.jpeg" alt="">
-            </figure>
-            <h4>Fix Surgery</h4>
-            <p>This depicts that user will have to fix appointment first when it selects a particuler doctor.</p>
-          </article>
-
-          <h3 class="work_label disable_h3" name="work_label-estimates"><span class="num">05</span> Hospital send
-            estimates
-          </h3>
-
-          <article class="disable_article" id="work_label-estimates">
-            <figure>
-              <img src="/image/img5.jpg" alt="">
-            </figure>
-            <h4>Hospital send estimates</h4>
-            <p>This depicts that user will have to fix appointment first when it selects a particuler doctor.</p>
-          </article>
-
-          <h3 class="work_label disable_h3" name="work_label-pyment"><span class="num">06</span> Payment</h3>
-
-          <article class="disable_article" id="work_label-pyment">
-            <figure>
-              <img src="/image/img6.jpg" alt="">
-            </figure>
-            <h4>Upload Medical Reports</h4>
-            <p>This depicts that user will have to fix appointment first when it selects a particuler doctor.</p>
-          </article>
-          <h3 class="work_label disable_h3 surgery" name="work_label-surgery"><span class="num">07</span> Surgery
-            Completed
-          </h3>
-          <article class="disable_article" id="work_label-surgery">
-            <figure>
-              <img src="/image/img7.jpeg" alt="">
-            </figure>
-            <h4>Surgery Completed</h4>
-            <p>This depicts that user will have to fix appointment first when it selects a particuler doctor.</p>
-          </article>
+          </a>
         </div>
-      </section>
-
-      <section class="doctor">
-        <h2>World Class Expert Doctors!</h2>
-        <p>The university of Texas Southeastern Medical center has been a long world-renowned research hospital. But
-          untill
-          the `80s, you couldn't go there. Now, with the addition of Aston Center and Zale Liphy Hospital., UT
-          Southeastern
-          is also a mecca for patients.</p>
-        <article class="doctor_details">
-          <div class="doc_details">
-            <figure class="fade">
-              <img src="/image/doc.image--002.jpg" alt="">
-            </figure>
-            <h4 class="fade"><span class="horizontal_bar">&#8212;&#8212;&nbsp;&nbsp;</span>Duke Sanson</h4>
-            <ul class="fade">
-              <li>Neuro Surgeon</li>
-              <li>Chain Department of Neurological Surgery</li>
-              <li>Australia</li>
-            </ul>
-          </div>
-          <div class="doc_details">
-            <figure class="fade">
-              <img src="/image/image--004.jpg" alt="">
-            </figure>
-            <h4 class="fade"><span class="horizontal_bar">&#8212;&#8212;&nbsp;&nbsp;</span>Georgea Peter</h4>
-            <ul class="fade">
-              <li>Breast Cancer Surgeon</li>
-              <li>Director, UT, Southwest</li>
-              <li>London</li>
-            </ul>
-          </div>
-          <div class="doc_details">
-            <figure class="fade">
-              <img src="/image/image--005.jpg" alt="">
-            </figure>
-            <h4 class="fade"><span class="horizontal_bar">&#8212;&#8212;&nbsp;&nbsp;</span>Charlie Moon</h4>
-            <ul class="fade">
-              <li>Cardiac Surgeon</li>
-              <li>MBBS, MD, FRCP, MRCP, Fellowship</li>
-              <li>New Delhi, India</li>
-            </ul>
-          </div>
-          <div class="doc_details surgery">
-            <figure class="fade">
-              <img src="/image/image--003.jpg" alt="">
-            </figure>
-            <h4 class="fade"><span class="horizontal_bar">&#8212;&#8212;&nbsp;&nbsp;</span>Rose Moon</h4>
-            <ul class="fade">
-              <li>Plastic Surgeon</li>
-              <li>Department of Plastic and Reconstructive Surgery</li>
-              <li>Dubai</li>
-            </ul>
-          </div>
-        </article>
-        <div class="dots">
-          <botton class="dot selected" name="0"></botton>
-          <botton class="dot" name="1"></botton>
-          <botton class="dot" name="2"></botton>
-          <botton class="dot" name="3"></botton>
-        </div>
-      </section>
-      <section class="feature">
-        <h2>featured Medical Treatment</h2>
-        <p>jon the thousands of others who hav exercised their rights to quality healthcare at a price you can afford.
-        </p>
-        <div class="content_details">
-          <div class="img_block dentistry">
-            <ul>
-              <li>
-                <h4>Dentistry</h4>
-              </li>
-              <li>50+ Specialists</li>
-            </ul>
-            <div class="blue_gradient"></div>
-            <figure>
-              <img class="feture_img" src="/image/image--009.jpg" alt="">
-            </figure>
-
-          </div>
-          <div class="img_block cancer">
-            <ul>
-              <li>
-                <h4>Cancer</h4>
-              </li>
-              <li>50+ Specialists</li>
-            </ul>
-            <div class="blue_gradient"></div>
-            <figure>
-              <img class="feture_img" src="/image/image--010.jpg" alt="">
-            </figure>
-
-          </div>
-
-          <div class="img_block cardiologic">
-            <ul>
-              <li>
-                <h4>Cardiologic Treatment</h4>
-              </li>
-              <li>50+ Specialists</li>
-            </ul>
-            <div class="blue_gradient"></div>
-            <figure>
-              <img src="/image/image--011.jpg" alt="">
-            </figure>
-
-          </div>
-
-          <div class="img_block multi_organ">
-            <ul>
-              <li>
-                <h4>Multi Organ Treatment</h4>
-              </li>
-              <li>50+ Specialists</li>
-            </ul>
-            <div class="blue_gradient"></div>
-            <figure>
-              <img src="/image/image--006.jpg" alt="">
-            </figure>
-
-          </div>
-
-          <div class="img_block orthopedics">
-            <ul>
-              <li>
-                <h4>Orthopedics Surgery</h4>
-              </li>
-              <li>50+ Specialists</li>
-            </ul>
-            <div class="blue_gradient"></div>
-            <figure>
-              <img src="/image/image--008.jpg" alt="">
-            </figure>
-
-          </div>
-
-          <div class="img_block infertility">
-            <ul>
-              <li>
-                <h4>Infertility Treatment</h4>
-              </li>
-              <li>50+ Specialists</li>
-            </ul>
-            <div class="blue_gradient"></div>
-            <figure>
-              <img src="/image/image--000.jpg" alt="">
-            </figure>
-
-          </div>
-        </div>
-        <div class="Feature_dots">
-          <botton class="feature_dot selected" name="0"></botton>
-          <botton class="feature_dot" name="1"></botton>
-          <botton class="feature_dot" name="2"></botton>
-        </div>
-      </section>
-
-      <section class="exclusive_services">
-        <h2>Exclusive Services</h2>
-        <p>We want you to be comfortable and thuse apart from thaating you illness, we provide you with other
-          servicesthat
-          you can see</p>
-        <div class="servise_links">
-          <div class="link_img_block">
-            <figure>
-              <img class="servise_icon" src="/image/Icons-01.png" alt="">
-            </figure>
-            <h5 class="lable">TRAVEL</h5>
-          </div>
-          <div class="link_img_block">
-            <figure>
-              <img class="servise_icon" src="/image/Icons-02.png" alt="">
-            </figure>
-
-            <h5 class="lable">FOOD</h5>
-          </div>
-          <div class="link_img_block">
-            <figure>
-              <img class="servise_icon" src="/image/Icons-03.png" alt="">
-            </figure>
-            <h5 class="lable">ACCOMODATION</h5>
-          </div>
-          <div class="link_img_block">
-            <figure>
-              <img class="servise_icon" src="/image/Icons-07.png" alt="">
-            </figure>
-            <h5 class="lable">LABS</h5>
-          </div>
-          <div class="link_img_block">
-            <figure>
-              <img class="servise_icon" src="/image/Icons-10.png" alt="">
-            </figure>
-            <h5 class="lable">REPORTS</h5>
-          </div>
-          <div class="link_img_block">
-            <figure>
-              <img class="servise_icon" src="/image/Icons-06.png" alt="">
-            </figure>
-            <h5 class="lable">AMBULANCE</h5>
-          </div>
-        </div>
-      </section>
-      <section class="quary_section">
-        <div>
-          <h2>Need Help?</h2>
-          <p>Just let us know, we will happy to assist you</p>
-        </div>
-        <div>
-          <button type="submit">Submit your enquiry</button>
-        </div>
-
-      </section>
-      <footer class="footer">
-        <img class="footer_img" src="/image/footer.png" alt="">
         <ul>
-          <li><a href="">Doctor</a> </li>
-          <li><a href="">Hospital</a></li>
-          <li><a href="">Treatment</a></li>
-          <li><a href="">FAQs</a></li>
+          <li><a href="">My Appointment</a></li>
+          <li><a href="/logout">log out</a></li>
         </ul>
-        <div id="footer-icon">
-          <i class="fab fa-facebook-f"></i>
-          <i class="fab fa-pinterest-p"></i>
-          <i class="fab fa-twitter"></i>
-          <i class="fab fa-google-plus-g"></i>
-          <i class="fab fa-instagram"></i>
-        </div>
-        <p>All Rights Reserved. <span><i class="far fa-copyright"></i></span> tvastra 2018</p>
-      </footer>
+      </div>
 
-</main>
+
+    </nav>
+  </header>
+  <main>
+
+    <% if(status.length> 0){ %>
+      <section class="server-message <%=status[0]%>" id="serverMessageSection">
+        <div class="status_message">
+          <% if(status[0]==="Failure" ) { %>
+            <i class=" msg_logo fas fa-times-circle"></i>
+            <% } else if(status[0]==="Success" ) { %>
+              <i class=" msg_logo fas fa-check-circle"></i>
+              <%}%>
+                <div class="msg">
+                  <h4>
+                    <%=status[0]%>
+                  </h4>
+                  <span>
+                    <%=status[1]%>
+                  </span>
+                </div>
+        </div>
+        <i class="fas fa-times" id="closeServerMessageBox"></i>
+      </section>
+      <%}%>
+
+
+        <section class="find_healthcare">
+          <h1>Find Affordable Healthcare</h1>
+          <article>
+            <p>Join the thousands of others who have exercised their rights to quality Healthcare at a price ou can
+              afford.
+            </p>
+            <div class="combine_inputfild">
+              <div class="input_field_location">
+                <i class="fas fa-map-marker-alt"></i>
+                <input type="text" placeholder="Ahemdabad">
+                <i class="fas fa-crosshairs"></i>
+              </div>
+              <input class="search_input" type="text" placeholder="Search for Doctor, hospitals and treatments">
+              <button class="search_btn" type="submit">Search</button>
+            </div>
+          </article>
+        </section>
+
+        <section class="How_work">
+          <h2>How it works</h2>
+          <p>Various facilities are provided here. But there is a protocol which needs to be followed so that you get the
+            service at its best.</p>
+          <div class="work_content">
+            <h3 class="work_label" name="work_label-fix_consultation"><span class="num">01</span> Fix Consultation</h3>
+            <article class="enable_article" id="work_label-fix_consultation">
+              <figure>
+                <img src="./image/img1.png" alt="">
+              </figure>
+              <h4>Fix Consultation</h4>
+              <p>This depicts that user will have to fix appointment first when it selects a particuler doctor.</p>
+            </article>
+
+
+            <h3 class="work_label disable_h3" name="work_label-medical_report"><span class="num">02</span> Upload Medical
+              Reports</h3>
+            <article class="disable_article" id="work_label-medical_report">
+              <figure>
+                <img src="/image/img2.png" alt="">
+              </figure>
+              <h4>Upload Medical Reports</h4>
+              <p>This depicts that user will have to fix appointment first when it selects a particuler doctor.</p>
+
+            </article>
+
+
+            <h3 class="work_label disable_h3" name="work_label-consult_doctor"><span class="num">03</span> Consult with
+              doctor
+            </h3>
+            <article class="disable_article" id="work_label-consult_doctor">
+              <figure>
+                <img src="/image/img3.jpeg" alt="">
+              </figure>
+              <h4>Consult with doctor</h4>
+              <p>This depicts that user will have to fix appointment first when it selects a particuler doctor.</p>
+            </article>
+            <h3 class="work_label disable_h3" name="work_label-fix_surgery"><span class="num">04</span> Fix Surgery</h3>
+            <article class="disable_article" id="work_label-fix_surgery">
+              <figure>
+                <img src="/image/img4.jpeg" alt="">
+              </figure>
+              <h4>Fix Surgery</h4>
+              <p>This depicts that user will have to fix appointment first when it selects a particuler doctor.</p>
+            </article>
+
+            <h3 class="work_label disable_h3" name="work_label-estimates"><span class="num">05</span> Hospital send
+              estimates
+            </h3>
+
+            <article class="disable_article" id="work_label-estimates">
+              <figure>
+                <img src="/image/img5.jpg" alt="">
+              </figure>
+              <h4>Hospital send estimates</h4>
+              <p>This depicts that user will have to fix appointment first when it selects a particuler doctor.</p>
+            </article>
+
+            <h3 class="work_label disable_h3" name="work_label-pyment"><span class="num">06</span> Payment</h3>
+
+            <article class="disable_article" id="work_label-pyment">
+              <figure>
+                <img src="/image/img6.jpg" alt="">
+              </figure>
+              <h4>Upload Medical Reports</h4>
+              <p>This depicts that user will have to fix appointment first when it selects a particuler doctor.</p>
+            </article>
+            <h3 class="work_label disable_h3 surgery" name="work_label-surgery"><span class="num">07</span> Surgery
+              Completed
+            </h3>
+            <article class="disable_article" id="work_label-surgery">
+              <figure>
+                <img src="/image/img7.jpeg" alt="">
+              </figure>
+              <h4>Surgery Completed</h4>
+              <p>This depicts that user will have to fix appointment first when it selects a particuler doctor.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="doctor">
+          <h2>World Class Expert Doctors!</h2>
+          <p>The university of Texas Southeastern Medical center has been a long world-renowned research hospital. But
+            untill
+            the `80s, you couldn't go there. Now, with the addition of Aston Center and Zale Liphy Hospital., UT
+            Southeastern
+            is also a mecca for patients.</p>
+          <article class="doctor_details">
+            <div class="doc_details">
+              <figure class="fade">
+                <img src="/image/doc.image--002.jpg" alt="">
+              </figure>
+              <h4 class="fade"><span class="horizontal_bar">&#8212;&#8212;&nbsp;&nbsp;</span>Duke Sanson</h4>
+              <ul class="fade">
+                <li>Neuro Surgeon</li>
+                <li>Chain Department of Neurological Surgery</li>
+                <li>Australia</li>
+              </ul>
+            </div>
+            <div class="doc_details">
+              <figure class="fade">
+                <img src="/image/image--004.jpg" alt="">
+              </figure>
+              <h4 class="fade"><span class="horizontal_bar">&#8212;&#8212;&nbsp;&nbsp;</span>Georgea Peter</h4>
+              <ul class="fade">
+                <li>Breast Cancer Surgeon</li>
+                <li>Director, UT, Southwest</li>
+                <li>London</li>
+              </ul>
+            </div>
+            <div class="doc_details">
+              <figure class="fade">
+                <img src="/image/image--005.jpg" alt="">
+              </figure>
+              <h4 class="fade"><span class="horizontal_bar">&#8212;&#8212;&nbsp;&nbsp;</span>Charlie Moon</h4>
+              <ul class="fade">
+                <li>Cardiac Surgeon</li>
+                <li>MBBS, MD, FRCP, MRCP, Fellowship</li>
+                <li>New Delhi, India</li>
+              </ul>
+            </div>
+            <div class="doc_details surgery">
+              <figure class="fade">
+                <img src="/image/image--003.jpg" alt="">
+              </figure>
+              <h4 class="fade"><span class="horizontal_bar">&#8212;&#8212;&nbsp;&nbsp;</span>Rose Moon</h4>
+              <ul class="fade">
+                <li>Plastic Surgeon</li>
+                <li>Department of Plastic and Reconstructive Surgery</li>
+                <li>Dubai</li>
+              </ul>
+            </div>
+          </article>
+          <div class="dots">
+            <botton class="dot selected" name="0"></botton>
+            <botton class="dot" name="1"></botton>
+            <botton class="dot" name="2"></botton>
+            <botton class="dot" name="3"></botton>
+          </div>
+        </section>
+        <section class="feature">
+          <h2>featured Medical Treatment</h2>
+          <p>jon the thousands of others who hav exercised their rights to quality healthcare at a price you can afford.
+          </p>
+          <div class="content_details">
+            <div class="img_block dentistry">
+              <ul>
+                <li>
+                  <h4>Dentistry</h4>
+                </li>
+                <li>50+ Specialists</li>
+              </ul>
+              <div class="blue_gradient"></div>
+              <figure>
+                <img class="feture_img" src="/image/image--009.jpg" alt="">
+              </figure>
+
+            </div>
+            <div class="img_block cancer">
+              <ul>
+                <li>
+                  <h4>Cancer</h4>
+                </li>
+                <li>50+ Specialists</li>
+              </ul>
+              <div class="blue_gradient"></div>
+              <figure>
+                <img class="feture_img" src="/image/image--010.jpg" alt="">
+              </figure>
+
+            </div>
+
+            <div class="img_block cardiologic">
+              <ul>
+                <li>
+                  <h4>Cardiologic Treatment</h4>
+                </li>
+                <li>50+ Specialists</li>
+              </ul>
+              <div class="blue_gradient"></div>
+              <figure>
+                <img src="/image/image--011.jpg" alt="">
+              </figure>
+
+            </div>
+
+            <div class="img_block multi_organ">
+              <ul>
+                <li>
+                  <h4>Multi Organ Treatment</h4>
+                </li>
+                <li>50+ Specialists</li>
+              </ul>
+              <div class="blue_gradient"></div>
+              <figure>
+                <img src="/image/image--006.jpg" alt="">
+              </figure>
+
+            </div>
+
+            <div class="img_block orthopedics">
+              <ul>
+                <li>
+                  <h4>Orthopedics Surgery</h4>
+                </li>
+                <li>50+ Specialists</li>
+              </ul>
+              <div class="blue_gradient"></div>
+              <figure>
+                <img src="/image/image--008.jpg" alt="">
+              </figure>
+
+            </div>
+
+            <div class="img_block infertility">
+              <ul>
+                <li>
+                  <h4>Infertility Treatment</h4>
+                </li>
+                <li>50+ Specialists</li>
+              </ul>
+              <div class="blue_gradient"></div>
+              <figure>
+                <img src="/image/image--000.jpg" alt="">
+              </figure>
+
+            </div>
+          </div>
+          <div class="Feature_dots">
+            <botton class="feature_dot selected" name="0"></botton>
+            <botton class="feature_dot" name="1"></botton>
+            <botton class="feature_dot" name="2"></botton>
+          </div>
+        </section>
+
+        <section class="exclusive_services">
+          <h2>Exclusive Services</h2>
+          <p>We want you to be comfortable and thuse apart from thaating you illness, we provide you with other
+            servicesthat
+            you can see</p>
+          <div class="servise_links">
+            <div class="link_img_block">
+              <figure>
+                <img class="servise_icon" src="/image/Icons-01.png" alt="">
+              </figure>
+              <h5 class="lable">TRAVEL</h5>
+            </div>
+            <div class="link_img_block">
+              <figure>
+                <img class="servise_icon" src="/image/Icons-02.png" alt="">
+              </figure>
+
+              <h5 class="lable">FOOD</h5>
+            </div>
+            <div class="link_img_block">
+              <figure>
+                <img class="servise_icon" src="/image/Icons-03.png" alt="">
+              </figure>
+              <h5 class="lable">ACCOMODATION</h5>
+            </div>
+            <div class="link_img_block">
+              <figure>
+                <img class="servise_icon" src="/image/Icons-07.png" alt="">
+              </figure>
+              <h5 class="lable">LABS</h5>
+            </div>
+            <div class="link_img_block">
+              <figure>
+                <img class="servise_icon" src="/image/Icons-10.png" alt="">
+              </figure>
+              <h5 class="lable">REPORTS</h5>
+            </div>
+            <div class="link_img_block">
+              <figure>
+                <img class="servise_icon" src="/image/Icons-06.png" alt="">
+              </figure>
+              <h5 class="lable">AMBULANCE</h5>
+            </div>
+          </div>
+        </section>
+        <section class="quary_section">
+          <div>
+            <h2>Need Help?</h2>
+            <p>Just let us know, we will happy to assist you</p>
+          </div>
+          <div>
+            <button type="submit">Submit your enquiry</button>
+          </div>
+
+        </section>
+      
+
+  </main>
+  <footer class="footer">
+    <img class="footer_img" src="/image/footer.png" alt="">
+    <ul>
+      <li><a href="">Doctor</a> </li>
+      <li><a href="">Hospital</a></li>
+      <li><a href="">Treatment</a></li>
+      <li><a href="">FAQs</a></li>
+    </ul>
+    <div id="footer-icon">
+      <i class="fab fa-facebook-f"></i>
+      <i class="fab fa-pinterest-p"></i>
+      <i class="fab fa-twitter"></i>
+      <i class="fab fa-google-plus-g"></i>
+      <i class="fab fa-instagram"></i>
+    </div>
+    <p>All Rights Reserved. <span><i class="far fa-copyright"></i></span> tvastra 2018</p>
+  </footer>
+</body>
 <script src="/scripts/index.js"></script>
 <script src="/scripts/serverMessageBox.js"></script>
 <script src="/scripts/profileMenu.js"></script>

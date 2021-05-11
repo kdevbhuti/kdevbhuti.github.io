@@ -138,6 +138,18 @@ p {
 //   word-spacing: 0.3px;
 // }
 
+body {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 5rem auto 18rem;
+  @media only screen and (min-width: 768px) {
+      grid-template-rows: 5rem auto 9rem;
+  }
+  @media (min-width: 1024px) {
+      grid-template-rows: 4rem auto 11.5rem;
+  }
+}
+
 button {
   padding: 0.6rem 2rem;
   letter-spacing: 1px;

@@ -1,0 +1,216 @@
+<head>
+    <title>Dentistry</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/allAppointments.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="css/serverMessageBox.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/clocklet@0.3.0/css/clocklet.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navigation">
+            <img class="nav_logo" src="/image/Logo.jpg" alt="">
+            <ul>
+                <li><a href="/doctor">Doctor</a></li>
+                <li><a href="/hospital">Hospital</a></li>
+                <li class="tratmentItems"><span>Treatment</span><i class="fas fa-angle-down"></i>
+                    <ul class="treatmentsMenu" id="treatmentMenu">
+                        <li class="tratment_item"><a href="">Dentistry</a></li>
+                        <li class="tratment_item"><a href="">Cancer</a></li>
+                        <li class="tratment_item"><a href="">Multi Organ Transplant</a></li>
+                        <li class="tratment_item"><a href="">Orthopedics Surgery</a></li>
+                        <li class="tratment_item"><a href="">Infertiliti Treatment</a></li>
+                    </ul>
+                </li>
+                <li><a href="">About</a></li>
+            </ul>
+            <div class="nav_btn">
+                <button class="login_btn">Login\Sign Up</button>
+                <button class="quote_btn">Get a Quote</button>
+                <% if(user){ %>
+                    <span class="profile_dropdown" id="profile_menu">
+                        <%=user.doctor ? user.doctor.name : user.patient.name%><i class="fas fa-chevron-down"></i>
+                    </span>
+                    <% } %>
+                        <i class="fas fa-bars"></i>
+            </div>
+
+            <div class="dropDown" id="dropdown_profile_items">
+                <div class="user_details">
+                    <a class="profileAnchor" href="">
+                        <figure>
+                            <img src="/image/profile/<%=user.profilePicture%>" alt="">
+                        </figure>
+                        <div>
+                            <span class="user_name">
+                                <%=user.doctor? user.doctor.name : user.patient.name%>
+                            </span>
+                            <span class="user_ph">
+                                <%=user.doctor? user.doctor.phoneNumber : user.patient.phoneNumber%>
+                            </span>
+                        </div>
+                    </a>
+                </div>
+                <ul>
+                    <li><a href="">My Appointment</a></li>
+                    <li><a href="/logout">log out</a></li>
+                </ul>
+            </div>
+
+        </nav>
+    </header>
+ 
+    <main>
+
+        <% if(status.length> 0){ %>
+            <section class="server-message <%=status[0]%>" id="serverMessageSection">
+                <div class="status_message">
+                    <% if(status[0]==="Failure" ) { %>
+                        <i class=" msg_logo fas fa-times-circle"></i>
+                    <% } else if(status[0]==="Success" ) { %>
+                        <i class=" msg_logo fas fa-check-circle"></i>
+                    <%}%>
+                    <div class="msg">
+                        <h4><%=status[0]%></h4>
+                        <span><%=status[1]%></span>
+                    </div>
+                </div>
+                <i class="fas fa-times" id="closeServerMessageBox"></i>
+            </section>
+        <%}%>
+        
+        <section class="dashboard_LeftBar">
+            <h2 class="dashBoard_heading">DashBoard</h2>
+            <ul class="dashboard_list">
+                <a class="link" href="/editProfile">
+                    <li class="dashboard_ListItem">
+                        <i class="fas fa-user-edit"></i>
+                        <span>Profile</span>
+                    </li>
+                </a>
+                <a class="link" href="/allAppointments">
+                    <li class="dashboard_ListItem">
+                        <i class="fas fa-th-list"></i>
+                        <span class="selected">Appointments</span>
+                    </li>
+                </a>
+                <%if(user.doctor){%>
+                    <a class="link" href="/editSchedule">
+                        <li class="dashboard_ListItem">
+                            <i class="fas fa-pen-fancy"></i>
+                            <span>Edit Schedules</span>
+                        </li>
+                    </a>
+                <%}%>
+                <a class="link" href="/medicalRecords">
+                    <li class="dashboard_ListItem">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Medical Records</span>
+                    </li>
+                </a>
+                <a class="link" href="/settings">
+                    <li class="dashboard_ListItem">
+                        <i class="fas fa-user-cog"></i>
+                        <span>Settings</span>
+                    </li>
+                </a>
+
+            </ul>
+
+        </section>
+
+        <section class="allAppointments">
+            <div class="appointment">
+                <h1 class="appointmentHead">Upcoming Appointments</h1>
+                <%let upcommingAppointment = []%>
+                <%let completeAppointment = []%>
+                <%bookAppointment.forEach((appointment)=>{%>
+                    <% if(moment().isSame(moment(appointment.date), "days") && moment().isSame(moment(appointment.date), "month")){%>
+                            <%let time = appointment.time%>
+                            <%let startTime = time.split(" - ")[0]%>
+                            <%if(moment().isBefore(moment(startTime, "HH:mm A"))){%>
+                                <%upcommingAppointment.push(appointment)%>
+                            <%}else {%>
+                                <%completeAppointment.push(appointment)%>
+                            <%}%>
+                    <%}else if(moment().isBefore(moment(appointment.date))){ %>
+                        <%upcommingAppointment.push(appointment)%>
+                    <%}else {%>
+                        <%completeAppointment.push(appointment)%>
+                    <%}%>
+                <%})%> 
+                <div class="upcommingAppointment">
+                    <%upcommingAppointment.forEach((appointment)=>{%>
+                        <div class="appointmentDetails">    
+                            <div class="combineAppointmentWithButton">
+                                <span class="appointmentDate"><%=moment(appointment.date).format("D MMM")%></span>
+                                <ul class="appointmentSubDetails">
+                                    <li class="name"><%=appointment.patientName%></li>
+                                    <li><%=moment(appointment.date).format("ddd")+" "+appointment.time.split(" - ")[0]%></li>
+                                    <li>Hospital</li>
+                                    <li class="confirmedStatus"> <span>Confirmed</span></li>
+                                </ul>
+                            </div>
+                            <div class="submitButtons">
+                                <button class="rescheduleAppointment" value= '{"scheduleId":"<%=appointment.scheduleId%>", "appointmentId":"<%=appointment._id%>"}'>Reschedule Appointment</button>
+                                <button class="cancleAppointment">Cancle Appointment</button>
+                            </div>
+                        </div>
+                    <%})%>
+                </div>
+                <div class="completeAppointment">
+                <h2 class="appointmentHead">Completed Appointments</h2>
+                <%completeAppointment.forEach((appointment)=>{%>
+                    <div class="complidedAppointment">
+                        <div class="appointmentDetails">    
+                            <div class="combineAppointmentWithButton">
+                                <span class="appointmentDate"><%=moment(appointment.date).format("D MMM")%></span>
+                                <ul class="appointmentSubDetails">
+                                    <li class="name"><%=appointment.patientName%></li>
+                                    <li><%=moment(appointment.date).format("ddd")+" "+appointment.time.split(" - ")[0]%></li>
+                                    <li>Hospital</li>
+                                    <li class="completedStatus"><span>Completed</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                <%})%>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <img class="footer_img" src="../image/footer.png" alt="">
+        <ul>
+            <li><a href="">Doctor</a> </li>
+            <li><a href="">Hospital</a></li>
+            <li><a href="">Treatment</a></li>
+            <li><a href="">FAQs</a></li>
+        </ul>
+        <div id="footer-icon">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-pinterest-p"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-google-plus-g"></i>
+            <i class="fab fa-instagram"></i>
+        </div>
+        <p>All Rights Reserved. <span><i class="far fa-copyright"></i></span> tvastra 2018</p>
+    </footer>
+    <script src="/scripts/profileMenu.js"></script>
+    <script src="/scripts/serverMessageBox.js"></script>
+    <script>
+        let rescheduleAppointment = document.getElementsByClassName("rescheduleAppointment");
+        for(let i=0; i< rescheduleAppointment.length; i++){
+            rescheduleAppointment[i].addEventListener("click", reschedule)
+        }
+        function reschedule(event){
+            const scheduleValues = (JSON.parse(event.target.value))
+            window.location.assign("rescheduleAppointment?scheduleId=" + scheduleValues.scheduleId + "&appointmentId=" + scheduleValues.appointmentId);
+          
+        }
+    </script>
+</body>

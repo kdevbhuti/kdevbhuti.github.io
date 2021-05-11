@@ -1,0 +1,359 @@
+<html>
+    <head>
+        <title>Settings</title>
+        <link rel="stylesheet" href="../css/reset.css">
+        <link rel="stylesheet" href="../css/theme.css">
+        <link rel="stylesheet" href="../css/navigation.css">
+        <link rel="stylesheet" href="../css/rescheduleAppointment.css">
+        <link rel="stylesheet" href="../css/footer.css">
+        <link rel="stylesheet" href="css/serverMessageBox.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+            integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/clocklet@0.3.0/css/clocklet.min.css">
+    </head>
+
+    <body>
+        <header>
+            <nav class="navigation">
+                <img class="nav_logo" src="/image/Logo.jpg" alt="">
+                <ul>
+                    <li><a href="/doctor">Doctor</a></li>
+                    <li><a href="/hospital">Hospital</a></li>
+                    <li class="tratmentItems"><span>Treatment</span><i class="fas fa-angle-down"></i>
+                        <ul class="treatmentsMenu" id="treatmentMenu">
+                            <li class="tratment_item"><a href="">Dentistry</a></li>
+                            <li class="tratment_item"><a href="">Cancer</a></li>
+                            <li class="tratment_item"><a href="">Multi Organ Transplant</a></li>
+                            <li class="tratment_item"><a href="">Orthopedics Surgery</a></li>
+                            <li class="tratment_item"><a href="">Infertiliti Treatment</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">About</a></li>
+                </ul>
+                <div class="nav_btn">
+                    <button class="login_btn">Login\Sign Up</button>
+                    <button class="quote_btn">Get a Quote</button>
+                    <% if(user){ %>
+                        <span class="profile_dropdown" id="profile_menu">
+                            <%=user.doctor ? user.doctor.name : user.patient.name%><i class="fas fa-chevron-down"></i>
+                        </span>
+                        <% } %>
+                            <i class="fas fa-bars"></i>
+                </div>
+        
+                <div class="dropDown" id="dropdown_profile_items">
+                    <div class="user_details">
+                        <a class="profileAnchor" href="">
+                            <figure>
+                                <img src="/image/profile/<%=user.profilePicture%>" alt="Profile Picture">
+                            </figure>
+                            <div>
+                                <span class="user_name">
+                                    <%=user.doctor? user.doctor.name : user.patient.name%>
+                                </span>
+                                <span class="user_ph">
+                                    <%=user.doctor? user.doctor.phoneNumber : user.patient.phoneNumber%>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                    <ul>
+                        <li><a href="">My Appointment</a></li>
+                        <li><a href="/logout">log out</a></li>
+                    </ul>
+                </div>
+        
+            </nav>
+        </header>
+        <main>
+            <section class="reschedule">
+                <div class="rescheduleContainner">
+                    <h3 class="patientName"><span class="horizontal_bar">&#8212;&#8212;&nbsp;&nbsp;</span><%=appointment.doctorName%></h3>
+                    <ul class="rescheduleList">
+                        <li>
+                            <i class="far fa-clock"></i>
+                            <span>Date: <%=moment(appointment.date).format("ddd MMM D YYYY")%></span>
+                        </li>
+                        <li>
+                            <i class="far fa-hospital"></i>
+                            <span>Hospital: <%=scheduleHospital.hospitalName%></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-play-circle"></i>
+                            <span>From: <%=appointment.time.split(" - ")[0]%></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-ban"></i>
+                            <span>To: <%=appointment.time.split(" - ")[1]%></span>
+                        </li>
+                    </ul>
+                    <div class="buttonContainer">
+                        <button class="rescheduleBtn" id="rescheduleBtn" value="<%=appointment.scheduleId%>">Reschedule Appointment</button>
+                    </div>
+                    <div class="scheduleDays" id="scheduleDays">
+                        <button class="chevronBtn leftBtn">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="doctorScheduleDate">
+                            <%for(let j=0; j<7; j++){%>
+                                <div class="scheduleDayBlock">
+                                    <span class="scheduleSpan">
+                                        <%if(j === 0){%>
+                                            Today
+                                        <%}else if(j===1){%>
+                                            Tomorrow
+                                        <%}else{%>
+                                            <%=moment().add(j, "days").format("ddd MMM Do yyyy")%>
+                                        <%}%>
+                                    </span>
+                                </div>
+                            <%}%>
+                        </div>
+                        <button class="chevronBtn rightBtn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <%for(let j=0; j<7; j++){%>
+                        <div class="scheduleWeekDays" id="scheduleWeekDays_<%=j%>">
+                            <%let scheduleByDate = schedule.schedule.filter((docSchedule)=>{%>
+                                <%return moment(docSchedule.date).isSame(moment().add(j, "days"), "days") && (moment(docSchedule.date).isSame(moment().add(j, "days"), "month"))%>
+                            <%})%> 
+
+                            <%let hospital = [];%>
+                            <%let colourClass = ["color1", "color2", "color3", "color4", "gray"]%>
+                            
+                            <%var morning = []%>
+                            <%var afternoon = []%>
+                            <%var evening = []%>
+                            <%var totalSloat = 0%>
+    
+                            <%scheduleByDate.forEach((element)=>{%>
+                                <%var colorIndex = hospital.indexOf(element.hospitalName)%>
+                                <%if(colorIndex === -1){%>
+                                    <%hospital.push(element.hospitalName)%>
+                                <%}%>
+                                
+                                <%element.schedules.forEach((elementSchedule)=>{%> 
+                                    <%if(!elementSchedule.isBooked){%>
+                                        <% totalSloat = totalSloat + 1; %>
+                                    <%}%>
+                                    <%let startTime = elementSchedule.time.split(" - ")[0]%>
+                                    <%let startTimeHour = moment(startTime, "HH:mm A").get("hour")%>
+                                  
+                                    <%if(startTimeHour < 12 && !elementSchedule.isBooked){%>
+                                        <%morning.push({
+                                            color: colourClass[hospital.indexOf(element.hospitalName)],
+                                            startTime: startTime,
+                                            scheduleId: elementSchedule._id
+                                           
+                                    })%>
+                                   
+                                    <%} else if(startTimeHour < 18 && !elementSchedule.isBooked){%>
+                                        <%afternoon.push({
+                                            color: colourClass[hospital.indexOf(element.hospitalName)],
+                                            startTime: startTime,
+                                            scheduleId: elementSchedule._id
+                        
+                                         })%>
+                                    <%} else if(!elementSchedule.isBooked) {%>
+                                        <%evening.push({
+                                            color: colourClass[hospital.indexOf(element.hospitalName)],
+                                            startTime: startTime,
+                                            scheduleId: elementSchedule._id
+                                         })%>
+                                    <%}%>
+                                <%})%>
+                            <%})%>
+    
+                            <input type="hidden" id="numberOfSloats_<%=j%>" value="<%=totalSloat%>">
+                            <div class="morning">
+                                <div class="dayWithIcon">
+                                    <i class="fas fa-sun"></i>
+                                    <h4>Morning</h4>
+                                </div>
+                                <%if(morning.length > 0){%>
+                                    <div class="timing">
+                                        <%morning.forEach((morningTime)=>{%>
+                                            <div class="<%=morningTime.color%> timingTag">
+                                                <span><%=morningTime.startTime%></span>
+                                                <input class="scheduleId" type="hidden" value='{"scheduleId": "<%=morningTime.scheduleId%>", "appointmentId": "<%=appointment._id%>"}'>
+                                            </div>
+                                        <%})%>
+                                    </div>
+                                <%}%>
+                             
+                               
+                            </div>
+                            <div class="afternoon">
+                                <div class="dayWithIcon">
+                                    <i class="fas fa-sun"></i>
+                                    <h4>Afternoon</h4>
+                                </div>
+                                <%if(afternoon.length > 0){%>
+                                    <div class="timing">
+                                        <%afternoon.forEach((afternoonTime)=>{%>
+                                            <div class="<%=afternoonTime.color%> timingTag">
+                                                <span><%=afternoonTime.startTime%></span>
+                                                <input class="scheduleId" type="hidden" value='{"scheduleId": "<%=afternoonTime.scheduleId%>", "appointmentId": "<%=appointment._id%>"}'>
+                                            </div>
+                                        <%})%>
+                                    </div>
+                                <%}%>
+                            </div>
+                            <div class="evening">
+                                <div class="dayWithIcon">
+                                    <i class="fas fa-sun"></i>
+                                    <h4>Evening</h4>
+                                </div>
+                                <%if(evening.length > 0){%>
+                                    <div class="timing">
+                                        <%evening.forEach((eveningTime)=>{%>
+                                            <div class="<%=eveningTime.color%> timingTag">
+                                                <span><%=eveningTime.startTime%></span>
+                                                <input class="scheduleId" type="hidden" value='{"scheduleId": "<%=eveningTime.scheduleId%>", "appointmentId": "<%=appointment._id%>"}'>
+                                            </div>
+                                        <%})%>
+                                    </div>
+                                <%}%>
+                            </div>
+                            <%if(hospital.length > 0){%>
+                                <div class="hospital">
+                                    <%hospital.map((hospital, index)=>{%>
+                                        <h3 class="<%=colourClass[index]%> hospitalColor"><%=hospital%></h3>
+                                    <%})%>
+                                </div>
+                            <%} else {%>
+                                <div class="hospital">
+                                    <h3 class="hospitalColor">None</h3>
+                                </div>
+                            <%}%>
+                        </div>
+                    <%}%>
+                </div>
+            </section>
+        </main>
+    </body>
+    <footer class="footer">
+        <img class="footer_img" src="/image/footer.png" alt="">
+        <ul>
+          <li><a href="">Doctor</a> </li>
+          <li><a href="">Hospital</a></li>
+          <li><a href="">Treatment</a></li>
+          <li><a href="">FAQs</a></li>
+        </ul>
+        <div id="footer-icon">
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-pinterest-p"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fab fa-google-plus-g"></i>
+          <i class="fab fa-instagram"></i>
+        </div>
+        <p>All Rights Reserved. <span><i class="far fa-copyright"></i></span> tvastra 2018</p>
+    </footer>
+        <script>
+            unblockAllScheduleTiming()
+
+            document.getElementById("rescheduleBtn").addEventListener("click", getSchedule, {once: true});
+            // show the next 7 day's available NUMBER OF schedule
+            function getSchedule(event){
+                let scheduleDay = document.getElementsByClassName("scheduleDayBlock"); 
+                for(let i=0; i<scheduleDay.length; i++){
+                    let totalSchedule = document.getElementById("numberOfSloats_"+i).value;
+                    let span = document.createElement("span");
+                    span.className = "totalScheduleCount";
+                    span.innerHTML = totalSchedule+" Slot Available";
+                    scheduleDay[i].appendChild(span)
+                }
+            }
+
+
+            document.getElementById("rescheduleBtn").addEventListener("click", showSchedule);
+            // functions on schedule dates
+            function showSchedule(){
+                unblockAllScheduleTiming()
+                let scheduleDays = document.getElementById("scheduleDays");
+                if(scheduleDays.style.display === "flex"){
+                    scheduleDays.style.display = "none";
+                }else{
+                    scheduleDays.style.display = "flex";
+                }
+
+               let scheduleDayBlock = document.getElementsByClassName("scheduleDayBlock");
+                
+
+                for(let i=0; i<scheduleDayBlock.length; i++){
+                    scheduleDayBlock[i].addEventListener("click", (event)=>{showScheduleTiming(i)})
+                }
+
+
+                for(let i=0; i<scheduleDayBlock.length; i++){
+                    if(i < 3){
+                        scheduleDayBlock[i].style.display = "block";
+                    }else{
+                        scheduleDayBlock[i].style.display = "none";
+                    }  
+                }
+
+
+                let leftBtn = scheduleDays.getElementsByClassName("leftBtn")[0];
+                leftBtn.addEventListener("click", leftShift);
+
+                let rightBtn = scheduleDays.getElementsByClassName("rightBtn")[0];
+                rightBtn.addEventListener("click", rightShift)
+            }
+
+            // For show one day's schedule time
+            function showScheduleTiming(index){
+                unblockAllScheduleTiming();
+                let scheduleWeekDays = document.getElementById("scheduleWeekDays_"+index);
+                scheduleWeekDays.style.display = "block";
+            }
+
+            //For disappear the week days timing
+            function unblockAllScheduleTiming(){
+                let scheduleWeekDays = document.getElementsByClassName("scheduleWeekDays");
+                for(let i=0; i<scheduleWeekDays.length; i++){
+                    scheduleWeekDays[i].style.display = "none"
+                }
+            }
+            // Work of left arrow btm
+            function leftShift(){
+                let scheduleDayBlock = document.getElementsByClassName("scheduleDayBlock");
+                for(let i=0; i<scheduleDayBlock.length-3; i++){
+                    if(scheduleDayBlock[i].style.display === "block"){
+                        scheduleDayBlock[i].style.display = "none";
+                        scheduleDayBlock[i+3].style.display = "block"
+                        break;
+                    } 
+                }
+            }
+            // Work of right arrow btn
+            function rightShift(){
+                let scheduleDayBlock = document.getElementsByClassName("scheduleDayBlock");
+                for(let i=scheduleDayBlock.length-1; i>2; i--){
+                    if(scheduleDayBlock[i].style.display === "block"){
+                        scheduleDayBlock[i].style.display = "none";
+                        scheduleDayBlock[i-3].style.display = "block"
+                        break;
+                    } 
+                }
+            }
+
+        //sendind data to backend////////////////////////////////////
+        const timingtag = document.getElementsByClassName("timingTag");
+        for(let i=0; i<timingtag.length; i++){
+            
+            timingtag[i].addEventListener("click", handleScheduletiming);
+            
+        }
+
+        function handleScheduletiming(event){
+            let appointmentScheduleId = event.currentTarget.getElementsByClassName("scheduleId")[0].value;
+            let scheduleValues = (JSON.parse(appointmentScheduleId))
+            window.location.replace("rescheduling?scheduleId=" + scheduleValues.scheduleId + "&appointmentId=" + scheduleValues.appointmentId);
+        }
+    </script>
+</html>
+       
+   

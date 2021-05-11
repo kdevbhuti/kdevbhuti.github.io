@@ -127,7 +127,7 @@ async function checkSchedule(startTime, endTime, userId, days){
 
 function nextDayAndTime(weekDay, hour= 0, minute = 0) {
     //dayArray define day as number 
-    const dayArray = ["Sunday", "Monday", "Twesday", "Wednesday", "Thursday", "Friday", "Saterday"];
+    const dayArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saterday"];
     var dayOfWeek = dayArray.findIndex(day => day === weekDay);
     const today = moment().isoWeekday();
     // if we haven't yet passed the day of the week that I need:

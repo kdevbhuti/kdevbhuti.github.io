@@ -28,6 +28,9 @@ const bookScheduleSchema = new mongoose.Schema({
     },
     doctorId: {
         type: mongoose.Schema.Types.ObjectId,
+    },
+    scheduleId: {
+        type: mongoose.Schema.Types.ObjectId
     }
 })
 

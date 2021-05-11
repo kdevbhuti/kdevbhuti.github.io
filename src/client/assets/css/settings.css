@@ -115,6 +115,7 @@ main .settings .changePasswordForm .passwordChange .inputHead .combineEyeSlash {
   display: flex;
   align-items: center;
   border: 1px solid var(--gray-border);
+  margin-bottom: 1rem;
 }
 main .settings .changePasswordForm .passwordChange .inputHead .combineEyeSlash .inputPassword {
   border: none;

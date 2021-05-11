@@ -1,7 +1,3 @@
-main {
-  position: relative;
-  min-height: 53vh;
-}
 @media (min-width: 1024px) {
   main {
     display: grid;
@@ -10,6 +6,49 @@ main {
     padding: 3.5rem 5.5rem 0rem;
     grid-gap: 3rem;
   }
+}
+main .dashboard_LeftBar {
+  display: none;
+}
+@media (min-width: 1024px) {
+  main .dashboard_LeftBar {
+    padding: 0rem;
+    display: block;
+    grid-area: 1/1/span 1/span 1;
+  }
+}
+@media (min-width: 1024px) {
+  main .dashboard_LeftBar .dashBoard_heading {
+    font-size: 1.6rem;
+    margin-left: 1rem;
+  }
+}
+main .dashboard_LeftBar .dashboard_list .link .dashboard_ListItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 3rem;
+  width: 100%;
+  margin-bottom: 0rem;
+  border-left: 0.5rem solid var(--white);
+}
+main .dashboard_LeftBar .dashboard_list .link .dashboard_ListItem:hover {
+  background-color: var(--gray_background);
+  border-left: 0.5rem solid var(--blue_color);
+  cursor: pointer;
+}
+main .dashboard_LeftBar .dashboard_list .link .dashboard_ListItem span {
+  font-size: 1.2rem;
+  margin-bottom: 0rem;
+}
+main .dashboard_LeftBar .dashboard_list .link .dashboard_ListItem .selected {
+  font-family: "Nexa bold";
+  color: var(--blue_bold_text);
+}
+main .dashboard_LeftBar .dashboard_list .link .dashboard_ListItem .fas {
+  color: var(--blue_color);
+  font-size: 1.3rem;
+  padding-left: 0.5rem;
 }
 @media (min-width: 1024px) {
   main .allAppointments {

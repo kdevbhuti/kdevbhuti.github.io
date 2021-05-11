@@ -169,7 +169,16 @@ main .dashboard_content .subcontainer .inputContainer .tagContainer {
     height: 2rem;
   }
   main .dashboard_content .subcontainer .inputContainer .tagContainer::-webkit-scrollbar {
-    display: none;
+    width: 10px;
+    height: 4px;
+  }
+  main .dashboard_content .subcontainer .inputContainer .tagContainer::-webkit-scrollbar-track {
+    box-shadow: inset var(--gray);
+    border-radius: 10px;
+  }
+  main .dashboard_content .subcontainer .inputContainer .tagContainer::-webkit-scrollbar-thumb {
+    background: var(--blue_color);
+    border-radius: 10px;
   }
 }
 main .dashboard_content .subcontainer .inputContainer .tagContainer .tag {
@@ -187,7 +196,8 @@ main .dashboard_content .subcontainer .inputContainer .tagContainer .tag span {
   color: var(--white);
 }
 main .dashboard_content .subcontainer .inputContainer .tagContainer .tag .fa-times {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
+  color: var(--white);
 }
 main .dashboard_content .subcontainer .inputContainer .tagContainer input {
   padding: 0rem;

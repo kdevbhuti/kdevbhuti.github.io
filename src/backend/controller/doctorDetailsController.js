@@ -1,10 +1,8 @@
 const doctor = require("../database/moduls/doctorModule");
 const userModel = require("../database/moduls/userModul");
 const DoctorScheduleModel = require("../database/moduls/doctorSchudeModel");
-const storeImage = require("./multerStorage");
 
 const getDoctorDetails = async (req, res) => {
-  storeImage(req, res, async (err) => {
     const {
       description,
       hospital,
@@ -15,9 +13,7 @@ const getDoctorDetails = async (req, res) => {
       specializations,
       avgFees,
     } = req.body;
-    if (err) {
-      console.log(err);
-    } else {
+   
       var doctorUser = new doctor({
         description: description,
         profilePicture: req.file,
@@ -37,8 +33,6 @@ const getDoctorDetails = async (req, res) => {
       if (doctorData) {
         res.redirect("/");
       }
-    }
-  });
 };
 
 module.exports = {

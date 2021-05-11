@@ -87,145 +87,148 @@
             </div>
             <i class="fas fa-times" id="closeServerMessageBox"></i>
         </section>
+    <%}%>
+
+    <section class="dashboard_LeftBar">
+        <h2 class="dashBoard_heading">DashBoard</h2>
+        <ul class="dashboard_list">
+            <a class="link" href="/editProfile">
+                <li class="dashboard_ListItem">
+                    <i class="fas fa-user-edit"></i>
+                    <span>Profile</span>
+                </li>
+            </a>
+            <a class="link" href="/allAppointments">
+                <li class="dashboard_ListItem">
+                    <i class="fas fa-th-list"></i>
+                    <span>Appointments</span>
+                </li>
+            </a>
+            <%if(user.doctor){%>
+                <a class="link" href="/editSchedule">
+                    <li class="dashboard_ListItem">
+                        <i class="fas fa-pen-fancy"></i>
+                        <span class="selected">Edit Schedules</span>
+                    </li>
+                </a>
+            <%}%>
+            <a class="link" href="/medicalRecords">
+                <li class="dashboard_ListItem">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Medical Records</span>
+                </li>
+            </a>
+            <a class="link" href="/settings">
+                <li class="dashboard_ListItem">
+                    <i class="fas fa-user-cog"></i>
+                    <span>Settings</span>
+                </li>
+            </a>
+        </ul>
+    </section>
+
+    <section class="schedule">
+        <div class="scheduleHead">
+            <button class="newSchedueButton" id="newSchedule">Create new schedule</button>
+            <h1>All Schedule</h1>
+        </div>
+        <%if(schedules.length===0){%>
+            <h3 class="noSchedukeMessage">No Schedule yet. Create One Now By Clicking Create New Button</h3>
         <%}%>
-
-            <section class="dashboard_LeftBar">
-                <h2>DashBoard</h2>
-                <ul class="dashboard_list">
-                    <a class="link" href="/editProfile">
-                        <li class="dashboard_ListItem">
-                            <i class="fas fa-user-edit"></i>
-                            <span>Profile</span>
-                        </li>
-                    </a>
-                    <a class="link">
-                        <li class="dashboard_ListItem">
-                            <i class="fas fa-th-list"></i>
-                            <span>Appointments</span>
-                        </li>
-                    </a>
-
-                    <a class="link" href="/editSchedule">
-                        <li class="dashboard_ListItem">
-                            <i class="fas fa-pen-fancy"></i>
-                            <span class="selected">Create / Edit Schedules</span>
-                        </li>
-                    </a>
-                    <a class="link">
-                        <li class="dashboard_ListItem">
-                            <i class="fas fa-file-alt"></i>
-                            <span>Medical Records</span>
-                        </li>
-                    </a>
-                    <a class="link">
-                        <li class="dashboard_ListItem">
-                            <i class="fas fa-user-cog"></i>
-                            <span>Settings</span>
-                        </li>
-                    </a>
-                </ul>
-            </section>
-
-            <section class="schedule">
-                <div class="scheduleHead">
-                    <button class="newSchedueButton" id="newSchedule">Create new schedule</button>
-                    <h1>All Schedule</h1>
-                </div>
-                <%if(schedules.length===0){%>
-                    <h3 class="noSchedukeMessage">No Schedule yet. Create One Now By Clicking Create New Button</h3>
-                    <%}%>
-                        <%schedules.forEach((schedule)=>{%>
-                            <div class="scheduleContainer">
-                                <div class="container">
-                                    <h3 class="scheduleDay">
-                                        <%=schedule.weekDay%>
-                                    </h3>
-                                    <div class="hospital_time">
-                                        <h3 class="hospital">
-                                            <%=schedule.hospitalName%>
-                                        </h3>
-                                        <span class="time">
-                                            <%=schedule.startTime%> - <%=schedule.endTime%>
-                                        </span>
-                                    </div>
-                                    <div class="scheduleButtons">
-                                        <button class="removeSlot" value=<%=schedule._id%>>Remove slots</button>
-                                        <button class="viewSlot" value="<%=schedule._id%>_schedule">Views slots</button>
-                                        <input type="checkbox">
-                                    </div>
-                                </div>
-                                <div class="scheduleTime" id="<%=schedule._id%>_schedule">
-                                    <%schedule.schedules.forEach((timing)=>{%>
-                                        <div class="scheduletimeContainer">
-                                            <span class="timing">
-                                                <%=timing.time%>
-                                            </span>
-                                            <input type="checkbox">
-                                        </div>
-                                        <%})%>
-                                </div>
-                            </div>
-                            <%})%>
-
-            </section>
-
-            <section class="schedule-form">
-                <div class=" transparentBackground" id="transparentBackground">
-                </div>
-                <form action="/editSchedule" method="POST" class="formContainer" id="formContainer">
-                    <h1>Create Schedule</h1>
-                    <div class="formData">
-                        <h4>Select Available Day</h4>
-                        <select name="day" id="" required multiple>
-                            <option value="Monday">Monday</option>
-                            <option value="Tuesday">Tuesday</option>
-                            <option value="Wednestday">Wednestday</option>
-                            <option value="Thusday">Thusday</option>
-                            <option value="Friday">Friday</option>
-                            <option value="Saterday">Saterday</option>
-                        </select>
-                        <h4>Select The Hospital</h4>
-                        <select class="select" name="hospitalName" id="">
-                            <option class="hide_option" value="">Select Hospital</option>
-                            <%user.hospitals.forEach((hospital)=>{%>
-                                <option value="<%=hospital%>">
-                                    <%=hospital%>
-                                </option>
-                                <%})%>
-
-                        </select>
-                        <h4>From (time)</h4>
-                        <input type="text"
-                            data-clocklet="class-name: clocklet-options; format: hh:mm a; alignment: right; placement: top; append-to: parent;"
-                            placeholder="Start Time" id="startTime" name="startTime" autocomplete="off" required>
-                        <h4>To (time)</h4>
-                        <input type="text"
-                            data-clocklet="class-name: clocklet-options; format: hh:mm a; alignment: right; placement: top; append-to: parent;"
-                            placeholder="End Time" id="endTime" name="endTime" autocomplete="off" required>
-                        <h4>Intervals</h4>
-                        <input type="number" id="interval" name="interval" placeholder="Enter interval in minutes..."
-                            autocomplete="off" required>
+        <%schedules.forEach((schedule)=>{%>
+            <div class="scheduleContainer">
+                <div class="container">
+                    <h3 class="scheduleDay"><%=schedule.weekDay%></h3>
+                    <div class="hospital_time">
+                        <h3 class="hospital"><%=schedule.hospitalName%></h3>
+                        <span class="time"><%=schedule.startTime%> - <%=schedule.endTime%></span>
                     </div>
-                    <div class="submitButton">
-                        <button type="button" class="cancle" id="cancleButton">Cancle</button>
-                        <button type="submit" id="submit" class="submit">Create Schedule</button>
+                    <div class="scheduleButtons">
+                        <button class="removeSlot" value=<%=schedule._id%>>Remove slots</button>
+                        <button class="viewSlot" value="<%=schedule._id%>_schedule">Views slots</button>
+                        <input type="checkbox">
                     </div>
-                </form>
+                </div>
+                <div class="scheduleTime" id="<%=schedule._id%>_schedule">
+                    <%schedule.schedules.forEach((timing)=>{%>
+                        <div class="scheduletimeContainer">
+                            <span class="timing"><%=timing.time%></span>
+                            <input type="checkbox">
+                        </div>
+                    <%})%>
+                </div>
+            </div>
+        <%})%>
+    </section>
+
+    <section class="schedule-form">
+        <div class=" transparentBackground" id="transparentBackground">
+        </div>
+        <form action="/editSchedule" method="POST" class="formContainer" id="formContainer">
+            <h1>Create Schedule</h1>
+            <div class="formData">
+                <h4>Select Available Day</h4>
+                <select name="day" id="" required multiple>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saterday">Saterday</option>
+                </select>
+                <h4>Select The Hospital</h4>
+                <select class="select" name="hospitalName" id="">
+                    <option class="hide_option" value="">Select Hospital</option>
+                    <%user.hospitals.forEach((hospital)=>{%>
+                        <option value="<%=hospital%>">
+                            <%=hospital%>
+                        </option>
+                    <%})%>
+
+                </select>
+                <h4>From (time)</h4>
+                <input type="text"
+                    data-clocklet="class-name: clocklet-options; format: hh:mm a; alignment: right; placement: top; append-to: parent;"
+                    placeholder="Start Time" id="startTime" name="startTime" autocomplete="off" required>
+                <h4>To (time)</h4>
+                <input type="text"
+                    data-clocklet="class-name: clocklet-options; format: hh:mm a; alignment: right; placement: top; append-to: parent;"
+                    placeholder="End Time" id="endTime" name="endTime" autocomplete="off" required>
+                <h4>Intervals</h4>
+                <input type="number" id="interval" name="interval" placeholder="Enter interval in minutes..."
+                    autocomplete="off" required>
+            </div>
+            <div class="submitButton">
+                <button type="button" class="cancle" id="cancleButton">Cancle</button>
+                <button type="submit" id="submit" class="submit">Create Schedule</button>
+            </div>
+        </form>
 
 
-            </section>
+    </section>
 </main>
-<script>
-
-</script>
-
+<footer class="footer">
+    <img class="footer_img" src="../image/footer.png" alt="">
+    <ul>
+        <li><a href="">Doctor</a> </li>
+        <li><a href="">Hospital</a></li>
+        <li><a href="">Treatment</a></li>
+        <li><a href="">FAQs</a></li>
+    </ul>
+    <div id="footer-icon">
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-pinterest-p"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-google-plus-g"></i>
+        <i class="fab fa-instagram"></i>
+    </div>
+    <p>All Rights Reserved. <span><i class="far fa-copyright"></i></span> tvastra 2018</p>
+</footer>
 
 <script src="/scripts/profileMenu.js"></script>
 <script src="/scripts/serverMessageBox.js"></script>
 <script type="text/javascript" src="/scripts/selectPlaceHolder.js"></script>
-
-<script>
-
-</script>
+<script src="scripts/editSchedule.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clocklet@0.3.0"></script>
 
 </html>

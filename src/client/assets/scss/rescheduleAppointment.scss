@@ -1,0 +1,214 @@
+
+main{
+    .reschedule{
+        .rescheduleContainner{
+            border: 2px solid var(--gray-border);
+            padding: 1rem;
+            .patientName{
+                color: var(--blue_bold_text);
+                margin-left: -1rem;
+                .horizontal_bar{
+                    color: var(--blue_bold_text);
+                    letter-spacing: -1;
+                }
+            }
+            .scheduleDays{
+                display: none;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+                margin-top: 1rem;
+                @media (min-width: 1024px) {
+                  justify-content: space-around;
+                  padding-left: 2rem;
+                }
+                .doctorScheduleDate{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                    @media only screen and (min-width: 768px) {
+                        flex-direction: row;
+                    }
+                    .scheduleDayBlock{
+                        cursor: pointer;
+                        .scheduleSpan, .totalScheduleCount{
+                            text-align: center;
+                            display: block;
+                            margin-bottom: 0rem;
+                            font-family: "nexa bold";
+                            color: var(--gray);
+                        }
+                        .totalScheduleCount{
+                        color: var(--blue_bold_text);
+                        }
+                    }
+                }
+                
+                .chevronBtn{
+                    background-color: var(--gray-border);
+                    border-radius: 50%;
+                    padding: 0.7rem;
+                    border: none;
+                    i{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 0.7rem;
+                    }
+                }
+            }
+            .scheduleWeekDays{
+                margin-top: 1rem;
+                .morning, .afternoon, .evening{
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    gap: 1rem;
+                    align-items: center;
+                    padding: 1rem;
+                    border-bottom: 1px solid var(--gray-border);
+                    @media (min-width: 1024px) {
+                        display: grid;
+                        grid-template-columns: 7.5rem auto;
+                        grid-template-rows: auto;
+                        justify-content: flex-start;
+                        padding-left: 2rem;
+                    }
+                    .dayWithIcon{
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        gap: 0.5rem;
+                        h4{
+                            margin-bottom: 0rem;
+                        }
+                    }
+                    .timing{
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 0.5rem;
+                        @media (min-width: 1024px) {
+                            justify-content: flex-start;
+                        }
+                        .timingTag{
+                            display: block;
+                            padding: 0.5rem;
+                            margin-bottom: 0rem;
+                        }
+                        .color1{
+                            color: var( --skyBlue-hospitalIdentifier);
+                            border: 2px solid var( --skyBlue-hospitalIdentifier);
+                            width: 5rem;
+                            span{
+                                display: block;
+                                margin-bottom: 0rem;
+                                text-align: center;
+                                color: var(--skyBlue-hospitalIdentifier);
+                            }
+                        }
+                        .color2{
+                        color: var(--blue-hospitalIdentifier);
+                        border: 2px solid var(--blue-hospitalIdentifier);
+                        width: 5rem;
+                            span{
+                                display: block;
+                                margin-bottom: 0rem;
+                                text-align: center;
+                                color: var(--blue-hospitalIdentifier);
+                            }
+                        }
+                        .color3{
+                            color: var(--color3-hospitalIdentifier);
+                            border: 2px solid var(--color3-hospitalIdentifier);
+                            width: 5rem;
+                            span{
+                                display: block;
+                                margin-bottom: 0rem;
+                                text-align: center;
+                                color: var(--color3-hospitalIdentifier);
+                            }
+                        }
+                        .color4{
+                            color: var( --color4-hospitalIdentifie);
+                            border: 2px solid var( --color4-hospitalIdentifie);
+                            width: 5rem;
+                            span{
+                                display: block;
+                                margin-bottom: 0rem;
+                                text-align: center;
+                                color: var( --color4-hospitalIdentifie);
+                            }
+                        }
+                    }
+                }
+                .hospital{
+                    display: flex;
+                    flex-direction: column;
+                    padding-top: 1rem;
+                    gap: 0.5rem;
+                    align-items: center;
+                    justify-content: center;
+                    .hospitalColor{
+                        margin-bottom: 0rem;
+                    }
+                    .color1{
+                        color: var(--skyBlue-hospitalIdentifier);
+                    }
+                    .color2{
+                        color: var(--blue-hospitalIdentifier);
+                    }
+                    .color3{
+                        color: var(--color3-hospitalIdentifier);
+                    }
+                    .color4{
+                        color: var(--color4-hospitalIdentifie);
+                    }
+                }
+            }
+        }
+        .rescheduleList{
+            margin-bottom: 0.5rem;
+            @media only screen and (min-width: 768px) {
+                display: grid;
+                grid-template-columns: 20rem 20rem;
+                grid-template-rows: repeat(2, 1fr);
+                gap: 0.3rem;
+            }
+            li{
+                .fas, .far{
+                    color: var(--blue_bold_text);
+                }
+            }
+        }
+        .buttonContainer{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @media only screen and (min-width: 768px) {
+                justify-content: flex-start;
+            }
+            .rescheduleBtn{
+                border: none;
+                align-self: center;
+            }
+        }
+     
+    }
+}
+
+footer{
+    align-self: flex-end;
+    .footerContainer{
+        display: flex;
+        flex-direction: row-reverse;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem;
+        gap: 1.2rem;
+        background-color: var(--white);
+        color: var(--deep_blue);
+    }
+}

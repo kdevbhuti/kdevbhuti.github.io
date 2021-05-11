@@ -48,6 +48,7 @@ footer #footer-icon i {
     gap: 1.2rem;
     background-color: var(--white);
     color: var(--deep_blue);
+    border-top: 1px solid var(--gray-border);
   }
   footer .far {
     color: var(--deep_blue);

@@ -43,7 +43,8 @@ const bookAppointment = async(req, res)=>{
             time: scheduleTiming.time,
             date: schedule.date,
             patientId: req.session.user.id,
-            doctorId: schedule.userId
+            doctorId: schedule.userId,
+            scheduleId: req.query.scheduleId
         }) 
         const bookDetails = await patient.save();
         
